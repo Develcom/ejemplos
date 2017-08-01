@@ -1,0 +1,102 @@
+
+<div class="col-sm-12">
+	<h3>Solicitud de registro de recomposici&oacute;n de filiaci&oacute;n</h3>
+</div>
+<span id="separadorTitulos"></span>
+<div class="col-sm-12">
+	<h4 class="col-sm-6 control-label">Datos de la madre</h4>
+	
+</div>
+<span id="separadorTitulos"></span>
+<form name="form" >
+<div class="col-sm-8 form-group" >
+			<label class="col-sm-6 control-label">Tipo de documento de identificaci&oacute;n:</label>
+			<div class="input-group row-sm-4"
+			ng-class="{'has-error': vm.modelo['MAD'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['MAD'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+				<input ng-model="vm.modelo['MAD'].documentoIdentidad[0].tipoDocumento.nombre" ng-disabled="diasabled" type="text" name="vm.modelo['MAD'].documentoIdentidad[0].tipoDocumento[0].nombre" class="input-sm form-control"
+				 required> <span
+				class="input-group-addon" id="basic-addon1"> <span
+				class="glyphicon glyphicon-asterisk"
+				ng-hide="vm.modelo['MAD'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span> <span
+				class="glyphicon glyphicon-ok" ng-show="vm.modelo['MAD'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span>
+			</span>					
+			</div>
+		</div>
+<div class="col-sm-8 form-group">	
+			<label class="col-sm-6 control-label">N&uacute;mero de identificaci&oacute;n:</label>
+			<div class="input-group row-sm-4"
+						ng-class="{'has-error': vm.modelo['MAD'].documentoIdentidad[0].numero == undefined , 'has-success':  vm.modelo['MAD'].documentoIdentidad[0].numero!= undefined}">
+            <input type="text" name="vm.modelo['MAD'].documentoIdentidad[0].numero" class="input-sm form-control"
+					   ng-model="vm.modelo['MAD'].documentoIdentidad[0].numero" ng-disabled="diasabled" required> <span
+					   class="input-group-addon" id="basic-addon1"> <span
+					   class="glyphicon glyphicon-asterisk"
+					   ng-hide="vm.modelo['MAD'].documentoIdentidad[0].numero!= undefined"></span> 
+			 <span class="glyphicon glyphicon-ok" ng-show="vm.modelo['MAD'].documentoIdentidad[0].numero!= undefined"></span>
+					</span>
+				<div class="help-block"
+					ng-messages="vm.modelo['MAD'].documentoIdentidad[0].numero.$error"
+					ng-if="vm.modelo['MAD'].documentoIdentidad[0].numero.$touched">
+					<p ng-message="minlength">documento de identidada muy corto.</p>
+					<p ng-message="maxlength">documento de identidad muy largo</p>
+					<p ng-message="required">documento de identidad requerido</p>
+					<p ng-message="number">documento de identidad no debe tener letras</p>
+				</div>
+			</div>
+</div>
+	 
+		<div class="col-sm-6 form-group" >
+			<label class="col-sm-12 control-label">Primer nombre:</label>
+			<div class="col-sm-12 form-group"
+			ng-class="{'has-error': vm.modelo['MAD'].primerNombre== undefined , 'has-success':  vm.modelo['MAD'].primerNombre!= undefined}">
+				<div class="input-group"><input ng-model="vm.modelo['MAD'].primerNombre" ng-disabled="diasabled" type="text" name="primerNombre" class="input-sm form-control"
+				 required> <span
+				class="input-group-addon" id="basic-addon1"> <span
+				class="glyphicon glyphicon-asterisk"
+				ng-hide="vm.modelo['MAD'].primerNombre!= undefined"></span> <span
+				class="glyphicon glyphicon-ok" ng-show="vm.modelo['MAD'].primerNombre!= undefined"></span>
+			</span>					</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo nombre:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['MAD'].segundoNombre== undefined , 'has-success':  vm.modelo['MAD'].segundoNombre!= undefined}">
+					<div class="input-group"><input type="text" name="vm.modelo['MAD'].segundoNombre" ng-disabled="diasabled" class="input-sm form-control"
+						ng-model="vm.modelo['MAD'].segundoNombre" required> <span
+						class="input-group-addon" id="basic-addon1">
+					<span class="glyphicon glyphicon-asterisk" ng-hide="vm.modelo['MAD'].segundoNombre!= undefined"></span> 
+					<span class="glyphicon glyphicon-ok" ng-show="vm.modelo['MAD'].segundoNombre!= undefined"></span>
+				</span>			</div>
+			</div>
+		</div>
+	
+	
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer apellido:</label>
+			<div class="col-sm-12 form-group"
+			ng-class="{'has-error': vm.modelo['MAD'].primerApellido== undefined , 'has-success':  vm.modelo['MAD'].primerApellido!= undefined}">
+			<div class="input-group"><input type="text" name="vm.modelo['MAD'].primerApellido" class="input-sm form-control"
+				ng-model="vm.modelo['MAD'].primerApellido" ng-disabled="diasabled" required> <span
+				class="input-group-addon" id="basic-addon1"> <span
+				class="glyphicon glyphicon-asterisk"
+				ng-hide="vm.modelo['MAD'].primerApellido!= undefined"></span> <span
+				class="glyphicon glyphicon-ok" ng-show="vm.modelo['MAD'].primerApellido!= undefined"></span>
+			</span>		</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['MAD'].segundoApellido== undefined , 'has-success':  vm.modelo['MAD'].segundoApellido!= undefined}">
+				<div class="input-group"><input type="text" name="vm.modelo['MAD'].segundoApellido" class="input-sm form-control"
+				ng-model="vm.modelo['MAD'].segundoApellido" ng-disabled="diasabled" required> <span
+				class="input-group-addon" id="basic-addon1"> 
+				<span class="glyphicon glyphicon-asterisk" ng-hide="vm.modelo['MAD'].segundoApellido!= undefined"></span> 
+				<span class="glyphicon glyphicon-ok" ng-show="vm.modelo['MAD'].segundoApellido!= undefined"></span>
+			</span> 		</div>
+			</div>
+		</div>
+	
+	
+	
+	</form>

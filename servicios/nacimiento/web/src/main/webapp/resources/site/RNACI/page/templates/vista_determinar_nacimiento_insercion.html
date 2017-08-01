@@ -1,0 +1,15 @@
+<div class="col-sm-12">
+
+<div class="col-sm-12" ng-hide="ocultarHospitalario">
+	<label class='radio-inline'> <input type='radio' ng-click="vm.definirNacimiento()" ng-model="vm.modelo.tipoNacimiento"  ng-value="1"> Hospitalario
+	</div>
+<div class="col-sm-12" ng-hide="ocultarExtrahospitalario">
+	<label class='radio-inline'> <input type='radio' ng-click="vm.definirNacimiento()" ng-model="vm.modelo.tipoNacimiento"  ng-value="2"> Extrahospitalario
+</div>
+<div class="col-sm-12" ng-hide="ocultarDecisionJudicial">
+	<label class='radio-inline'> <input type='radio' ng-click="vm.definirNacimiento()" ng-model="vm.modelo.tipoNacimiento" ng-value="3"> Decision judicial
+</div>
+<div class="col-sm-12" ng-hide="ocultarMedidaProteccion">
+	<label class='radio-inline'> <input type='radio' ng-click="vm.definirNacimiento()" ng-model="vm.modelo.tipoNacimiento" ng-value="4"> Medida de proteccion
+</div>
+</div>

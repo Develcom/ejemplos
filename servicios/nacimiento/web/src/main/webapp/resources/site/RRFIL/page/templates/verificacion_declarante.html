@@ -1,0 +1,64 @@
+<div style="height:430px;overflow:hidden;">
+    <div class="col-sm-12">
+        <h3>Verificaci&oacute;n del(la) registrador(a) civil</h3>
+        <span id="separadorTitulos"></span>
+    </div>
+
+    <form name="form1">
+        <div class="col-sm-12">
+            <div class="col-sm-5">
+                <div class="radio">
+                    <label> <input type="radio" name="radio"
+                                  ng-model="vm.modelo.permiso1" value="conforme"
+                                   ng-change="ocultarCampoObservacion()"
+                                   required> Conforme
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="radio">
+                    <label> <input type="radio" name="radio"
+                                  ng-model="vm.modelo.permiso1" 
+                                 ng-change="mostrarCampoObservacion()"
+                                   value="noConforme"
+                                   required> No
+                        conforme
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="campoObservacion">
+            <div class="col-sm-12">
+                </br>
+                <div class="col-sm-9 form-group"
+                     ng-class="{'has-error': vm.modelo.observaciones== undefined , 'has-success':  vm.modelo.observaciones!= undefined}">
+                    <label class="row-sm-5 control-label">Observaciones:</label>
+
+                    <div class="input-group row-sm-7">
+						<textarea type="text" rows="3"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+							uib-popover="{{validaciones.observaciones.mensaje}}"
+							popover-title="{{validaciones.observaciones.titulo}}"
+							popover-trigger="none"
+							popover-is-open="vm.errorTecla.observaciones" ng-blur="vm.onBlur"
+							ng-keydown="vm.onKeyDown($event,'observaciones','observaciones')"
+							minlength="2" maxlength="200"
+							placeholder="{{validaciones.observaciones.placeholder}}"
+							name="vm.modelo.observaciones" class="input-sm form-control"
+							ng-model="vm.modelo.observaciones" required
+							ng-required="vm.modelo.permiso1 != 'conforme'"></textarea>
+						<span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.observaciones!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.observaciones!= undefined"></span>
+						</span>
+					</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+	

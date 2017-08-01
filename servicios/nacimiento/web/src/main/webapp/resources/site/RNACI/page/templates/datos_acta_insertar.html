@@ -1,0 +1,73 @@
+<div class="col-sm-12">
+	<h3>Datos del acta a insertar</h3>
+	<span id="separadorTitulos"></span>
+</div>
+
+<form name="form1">
+
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Acta Nro.:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['actaInsertar'].numActa== undefined , 'has-success':  vm.modelo['actaInsertar'].numActa!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato del certificado"
+						ng-pattern="vPatron.numActa" custom-popover
+						popover-contenido="{{vPatron.Fnumero | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{numActa == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownNumerico($event,'vPatron.excepciones','numActa')"
+						popover-is-open="errorTecla.numActa" ng-blur="onBlur"
+						placeholder="Ejemplo: 12345678" name="vm.modelo['actaInsertar'].numActa"
+						class="input-sm form-control" ng-model="vm.modelo['actaInsertar'].numActa"
+						ng-disabled="disabled" required> <span
+						class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['actaInsertar'].numActa!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['actaInsertar'].numActa!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label"> Fecha</label>
+			<div class="col-sm-12 form-group">
+				<sw-calendar label="Fecha" vertical="true" type="text"
+					name="vm.modelo['actaInsertar'].fechaActa"
+					ng-model="vm.modelo['actaInsertar'].fechaActa"
+					ng-class="{'has-error': vm.modelo['actaInsertar'].fechaActa== undefined , 'has-success':  vm.modelo['actaInsertar'].fechaActa!= undefined}"
+					required> <span class="input-group-addon"
+					id="basic-addon1"> <span
+					class="glyphicon glyphicon-asterisk"
+					ng-hide="vm.modelo['actaInsertar'].fechaActa!= undefined"></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="vm.modelo['actaInsertar'].fechaActa!= undefined"></span></span> </sw-calendar>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-9 form-group">
+			<label class="col-sm-12 control-label">Autoridad que lo
+				expide:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['actaInsertar'].autoridadExpide== undefined , 'has-success': vm.modelo['actaInsertar'].autoridadExpide!= undefined}">
+				<div class="input-group">
+					<input type="text" name="vm.modelo['actaInsertar'].autoridadExpide"
+						class="input-sm form-control"
+						ng-model="vm.modelo['actaInsertar'].autoridadExpide" maxlength="50" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['actaInsertar'].autoridadExpide!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['actaInsertar'].autoridadExpide!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

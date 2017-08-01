@@ -1,0 +1,17 @@
+<div class='col-sm-12'>
+<p><br>Indique comunidad o pueblo indigena</p>
+<div class="col-sm-4 form-group">
+			
+				<div class="input-group" ng-hide="hideComunidad">
+					<select class="form-control input-sm"
+						ng-model="vm.modelo.pojo.comunidadInd"
+						ng-options="comunidad.nombre for comunidad in comunidades">
+						<option value="" selected disabled>Seleccione</option>
+					</select> <span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo.pojo.comunidadInd!= undefined"></span> <span
+						ng-show="vm.modelo.pojo.comunidadInd!= undefined"></span>
+					</span>
+				</div>
+			
+		</div>
+</div>

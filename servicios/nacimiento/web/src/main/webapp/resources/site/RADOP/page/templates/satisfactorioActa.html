@@ -1,0 +1,25 @@
+
+<div class="wizard-card-container" style='height: 500px; width: 100%;'>
+	<div>
+		<h3 style="margin-top: 5px;">Acta de registro de adopci&oacute;n</h3>
+		<hr>
+	</div>
+	<div class="col-sm-12">
+		<div class="alert alert-success" role="alert">
+			<div class="container-fluid">
+				<div class="row">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					{{vm.modelo.mensaje}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wizard-buttons-container">
+		<div class="btn-group-single pull-right">
+			<span>
+				<button ng-click="vm.finalizar()"
+					class="btn btn-success wizard-next" type="button">Finalizar</button>
+			</span>
+		</div>
+	</div>
+</div>

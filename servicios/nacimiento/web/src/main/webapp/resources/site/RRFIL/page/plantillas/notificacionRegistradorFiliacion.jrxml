@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-07-14T09:00:15 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="notificacionRegistradorAdopcion" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="85" bottomMargin="85" uuid="4f0b873e-7942-4abe-8f29-0a88f87541a3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="nombreRegistrador" class="java.lang.String"/>
+	<parameter name="oficinaRegistradora" class="java.lang.String"/>
+	<parameter name="parroquia" class="java.lang.String"/>
+	<parameter name="municipio" class="java.lang.String"/>
+	<parameter name="estado" class="java.lang.String"/>
+	<parameter name="nombreCiudadano" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="cementerio" class="java.lang.String"/>
+	<parameter name="fechaObito" class="java.lang.String"/>
+	<parameter name="horaObito" class="java.lang.String"/>
+	<parameter name="direccionObito" class="java.lang.String"/>
+	<parameter name="numeroEV14" class="java.lang.String"/>
+	<parameter name="dia" class="java.lang.String"/>
+	<parameter name="mes" class="java.lang.String"/>
+	<parameter name="anno" class="java.lang.String"/>
+	<parameter name="nResolucion" class="java.lang.String"/>
+	<parameter name="fResolucion" class="java.lang.String"/>
+	<parameter name="nGaceta" class="java.lang.String"/>
+	<parameter name="fGaceta" class="java.lang.String"/>
+	<parameter name="parroquiaFallecimiento" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="municipioFallecimiento" class="java.lang.String"/>
+	<parameter name="estadoFallecimiento" class="java.lang.String"/>
+	<parameter name="nombreSolicitante" class="java.lang.String"/>
+	<parameter name="identificacionSolicitante" class="java.lang.String"/>
+	<parameter name="parentescoSolicitante" class="java.lang.String"/>
+	<parameter name="nConsecutivo" class="java.lang.String"/>
+	<parameter name="numActa" class="java.lang.String"/>
+	<parameter name="fechaActa" class="java.lang.String"/>
+	<parameter name="oficinaNacimiento" class="java.lang.String"/>
+	<parameter name="nombreApellidoAdoptado" class="java.lang.String"/>
+		<parameter name="rutaImg" class="java.lang.String"/>
+	<parameter name="fechaActual" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="175" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="1" y="155" width="102" height="20" uuid="c0a1fef2-aade-4211-8224-de1978bb2628"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nº " + ($P{nConsecutivo}==null?"                               ":$P{nConsecutivo})]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="170" y="0" width="101" height="71" uuid="96d5675b-6653-427f-8319-40ab925beae7"/>
+				<image>
+					<reportElement x="2" y="4" width="98" height="67" uuid="51ae7f51-4ef3-4f77-a579-2dc97189cabe"/>
+					<imageExpression><![CDATA[$P{rutaImg}+"/cne.png"]]></imageExpression>
+				</image>
+			</frame>
+			<textField>
+				<reportElement x="226" y="91" width="215" height="20" uuid="269a6e8d-1981-4e99-9384-ced384096cc3"/>
+				<textFieldExpression><![CDATA[$P{fechaActual}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="391" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="300" width="440" height="89" uuid="3ea0ac56-64f9-446f-bdf6-7adc913ca8ec"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registrador (a) Civil <br>" +
+				($P{oficinaRegistradora}==null?"_________________":$P{oficinaRegistradora}) +
+"Nº Resolución " + ($P{nResolucion}==null?"_________________":$P{nResolucion}) +
+", de fecha " + ($P{fResolucion}==null?"_________________":$P{fResolucion}) +
+"<br>Nº Gaceta " + ($P{nGaceta}==null?"_________________":$P{nGaceta}) +
+", de fecha " + ($P{fGaceta}==null?"_________________":$P{fGaceta})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="122" height="34" uuid="bff2160c-d84d-4f58-b12c-bcc4a0c59b34"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Señor(a)
+Registrador(a) Civil 
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="70" width="440" height="190" uuid="02fd49f8-8052-40a9-82b3-74b38c67e53e"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["El acta <b>" + ($P{numActa}==null?"_________________________________________":$P{numActa})+"</b>, de fecha <b>" + ($P{fechaActa}==null?"____________________________":$P{fechaActa}) +"</b>, inscrita en <b>"+
+ ($P{oficinaNacimiento}==null?"_______________________________________":$P{oficinaNacimiento}) + "</b>, perteneciente <b>"+($P{nombreApellidoAdoptado}==null?"_________________________________________":$P{nombreApellidoAdoptado}) +"</b>, queda sin efecto en virtud del procedimiento de la Ley para la Protección de la Familia, Maternidad y Paternidad, por lo cual no es susceptible a certificación."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

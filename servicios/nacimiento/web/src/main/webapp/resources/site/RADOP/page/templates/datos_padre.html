@@ -1,0 +1,544 @@
+
+<div class="col-sm-12">
+	<h3>Datos del padre</h3>
+	<span id="separadorTitulos"></span>
+</div>
+
+<form name="form1">
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-12 form-group">
+			<label class="col-sm-4 control-label">Documento de
+				identificaci&oacute;n:</label>
+			<div class="col-sm-3 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+				<div class="input-group">
+					<select class="form-control input-sm"
+						ng-model="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre"
+						name="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre" ng-disabled="disabled2">
+						<option value="" selected>Seleccione</option>
+						<option value="CEDULA">C&Eacute;DULA/NUI</option>
+						<option value="PASAPORTE">PASAPORTE</option>
+					</select><span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span>
+						<span class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span></span>
+				</div>
+			</div>
+			<div
+				ng-if="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre=='CEDULA'">
+				<div class="col-sm-2 form-group"
+					ng-class="{'has-error': vm.modelo['PAP'].tipoDocumento == undefined , 'has-success':  vm.modelo['PAP'].tipoDocumento != undefined}">
+					<div class="input-group">
+						<select class="form-control input-sm"
+							name="vm.modelo['PAP'].tipoDocumento" ng-disabled="disabled2"
+							ng-model="vm.modelo['PAP'].tipoDocumento">
+							<option value="" selected>Seleccione</option>
+							<option value="V">V-</option>
+							<option value="E">E-</option>
+						</select><span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo['PAP'].tipoDocumento!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo['PAP'].tipoDocumento!= undefined"></span>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-3 form-group"
+					ng-class="{'has-error': vm.modelo['PAP'].documentoIdentidad[0].numero== undefined , 'has-success':  vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined}">
+					<div class="input-group">
+						<input type="text" class="input-sm form-control"
+							popover-tittle="Formato de la cedula"
+							ng-pattern="vPatron.Numerico" custom-popover
+							popover-contenido="{{vPatron.Fnumero | json}}"
+							popover-placement="top" popover-label="Label"
+							popover-validation="{{numero == undefined}}" maxlength="9"
+							minlength="6"
+							ng-keydown="onKeyDownNumerico($event,'vPatron.excepciones','numero')"
+							popover-is-open="errorTecla.numero" ng-blur="onBlur"
+							placeholder="Ejemplo: 123456" ng-value="{{nump}}"
+							ng-init="setCedulaPad()" ng-disabled="disabled2"
+							name="vm.modelo['PAP'].documentoIdentidad[0].numero"
+							ng-model="vm.modelo['PAP'].documentoIdentidad[0].numero">
+						<span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined"></span>
+							<span class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div
+				ng-if="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre=='PASAPORTE'">
+				<div class="col-sm-5 form-group"
+					ng-class="{'has-error': vm.modelo['PAP'].documentoIdentidad[0].numero== undefined , 'has-success':  vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined}">
+					<div class="input-group">
+						<input type="text" class="input-sm form-control"
+							popover-tittle="Formato de la cedula"
+							ng-pattern="vPatron.Numerico" custom-popover
+							popover-contenido="{{vPatron.Fnumero | json}}"
+							popover-placement="top" popover-label="Label"
+							popover-validation="{{numero == undefined}}" maxlength="11"
+							minlength="6"
+							ng-keydown="onKeyDownNumerico($event,'vPatron.excepciones','numero')"
+							popover-is-open="errorTecla.numero" ng-blur="onBlur"
+							placeholder="Ejemplo: 123456" ng-value="{{nump}}"
+							ng-init="setCedulaPad()" ng-disabled="disabled2"
+							name="vm.modelo['PAP'].documentoIdentidad[0].numero"
+							ng-model="vm.modelo['PAP'].documentoIdentidad[0].numero">
+						<span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined"></span>
+							<span class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ><div class="col-sm-12 form-group">
+		<div class="col-sm-12 form-group">
+			<label class="col-sm-8 control-label">Tipo de documento de
+				identificaci&oacute;n:</label>
+			<div class="col-sm-4 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+				<div class="input-group">
+					<select class="form-control input-sm"
+						ng-model="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre"
+						name="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre"
+						ng-disabled="disabled2" required>
+						<option value="" selected>Seleccione</option>
+						<option value="CEDULA">C&Eacute;DULA/NUI</option>
+						<option value="PASAPORTE">PASAPORTE</option>
+					</select><span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span>
+						<span class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-8 form-group">
+			<label class="col-sm-9 control-label">N&uacute;mero de documento de identificaci&oacute;n:</label>
+			<div class="input-group row-sm-4"
+				ng-show="vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre==='CEDULA'"
+				ng-class="{'has-error': vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['PAP'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+				<select class="form-control input-sm" ng-disabled="disabled2"
+					name="vm.modelo['PAP'].tipoDocumento"
+					ng-model="vm.modelo['PAP'].tipoDocumento">
+					<option value="" selected disabled>Seleccione</option>
+					<option value="V">V-</option>
+					<option value="E">E-</option>
+				</select>
+			</div>
+		</div>
+		<div class="align-right">
+			<div class="col-sm-4 form-group">
+				<div class="input-group row-sm-12"
+					ng-class="{'has-error': vm.modelo['PAP'].documentoIdentidad[0].numero == undefined , 'has-success':  vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined}">
+					<input type="text" uib-popover="{{validaciones.cedula.mensaje}}"
+						popover-title="{{validaciones.cedula.titulo}}"
+						popover-trigger="none"
+						popover-is-open="vm.errorTecla.numero"
+						ng-blur="vm.onBlur"
+						ng-keydown="vm.onKeyDown($event,'cedula','numero')"
+						ng-minlength="{{validaciones.cedula.minimo}}"
+						ng-maxlength="{{validaciones.cedula.maximo}}"
+						maxlength="9"
+						placeholder="{{validaciones.cedula.placeholder}}"
+						name="vm.modelo['PAP'].documentoIdentidad[0].numero"
+						class="input-sm form-control"
+						ng-model="vm.modelo['PAP'].documentoIdentidad[0].numero"
+						ng-value="{{nump}}" ng-init="setCedulaPad()"
+						ng-disabled="disabled2" required> <span
+						class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined"></span>
+						<span class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].documentoIdentidad[0].numero!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer nombre:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].primerNombre== undefined , 'has-success':  vm.modelo['PAP'].primerNombre!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los nombres"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{primerNombre == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerNombre')"
+						popover-is-open="errorTecla.primerNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Juan" name="vm.modelo['PAP'].primerNombre"
+						class="input-sm form-control"
+						ng-model="vm.modelo['PAP'].primerNombre" ng-disabled="disabled2"
+						required> <span class="input-group-addon"
+						id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].primerNombre!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].primerNombre!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- 		ng-disabled ="disabledInput(value)" -->
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo nombre:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'': vm.modelo['PAP'].segundoNombre.length<1, '': vm.modelo['PAP'].segundoNombre==undefined, 'has-error': vm.modelo['PAP'].segundoNombre.length==1, 'has-success':  vm.modelo['PAP'].segundoNombre.length>=2}">
+<!-- 				ng-class="{'has-error': vm.modelo['PAP'].segundoNombre== undefined , 'has-success': vm.modelo['PAP'].segundoNombre!= undefined}"> -->
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los nombres"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{segundoNombre == undefined}}" maxlength="50"
+						minlength="2" 
+						ng-model-options="{ allowInvalid: true }"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoNombre')"
+						popover-is-open="errorTecla.primerNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Alejandro"
+						name="vm.modelo['PAP'].segundoNombre"
+						class="input-sm form-control"
+						ng-model="vm.modelo['PAP'].segundoNombre" ng-disabled="disabled2">
+					<span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['PAP'].segundoNombre!= undefined"></span> <span
+						ng-show="vm.modelo['PAP'].segundoNombre!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].primerApellido== undefined , 'has-success': vm.modelo['PAP'].primerApellido!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los apellidos"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{primerApellido == undefined}}"
+						maxlength="50" minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerApellido')"
+						popover-is-open="errorTecla.primerNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Salazar"
+						name="vm.modelo['PAP'].primerApellido"
+						class="input-sm form-control"
+						ng-model="vm.modelo['PAP'].primerApellido" ng-disabled="disabled2"
+						required> <span class="input-group-addon"
+						id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].primerApellido!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].primerApellido!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'': vm.modelo['PAP'].segundoApellido.length<1, '': vm.modelo['PAP'].segundoApellido==undefined, 'has-error': vm.modelo['PAP'].segundoApellido.length==1, 'has-success':  vm.modelo['PAP'].segundoApellido.length>=2}">
+<!-- 				ng-class="{'has-error': vm.modelo['PAP'].segundoApellido== undefined , 'has-success': vm.modelo['PAP'].segundoApellido!= undefined}"> -->
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los apellidos"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{segundoApellido == undefined}}"
+						maxlength="50" minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoApellido')"
+						popover-is-open="errorTecla.segundoApellido" ng-blur="onBlur"
+						placeholder="Ejemplo: Salazar" 
+						ng-model-options="{ allowInvalid: true }"
+						name="vm.modelo['PAP'].segundoApellido"
+						class="input-sm form-control"
+						ng-model="vm.modelo['PAP'].segundoApellido"
+						ng-disabled="disabled2"> <span
+						class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['PAP'].segundoApellido!= undefined"></span> <span
+						ng-show="vm.modelo['PAP'].segundoApellido!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Profesi&oacute;n u
+				ocupaci&oacute;n:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].ocupacion== undefined , 'has-success':  vm.modelo['PAP'].ocupacion!= undefined}">
+				<div class="input-group">
+				<select class="form-control input-sm"
+						name="vm.modelo['PAP'].ocupacion" required
+						ng-model="vm.modelo['PAP'].ocupacion">
+						<option
+							ng-selected="{{ocupacion.nombre == vm.modelo['PAP'].ocupacion}}"
+							ng-repeat="ocupacion in ocupaciones" value="{{ocupacion.nombre}}">{{ocupacion.nombre}}</option>
+					</select>
+<!-- 					<select class="form-control input-sm" -->
+<!-- 						name="vm.modelo['PAP'].profesion" -->
+<!-- 						ng-model="vm.modelo['PAP'].ocupacion" -->
+<!-- 						ng-options="ocupacion.nombre for ocupacion in ocupaciones" -->
+<!-- 						required> -->
+<!-- 						<option value="" selected>Seleccione</option> -->
+<!-- 					</select>  -->
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].ocupacion!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].ocupacion!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2 form-group">
+			<label class="col-sm-12 control-label">Edad: </label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo.PAPEdad== undefined , 'has-success': vm.modelo.PAPEdad!= undefined}">
+				<div class="input-group">
+					<input type="text" uib-popover="{{validaciones.edad.mensaje}}"
+						popover-title="{{validaciones.edad.titulo}}"
+						popover-trigger="none" popover-is-open="vm.errorTecla.Edad"
+						ng-blur="vm.onBlur"
+						ng-keydown="vm.onKeyDown($event,'edad','Edad')"
+						ng-minlength="{{validaciones.edad.minimo}}"
+						ng-maxlength="{{validaciones.edad.maximo}}" maxlength="3"
+						name="vm.modelo['PAP'].Edad" class="input-sm form-control"
+						ng-model="vm.modelo.PAPEdad" ng-disabled="disabled2" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo.PAPEdad!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo.PAPEdad!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 form-group">
+			<label class="col-sm-12 control-label">Comunidad o pueblo
+				ind&iacute;gena: </label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].comunidadIndigena== undefined , 'has-success':  vm.modelo['PAP'].comunidadIndigena!= undefined}">
+				<div class="input-group">
+				<select class="form-control input-sm"
+						name="vm.modelo['PAP'].comunidadIndigena"
+						ng-model="vm.modelo['PAP'].comunidadIndigena">
+						<option
+							ng-selected="{{comunidad.nombre == vm.modelo['PAP'].comunidadIndigena}}"
+							ng-repeat="comunidad in comunidades" value="{{comunidad.nombre}}">{{comunidad.nombre}}</option>
+					</select>
+<!-- 					<select class="form-control input-sm" -->
+<!-- 						ng-model="vm.modelo['PAP'].comunidadIndigena" -->
+<!-- 						name="vm.modelo['PAP'].comunidadInd" -->
+<!-- 						ng-model-options="{ allowInvalid: true }" -->
+<!-- 						ng-options="comunidad.nombre for comunidad in comunidades"> -->
+<!-- 						<option value="" selected disabled>Seleccione</option> -->
+<!-- 					</select>  -->
+					<span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['PAP'].comunidadIndigena!= undefined"></span> <span
+						ng-show="vm.modelo['PAP'].comunidadIndigena!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group"
+			ng-show="vm.modelo['PAP'].tipoDocumento!='V'">
+			<label class="col-sm-12 control-label">Nacionalidad:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].nacionalidad== undefined , 'has-success':  vm.modelo['PAP'].nacionalidad!= undefined}">
+				<div class="input-group">
+					<select class="form-control input-sm"
+						name="vm.modelo['PAP'].nacionalidad"
+						ng-model="vm.modelo['PAP'].nacionalidad"
+						ng-options="nacionalidad.nombre for nacionalidad in nacionalidades">
+						<option value="" selected>Seleccione</option>
+					</select> <span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].nacionalidad!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].nacionalidad!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<h4>Direcci&oacute;n de habitaci&oacute;n</h4>
+		<span id="separadorTitulos"></span>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-4 form-group">
+			<label class="col-sm-12 control-label"> Pa&iacute;s:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].direccion[1].pais== undefined , 'has-success':  vm.modelo['PAP'].direccion[1].pais!= undefined}">
+				<div class="input-group">
+				<select class="form-control input-sm"
+						name="vm.modelo['PAP'].direccion[1].pais" 
+						required
+						ng-model="vm.modelo['PAP'].direccion[1].pais"
+						ng-change="buscarEstadoPAP()">
+						<option ng-selected="{{pais.nombre == vm.modelo['PAP'].direccion[1].pais}}"
+							ng-repeat="pais in paises" value="{{pais.nombre}}">{{pais.nombre}}</option>
+					</select>
+<!-- 					<select class="form-control input-sm" name="vm.modelo['PAP'].direccion[1].pais" -->
+<!-- 						required ng-model="vm.modelo['PAP'].direccion[1].pais"  -->
+<!-- 						ng-options="pais.nombre for pais in paises" -->
+<!-- 						ng-change="buscarEstadoPAP()"> -->
+<!-- 						<option value="" selected>Seleccione</option> -->
+<!-- 					</select> -->
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].direccion[1].pais!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].direccion[1].pais!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 form-group">
+			<label class="col-sm-12 control-label">Estado:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].direccion[1].estado== undefined , 'has-success':  vm.modelo['PAP'].direccion[1].estado!= undefined}">
+				<div class="input-group">
+				<select class="form-control input-sm"
+						name="vm.modelo['PAP'].direccion[1].estado"
+						ng-model="vm.modelo['PAP'].direccion[1].estado"
+						ng-change="buscarMunicipioPAP()"
+						ng-required="vm.modelo['PAP'].direccion[1].pais== 'VENEZUELA'"
+						ng-disabled="vm.modelo['PAP'].direccion[1].pais!= 'VENEZUELA'">
+						<option
+							ng-selected="{{estado.nombre == vm.modelo['PAP'].direccion[1].estado}}"
+							ng-repeat="estado in estados" value="{{estado.nombre}}">{{estado.nombre}}</option>
+					</select>
+<!-- 					<select class="form-control input-sm" -->
+<!-- 						name="vm.modelo['PAP'].direccion[1].estado" ng-disabled="disaPAP" -->
+<!-- 						ng-required="vm.modelo['PAP'].direccion[1].pais.codigo== 'VEN'" -->
+<!-- 						ng-model="vm.modelo['PAP'].direccion[1].estado" -->
+<!-- 						ng-options="estado.nombre for estado in estados" -->
+<!-- 						ng-model-options="{ allowInvalid: true }" -->
+<!-- 						ng-change="buscarMunicipioPAP()"> -->
+<!-- 						<option value="" selected>Seleccione</option> -->
+<!-- 					</select> -->
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].direccion[1].estado!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].direccion[1].estado!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 form-group">
+			<label class="col-sm-12 control-label"> Municipio: </label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].direccion[1].municipio== undefined , 'has-success':  vm.modelo['PAP'].direccion[1].municipio!= undefined}">
+				<div class="input-group">
+				<select class="form-control input-sm"
+						name="vm.modelo['PAP'].direccion[1].municipio"
+						ng-required="vm.modelo['PAP'].direccion[1].pais== 'VENEZUELA'"
+						ng-disabled="vm.modelo['PAP'].direccion[1].pais!= 'VENEZUELA'"
+						ng-model="vm.modelo['PAP'].direccion[1].municipio"
+						ng-change="buscarParroquiaPAP()">
+						<option
+							ng-selected="{{municipio.nombre == vm.modelo['PAP'].direccion[1].municipio}}"
+							ng-repeat="municipio in municipios" value="{{municipio.nombre}}">{{municipio.nombre}}</option>
+					</select>
+<!-- 					<select class="form-control input-sm" -->
+<!-- 						name="vm.modelo['PAP'].direccion[1].municipio" ng-disabled="disaPAP" -->
+<!-- 						ng-model="vm.modelo['PAP'].direccion[1].municipio" -->
+<!-- 						ng-required="vm.modelo['PAP'].direccion[1].pais.codigo== 'VEN'" -->
+<!-- 						ng-options="municipio.nombre for municipio in municipios" -->
+<!-- 						ng-model-options="{ allowInvalid: true }" -->
+<!-- 						ng-change="buscarParroquiaPAP()"> -->
+<!-- 						<option value="" selected>Seleccione</option> -->
+<!-- 					</select> -->
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].direccion[1].municipio!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].direccion[1].municipio!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-4 form-group">
+			<label class="col-sm-12 control-label"> Parroquia: </label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].direccion[1].parroquia== undefined , 'has-success':  vm.modelo['PAP'].direccion[1].parroquia!= undefined}">
+				<div class="input-group"> 
+				<select class="form-control input-sm"
+						name="vm.modelo['PAP'].direccion[1].parroquia"
+						ng-model="vm.modelo['PAP'].direccion[1].parroquia"
+						ng-required="vm.modelo['PAP'].direccion[1].pais== 'VENEZUELA'"
+						ng-disabled="vm.modelo['PAP'].direccion[1].pais!= 'VENEZUELA'">
+						<option
+							ng-selected="{{parroquia.nombre == vm.modelo['PAP'].direccion[1].parroquia}}"
+							ng-repeat="parroquia in parroquias" value="{{parroquia.nombre}}">{{parroquia.nombre}}</option>
+					</select> 
+<!-- 					<select class="form-control input-sm" -->
+<!-- 						name="vm.modelo['PAP'].direccion[1].parroquia" ng-disabled="disaPAP" -->
+<!-- 						ng-model="vm.modelo['PAP'].direccion[1].parroquia" -->
+<!-- 						ng-required="vm.modelo['PAP'].direccion[1].pais.codigo== 'VEN'"  -->
+<!-- 						ng-options="parroquia.nombre for parroquia in parroquias" -->
+<!-- 						ng-model-options="{ allowInvalid: true }" -->
+<!-- 						ng-change="obtenerParroquia()"> -->
+<!-- 						<option value="" selected>Seleccione</option> -->
+<!-- 					</select> -->
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].direccion[1].parroquia!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].direccion[1].parroquia!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 form-group">
+			<label class="col-sm-12 control-label">Direcci&oacute;n:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['PAP'].direccion[1].ubicacion== undefined , 'has-success':  vm.modelo['PAP'].direccion[1].ubicacion}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de la direccion"
+						custom-popover popover-contenido="{{vPatron.Pcementerio | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{ubicacion == undefined}}" maxlength="200"
+						minlength="2"
+						popover-is-open="errorTecla.ubicacion" ng-blur="onBlur"
+						placeholder="Ejemplo: Av. Venezuela"
+						name="vm.modelo['PAP'].direccion[1].ubicacion" 
+						class="input-sm form-control"
+						ng-model="vm.modelo['PAP'].direccion[1].ubicacion" required> <span
+						class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['PAP'].direccion[1].ubicacion!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['PAP'].direccion[1].ubicacion!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+

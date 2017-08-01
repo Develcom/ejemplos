@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Casos especiales</h4>
+	</div>
+</div>
+<div class="col-sm-12">
+					<div class="col-sm-12">
+						<label class="col-sm-5 control-label">Fecha de nacimiento del presentado</label>
+						<sw-calendar label="Fecha" vertical="true" type="text"
+							ng-model="vm.modelo.fecha_"  
+							ng-class="{'has-error': vm.modelo.fecha_== undefined , 'has-success':  vm.modelo.fecha_!= undefined}"
+							required> <span class="input-group-addon"
+							id="basic-addon1"> 
+							<span
+							class="glyphicon glyphicon-asterisk"
+							ng-show="vm.modelo.fecha_!= undefined"></span> 
+							<span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.fecha_!= undefined"></span>
+						</span> </sw-calendar>
+					</div>
+				</div>
+				

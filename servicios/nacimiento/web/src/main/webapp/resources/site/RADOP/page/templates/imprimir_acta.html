@@ -1,0 +1,28 @@
+
+<div class="col-sm-12" ng-hide="vm.mostrarImprimir">
+	<h3>Vista previa del acta</h3>
+	<span id="separadorTitulos"></span>
+</div>
+<div class="col-sm-12" ng-show="vm.mostrarImprimir">
+	<h3>Imprimir borrador</h3>
+	<span id="separadorTitulos"></span>
+</div>
+	
+	<div class="col-sm-12" style="height: {{heightPerform">
+		<section class="split-pane fixed-top" ng-show="vm.mostrarImprimir"
+			style="overflow: hidden !important;">
+			<nav style="border-radius: 0px; margin-bottom: 1px;"
+				class="navbar navbar-default">
+				<div class="container-fluid" style="text-align: center">
+					<button class="btn navbar-btn btn-default" ng-click="vm.imprimir()">
+						Imprimir documento <span class="glyphicon glyphicon-print"></span>
+					</button>
+				</div>
+			</nav>
+
+		</section>
+		<div class="panel-body panel-success" style="height: {{heightPerform ">
+			ARCHIVOPDF
+		</div>
+	</div>
+

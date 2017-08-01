@@ -1,0 +1,43 @@
+<div class="col-sm-12">
+	<h3>Circunstancias especiales del acto</h3>
+	<span id="separadorTitulos"></span>
+</div>
+<br>
+<form name="form1">
+
+	<div class="col-sm-12">
+		<div class="col-sm-9 form-group"
+			ng-class="{'': vm.modelo.observacionesEsp1.length<1, '': vm.modelo.observacionesEsp1==undefined, 'has-error': vm.modelo.observacionesEsp1.length==1, 'has-success':  vm.modelo.observacionesEsp1.length>=2}">
+<!-- 			ng-class="{'has-error': vm.modelo.observacionesEsp1== undefined , 'has-success':  vm.modelo.observacionesEsp1!= undefined}"> -->
+			<label class="row-sm-5 control-label"></label>
+			<div class="input-group row-sm-7">
+				<textarea type="text" rows="3" name="vm.modelo.observacionesEsp1"
+					class="input-sm form-control"
+					ng-model="vm.modelo.observacionesEsp1" maxlength="200"></textarea>
+				<span class="input-group-addon" id="basic-addon1"> <span
+					ng-hide="vm.modelo.observacionesEsp1!= undefined"></span> <span
+					ng-show="vm.modelo.observacionesEsp1!= undefined"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+
+		<div class="col-sm-12">
+		<div class="col-sm-9 form-group"
+			ng-class="{'': vm.modelo.observacionesEsp.length<1, '': vm.modelo.observacionesEsp==undefined, 'has-error': vm.modelo.observacionesEsp.length==1, 'has-success':  vm.modelo.observacionesEsp.length>=2}">
+			<label class="row-sm-5 control-label">Observaciones:</label>
+			<div class="input-group row-sm-7">
+				<textarea type="text" rows="3" name="vm.modelo.observacionesEsp"
+					class="input-sm form-control" ng-model="vm.modelo.observacionesEsp"
+					maxlength="200"></textarea>
+				<span class="input-group-addon" id="basic-addon1"> 
+					<span ng-hide="vm.modelo.observacionesEsp!= undefined"></span> 
+					<span ng-show="vm.modelo.observacionesEsp!= undefined"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+

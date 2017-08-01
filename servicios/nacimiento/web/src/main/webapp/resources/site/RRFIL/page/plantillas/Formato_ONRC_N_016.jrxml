@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-04T13:24:05 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Formato_ONRC-N-014" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="85" bottomMargin="20" uuid="a3353457-f2a7-4437-a9b7-1927446f809e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="146"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="numero" class="java.lang.String"/>
+	<parameter name="nombreCiudadano" class="java.lang.String"/>
+	<parameter name="juezTribunal" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="nombreNacimiento" class="java.lang.String"/>
+	<parameter name="nActa" class="java.lang.String"/>
+	<parameter name="nFolio" class="java.lang.String"/>
+	<parameter name="annoLibro" class="java.lang.String"/>
+	<parameter name="fechaActaNacimiento" class="java.lang.String"/>
+	<parameter name="oficinaRegistro" class="java.lang.String"/>
+	<parameter name="nResolucion" class="java.lang.String"/>
+	<parameter name="fResolucion" class="java.lang.String"/>
+	<parameter name="nGaceta" class="java.lang.String"/>
+	<parameter name="fGaceta" class="java.lang.String"/>
+	<parameter name="rutaImg" class="java.lang.String"/>
+	<parameter name="fechaActual" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="175" splitType="Stretch">
+			<textField>
+				<reportElement x="342" y="59" width="100" height="20" uuid="2da1d6b8-f238-47d1-a056-c489b9c26a8e"/>
+				<textFieldExpression><![CDATA[$P{fechaActual}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="0" width="143" height="20" uuid="cfd3663a-6dee-4337-8372-7744453a12c1"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Formato ONRC-N-016]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="170" y="0" width="101" height="71" uuid="96d5675b-6653-427f-8319-40ab925beae7"/>
+				<image>
+					<reportElement x="2" y="4" width="98" height="67" uuid="51ae7f51-4ef3-4f77-a579-2dc97189cabe"/>
+					<imageExpression><![CDATA[$P{rutaImg}+"/cne.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="361" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="22" width="442" height="56" uuid="2a372ddd-5c4e-41a6-b5a4-1ece7c20823b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["<b>Señores<br>"+"Ministerio Público con competencia en materia de Niños, Niñas y Adolescente "  +
+"<br>Su despacho.-</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="2" width="100" height="20" uuid="ef53efc0-d57e-4905-af47-71e92e0ae9bf"/>
+				<textFieldExpression><![CDATA["N° " + ($P{numero}==null ? "________" : $P{numero})+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="78" width="442" height="167" uuid="290c523b-1a87-42fb-800e-581ef4c8bc5b"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["Esta Oficina o Unidad de Registro Civil, de conformidad con los artículos 31 del Reglamento Nº 1 de la Ley Orgánica de Registro Civil y 21 de la Ley para la protección de las Familias, la Maternidad y la Paternidad, relativos a la experticia para el establecimiento de la paternidad,  remite actuaciones relacionadas a la inscripción de nacimiento de <b>" +
+($P{nombreNacimiento}==null?"_____________________________":$P{nombreNacimiento})+"</b>"+
+"</b>  según consta de acta de nacimiento N° <b>" + ($P{nActa}==null?"______":$P{nActa})+
+"</b> de fecha <b>" +
+($P{fechaActaNacimiento}==null?"__________":$P{fechaActaNacimiento}) + "</b>, e inscrita en esta Oficina o Unidad de Registro Civil, en razón de que la prueba de ácido desoxirribonucleico (ADN), resultó negativa.<br>" +
+"Sin más a que hacer referencia,<br>" +
+"Atentamente;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="245" width="442" height="96" uuid="cd375a2a-af1e-4977-9784-3527291ee9c4"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registrador (a) Civil <br> Oficina/Unidad de Registro Civil de <br>" +
+($P{oficinaRegistro}==null ? "_______________________________" : $P{oficinaRegistro}) +
+"<br>Resolución Nº "+($P{nResolucion}== null ? "_____________" : $P{nResolucion})+", fecha "+($P{fResolucion}==null ? "__________" : $P{fResolucion})+
+"<br>Gaceta "+($P{nGaceta}==null ? "____________________" : $P{nGaceta})+", fecha "+($P{fGaceta}==null ? "__________" : $P{fGaceta})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="341" width="442" height="20" uuid="36ac487c-96e4-4b96-8d20-d98e6c837414"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oficio al Ministerio Público – Recomposición de Filiación ]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

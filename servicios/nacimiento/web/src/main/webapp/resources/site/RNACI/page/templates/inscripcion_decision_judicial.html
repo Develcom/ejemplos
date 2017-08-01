@@ -1,0 +1,181 @@
+<div class="col-sm-12">
+	<h3>Inscripci&oacute;n por decisi&oacute;n judicial</h3>
+	<span id="separadorTitulos"></span>
+</div>
+<form name="form1">
+
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Tribunal / Juzgado:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['decisionJudicial'].tribunalJuzgado== undefined , 'has-success':  vm.modelo['decisionJudicial'].tribunalJuzgado!= undefined}">
+				<div class="input-group">
+					<input type="text"
+						name="vm.modelo['decisionJudicial'].tribunalJuzgado"
+						class="input-sm form-control"
+						ng-model="vm.modelo['decisionJudicial'].tribunalJuzgado"
+						maxlength="50" required> <span class="input-group-addon"
+						id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['decisionJudicial'].tribunalJuzgado!= undefined"></span>
+						<span class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['decisionJudicial'].tribunalJuzgado!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Sentencia Nro.:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['decisionJudicial'].sentenciaNro== undefined , 'has-success':  vm.modelo['decisionJudicial'].sentenciaNro!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de Sentencia Nro."
+						ng-pattern="vPatron.sentenciaNro" custom-popover
+						popover-contenido="{{vPatron.Fnumero | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{sentenciaNro == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownNumerico($event,'vPatron.excepciones','sentenciaNro')"
+						popover-is-open="errorTecla.sentenciaNro" ng-blur="onBlur"
+						placeholder="Ejemplo: 12345678"
+						name="vm.modelo['decisionJudicial'].sentenciaNro"
+						class="input-sm form-control"
+						ng-model="vm.modelo['decisionJudicial'].sentenciaNro"
+						ng-disabled="disabled" required> <span
+						class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['decisionJudicial'].sentenciaNro!= undefined"></span>
+						<span class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['decisionJudicial'].sentenciaNro!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-sm-12">
+		<h4>Datos de la autoridad que lo expide</h4>
+		<span id="separadorTitulos"></span>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer nombre:</label>
+			<div class="col-sm-12 form-group "
+				ng-class="{'has-error': vm.modelo['decisionJudicial'].primerNombre== undefined , 'has-success':  vm.modelo['decisionJudicial'].primerNombre!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los nombres"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{primerNombre == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerNombre')"
+						popover-is-open="errorTecla.primerNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Juan" name="vm.modelo['decisionJudicial'].primerNombre"
+						class="input-sm form-control"
+						ng-model="vm.modelo['decisionJudicial'].primerNombre" ng-disabled="disabled" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['decisionJudicial'].primerNombre!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['decisionJudicial'].primerNombre!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo nombre:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'': vm.modelo['decisionJudicial'].segundoNombre== undefined , 'has-success':  vm.modelo['decisionJudicial'].segundoNombre!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los nombres"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{segundoNombre == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoNombre')"
+						popover-is-open="errorTecla.segundoNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Alejandro"
+						name="vm.modelo['decisionJudicial'].segundoNombre"
+						class="input-sm form-control"
+						ng-model="vm.modelo['decisionJudicial'].segundoNombre" ng-disabled="disabled">
+					<span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['decisionJudicial'].segundoNombre!= undefined"></span> <span
+						ng-show="vm.modelo['decisionJudicial'].segundoNombre!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['decisionJudicial'].primerApellido== undefined , 'has-success':  vm.modelo['decisionJudicial'].primerApellido!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los apellidos"
+						ng-pattern="vPatron.primerApellido" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{primerApellido == undefined}}"
+						maxlength="50" minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerApellido')"
+						popover-is-open="errorTecla.primerApellido" ng-blur="onBlur"
+						placeholder="Ejemplo: Salazar"
+						name="vm.modelo['decisionJudicial'].primerApellido"
+						class="input-sm form-control"
+						ng-model="vm.modelo['decisionJudicial'].primerApellido" ng-disabled="disabled" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['decisionJudicial'].primerApellido!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['decisionJudicial'].primerApellido!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'': vm.modelo['decisionJudicial'].segundoApellido== undefined , 'has-success':  vm.modelo['decisionJudicial'].segundoApellido!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los apellidos"
+						ng-pattern="vPatron.segundoApellido" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{segundoApellido == undefined}}"
+						maxlength="50" minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoApellido')"
+						popover-is-open="errorTecla.segundoApellido" ng-blur="onBlur"
+						placeholder="Ejemplo: Romero"
+						name="vm.modelo['decisionJudicial'].segundoApellido"
+						class="input-sm form-control"
+						ng-model="vm.modelo['decisionJudicial'].segundoApellido"
+						ng-model-options="{ allowInvalid: true }" ng-disabled="disabled">
+					<span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['decisionJudicial'].segundoApellido!= undefined"></span> <span
+						ng-show="vm.modelo['decisionJudicial'].segundoApellido!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label"> Fecha</label>
+			<div class="col-sm-12 form-group">
+				<sw-calendar label="Fecha" vertical="true" type="text"
+					name="vm.modelo['decisionJudicial'].fechaDecisionJudicial"
+					ng-model="vm.modelo['decisionJudicial'].fechaDecisionJudicial"
+					ng-class="{'has-error': vm.modelo['decisionJudicial'].fechaDecisionJudicial== undefined , 'has-success':  vm.modelo['decisionJudicial'].fechaDecisionJudicial!= undefined}"
+					required> <span class="input-group-addon"
+					id="basic-addon1"> <span
+					class="glyphicon glyphicon-asterisk"
+					ng-hide="vm.modelo['decisionJudicial'].fechaDecisionJudicial!= undefined"></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="vm.modelo['decisionJudicial'].fechaDecisionJudicial!= undefined"></span></span> </sw-calendar>
+			</div>
+		</div>
+	</div>
+</form>

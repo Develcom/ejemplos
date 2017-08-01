@@ -1,0 +1,40 @@
+<div ng-controller="RRFILController as vm">
+
+	<!--template para las modales-->
+	<div class="modal-header wizard-header">
+		<button type="button" class="close wizard-close" ng-click="cancel()"
+			aria-hidden="true">&times;</button>
+		<h3 class="modal-title wizard-title">Registrar Recomposici&oacute;n</h3>
+		<span class="wizard-subtitle"></span>
+	</div>
+	<div class="modal-body wizard-body">
+
+<!-- 		Lista de pasos del proceso -->
+		<div class="pull-left wizard-steps">
+		
+		</div>
+		
+		<div class="wizard-cards">			
+			<div class="wizard-card-container" style='height: 526px;'>
+<!-- 			En este punto se cargan los html por ajax  -->
+				<div ng-bind-html="html" carta="html"></div>
+			</div>
+<!--   <pre>{{form1 | json}}</pre> -->
+		</div>
+		
+		
+<!-- 		Botones en la parte baja de la pantalla -->
+		<div class="wizard-footer">
+			<div class="wizard-buttons-container">
+				<button class="btn wizard-cancel wizard-close" type="button" ng-click="cancelar()">Cancelar</button>
+				<div class="btn-group-single pull-right">
+					<button class="btn wizard-back" type="button" ng-disabled='vm.pasos===0' ng-click="regresar1()">Regresar</button>
+					<button class="btn wizard-next btn-primary" type="button"
+						ng-click="eventoBoton()" ng-disabled="form1.$invalid">Siguiente</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+

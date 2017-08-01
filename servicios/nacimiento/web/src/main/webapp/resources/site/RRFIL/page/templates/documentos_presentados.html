@@ -1,0 +1,28 @@
+<div class="col-sm-12">
+	<h3>Documentos presentados</h3>
+	<span id="separadorTitulos"></span>
+</div>
+<br>
+<form name="form1">
+	<div class="col-sm-12">
+		<div class="col-sm-9 form-group" ng-class="{'': vm.modelo.observacionesDoc.length<1, '': vm.modelo.observacionesDoc==undefined, 'has-error': vm.modelo.observacionesDoc.length==1, 'has-success':  vm.modelo.observacionesDoc.length>=2}">
+			<label class="row-sm-5 control-label"></label>
+			<div class="input-group row-sm-7">
+				<textarea type="text" name="vm.modelo.observacionesDoc"
+				ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						placeholder="Ejemplo: Documentos presentados"
+					class="input-sm form-control" ng-model="vm.modelo.observacionesDoc"
+					maxlength="200"></textarea>
+				<span class="input-group-addon" id="basic-addon1"> <span
+					ng-hide="vm.modelo.observacionesDoc!= undefined"></span> <span
+					ng-show="vm.modelo.observacionesDoc!= undefined"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+

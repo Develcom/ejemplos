@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+	 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<context:component-scan base-package="ve.gob.cne.sarc.nacimiento.web.nacimiento" />
+      <mvc:resources mapping="/tmp/**" location="file:///home/jboss/tmp/" />
+           <!--<mvc:resources mapping="/tmp/**" location="C:/tmp/" />-->
+	 <mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- <mvc:resources mapping="/pages/**" location="/resources/site/pages/"/> -->
+	<!-- <mvc:resources mapping="/js/**" location="/resources/site/js/"/> -->
+	<mvc:resources mapping="/webjars/**"
+		location="classpath:/META-INF/resources/webjars/" />
+
+	<!-- Recursos del modulo RADOP -->
+	<mvc:resources mapping="/RADOP/js/**" location="/resources/site/RADOP/js/" />
+	<mvc:resources mapping="/RADOP/page/**" location="/resources/site/RADOP/page/" />
+	<mvc:resources mapping="/RADOP/templates/**"
+		location="/resources/site/RADOP/page/templates/" />
+	<mvc:resources mapping="/RADOP/modal/**"
+		location="/resources/site/RADOP/page/modal/" />
+		
+		
+	<!-- Recursos del modulo RRECO -->
+	<mvc:resources mapping="/RRECO/js/**" location="/resources/site/RRECO/js/" />
+	<mvc:resources mapping="/RRECO/page/**" location="/resources/site/RRECO/page/" />
+	<mvc:resources mapping="/RRECO/templates/**"
+		location="/resources/site/RRECO/page/templates/" />
+	<mvc:resources mapping="/RRECO/modal/**"
+		location="/resources/site/RRECO/page/modal/" />
+		<!-- FIN Recursos del modulo RRECO -->
+		
+
+	<!-- Recursos del modulo RRFIL -->	
+	<mvc:resources mapping="/RRFIL/js/**" location="/resources/site/RRFIL/js/" />
+	<mvc:resources mapping="/RRFIL/page/**" location="/resources/site/RRFIL/page/" />
+	<mvc:resources mapping="/RRFIL/templates/**"
+		location="/resources/site/RRFIL/page/templates/" />
+	<mvc:resources mapping="/RRFIL/modal/**"
+		location="/resources/site/RRFIL/page/modal/" />
+
+	<!-- Recursos del modulo RNACI -->
+	<!-- <mvc:resources mapping="/RNACI/pages/**" location="/resources/site/RNACI/pages/"/> -->
+	<!-- <mvc:resources mapping="/RNACI/js/**" location="/resources/site/RNACI/js/"/> -->
+	<!-- <mvc:resources mapping="/RNACI/templates/**" location="/resources/site/RNACI/page/templates/"/> -->
+
+	<mvc:annotation-driven />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>

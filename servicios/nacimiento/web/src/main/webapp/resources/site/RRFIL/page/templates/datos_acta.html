@@ -1,0 +1,116 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Datos para la solicitud de la adopci&oacute;n</h4>
+	</div>
+	<div class="panel-body">
+		<div class="col-sm-12">
+			<h4>Datos del acta</h4>
+			<span id="separadorTitulos"></span>
+		</div>
+		<form name="form1">
+			<div class="col-sm-12">
+				<div class="col-sm-6">
+					<label class="col-sm-5 control-label">N&#176; de acta:</label>
+					<div class="input-group col-sm-6"
+						ng-class="{'has-error': vm.modelo.n_acta== undefined , 'has-success':  vm.modelo.n_acta!= undefined}">
+						<input type="text" uib-popover="{{validaciones.acta.mensaje}}"
+							popover-title="{{validaciones.acta.titulo}}"
+							popover-trigger="none"
+							popover-is-open="vm.errorTecla.n_acta" ng-blur="vm.onBlur"
+							ng-keydown="vm.onKeyDown($event,'acta','n_acta')"
+							ng-minlength="{{validaciones.acta.minimo}}"
+							ng-maxlength="{{validaciones.acta.maximo}}" maxlength="20"
+							placeholder="{{validaciones.acta.placeholder}}"
+							name="vm.modelo.n_acta" class="input-sm form-control"
+							ng-model="vm.modelo.n_acta" required> <span
+							class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.n_acta!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.n_acta!= undefined"></span>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="col-sm-4 control-label">N&#176; de folio:</label>
+					<div class="input-group col-sm-8"
+						ng-class="{'has-error': vm.modelo.n_folio== undefined , 'has-success':  vm.modelo.n_folio!= undefined}">
+						<input type="text" uib-popover="{{validaciones.folio.mensaje}}"
+							popover-title="{{validaciones.folio.titulo}}"
+							popover-trigger="none"
+							popover-is-open="vm.errorTecla.n_folio_adop" ng-blur="vm.onBlur"
+							ng-keydown="vm.onKeyDown($event,'folio','n_folio')"
+							ng-minlength="{{validaciones.folio.minimo}}"
+							ng-maxlength="{{validaciones.folio.maximo}}" maxlength="5"
+							placeholder="{{validaciones.folio.placeholder}}"
+							name="vm.modelo.n_folio" class="input-sm form-control"
+							ng-model="vm.modelo.n_folio" ng-pattern="fol" required>
+						<span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.n_folio!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.n_folio!= undefined"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="col-sm-6">
+					<label class="col-sm-5 control-label">Tomo:</label>
+					<div class="input-group col-sm-6"
+						ng-class="{'has-error': vm.modelo.n_tomo== undefined , 'has-success':  vm.modelo.n_tomo!= undefined}">
+						<input type="text" uib-popover="{{validaciones.tomo.mensaje}}"
+							popover-title="{{validaciones.tomo.titulo}}"
+							popover-trigger="none" popover-is-open="vm.errorTecla.n_tomo"
+							ng-blur="vm.onBlur"
+							ng-keydown="vm.onKeyDown($event,'tomo','n_tomo')"
+							ng-minlength="{{validaciones.tomo.minimo}}"
+							ng-maxlength="{{validaciones.tomo.maximo}}" 
+							maxlength="2"
+							placeholder="{{validaciones.tomo.placeholder}}"
+							name="vm.modelo.n_tomo" class="input-sm form-control"
+							ng-model="vm.modelo.n_tomo" required> <span
+							class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.n_tomo!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.n_tomo!= undefined"></span>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="col-sm-4 control-label">Oficina:</label>
+					<div class="input-group col-sm-8"
+						ng-class="{'has-error': vm.modelo.oficina== undefined , 'has-success':  vm.modelo.oficina!= undefined}">
+						<select title="vm.modelo.oficina" class="form-control input-sm"
+							name="vm.modelo.oficina" ng-model="vm.modelo.oficina"
+							ng-options="oficina.nombre for oficina in oficinas">
+							<option value="" selected>Seleccione</option>
+						</select> <span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.oficina!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.oficina!= undefined"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="col-sm-12">
+					<label class="col-sm-5 control-label">Fecha de
+						inscripci&oacute;n:</label>
+					<sw-calendar label="Fecha" vertical="true" type="text"
+						name="vm.modelo.fecha_reco" ng-model="vm.modelo.fecha_reco"
+						ng-class="{'has-error': vm.modelo.fecha_reco== undefined , 'has-success':  vm.modelo.fecha_reco!= undefined}"
+						required> <span class="input-group-addon"
+						id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo.fecha_reco!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo.fecha_reco!= undefined"></span>
+					</span> </sw-calendar>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

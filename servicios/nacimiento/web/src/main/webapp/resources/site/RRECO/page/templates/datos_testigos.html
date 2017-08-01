@@ -1,0 +1,539 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Datos de los testigos</h4>
+	</div>
+	<div class="panel-body">
+		<form name="form1">
+			<div class="col-sm-12 row acta">
+				<h4>Testigo 1 del acto</h4>
+			</div>
+			<span id="separadorTitulos"></span>
+			<div class="col-sm-12 form-group">
+				<div class="col-sm-8 form-group">
+					<label class="col-sm-8 control-label">Tipo de documento de
+						identificaci&oacute;n:</label>
+					<div class="input-group row-sm-4"
+						ng-show="vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre==='Nunca'"
+						ng-class="{'has-error': vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+						<select class="form-control input-sm"
+							name="vm.modelo['TA1'].tipoDocumento">
+							<option value="" selected disabled>Seleccione</option>
+							<option value="V">V-</option>
+							<option value="E">E-</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-4 form-group"
+					ng-class="{'has-error': vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+					<div class="input-group">
+						<select class="form-control input-sm"
+							ng-model="vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre"
+							name="vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre"
+							disabled required>
+							<option value="" selected>Seleccione</option>
+							<option value="CEDULA">C&Eacute;DULA/NUI</option>
+							<option value="PASAPORTE">PASAPORTE</option>
+						</select><span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span>
+							<span class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 form-group">
+				<div class="col-sm-8 form-group">
+					<label class="col-sm-9 control-label">N&uacute;mero de
+						documento de identificaci&oacute;n:</label>
+					<div class="input-group row-sm-4"
+						ng-show="vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre==='CEDULA'"
+						ng-class="{'has-error': vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['TA1'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+						<select class="form-control input-sm"
+							name="vm.modelo['TA1'].tipoDocumento"
+							ng-model="vm.modelo['TA1'].tipoDocumento" disabled>
+							<option value="" selected>Seleccione</option>
+							<option value="V">V-</option>
+							<option value="E">E-</option>
+						</select>
+					</div>
+				</div>
+				<div class="align-right">
+					<div class="col-sm-4 form-group">
+						<div class="input-group row-sm-12"
+							ng-class="{'has-error': vm.modelo['TA1'].documentoIdentidad[0].numero == undefined , 'has-success':  vm.modelo['TA1'].documentoIdentidad[0].numero!= undefined}">
+							<input type="text"
+								name="vm.modelo['TA1'].documentoIdentidad[0].numero"
+								class="input-sm form-control" ng-model="numTA1"
+								ng-init="setCedula6()" required disabled> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].documentoIdentidad[0].numero!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].documentoIdentidad[0].numero!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 form-group">
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Primer nombre:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].primerNombre== undefined , 'has-success':  vm.modelo['TA1'].primerNombre!= undefined}">
+						<div class="input-group">
+							<input type="text" name="vm.modelo['TA1'].primerNombre"
+								class="input-sm form-control"
+								ng-model="vm.modelo['TA1'].primerNombre" maxlength="50" disabled
+								required> <span class="input-group-addon"
+								id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].primerNombre!= undefined"></span> <span
+								class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].primerNombre!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Segundo nombre:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].segundoNombre== undefined , 'has-success': vm.modelo['TA1'].segundoNombre!= undefined}">
+						<div class="input-group">
+							<input type="text" name="vm.modelo['TA1'].segundoNombre"
+								class="input-sm form-control"
+								ng-model="vm.modelo['TA1'].segundoNombre" maxlength="50"
+								disabled> <span class="input-group-addon"
+								id="basic-addon1"> <span
+								ng-hide="vm.modelo['TA1'].segundoNombre!= undefined"></span> <span
+								ng-show="vm.modelo['TA1'].segundoNombre!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 form-group">
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Primer apellido:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].primerApellido== undefined , 'has-success': vm.modelo['TA1'].primerApellido!= undefined}">
+						<div class="input-group">
+							<input type="text" name="vm.modelo['TA1'].primerApellido"
+								class="input-sm form-control"
+								ng-model="vm.modelo['TA1'].primerApellido" maxlength="50"
+								disabled required> <span class="input-group-addon"
+								id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].primerApellido!= undefined"></span> <span
+								class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].primerApellido!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Segundo apellido:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].segundoApellido== undefined , 'has-success': vm.modelo['TA1'].segundoApellido!= undefined}">
+						<div class="input-group">
+							<input type="text" name="vm.modelo['TA1'].segundoApellido"
+								class="input-sm form-control"
+								ng-model="vm.modelo['TA1'].segundoApellido" maxlength="50"
+								disabled> <span class="input-group-addon"
+								id="basic-addon1"> <span
+								ng-hide="vm.modelo['TA1'].segundoApellido!= undefined"></span> <span
+								ng-show="vm.modelo['TA1'].segundoApellido!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 form-group">
+				<div class="col-sm-4 form-group">
+					<label class="col-sm-12 control-label">Profesi&oacute;n u
+						ocupaci&oacute;n:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].profesion== undefined , 'has-success':  vm.modelo['TA1'].profesion!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['TA1'].profesion"
+								ng-model="vm.modelo['TA1'].profesion"
+								ng-options="ocupacion.nombre for ocupacion in ocupaciones"
+								required>
+								<option value="" selected>Seleccione</option>
+							</select> <span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].profesion!= undefined"></span> <span
+								class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].profesion!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2 form-group">
+					<label class="col-sm-12 control-label">Edad: </label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].edad== undefined , 'has-success':  vm.modelo['TA1'].edad!= undefined}">
+						<div class="input-group">
+							<input type="text" name="vm.modelo['TA1'].edad"
+								class="input-sm form-control" ng-model="vm.modelo['TA1'].edad"
+								disabled ng-init="edadTA1()" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].edad!= undefined"></span> <span
+								class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].edad!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6" ng-show="vm.modelo['TA1'].tipoDocumento=='V'">
+					<label class="col-sm-12 control-label"> Nacionalidad: </label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].tipoDocumento== undefined , 'has-success':  vm.modelo['TA1'].tipoDocumento!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								ng-model="vm.modelo['TA1'].nacionalidad"
+								name="vm.modelo['TA1'].tipoDocumento"
+								ng-disabled="vm.modelo['TA1'].tipoDocumento=='V'">
+								<option value="" selected disabled>VENEZOLANA</option>
+							</select> <span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].tipoDocumento!= undefined"></span> <span
+								class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].tipoDocumento!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6" ng-show="vm.modelo['TA1'].tipoDocumento!='V'">
+					<label class="col-sm-12 control-label">Nacionalidad:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].tipoDocumento== undefined , 'has-success':  vm.modelo['TA2'].tipoDocumento!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['TA1'].tipoDocumento"
+								ng-model="vm.modelo['TA1'].nacionalidad"
+								ng-options="nacionalidad.nombre for nacionalidad in nacionalidades">
+								<option value="" selected>Seleccione</option>
+							</select> <span class="input-group-addon" id="basic-addon1"> <span
+								ng-hide="vm.modelo['TA1'].tipoDocumento!= undefined"></span> <span
+								ng-show="vm.modelo['TA1'].tipoDocumento!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 form-group">
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Residencia:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].residencia== undefined , 'has-success':  vm.modelo['TA1'].residencia!= undefined}">
+						<div class="input-group">
+							<input type="text"
+								uib-popover="{{validaciones.direccion.mensaje}}"
+								popover-title="{{validaciones.direccion.titulo}}"
+								popover-trigger="none"
+								popover-is-open="vm.errorTecla.residencia" ng-blur="vm.onBlur"
+								ng-keydown="vm.onKeyDown($event,'direccion','residencia')"
+								ng-minlength="{{validaciones.direccion.minimo}}"
+								ng-maxlength="{{validaciones.direccion.maximo}}"
+								placeholder="{{validaciones.direccion.placeholder}}"
+								maxlength="200" name="vm.modelo['TA1'].residencia"
+								class="input-sm form-control"
+								ng-model="vm.modelo['TA1'].residencia" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA1'].residencia!= undefined"></span> <span
+								class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA1'].residencia!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Comunidad o Pueblo
+						Ind&iacute;gena:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['TA1'].comunidadInd== undefined , 'has-success': vm.modelo['TA1'].comunidadInd!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['TA1'].comunidadInd"
+								ng-model="vm.modelo['TA1'].comunidadInd"
+								ng-options="comunidad.nombre for comunidad in comunidades">
+								<option value="" selected>Seleccione</option>
+							</select> <span class="input-group-addon" id="basic-addon1"> <span
+								ng-hide="vm.modelo['TA1'].comunidadInd!= undefined"></span> <span
+								ng-show="vm.modelo['TA1'].comunidadInd!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 row acta">
+					<h4>Testigo 2 del acto</h4>
+				</div>
+				<span id="separadorTitulos"></span>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-8 form-group">
+						<label class="col-sm-8 control-label">Tipo de documento de
+							identificaci&oacute;n:</label>
+						<div class="input-group row-sm-4"
+							ng-show="vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre==='Nunca'"
+							ng-class="{'has-error': vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+							<select class="form-control input-sm"
+								name="vm.modelo['TA2'].tipoDocumento">
+								<option value="" selected disabled>Seleccione</option>
+								<option value="V">V-</option>
+								<option value="E">E-</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-4 form-group"
+						ng-class="{'has-error': vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								ng-model="vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre"
+								name="vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre"
+								disabled required>
+								<option value="" selected>Seleccione</option>
+								<option value="CEDULA">C&Eacute;DULA/NUI</option>
+								<option value="PASAPORTE">PASAPORTE</option>
+							</select><span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre!= undefined"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-8 form-group">
+						<label class="col-sm-9 control-label">N&uacute;mero de
+							documento de identificaci&oacute;n:</label>
+						<div class="input-group row-sm-4"
+							ng-show="vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre==='CEDULA'"
+							ng-class="{'has-error': vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['TA2'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+							<select class="form-control input-sm"
+								name="vm.modelo['TA2'].tipoDocumento"
+								ng-model="vm.modelo['TA2'].tipoDocumento" disabled>
+								<option value="" selected>Seleccione</option>
+								<option value="V">V-</option>
+								<option value="E">E-</option>
+							</select>
+						</div>
+					</div>
+					<div class="align-right">
+						<div class="col-sm-4 form-group">
+							<div class="input-group row-sm-12"
+								ng-class="{'has-error': vm.modelo['TA2'].documentoIdentidad[0].numero == undefined , 'has-success':  vm.modelo['TA2'].documentoIdentidad[0].numero!= undefined}">
+								<input type="text"
+									name="vm.modelo['TA2'].documentoIdentidad[0].numero"
+									class="input-sm form-control" ng-init="setCedula7()"
+									ng-model="numTA2" required disabled> <span
+									class="input-group-addon" id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].documentoIdentidad[0].numero!= undefined"></span>
+									<span class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].documentoIdentidad[0].numero!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-12 control-label">Primer nombre:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].primerNombre== undefined , 'has-success':  vm.modelo['TA2'].primerNombre!= undefined}">
+							<div class="input-group">
+								<input type="text" name="vm.modelo['TA2'].primerNombre"
+									class="input-sm form-control"
+									ng-model="vm.modelo['TA2'].primerNombre" maxlength="50"
+									disabled required> <span class="input-group-addon"
+									id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].primerNombre!= undefined"></span> <span
+									class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].primerNombre!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-12 control-label">Segundo nombre:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].segundoNombre== undefined , 'has-success': vm.modelo['TA2'].segundoNombre!= undefined}">
+							<div class="input-group">
+								<input type="text" name="vm.modelo['TA2'].segundoNombre"
+									class="input-sm form-control"
+									ng-model="vm.modelo['TA2'].segundoNombre" maxlength="50"
+									disabled> <span class="input-group-addon"
+									id="basic-addon1"> <span
+									ng-hide="vm.modelo['TA2'].segundoNombre!= undefined"></span> <span
+									ng-show="vm.modelo['TA2'].segundoNombre!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-12 control-label">Primer apellido:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].primerApellido== undefined , 'has-success': vm.modelo['TA2'].primerApellido!= undefined}">
+							<div class="input-group">
+								<input type="text" name="vm.modelo['TA2'].primerApellido"
+									class="input-sm form-control"
+									ng-model="vm.modelo['TA2'].primerApellido" maxlength="50"
+									disabled required> <span class="input-group-addon"
+									id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].primerApellido!= undefined"></span> <span
+									class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].primerApellido!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-12 control-label">Segundo apellido:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].segundoApellido== undefined , 'has-success': vm.modelo['TA2'].segundoApellido!= undefined}">
+							<div class="input-group">
+								<input type="text" name="vm.modelo['TA2'].segundoApellido"
+									class="input-sm form-control"
+									ng-model="vm.modelo['TA2'].segundoApellido" maxlength="50"
+									disabled> <span class="input-group-addon"
+									id="basic-addon1"> <span
+									ng-hide="vm.modelo['TA2'].segundoApellido!= undefined"></span>
+									<span ng-show="vm.modelo['TA2'].segundoApellido!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-4 form-group">
+						<label class="col-sm-12 control-label">Profesi&oacute;n u
+							ocupaci&oacute;n:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].profesion== undefined , 'has-success':  vm.modelo['TA2'].profesion!= undefined}">
+							<div class="input-group">
+								<select class="form-control input-sm"
+									name="vm.modelo['TA2'].profesion"
+									ng-model="vm.modelo['TA2'].profesion"
+									ng-options="ocupacion.nombre for ocupacion in ocupaciones"
+									required>
+									<option value="" selected>Seleccione</option>
+								</select> <span class="input-group-addon" id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].profesion!= undefined"></span> <span
+									class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].profesion!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 form-group">
+						<label class="col-sm-12 control-label">Edad: </label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].edad== undefined , 'has-success':  vm.modelo['TA2'].edad!= undefined}">
+							<div class="input-group">
+								<input type="text" name="vm.modelo['TA2'].edad"
+									class="input-sm form-control" ng-model="vm.modelo['TA2'].edad"
+									disabled ng-init="edadTA2()" required> <span
+									class="input-group-addon" id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].edad!= undefined"></span> <span
+									class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].edad!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6" ng-show="vm.modelo['TA2'].tipoDocumento=='V'">
+						<label class="col-sm-12 control-label"> Nacionalidad: </label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].tipoDocumento== undefined , 'has-success':  vm.modelo['TA2'].tipoDocumento!= undefined}">
+							<div class="input-group">
+								<select class="form-control input-sm"
+									ng-model="vm.modelo['TA2'].nacionalidad"
+									name="vm.modelo['TA2'].tipoDocumento"
+									ng-disabled="vm.modelo['TA2'].tipoDocumento=='V'">
+									<option value="" selected disabled>VENEZOLANA</option>
+								</select> <span class="input-group-addon" id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].tipoDocumento!= undefined"></span> <span
+									class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].tipoDocumento!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6" ng-show="vm.modelo['TA2'].tipoDocumento!='V'">
+						<label class="col-sm-12 control-label">Nacionalidad:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].tipoDocumento== undefined , 'has-success':  vm.modelo['TA2'].tipoDocumento!= undefined}">
+							<div class="input-group">
+								<select class="form-control input-sm"
+									name="vm.modelo['TA2'].tipoDocumento"
+									ng-model="vm.modelo['TA2'].nacionalidad"
+									ng-options="nacionalidad.nombre for nacionalidad in nacionalidades">
+									<option value="" selected>Seleccione</option>
+								</select> <span class="input-group-addon" id="basic-addon1"> <span
+									ng-hide="vm.modelo['TA2'].tipoDocumento!= undefined"></span> <span
+									ng-show="vm.modelo['TA2'].tipoDocumento!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-12 control-label">Residencia:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].residencia== undefined , 'has-success':  vm.modelo['TA2'].residencia!= undefined}">
+							<div class="input-group">
+								<input type="text"
+									uib-popover="{{validaciones.direccion.mensaje}}"
+									popover-title="{{validaciones.direccion.titulo}}"
+									popover-trigger="none"
+									popover-is-open="vm.errorTecla.residencia" ng-blur="vm.onBlur"
+									ng-keydown="vm.onKeyDown($event,'direccion','residencia')"
+									ng-minlength="{{validaciones.direccion.minimo}}"
+									ng-maxlength="{{validaciones.direccion.maximo}}"
+									placeholder="{{validaciones.direccion.placeholder}}"
+									maxlength="200" name="vm.modelo['TA2'].residencia"
+									class="input-sm form-control"
+									ng-model="vm.modelo['TA2'].residencia" required> <span
+									class="input-group-addon" id="basic-addon1"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-hide="vm.modelo['TA2'].residencia!= undefined"></span> <span
+									class="glyphicon glyphicon-ok"
+									ng-show="vm.modelo['TA2'].residencia!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-12 control-label">Comunidad o Pueblo
+							Ind&iacute;gena:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo['TA2'].comunidadInd== undefined , 'has-success': vm.modelo['TA2'].comunidadInd!= undefined}">
+							<div class="input-group">
+								<select class="form-control input-sm"
+									name="vm.modelo['TA2'].comunidadInd"
+									ng-model="vm.modelo['TA2'].comunidadInd"
+									ng-options="comunidad.nombre for comunidad in comunidades">
+									<option value="" selected>Seleccione</option>
+								</select> <span class="input-group-addon" id="basic-addon1"> <span
+									ng-hide="vm.modelo['TA2'].comunidadInd!= undefined"></span> <span
+									ng-show="vm.modelo['TA2'].comunidadInd!= undefined"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

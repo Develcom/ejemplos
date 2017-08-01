@@ -1,0 +1,178 @@
+<div class="col-sm-12">
+	<h3>Inscripci&oacute;n de medida de protecci&oacute;n</h3>
+	<span id="separadorTitulos"></span>
+</div>
+<form name="form1">
+
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Consejo de
+				protecci&oacute;n:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['medidaProteccion'].consejoProteccion== undefined , 'has-success':  vm.modelo['medidaProteccion'].consejoProteccion!= undefined}">
+				<div class="input-group">
+					<input type="text" name="vm.modelo['medidaProteccion'].consejoProteccion"
+						class="input-sm form-control"
+						ng-model="vm.modelo['medidaProteccion'].consejoProteccion" maxlength="50" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['medidaProteccion'].consejoProteccion!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['medidaProteccion'].consejoProteccion!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Medida Nro.:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['medidaProteccion'].medidaNro== undefined , 'has-success':  vm.modelo['medidaProteccion'].medidaNro!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de Medida Nro."
+						ng-pattern="vPatron.medidaNro" custom-popover
+						popover-contenido="{{vPatron.Fnumero | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{medidaNro == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownNumerico($event,'vPatron.excepciones','medidaNro')"
+						popover-is-open="errorTecla.medidaNro" ng-blur="onBlur"
+						placeholder="Ejemplo: 12345678" name="vm.modelo['medidaProteccion'].medidaNro"
+						class="input-sm form-control" ng-model="vm.modelo['medidaProteccion'].medidaNro"
+						ng-disabled="disabled" required> <span
+						class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['medidaProteccion'].medidaNro!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['medidaProteccion'].medidaNro!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label"> Fecha</label>
+			<div class="col-sm-12 form-group">
+				<sw-calendar label="Fecha" vertical="true" type="text"
+					name="vm.modelo['medidaProteccion'].fechaMedidaProteccion"
+					ng-model="vm.modelo['medidaProteccion'].fechaMedidaProteccion"
+					ng-class="{'has-error': vm.modelo['medidaProteccion'].fechaMedidaProteccion== undefined , 'has-success':  vm.modelo['medidaProteccion'].fechaMedidaProteccion!= undefined}"
+					required> <span class="input-group-addon"
+					id="basic-addon1"> <span
+					class="glyphicon glyphicon-asterisk"
+					ng-hide="vm.modelo['medidaProteccion'].fechaMedidaProteccion!= undefined"></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="vm.modelo['medidaProteccion'].fechaMedidaProteccion!= undefined"></span></span> </sw-calendar>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<h4>Datos de la autoridad que lo expide</h4>
+		<span id="separadorTitulos"></span>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer nombre:</label>
+			<div class="col-sm-12 form-group "
+				ng-class="{'has-error': vm.modelo['medidaProteccion'].primerNombre== undefined , 'has-success':  vm.modelo['medidaProteccion'].primerNombre!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los nombres"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{primerNombre == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerNombre')"
+						popover-is-open="errorTecla.primerNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Juan" name="vm.modelo['medidaProteccion'].primerNombre"
+						class="input-sm form-control"
+						ng-model="vm.modelo['medidaProteccion'].primerNombre" ng-disabled="disabled" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['medidaProteccion'].primerNombre!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['medidaProteccion'].primerNombre!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo nombre:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'': vm.modelo['medidaProteccion'].segundoNombre== undefined , 'has-success':  vm.modelo['medidaProteccion'].segundoNombre!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los nombres"
+						ng-pattern="vPatron.FormatoNombres" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{segundoNombre == undefined}}" maxlength="50"
+						minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoNombre')"
+						popover-is-open="errorTecla.segundoNombre" ng-blur="onBlur"
+						placeholder="Ejemplo: Alejandro"
+						name="vm.modelo['medidaProteccion'].segundoNombre"
+						class="input-sm form-control"
+						ng-model="vm.modelo['medidaProteccion'].segundoNombre" ng-disabled="disabled">
+					<span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['medidaProteccion'].segundoNombre!= undefined"></span> <span
+						ng-show="vm.modelo['medidaProteccion'].segundoNombre!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Primer apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['medidaProteccion'].primerApellido== undefined , 'has-success':  vm.modelo['medidaProteccion'].primerApellido!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los apellidos"
+						ng-pattern="vPatron.primerApellido" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{primerApellido == undefined}}"
+						maxlength="50" minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerApellido')"
+						popover-is-open="errorTecla.primerApellido" ng-blur="onBlur"
+						placeholder="Ejemplo: Salazar"
+						name="vm.modelo['medidaProteccion'].primerApellido"
+						class="input-sm form-control"
+						ng-model="vm.modelo['medidaProteccion'].primerApellido" ng-disabled="disabled" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['medidaProteccion'].primerApellido!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['medidaProteccion'].primerApellido!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Segundo apellido:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'': vm.modelo['medidaProteccion'].segundoApellido== undefined , 'has-success':  vm.modelo['medidaProteccion'].segundoApellido!= undefined}">
+				<div class="input-group">
+					<input type="text" popover-tittle="Formato de los apellidos"
+						ng-pattern="vPatron.segundoApellido" custom-popover
+						popover-contenido="{{vPatron.AlfaText | json}}"
+						popover-placement="top" popover-label="Label"
+						popover-validation="{{segundoApellido == undefined}}"
+						maxlength="50" minlength="2"
+						ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoApellido')"
+						popover-is-open="errorTecla.segundoApellido" ng-blur="onBlur"
+						placeholder="Ejemplo: Romero"
+						name="vm.modelo['medidaProteccion'].segundoApellido"
+						class="input-sm form-control"
+						ng-model="vm.modelo['medidaProteccion'].segundoApellido"
+						ng-model-options="{ allowInvalid: true }" ng-disabled="disabled">
+					<span class="input-group-addon" id="basic-addon1"> <span
+						ng-hide="vm.modelo['medidaProteccion'].segundoApellido!= undefined"></span> <span
+						ng-show="vm.modelo['medidaProteccion'].segundoApellido!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

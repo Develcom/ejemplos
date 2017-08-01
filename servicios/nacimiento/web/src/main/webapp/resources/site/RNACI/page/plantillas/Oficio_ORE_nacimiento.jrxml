@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-10-10T13:39:41 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Oficio_ORE_nacimiento" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="85" bottomMargin="85" uuid="cd6a61d4-8478-4741-b132-143c59442839">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="oficinaRegistro" class="java.lang.String"/>
+	<parameter name="nResolucion" class="java.lang.String"/>
+	<parameter name="fResolucion" class="java.lang.String"/>
+	<parameter name="nGaceta" class="java.lang.String"/>
+	<parameter name="fGaceta" class="java.lang.String"/>
+	<parameter name="numeroConsecutivo" class="java.lang.String"/>
+	<parameter name="nombreDirectorOficina" class="java.lang.String"/>
+	<parameter name="estadoOficina" class="java.lang.String"/>
+	<parameter name="nombreCiudadano" class="java.lang.String"/>
+	<parameter name="cedulaCiudadano" class="java.lang.String"/>
+	<parameter name="nombreNacimiento" class="java.lang.String"/>
+	<parameter name="lugarNacimiento" class="java.lang.String"/>
+	<parameter name="parroquiaNacimiento" class="java.lang.String"/>
+	<parameter name="municipioNacimiento" class="java.lang.String"/>
+	<parameter name="estadoNacimiento" class="java.lang.String"/>
+	<parameter name="fechaNacimiento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="340" y="0" width="100" height="20" uuid="3ce32c5d-0141-4d8b-94dd-be023aea600a"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Lugar y fecha ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="426" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e4e71dca-09d7-414f-ba2e-b2985f090d40"/>
+				<textFieldExpression><![CDATA["N° " + ($P{numeroConsecutivo}==null ? "________" : $P{numeroConsecutivo})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="26" width="430" height="60" uuid="488aecf0-9d7f-4b1f-bd2b-95efb1f1809b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Ciudadano(a) <br><b>" +
+($P{nombreDirectorOficina}==null?"_____(nombre, apellido)_____ ":$P{nombreDirectorOficina}) +
+"</b><br>Director(a) de la Oficina Regional Electoral del Estado  <b>" + ($P{estadoOficina}==null?"______________":$P{estadoOficina}) +
+"</b><br>Su despacho.- "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="109" width="277" height="20" uuid="11a0d808-d3c7-47ce-8dee-3d86ea2d6dca"/>
+				<textElement textAlignment="Right" markup="html"/>
+				<textFieldExpression><![CDATA["<b> Atencion:</b> Coordinación General del Regsitro Civil."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="151" width="440" height="140" uuid="dbdca6cd-c0f0-40df-a4b4-90162dd21303"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["Tengo el agrado de dirigirme a usted en la oportunidad de saludarle cordialmente y a su vez informarle que el(la) ciudadano(a) <b>" + ($P{nombreCiudadano}==null?"______________":$P{nombreCiudadano}) + "</b>, titular del documento de identificación N° <b>" + ($P{cedulaCiudadano}==null?"_________________":$P{cedulaCiudadano}) + "</b> manifestó que se le han extraviado los ejemplares del Certificado Médico de Nacimiento EV-25, perteneciente a su hijo(a) <b>" + ($P{nombreNacimiento}==null?"______":$P{nombreNacimiento}) + "</b>, quien nació en <b>" + ($P{lugarNacimiento}==null?"______":$P{lugarNacimiento}) + "</b> ubicado en la parroquia <b>" + ($P{parroquiaNacimiento}==null?"_________":$P{parroquiaNacimiento}) + "</b>, del municipio<b>" + ($P{municipioNacimiento}==null?"_________":$P{municipioNacimiento}) + "</b>, estado <b>" + ($P{estadoNacimiento}==null?"_________":$P{estadoNacimiento}) + "</b>, en fecha <b>" + ($P{fechaNacimiento}==null?"_________":$P{fechaNacimiento}) + "</b>, esta comunicación se realiza a los fines de que se realice la notificación al Ministerio con competencia en Salud.       <br><br><br>" +
+
+"Sin otro particular a que hacer referencia, se despide de usted,<br>" +
+"Atentamente;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="312" width="442" height="96" uuid="7939e97a-82ff-4cad-9a5c-a81089c5ba9d"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registrador (a) Civil <br> Oficina/Unidad de Registro Civil de <br>" +
+($P{oficinaRegistro}==null ? "_______________________________" : $P{oficinaRegistro}) +
+"<br>Resolución Nº "+($P{nResolucion}== null ? "_____________" : $P{nResolucion})+", fecha "+($P{fResolucion}==null ? "__________" : $P{fResolucion})+
+"<br>Gaceta "+($P{nGaceta}==null ? "____________________" : $P{nGaceta})+", fecha "+($P{fGaceta}==null ? "__________" : $P{fGaceta})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

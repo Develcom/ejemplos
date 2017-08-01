@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Solicitud de registro de nacimiento</h4>
+	</div>
+</div>
+
+	
+	
+		<div class="col-sm-12"><p>&#191Mandatario o apoderado?</p>
+			<div class="col-sm-4 ">
+				<center>
+					<label class='radio-inline'> <input type='radio' ng-model="vm.modelo.pojo.mandatario" ng-value="true" ng-disabled="true" > Si
+					</label>
+				</center>
+			</div>
+
+			<div class="col-sm-4">
+				<label class='radio-inline' > <input type='radio' ng-model="vm.modelo.pojo.mandatario" ng-value="false" ng-disabled="true" > No
+				</label>
+			</div>
+		</div>
+
+		<div class="col-sm-12">
+			<div class="radio">
+				<label> <input type="radio" name="radio" ng-click="vm.primeraVista()" ng-model="vm.modelo.pojo.inscripcion"  ng-disabled="vm.dLugarNacimiento"
+					ng-value="true" required> Por inscripci&oacute;n
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" name="radio" ng-click="vm.primeraVista()" ng-model="vm.modelo.pojo.inscripcion"  ng-disabled="vm.dLugarNacimiento"
+					ng-value="false" required> Por inserci&oacute;n
+				</label>
+			</div>
+		</div>

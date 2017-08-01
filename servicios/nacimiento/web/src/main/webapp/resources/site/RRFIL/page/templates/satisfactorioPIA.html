@@ -1,0 +1,38 @@
+
+<div class="wizard-card-container col-sm-12" style='height: 500px; width: 100%;'>
+ 
+
+	 <div >  
+        <h3>Acta de Nacimiento</h3>
+         <span id="separadorTitulos"></span>
+    </div>
+
+ 	<div   >
+		<div class="panel-body">
+			<div class="col-sm-12">
+				<div class="alert alert-success" role="alert">
+					<div class="container-fluid">
+						<div class="row">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							<!-- Se han autenticado correctamente todos los participantes del acto ng-bind-html="vm.modelo.mensaje" -->
+                                                     <!--
+                           {{vm.modelo.mensaje}}  -->
+                            <em ng-bind-html="vm.modelo.mensaje"></em>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wizard-buttons-container">
+		<!--                                     	<button type="button" class="btn btn-danger wizard-cancel wizard-close" ng-show="!vm.user.success" ng-click="vm.cancelar()">Cancelar</button>   -->
+		<div class="btn-group-single pull-right">
+			<!--     <button ng-click="vm.regresar()"  ng-disabled="vm.vistas.lenght === 0" class="btn btn-default wizard-back" type="button">Regresar</button> -->
+			<span>
+				<button ng-click="vm.finalizar()"
+					class="btn btn-success wizard-next" type="button">Finalizar</button>
+			</span>
+		</div>
+	</div>
+	<!-- fin wizard-buttons-container-->
+</div>

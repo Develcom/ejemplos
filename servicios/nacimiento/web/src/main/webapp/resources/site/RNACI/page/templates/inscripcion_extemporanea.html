@@ -1,0 +1,67 @@
+<div class="col-sm-12">
+	<h3>Inscripci&oacute;n extempor&aacute;nea</h3>
+	<span id="separadorTitulos"></span>
+</div>
+
+<form name="form1">
+
+	<div class="col-sm-12">
+		<div class="col-sm-12 form-group">
+			<label class="col-sm-12 control-label">Datos del informe del
+				Consejo de protecci&oacute;n o Providencia administrativa N°:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['inscripcionExtemporanea'].consejoProteccion== undefined , 'has-success':  vm.modelo['inscripcionExtemporanea'].consejoProteccion!= undefined}">
+				<div class="input-group">
+					<input type="text" name="vm.modelo['inscripcionExtemporanea'].consejoProteccion"
+						class="input-sm form-control"
+						ng-model="vm.modelo['inscripcionExtemporanea'].consejoProteccion" maxlength="50" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['inscripcionExtemporanea'].consejoProteccion!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['inscripcionExtemporanea'].consejoProteccion!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label">Autoridad que lo
+				expide:</label>
+			<div class="col-sm-12 form-group"
+				ng-class="{'has-error': vm.modelo['inscripcionExtemporanea'].autoridadExpide== undefined , 'has-success': vm.modelo['inscripcionExtemporanea'].autoridadExpide!= undefined}">
+				<div class="input-group">
+					<input type="text" name="vm.modelo['inscripcionExtemporanea'].autoridadExpide"
+						class="input-sm form-control"
+						ng-model="vm.modelo['inscripcionExtemporanea'].autoridadExpide" maxlength="50" required>
+					<span class="input-group-addon" id="basic-addon1"> <span
+						class="glyphicon glyphicon-asterisk"
+						ng-hide="vm.modelo['inscripcionExtemporanea'].autoridadExpide!= undefined"></span> <span
+						class="glyphicon glyphicon-ok"
+						ng-show="vm.modelo['inscripcionExtemporanea'].autoridadExpide!= undefined"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group">
+			<label class="col-sm-12 control-label"> Fecha</label>
+			<div class="col-sm-12 form-group">
+				<sw-calendar label="Fecha" vertical="true" type="text"
+					name="vm.modelo['inscripcionExtemporanea'].fechaInsExtemporanea"
+					ng-model="vm.modelo['inscripcionExtemporanea'].fechaInsExtemporanea"
+					ng-class="{'has-error': vm.modelo['inscripcionExtemporanea'].fechaInsExtemporanea== undefined , 'has-success':  vm.modelo['inscripcionExtemporanea'].fechaInsExtemporanea!= undefined}"
+					required> <span class="input-group-addon"
+					id="basic-addon1"> <span
+					class="glyphicon glyphicon-asterisk"
+					ng-hide="vm.modelo['inscripcionExtemporanea'].fechaInsExtemporanea!= undefined"></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="vm.modelo['inscripcionExtemporanea'].fechaInsExtemporanea!= undefined"></span></span> </sw-calendar>
+			</div>
+		</div>
+	</div>
+</form>

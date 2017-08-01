@@ -1,0 +1,126 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Datos del(la) reconocido(a)</h4>
+	</div>
+	<div class="panel-body">
+		<form name="form1">
+			<div class="col-sm-12">
+				<label>Lugar de residencia</label> <span id="separadorTitulos"></span>
+			</div>
+			<div class="col-sm-12">
+				<div class="col-sm-4 form-group">
+					<label class="col-sm-12 control-label"> Pa&iacute;s:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['RECO'].direccion[0].pais== undefined , 'has-success':  vm.modelo['RECO'].direccion[0].pais!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['RECO'].direccion[0].pais"
+								ng-model="vm.modelo['RECO'].direccion[0].pais"
+								ng-options="pais.nombre for pais in pais"
+								ng-change="buscarEstado5()" required>
+								<option value="" selected disabled>Seleccione</option>
+							</select><span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['RECO'].direccion[0].pais!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['RECO'].direccion[0].pais!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label class="col-sm-12 control-label">Estado:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['RECO'].direccion[0].estado== undefined , 'has-success':  vm.modelo['RECO'].direccion[0].estado!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['RECO'].direccion[0].estado"
+								ng-required="vm.modelo['RECO'].direccion[0].pais == 'VEN' "
+								ng-change="buscarMunicipio5()"
+								ng-model="vm.modelo['RECO'].direccion[0].estado"
+								ng-options="estado.nombre for estado in estados">
+								<option value="" selected>Seleccione</option>
+							</select> <span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['RECO'].direccion[0].estado!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['RECO'].direccion[0].estado!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label class="col-sm-12 control-label"> Municipio: </label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['RECO'].direccion[0].municipio== undefined , 'has-success':  vm.modelo['RECO'].direccion[0].municipio!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['RECO'].direccion[0].municipio"
+								ng-model="vm.modelo['RECO'].direccion[0].municipio"
+								ng-options="municipio.nombre for municipio in municipios"
+								ng-change="buscarParroquia5()"
+								ng-required="vm.modelo['RECO'].direccion[0].pais.codigo=='VEN'">
+								<option value="" selected>Seleccione</option>
+							</select><span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['RECO'].direccion[0].municipio!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['RECO'].direccion[0].municipio!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="col-sm-4 form-group">
+					<label class="col-sm-12 control-label"> Parroquia: </label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['RECO'].direccion[0].parroquia== undefined , 'has-success':  vm.modelo['RECO'].direccion[0].parroquia!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm"
+								name="vm.modelo['RECO'].direccion[0].parroquia"
+								ng-model="vm.modelo['RECO'].direccion[0].parroquia"
+								ng-options="parroquia.nombre for parroquia in parroquias"
+								ng-required="vm.modelo['RECO'].direccion[0].pais.codigo=='VEN'">
+								<option value="" selected disabled>Seleccione</option>
+							</select><span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['RECO'].direccion[0].parroquia!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['RECO'].direccion[0].parroquia!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 form-group">
+					<label class="col-sm-12 control-label">Av / Calle / Casa / Edificio /Apartamento:</label>
+					<div class="col-sm-12 form-group"
+						ng-class="{'has-error': vm.modelo['RECO'].residencia== undefined , 'has-success':  vm.modelo['RECO'].residencia!= undefined}">
+						<div class="input-group">
+							<input type="text"
+								uib-popover="{{validaciones.direccion.mensaje}}"
+								popover-title="{{validaciones.direccion.titulo}}"
+								popover-trigger="none"
+								popover-is-open="vm.errorTecla.residencia" ng-blur="vm.onBlur"
+								ng-keydown="vm.onKeyDown($event,'direccion','residencia')"
+								ng-minlength="{{validaciones.direccion.minimo}}"
+								ng-maxlength="{{validaciones.direccion.maximo}}"
+								placeholder="{{validaciones.direccion.placeholder}}"
+								name="vm.modelo['RECO'].residencia"
+								class="input-sm form-control"
+								ng-model="vm.modelo['RECO'].residencia" 
+								maxlength="200"
+								required> <span class="input-group-addon"
+								id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo['RECO'].residencia!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo['RECO'].residencia!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

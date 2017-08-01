@@ -1,0 +1,94 @@
+
+<div class="col-sm-12">
+	<h4>Datos del ciudadano(a) notificar</h4>
+	<span id="separadorTitulos"></span>
+</div>
+<br>
+<div class="col-sm-12">
+	<h4>Informaci&oacute;n de Contacto</h4>
+	<span id="separadorTitulos"></span>
+</div>
+
+<br>
+
+<form name="dInfoForm">
+
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group"
+			ng-class="{ 'has-error': dInfoForm.diTelf.$touched && dInfoForm.diTelf.$invalid , 'has-success': dInfoForm.diTelf.$touched && dInfoForm.diTelf.$valid }">
+			<label class="col-sm-5 control-label"><span
+				class="glyphicon glyphicon-asterisk no"
+				ng-hide="dInfoForm.diTelf.$valid "></span> <span
+				class="glyphicon glyphicon-ok"
+				ng-show="dInfoForm.diTelf.$touched && dInfoForm.diTelf.$valid "></span>
+				Tel&eacute;fono Local: </label>
+			<div class="input-group col-sm-7">
+
+				<input type="number" name="diTelf" class="form-control input-sm"
+					ng-model="main.diTelf" ng-minlength="5" ng-maxlength="10" required>
+
+				<div class="help-block" ng-messages="dInfoForm.diTelf.$error"
+					ng-if="dInfoForm.diTelf.$touched">
+					<p ng-message="minlength">numero de telefono muy corto.</p>
+					<p ng-message="maxlength">numero de telefono muy largo</p>
+					<p ng-message="required">numero de telefono requerido</p>
+					<p ng-message="number">numero de telefono no debe tener
+						letras</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 form-group"
+			ng-class="{ 'has-error': dInfoForm.diCel.$touched && dInfoForm.diCel.$invalid , 'has-success': dInfoForm.diCel.$touched && dInfoForm.diCel.$valid }">
+			<label class="col-sm-5 control-label"><span
+				class="glyphicon glyphicon-asterisk no"
+				ng-hide="dInfoForm.diCel.$valid "></span> <span
+				class="glyphicon glyphicon-ok"
+				ng-show="dInfoForm.diCel.$touched && dInfoForm.diCel.$valid "></span>
+				Tel&eacute;fono Celular: </label>
+			<div class="input-group col-sm-7">
+
+				<input type="number" name="diCel" class="form-control input-sm"
+					ng-model="main.diCel" ng-minlength="5" ng-maxlength="10" required>
+
+				<div class="help-block" ng-messages="dInfoForm.diCel.$error"
+					ng-if="dInfoForm.diCel.$touched">
+					<p ng-message="minlength">numero de telefono muy corto.</p>
+					<p ng-message="maxlength">numero de telefono muy largo</p>
+					<p ng-message="required">numero de telefono requerido</p>
+					<p ng-message="number">numero de telefono no debe tener
+						letras</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-12">
+		<div class="col-sm-6 form-group"
+			ng-class="{ 'has-error': dInfoForm.diEmail.$touched && dInfoForm.diEmail.$invalid , 'has-success': dInfoForm.diEmail.$touched && dInfoForm.diEmail.$valid }">
+			<label class="col-sm-5 control-label"> <span
+				class="glyphicon glyphicon-asterisk no"
+				ng-hide="dInfoForm.diEmail.$valid "></span> <span
+				class="glyphicon glyphicon-ok"
+				ng-show="dInfoForm.diEmail.$touched && dInfoForm.diEmail.$valid "></span>
+				Correo electr&oacute;nico:
+			</label>
+			<div class="input-group col-sm-7">
+				<input type="diEmail" name="diEmail" class="form-control input-sm"
+					placeholder="Ejemplo: correo@cne.com" size="40"
+					ng-model="main.diEmail" ng-minlength="5" ng-maxlength="20" required />
+
+				<div class="help-block" ng-messages="dInfoForm.diEmail.$error"
+					ng-if="dInfoForm.diEmail.$touched">
+					<p ng-message="required">Este campo es obligatorio</p>
+					<p ng-message="minlength">Este campo es muy corto</p>
+					<p ng-message="maxlength">Este campo es muy largo</p>
+					<p ng-message="diEmail">Campo tiene que ser un correo
+						electr&#243;nico v&#225;lido</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</form>
+
