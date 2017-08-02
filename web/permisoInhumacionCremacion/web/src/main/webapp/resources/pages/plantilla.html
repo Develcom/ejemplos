@@ -1,0 +1,168 @@
+<div ng-controller="pInhumacionCremacionCtrl as vm">
+
+	<!--template para las modales-->
+	<div class="modal-header wizard-header">
+		<button type="button" class="close wizard-close" ng-click="cancel()"
+			aria-hidden="true">&times;</button>
+		<h3 class="modal-title wizard-title">Inhumaci&oacute;n y/o
+			cremaci&oacute;n</h3>
+		<span class="wizard-subtitle"></span>
+	</div>
+	<div class="modal-body wizard-body">
+
+		<div class="pull-left wizard-steps"></div>
+		
+<!-- 		<div class="wizard-cards" ng-show="vm.pasos===0"> -->
+<!-- 			<div class="wizard-card-container" style='height: 526px;'> -->
+
+<!-- 				<div class="panel panel-default"> -->
+<!-- 					<div class="panel-heading"> -->
+<!-- 						<h4>Tipo de escenario</h4> -->
+<!-- 					</div> -->
+<!-- 					<div class="modal-body"> -->
+<!-- 						<div> -->
+<!-- 							<img alt="" -->
+<!-- 								src="/web-permisoInhumacionCremacion/resources/img/recaudos.png"> -->
+						
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+		<div class="wizard-cards">
+		
+		<div class="wizard-card-container" style='height: 526px;'>
+			<div ng-bind-html="html" carta="html">
+<!-- 			{{vm.pasos}} -->
+		</div>
+		</div>
+		
+<!-- 		<div class="wizard-card-container" ng-show='vm.pasos===1' style='height: 526px;'> -->
+<!-- 			<div ng-bind-html="html" carta="html"> -->
+<!-- 		</div> -->
+		
+<!-- 		</div> -->
+<!-- 			<div class="wizard-card-container" ng-show='vm.pasos===1' style='height: 526px;'> -->
+<!-- 				<div -->
+<!-- 					ng-include="'/web-permisoInhumacionCremacion/resources/pages/templates/tipo_permiso.html'"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="wizard-card-container" ng-show='vm.pasos===2' style='height: 526px;'> -->
+<!-- 				<div -->
+<!-- 					ng-include="'/web-permisoInhumacionCremacion/resources/pages/templates/permiso_inhumacion_cremacion.html'"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="wizard-card-container" ng-show='vm.pasos===3' style='height: 526px;'> -->
+<!-- 				<div -->
+<!-- 					ng-include="'/web-permisoInhumacionCremacion/resources/pages/templates/vista_permiso_inhumacion_cremacion.html'"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="wizard-card-container" ng-show='vm.pasos===4' style='height: 526px;'> -->
+<!-- 				<div -->
+<!-- 					ng-include="'/web-permisoInhumacionCremacion/resources/pages/templates/verificacion_registrador.html'"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+		
+<!--   <pre>{{form1 | json}}</pre> -->
+
+</div>
+	<div class="wizard-footer">
+
+		
+			<div class="wizard-buttons-container">
+			
+			
+				<button class="btn btn-danger wizard-cancel wizard-close" type="button"
+					ng-click="cancelar()">Cancelar</button>
+				<div class="btn-group-single pull-right">
+					<button class="btn wizard-back" type="button" ng-disabled='vm.pasos===0' ng-click="regresar1()">Regresar</button>
+					<button class="btn wizard-next btn-primary" type="button"
+						ng-click="eventoBoton()" ng-disabled="form1.$invalid">Siguiente</button>
+				</div>
+<!-- 				{{vm.pasos}} -->
+			</div>
+		  
+
+<!-- 		<div ng-show="permisos"> -->
+<!-- 			<div class="wizard-buttons-container"> -->
+<!-- 				<button class="btn wizard-cancel wizard-close" type="button" -->
+<!-- 					ng-click="cancelar()">Cancelar</button> -->
+<!-- 				<div class="btn-group-single pull-right"> -->
+<!-- 					<button class="btn wizard-back" type="button" ng-click="botonRegresar()">Regresar</button> -->
+<!-- 					<button class="btn wizard-next btn-primary" type="button" -->
+<!-- 						ng-click="eventoBoton2()" >Siguiente</button> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+<!-- 		<div ng-show="permisoFormModal">		 -->
+<!-- 			<div class="wizard-buttons-container"> -->
+<!-- 				<button class="btn wizard-cancel wizard-close" type="button" -->
+<!-- 					ng-click="cancelar()">Cancelar</button> -->
+<!-- 				<div class="btn-group-single pull-right"> -->
+<!-- 					<button class="btn wizard-back" type="button" ng-click="botonRegresarPermisos()">Regresar</button> -->
+<!-- 					<button class="btn wizard-next btn-primary" type="button" ng-click="abrirModalVerificarDatos()" -->
+<!-- 						>Siguiente</button> -->
+<!-- <!-- 						ng-click="eventoBoton3()" -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+<!-- 		<div ng-show="permisoFormFooter">		 -->
+<!-- 			<div class="wizard-buttons-container"> -->
+<!-- 				<button class="btn wizard-cancel wizard-close" type="button" -->
+<!-- 					ng-click="cancelar()">Cancelar</button> -->
+<!-- 				<div class="btn-group-single pull-right"> -->
+<!-- 					<button class="btn wizard-back" type="button" ng-click="botonRegresarPermisos()">Regresar</button> -->
+<!-- 					<button class="btn wizard-next btn-primary" type="button" ng-click="modalEnviarDatos()" -->
+<!-- 						>Siguiente</button> -->
+<!-- <!-- 						ng-click="eventoBoton3()" --> 
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+
+<!-- 		<div ng-show="vistaPermiso"> -->
+<!-- 			<div class="wizard-buttons-container"> -->
+<!-- 				<button class="btn wizard-cancel wizard-close" type="button" -->
+<!-- 					ng-click="cancelar()">Cancelar</button> -->
+<!-- 				<div class="btn-group-single pull-right"> -->
+<!-- 					<button class="btn wizard-back" type="button" ng-click="cerrarModal()">Regresar</button> -->
+<!-- 					<button class="btn wizard-next btn-primary" type="button" -->
+<!-- 						ng-click="eventoBoton4()">Siguiente</button> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+<!-- 		<div ng-show="conforme"> -->
+<!-- 			<div class="wizard-buttons-container"> -->
+<!-- 				<button class="btn wizard-cancel wizard-close" type="button" -->
+<!-- 					ng-click="cancelar()">Cancelar</button> -->
+<!-- 				<div class="btn-group-single pull-right"> -->
+<!-- 					<button class="btn wizard-back" type="button" ng-click="botonRegresarVistaPermiso()">Regresar</button> -->
+<!-- 					<button class="btn wizard-next btn-primary" type="button" -->
+<!-- 						ng-click="validarConforme()">Siguiente</button> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+<!-- 		<div ng-show="irImprimirPermiso"> -->
+<!-- 			<div class="wizard-buttons-container"> -->
+<!-- 				<button class="btn wizard-cancel wizard-close" type="button" -->
+<!-- 					ng-click="cancelar()">Cancelar</button> -->
+<!-- 				<div class="btn-group-single pull-right"> -->
+<!-- 					<button class="btn wizard-back" type="button" ng-click="">Regresar</button> -->
+<!-- 					<button class="btn wizard-next btn-primary" type="button" -->
+<!-- 						ng-click="vistaPermisoImprimir()">Siguiente</button> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+
+	</div>
+</div>
+</div>
+
+

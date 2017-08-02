@@ -1,0 +1,12 @@
+<div class="row">
+	<label class="control-label col-sm-8">{{to.label}}</label>
+	<div class="col-sm-2">
+		<input type="text"
+		ng-model="model[options.key]"
+			uib-popover="Ingrese solo n&uacute;meros" popover-trigger="focus"
+			ng-minlength={{to.minlength}} ng-maxlength={{to.maxlength}}
+			maxlength="2"
+			class="form-control input-sm" placeholder={{to.placeholder}}
+			aria-describedby="basic-addon1"> 
+	</div>
+</div> 

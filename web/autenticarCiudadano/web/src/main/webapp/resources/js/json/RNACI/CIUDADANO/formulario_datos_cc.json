@@ -1,0 +1,231 @@
+{
+	"fields":
+	[
+		{
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-6",
+					"template" : "<H4 style='text-align: left;' class='subtitulo-formulario control-label text-center'>Datos consejo comunal</H4>"
+				},
+				{
+					"className" : "col-sm-6",
+					"template" : "<span style='text-align: right;' class = 'col-sm-12'><span>Campos obligatorios</span><span class='glyphicon glyphicon-asterisk'></span></span>"
+				}
+			]
+		},
+		{
+			"template" : "<hr class='separador-formulario'>"
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-1",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Nombre</label>"
+				},
+				{
+					"className" : "col-sm-5 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "nombre",
+            		"templateOptions" : {
+          				"maxlength" : "50",
+          				"minlength" : "2",
+          				"placeholder" : "",
+          				"required" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "primerNombre",
+            			"patron" : "^[A-Za-z\-'\x7f-\xff\s]{0,50}$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		}
+            		
+          		},
+				{
+					"className" : "col-sm-1 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>RIF</label>"
+				},
+				{
+					"className" : "col-sm-2 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "codigorif",
+            		"templateOptions" : {
+          				"placeholder" : "",
+          				"maxlength" : "8",
+          				"minlength" : "2",
+            		},
+            		"data" : {
+            			"tipoValidacion" : "codigorif",
+            			"patron" : "^[0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		},
+					"expressionProperties" : {
+            			"templateOptions.disabled" : "codigorif == null"
+             		}
+          		},
+				{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "rif",
+            		"templateOptions" : {
+          				"placeholder" : "",
+          				"required" : true,
+          				"maxlength" : "8",
+          				"minlength" : "2",
+            		},
+            		"data" : {
+            			"tipoValidacion" : "rif",
+            			"patron" : "^[0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		}
+          		}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Fecha de la carta</label>"
+				},
+				{
+					"className" : "col-sm-6 calendar-group",
+					"fieldGroup" : [
+						{
+							"className" : "col-sm-4",
+            				"type" : "selectDia",
+            				"name" : "dia",
+            				"key" : "dia",
+            				"defaultValue":"",
+            				"templateOptions" : {
+            					"label" : "D\u00eda",
+            					"options": [
+          						],
+        						"required" : true
+            				},
+            				"data" : {
+            					"mDia" : "",
+            					"mMes" : "",
+            					"mAno" : "",
+								"popover" : {
+            						"titulo" : "Atenci\u00f3n"            					},
+            					errorTecla : false
+            				},
+            				"expressionProperties" : {
+            					"data.mDia" : "model.dia",
+            					"data.mMes" : "model.mes",
+            					"data.mAno" : "model.ano"
+            				}
+            			},
+          				{
+							"className" : "col-sm-4",
+            				"type" : "selectMes",
+            				"name" : "mes",
+            				"key" : "mes",
+            				"defaultValue":"",
+            				"templateOptions" : {
+            					"label" : "Mes",
+            					"options": [
+        						],
+        						"required" : true
+        					},
+            				"data" : {
+            					"mDia" : "",
+            					"mMes" : "",
+            					"mAno" : ""
+            				},
+            				"expressionProperties" : {
+            					"data.mDia" : "model.dia",
+            					"data.mMes" : "model.mes",
+            					"data.mAno" : "model.ano"
+            				}
+            			},
+            			{
+							"className" : "col-sm-4",
+            				"type" : "selectAno",
+            				"key" : "ano",
+            				"name" : "ano",
+            				"defaultValue":"",
+            				"templateOptions" : {
+            					"label" : "A\u00f1o",
+            					"options": [
+        						],
+        						"required" : true
+            				},
+            				"data" : {
+            					"mDia" : "",
+            					"mMes" : "",
+            					"mAno" : ""
+            				},
+            				"expressionProperties" : {
+            					"data.mDia" : "model.dia",
+            					"data.mMes" : "model.mes",
+            					"data.mAno" : "model.ano"
+            				}
+            				
+            			}
+					]
+				}
+			]
+		},
+		{
+			"template" : "<br>"
+		},
+		{
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-6",
+					"template" : "<H4 style='text-align: left;' class='subtitulo-formulario control-label text-center'>Informaci&oacute;n de contacto</H4>"
+				}
+			]
+		},
+		{
+			"template" : "<hr class='separador-formulario'>"
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Tel&eacute;fono</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "tlf",
+            		"data" : {
+            			"tipoValidacion" : "telefono",
+            			"patron" : "^[0-9\-]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo n\u00fameros"
+            			},
+            			"errorTecla" : false
+            		}
+            		
+          		}
+      		]
+		},
+     {
+     	"template" : "<br>"
+     }
+		
+    ],
+	"modelo":{"titulo":"Declaraci\u00f3n jurada", "ancho" : true}
+}

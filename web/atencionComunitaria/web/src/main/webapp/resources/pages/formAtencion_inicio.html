@@ -1,0 +1,848 @@
+<div>
+	<div class="panel panel-default"><!-- Incluir ciudadano-->
+	
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Atenci&oacute;n comunitaria
+				<span class="glyphicon glyphicon-pencil pull-right"></span>
+			</h3>
+		</div><br>
+		<form name="myFormAtencion" class="ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern">
+			<div id="panel1" collapse="panel != 0" role="tabpanel" aria-labelledby="condicion" style="height: {{heightPerformPeticionDatos}}">
+				<div class="panel-body performHeightBody">
+					<div class="row">
+						<div class="col-sm-12">
+							<h4>Tipo de solicitante</h4>
+							<span id="separadorTitulos"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<label><input type="radio" name="condicion" id="ciudadano" ng-click="tSolicitante('ciudadanoDiv')">
+								Ciudadano(a) </label>
+						</div>
+		
+						<div class="col-sm-6">
+							<label><input type="radio" name="condicion" id="ente" ng-click="tSolicitante('enteDiv')"> &Oacute;rgano o ente
+								p&uacute;blico </label>
+						</div>
+						
+					</div>
+					<div class="row mTop30" id="contentTipoSolicitante" ng-model="blnEntidad" style="">
+								
+						<div class="col-sm-8 FlotarL" id="ciudadanoDiv" ng-show="blnEntidad == 'ciudadanoDiv'" >
+							<div id="ciudadanoContent">
+								<div class="row">
+									<div class="col-sm-12">
+										<h4>Datos del ciudadano(a)</h4>
+										<span id="separadorTitulos"></span>
+									</div>
+								</div>
+								<div class="row" ng-model="listDocumentos">
+									<div class="col-sm-12 form-group" ng-class="{'has-error': 	myFormAtencion.tipoDocumento_field.$touched && myFormAtencion.tipoDocumento_field.$invalid,
+																								'has-success':  myFormAtencion.tipoDocumento_field.$touched && myFormAtencion.tipoDocumento_field.$valid}">
+										<div class="col-sm-5">
+											<label class="control-label" style="">
+<!-- 												<span class="glyphicon glyphicon-asterisk no" ng-hide="myFormAtencion.tipoDocumento_field.$valid"></span> -->
+												<span class="glyphicon glyphicon-ok ng-hide" ng-show="myFormAtencion.tipoDocumento_field.$touched && myFormAtencion.tipoDocumento_field.$valid"></span>
+										
+												Tipo de documento de identificaci&oacute;n
+											</label>
+										</div>
+										<div class="input-group col-sm-6" style="">
+											<select
+												class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" 
+												ng-options="doc as doc.descripcion for doc in listDocumentos" ng-model="tipoDocumento" 
+												id="tipoDocumento" ng-change="tipoDocumentoChange()" name="tipoDocumento_field" required="">
+													<option value="" selected="" disabled="">Seleccione</option>
+												</select>
+												<div class="help-block message_merge" ng-messages="myFormAtencion.tipoDocumento_field.$error" ng-if="myFormAtencion.tipoDocumento_field.$touched">
+<!-- 													<p ng-message="required">Por favor seleccione una opci&oacute;n</p> -->
+												</div>
+										</div>
+									</div>
+								</div>
+							
+								<div class="row" ng-show="tipoDocumento != null">
+									<div ng-show="tipoDocumento.codigo =='CED'" >
+										<div class="col-sm-12 form-group has-error" ng-class="{'has-error': (tipoDocCdano == undefined || nroDocCed == undefined) &&
+																												(nomCdanoP == undefined && nomCdanoS == undefined &&
+																												apeCdanoP == undefined && apeCdanoS == undefined), 
+																												'has-success':  tipoDocCdano != undefined && nroDocCed != undefined}">
+											<div class="col-sm-5">
+												<label class=" control-label">
+													
+<!-- 													<span class="glyphicon glyphicon-asterisk no" ng-hide="myFormAtencion.tipoDocCdano_field.$valid && myFormAtencion.nroDocCed_field.$valid"></span> -->
+													<span class="glyphicon glyphicon-ok ng-hide" ng-show="(myFormAtencion.tipoDocCdano_field.$touched && myFormAtencion.nroDocCed_field.$touched)
+																										&& (myFormAtencion.tipoDocCdano_field.$valid && myFormAtencion.nroDocCed_field.$valid)"></span>
+													
+													N&uacute;mero de identificaci&oacute;n 
+												</label>
+											</div>
+											
+											<div class="input-group col-sm-2 FlotarL">
+												<select class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" 
+														ng-model="tipoDocCdano" id="tipoDocCdano" name="tipoDocCdano_field" 
+														required="" ng-trim="true"
+														>
+													<option value="" selected="" disabled="">Seleccione</option>
+													<option label="V" value="V">
+										        		V
+										        	</option>
+										        	<option label="E" value="E">
+										        		E
+										        	</option>
+												</select>
+												
+											</div>
+											<div class="input-group col-sm-3 col-sm-offset-1 FlotarL">
+												<input type="text" class="form-control input-sm" placeholder="N&uacute;mero de documento" 
+												aria-describedby="basic-addon1" id='nroDocCed' name="nroDocCed_field"  ng-model="nroDocCed" required=""
+												ng-pattern="vPatron.Cedula" required="" maxlength = "9" minlength="6" 
+											    popover-tittle="Formato de la C&eacute;dula"
+											    custom-popover popover-contenido="{{vPatron.CedulaText | json}}" popover-placement="top" popover-label="Label"
+											    popover-validation = "{{nroDocCed == undefined}}" ng-keydown = "onKeyDown($event,'vPatron.excepciones','nroDocCed')" 
+											    popover-is-open="errorTecla.nroDocCed" ng-blur = "onBlur">
+											</div> 
+											<div class="row col-sm-6 col-sm-offset-5">
+												<div class="help-block message_merge" ng-messages="myFormAtencion.tipoDocCdano_field.$error && myFormAtencion.nroDocCed_field.$error" ng-if="myFormAtencion.tipoDocCdano_field.$touched || myFormAtencion.nroDocCed_field.$touched">
+													<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div ng-show="tipoDocumento.codigo != 'CED' && tipoDocumento.codigo != undefined">
+										<div class="col-sm-12 form-group has-error" ng-class="{'has-error': myFormAtencion.nroDoc_field.$invalid &&
+																											(nomCdanoP == undefined && nomCdanoS == undefined &&
+																											apeCdanoP == undefined && apeCdanoS == undefined),
+																											'has-success':  myFormAtencion.nroDoc_field.$touched && myFormAtencion.nroDoc_field.$valid}">
+											<div class="col-sm-5">
+												<label class=" control-label">
+													
+<!-- 													<span class="glyphicon glyphicon-asterisk no" ng-hide="myFormAtencion.nroDoc_field.$valid"></span> -->
+													<span class="glyphicon glyphicon-ok ng-hide" ng-show="myFormAtencion.nroDoc_field.$touched && myFormAtencion.nroDoc_field.$valid"></span>
+													
+													N&uacute;mero de identificaci&oacute;n 
+												</label>
+											</div>
+											<div class="input-group col-sm-6" >
+												<input type="text" class="form-control input-sm" aria-describedby="basic-addon1" id='nroDoc' name="nroDoc_field" ng-model="nroDoc" ng-pattern="vPatron.NumeroDocumento" placeholder="N&uacute;mero de documento" required=""
+												popover-tittle="Formato de N&uacute;mero de Identificaci&oacute;n"
+											    custom-popover popover-contenido="{{vPatron.NumeroDocumentoText | json}}" popover-placement="top" popover-label="Label"
+											    popover-validation = "{{nroDoc == undefined}}" maxlength="11" minlength="6"
+											    ng-keydown = "onKeyDown($event,'vPatron.excepciones','nroDoc')" 
+											    popover-is-open="errorTecla.nroDoc" ng-blur = "onBlur"> 
+											    <div class="help-block message_merge" ng-messages="myFormAtencion.nroDoc_field.$error" ng-if="myFormAtencion.nroDoc_field.$touched">
+													<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+								<div class="row">
+									<div class="col-sm-12 form-group" ng-class="{'has-success':(nomCdanoP != undefined || nomCdanoS != undefined)}">
+										<div class="col-sm-5">
+											<label class="control-label" style="">
+<!-- 												<span class="glyphicon glyphicon-asterisk no" ng-hide="nomCdanoP != undefined || nomCdanoS != undefined 
+																									  || apeCdanoP != undefined || apeCdanoS != undefined || (tipoDocCdano != undefined && nroDocCed != undefined )|| (nroDoc != undefined)"></span>-->
+												<span class="glyphicon glyphicon-ok ng-hide" ng-show="nomCdanoP != undefined || nomCdanoS != undefined
+																									  "></span>
+										
+												Nombres del ciudadano(a)
+											</label>
+										</div>
+										<div class="input-group col-sm-3 FlotarL">
+											<input type="text" class="form-control input-sm" placeholder="Ejemplo: Primer nombre" aria-describedby="basic-addon1" ng-model="nomCdanoP" name="nomCdanoP_field" id = "nomCdanoP" required=""
+												 popover-tittle="Formato del Nombre" ng-pattern="vPatron.FormatoNombres"
+													   custom-popover popover-contenido="{{vPatron.AlfaText | json}}" popover-placement="top" popover-label="Label"
+													   popover-validation = "{{nomCdanoP == undefined}}" maxlength="50" minlength="2"
+													   ng-keydown = "onKeyDownAlfa($event,'vPatron.excepciones','nomCdanoP')" 
+											    popover-is-open="errorTecla.nomCdanoP" ng-blur = "onBlur"
+												 ng-class="{'has-default': nomCdanoP == undefined && (nroDocCed != undefined && nroDoc != undefined && nomCdanoS != undefined && apeCdanoP != undefined && apeCdanoS != undefined)}"
+												>
+											<div class="help-block message_merge" ng-messages="myFormAtencion.nomCdanoP_field.$error"
+																	ng-if="myFormAtencion.nomCdanoP_field.$touched && (nomCdanoP == undefined && (nomCdanoS == undefined && apeCdanoP == undefined && apeCdanoS == undefined && tipoDocCdano == undefined && (nroDocCed == undefined && nroDoc == undefined)))">
+												<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+											</div>
+										</div>
+										<div class="input-group col-sm-3 FlotarL">
+												<input type="text" class="form-control input-sm" placeholder="Ejemplo: Segundo nombre" aria-describedby="basic-addon1" ng-model="nomCdanoS" name="nomCdanoS_field" id = "nomCdanoS" required=""
+												 ng-keyup="triggerPopOver('nomCdanoS_field')" popover-tittle="Formato del Nombre" ng-pattern="vPatron.FormatoNombres"
+													   custom-popover popover-contenido="{{vPatron.AlfaText | json}}" popover-placement="top" popover-label="Label"
+													   popover-validation = "{{nomCdanoS == undefined}}" maxlength="255" minlength="2"
+													   ng-keydown = "onKeyDownAlfa($event,'vPatron.excepciones','nomCdanoS')"
+											    popover-is-open="errorTecla.nomCdanoS" ng-blur = "onBlur"
+												ng-class="{'has-default': nomCdanoS== undefined && (nroDocCed != undefined && nroDoc != undefined && nomCdanoP != undefined && apeCdanoP != undefined && apeCdanoS != undefined)}"
+												>
+												<div class="help-block" ng-messages="myFormAtencion.nomCdanoS_field.$error" 
+																		ng-if="myFormAtencion.nomCdanoS_field.$touched && (nomCdanoS == undefined && (nomCdanoP == undefined && apeCdanoP == undefined && apeCdanoS == undefined && tipoDocCdano == undefined && (nroDocCed == undefined && nroDoc == undefined)))" style="text-align:center; margin-top:35px;">
+												<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+											</div>
+											</div>
+									</div>
+								</div>
+							
+								<div class="row">
+									<div class="col-sm-12 form-group" ng-class="{'has-success':  (apeCdanoP != undefined || apeCdanoS != undefined)}">
+										<div class="col-sm-5">
+											<label class="control-label" style="">
+<!-- 												<span class="glyphicon glyphicon-asterisk no" ng-hide="nomCdanoP != undefined || nomCdanoS != undefined 
+																									  || apeCdanoP != undefined || apeCdanoS != undefined || (tipoDocCdano != undefined && nroDocCed != undefined ) || (nroDoc != undefined)"></span>-->
+												<span class="glyphicon glyphicon-ok ng-hide" ng-show="apeCdanoP != undefined || apeCdanoS != undefined"></span>
+										
+												Apellidos del ciudadano(a)
+											</label>
+										</div>
+										<div class="input-group col-sm-3 FlotarL">
+											<input type="text" class="form-control input-sm" placeholder="Ejemplo: Primer apellido" aria-describedby="basic-addon1" 
+												  ng-model="apeCdanoP" name="apeCdanoP_field" id = "apeCdanoP" required=""
+												  ng-pattern="vPatron.FormatoNombres"
+												  popover-tittle="Formato del Apellido"
+												  custom-popover popover-placement="top" popover-label="Label" maxlength="50" minlength="2"
+												  ng-keydown = "onKeyDownAlfa($event,'vPatron.excepciones','apeCdanoP')" 
+											    popover-is-open="errorTecla.apeCdanoP" ng-blur = "onBlur"
+												  popover-validation = "{{apeCdanoP == undefined}}" popover-contenido = "{{vPatron.AlfaText | json}}"
+												  ng-class="{'has-default': apeCdanoP == undefined && (nroDocCed != undefined && nroDoc != undefined && nomCdanoP != undefined && nomCdanoS != undefined && apeCdanoS != undefined)}"
+												>
+											<div class="help-block" ng-messages="myFormAtencion.apeCdanoP_field.$error" 
+																	ng-if="myFormAtencion.apeCdanoP_field.$touched && (apeCdanoP == undefined && (nomCdanoP == undefined && nomCdanoS == undefined && apeCdanoS == undefined && (tipoDocCdano == undefined && nroDocCed == undefined ) && (nroDoc == undefined)))" style="text-align:center; margin-top:35px;">
+												<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+											</div>
+										</div>
+										<div class="input-group col-sm-3 FlotarL">
+											<input type="text" class="form-control input-sm" placeholder="Ejemplo: Segundo apellido" aria-describedby="basic-addon1" ng-model="apeCdanoS" name="apeCdanoS_field" id = "apeCdanoS" required=""
+											popover-tittle="Formato del Apellido" ng-pattern="vPatron.FormatoNombres"
+												   custom-popover popover-contenido="{{vPatron.AlfaText | json}}" popover-placement="top"
+												   popover-validation = "{{apeCdanoS == undefined}}" maxlength="50" minlength="2"
+												    ng-keydown = "onKeyDownAlfa($event,'vPatron.excepciones','apeCdanoS')" 
+											    popover-is-open="errorTecla.apeCdanoS" ng-blur = "onBlur"
+											 ng-class="{'has-default': apeCdanoS == undefined && (nroDocCed != undefined && nroDoc != undefined && nomCdanoP != undefined && nomCdanoS != undefined && apeCdanoP != undefined)}"
+											>
+											<div class="help-block" ng-messages="myFormAtencion.apeCdanoS_field.$error" 
+																	ng-if="myFormAtencion.apeCdanoS_field.$touched && (apeCdanoS == undefined && (nomCdanoP == undefined && nomCdanoS == undefined && apeCdanoP == undefined && tipoDocCdano == undefined && (nroDocCed == undefined && nroDoc == undefined)))" style="text-align:center; margin-top:35px;">
+												<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+		
+						<div class="col-sm-6 FlotarR" id="enteDiv" ng-show="blnEntidad == 'enteDiv'">
+							<div id="enteDiv">
+								<div class="row">
+									<div class="col-sm-12">
+										<h4>Datos del &oacute;rgano o ente p&uacute;blico</h4>
+										<span id="separadorTitulos"></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12 form-group" ng-class="{'has-error': myFormAtencion.tipoEnte_field.$touched && myFormAtencion.tipoEnte_field.$invalid, 'has-success':  myFormAtencion.tipoEnte_field.$touched && myFormAtencion.tipoEnte_field.$valid}">
+										<div class="col-sm-5">
+											<label class="control-label" style="">
+												<span class="glyphicon glyphicon-asterisk no" ng-hide="myFormAtencion.tipoEnte_field.$valid"></span>
+												<span class="glyphicon glyphicon-ok ng-hide" ng-show="myFormAtencion.tipoEnte_field.$touched && myFormAtencion.tipoEnte_field.$valid"></span>
+										
+												Nombre del &oacute;rgano o ente p&uacute;blico
+											</label>
+										</div>
+										<div class="input-group col-sm-6" style="">
+											<select class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-options="doc as doc.descripcion for doc in listTipoEnte" ng-model="tipoEnte" id="tipoEnte" name="tipoEnte_field" required="">
+												<option value="" selected="" disabled="">Seleccione</option>
+											</select>
+											<div class="help-block" ng-messages="myFormAtencion.tipoEnte_field.$error" ng-if="myFormAtencion.tipoEnte_field.$touched" style="text-align:center; margin-top:35px;">
+												<p ng-message="pattern">Seleccione una opci&oacute;n</p>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							
+								<div class="row">
+									<div class="col-sm-12 form-group" ng-class="{'has-error': myFormAtencion.tipoDocEnte_field.$touched && myFormAtencion.tipoDocEnte_field.$invalid, 'has-success':  myFormAtencion.tipoDocEnte_field.$touched && myFormAtencion.tipoDocEnte_field.$valid}">
+										<div class="col-sm-5">
+											<label class="control-label" style="">
+												<span class="glyphicon glyphicon-asterisk no" ng-hide="myFormAtencion.tipoDocEnte_field.$valid"></span>
+												<span class="glyphicon glyphicon-ok ng-hide" ng-show="myFormAtencion.tipoDocEnte_field.$touched && myFormAtencion.tipoDocEnte_field.$valid"></span>
+										
+												Tipo de documento
+											</label>
+										</div>
+										<div class="input-group col-sm-6" style="">
+											<select class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-options="doc as doc.descripcion for doc in listTipoDocEnte" ng-model="tipoDocEnte" id="tipoDocEnte" name="tipoDocEnte_field" required="">
+												<option value="" selected="" disabled="">Seleccione</option>
+											</select>
+											<div class="help-block" ng-messages="myFormAtencion.tipoDocEnte_field.$error" ng-if="myFormAtencion.tipoDocEnte_field.$touched" style="text-align:center; margin-top:35px;">
+												<p ng-message="pattern">Seleccione una opci&oacute;n</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+								<div class="row">
+									<div class="col-sm-12 form-group" ng-class="{'has-error': myFormAtencion.nroOficio_field.$touched && myFormAtencion.nroOficio_field.$invalid , 'has-success':  myFormAtencion.nroOficio_field.$touched && myFormAtencion.nroOficio_field.$valid}">
+										<div class="col-sm-5">
+											<label class="control-label" style="">
+												<span class="glyphicon glyphicon-asterisk no" ng-hide="myFormAtencion.nroOficio_field.$valid"></span>
+												<span class="glyphicon glyphicon-ok ng-hide" ng-show="myFormAtencion.nroOficio_field.$touched && myFormAtencion.nroOficio_field.$valid"></span>
+										
+												N&uacute;mero de documento
+											</label>
+										</div>
+										<div class="input-group col-sm-6" style="">
+											<input type="text" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-describedby="basic-addon1" ng-trim="true" id='nroOficio' name="nroOficio_field" ng-model="nroOficio" ng-pattern="vPatron.AlfaNumerico" placeholder="N&uacute;mero de Documento" required=""
+												popover-tittle="Formato de N&uacute;mero de Identificaci&oacute;n"
+											    custom-popover popover-contenido="{{vPatron.NumeroDocumentoEnteText | json}}" popover-placement="top" popover-label="Label"
+											    popover-validation = "{{nroOficio == undefined}}" maxlength="15"
+											    ng-keydown = "onKeyDownAlfaNum($event,'vPatron.excepciones','nroOficio')" 
+											    popover-is-open="errorTecla.nroOficio" ng-blur = "onBlur">
+											<div class="help-block" ng-messages="myFormAtencion.nroOficio_field.$error" ng-if="myFormAtencion.nroOficio_field.$touched" style="text-align:center; margin-top:35px;">
+												<p ng-message="pattern">Por favor, introduzca correctamente la informaci&oacute;n</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer footerFijo">
+					<div class="row col-sm-12">
+						<div class="col-sm-1 pull-right" >
+							<input ng-show = "blnEntidad != undefined" type="button" value="Continuar" class="btn btn-success pull-right btn-sm" ng-click="continuarTipoSolicitud()">
+						</div>
+						<div class="col-sm-5 pull-right">&emsp;</div>
+						<div class="col-sm-1 pull-right" >
+							<input type="button" value="Cancelar" ng-show = "(blnEntidad != undefined 
+																			&& (tipoDocumento != null 
+																			|| nomCdanoP != null
+																			|| nomCdanoS != null
+																			|| apeCdanoP != null
+																			|| apeCdanoS != null)) ||
+																			(blnEntidad != undefined 
+																			&& (tipoEnte != null 
+																			|| tipoDocEnte != null
+																			|| nroOficio != null))
+																			" class="btn btn-danger pull-right btn-sm" ng-click="reloadPage('md')">
+						</div>
+						<div class="col-sm-1 pull-right">&emsp;</div>
+						<div class="col-sm-1 pull-right" >
+							<input type="button" value="Limpiar campos" ng-show = "blnEntidad != undefined" class="btn btn-warning pull-right btn-sm" ng-click="clearFields(myFormAtencion)">
+						</div>
+						<div class="col-sm-1 pull-right">&emsp;</div>
+						<div class="col-sm-2 pull-right" >
+							<span class="pull-left" ng-show="blnEntidad == 'ciudadanoDiv'">Debe llenar al menos un campo obligatorio <span class="glyphicon glyphicon-asterisk no"></span></span>
+							<span class="pull-left" ng-show="blnEntidad == 'enteDiv'">Campos obligatorios <span class="glyphicon glyphicon-asterisk no"></span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<form name="formTipoSolicitud" class="ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern">
+			<div id="panel2" collapse="panel != 1" role="tabpanel" aria-labelledby="condicion">
+				<div class="panel-body" style="height: {{heightPerform}}">
+					<div class="row">
+						<div class="col-sm-12">
+							<h4>Seleccionar tipo de solicitud</h4>
+							<span id="separadorTitulos"></span>
+						</div>
+					</div>
+					<div class="row panel">
+						<div class="col-sm-3">
+							<label>
+								<input type="radio" class="noselect" id="tramiteRadio"
+								name="solicitud"
+								ng-click="nuevoTramite()"
+								/>
+								Solicitud nueva
+							</label>
+						</div>
+						<div id="nuevoTramite" class="col-sm-9" ng-show="blnTipoSolicitud == 'nuevaSolicitud'">
+							<div class="row">
+								<div class="col-sm-6 acordionTab TabLeft">
+									<div class="row">
+										<label>&ensp;M&oacute;dulo de registro civil</label>
+									</div>
+								</div>
+								<div class="col-sm-6 acordionTab TabRight">
+									<div class="row">
+										<label>&ensp;Tipo de tr&aacute;mite</label>
+									</div>
+								</div>
+							</div>
+							<div class="row" ng-model="valorTramite">
+							
+								<div class="col-sm-6" id="tipoTramite" ng-model="tipoTramite">
+									<div ng-repeat="item in listModulos">
+										<label style="margin-bottom:0px; font-weight:inherit; display:initial;">
+											<input type="radio" class="noselect" name="modulo_field" ng-click="checkTipoTramite(item.codigo, item.nombre)" id="{{item.codigo}}" value="{{item.codigo}}" alt="{{item.nombre}}"> 
+											&emsp; 
+											{{item.nombre}}
+										</label>
+										<br/>
+									</div>
+								</div>
+							
+								<div class="col-sm-6 tramitesCol" id="tramites" ng-model="tramiteSelected" ng-model="codTramite" style="height: {{tramitesCol}}">									
+									<div ng-repeat="item in listTramites" ng-model="listTramites" class="clearBOTH">
+										&emsp;&emsp;
+										<label class="col-sm-11" style="margin-bottom:0px; font-weight:inherit;">
+											<input class="noselect FlotarL" name= "tramite_field" ng-click="selectedTramite(tramiteSelected, item.nombre, item.codigo)"  type="radio"> 
+											&emsp;
+											<span class="col-sm-10 FloarR">{{item.nombre}}</span> 
+										</label>
+										<br>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					<div class="row panel">
+						<div class="col-sm-3">
+							<label>
+								<input class="noselect" type="radio" id="consulta" name="solicitud"
+								ng-click="consultarSolicitud()"
+								/>
+								Consultar
+							</label>
+						</div>
+						<div id="consultaTramite" class="col-sm-9" ng-show="blnTipoSolicitud == 'consultaSolicitud'" ng-model="blnTipoConsulta">
+							<!--  CONSULTA DE SOLICITUD -->
+							<div class="col-sm-6" id="opcionesSolicitud" ng-model="blnCampoLlenar">
+								<div class="row acordionTab TabLeft">
+									<div class="row">
+										<label>&ensp;Tipo de consulta de solicitud</label>
+									</div>
+								</div>
+								<div class="row" id="documentoIdentificacionCiudadano" ng-show="blnTipoConsulta == 'ciudadanoDiv'">
+									<div class="col-sm-12 textCenter" ng-class="{'has-error': tipoDocumentoSolicitud == undefined && ((formTipoSolicitud.nroDocumentoConsult_field.$invalid  || formTipoSolicitud.tipoDocConsult.$invalid) || (formTipoSolicitud.nroDocumentoSolicitud.$invalid)), 
+																				'has-success':  formTipoSolicitud.tipoDocumentoSolicitud_field.$valid && ((nroDocumentoConsult != undefined && tipoDocConsult != undefined) || (nroDocumentoSolicitud != undefined))}">
+										
+										<label class="control-label">
+											<span class="glyphicon glyphicon-asterisk no" ng-hide="formTipoSolicitud.tipoDocumentoSolicitud_field.$valid && ((nroDocumentoConsult != undefined && tipoDocConsult != undefined) || (nroDocumentoSolicitud != undefined))"></span>
+											<span class="glyphicon glyphicon-ok ng-hide" ng-show="formTipoSolicitud.tipoDocumentoSolicitud_field.$valid && ((nroDocumentoConsult != undefined && tipoDocConsult != undefined) || (nroDocumentoSolicitud != undefined))"></span>
+											<input class="noselect" type="radio" name="tipoSolicitud" id="documentoSolicitud" ng-click="tipoConsulta(1)">
+											<span class="font-light">Documento de identificaci&oacute;n</span>
+										</label>
+										
+<!-- 										<label> -->
+<!-- 											<input class="noselect" type="radio" name="tipoSolicitud" id="documentoSolicitud" ng-click="blnCampoLlenar = 'documentoIdent'"> -->
+<!-- 											<span class="font-light">Documento de Identificaci&oacute;n</span> -->
+<!-- 										</label> -->
+									</div>
+									
+								</div>
+								<div class="row" ng-model="docOrSol">
+									<div class="col-sm-12 textCenter" ng-class="{'has-error': formTipoSolicitud.nroSolicitud_field.$touched && formTipoSolicitud.nroSolicitud_field.$invalid && blnCampoLlenar != 'nroOficioSolicitud', 
+																				'has-success': formTipoSolicitud.nroSolicitud_field.$valid && blnCampoLlenar == 'nroOficioSolicitud' && NumeroSolicitudSeprtr == '1'}">
+										<label class="control-label">
+											<span class="glyphicon glyphicon-asterisk no" ng-hide="formTipoSolicitud.nroSolicitud_field.$valid && blnCampoLlenar == 'nroOficioSolicitud' && NumeroSolicitudSeprtr == '1'"></span>
+											<span class="glyphicon glyphicon-ok ng-hide" ng-show="formTipoSolicitud.nroSolicitud_field.$valid && blnCampoLlenar == 'nroOficioSolicitud' && NumeroSolicitudSeprtr == '1'"></span>
+											<input class="noselect" type="radio"  name="tipoSolicitud" id="numeroSolicitud" ng-click="tipoConsulta(2)">
+											<span class="font-light">N&uacute;mero de solicitud</span>
+										</label>
+									</div>
+								</div>
+								<div class="row" id="numeroDocumentoEnte" ng-show="blnTipoConsulta == 'enteDiv'">
+									<div class="col-sm-12 textCenter" ng-class="{'has-error': formTipoSolicitud.nroSolicitud_field.$touched && formTipoSolicitud.nroSolicitud_field.$invalid && tipoDocEnteConsult != undefined && blnCampoLlenar != 'documentoIdent', 
+																				'has-success': formTipoSolicitud.nroSolicitud_field.$touched && formTipoSolicitud.nroSolicitud_field.$valid && tipoDocEnteConsult != undefined && blnCampoLlenar == 'documentoIdent'}">
+										<label class="control-label">
+											<span class="glyphicon glyphicon-asterisk no" ng-hide="formTipoSolicitud.nroSolicitud_field.$valid && tipoDocEnteConsult != undefined && blnCampoLlenar == 'documentoIdent'"></span>
+											<span class="glyphicon glyphicon-ok ng-hide" ng-show="formTipoSolicitud.nroSolicitud_field.$touched && formTipoSolicitud.nroSolicitud_field.$valid && tipoDocEnteConsult != undefined && blnCampoLlenar == 'documentoIdent'"></span>
+											<input class="noselect" type="radio" name="tipoSolicitud" id="nroOficioSolicitud" ng-click="tipoConsulta(3)">
+											<span class="font-light">N&uacute;mero de documento</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-6" id="consultaDiv" ng-model="placeHolderModel">
+								<div class="row acordionTab TabRight">
+									<label>&ensp;Datos de la solicitud</label>
+								</div>
+								<div class="row" id="divDocSol" ng-show="blnCampoLlenar == 'documentoIdent'">
+									<div class="col-sm-12 form-group" ng-class="{'has-error': formTipoSolicitud.tipoDocumentoSolicitud_field.$touched && formTipoSolicitud.tipoDocumentoSolicitud_field.$invalid , 'has-success':  formTipoSolicitud.tipoDocumentoSolicitud_field.$touched && formTipoSolicitud.tipoDocumentoSolicitud_field.$valid}">
+										<div class="input-group col-sm-12" style="">
+											<select class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required"
+													ng-change="changeTipoConsult()"
+													ng-options="doc as doc.descripcion for doc in listDocumentos" ng-model="tipoDocumentoSolicitud" id="tipoDocumentoSolicitud" name="tipoDocumentoSolicitud_field" required="">
+												<option value="" selected="" disabled="">Por favor seleccione</option>
+											</select>
+											<div class="help-block" ng-messages="formTipoSolicitud.tipoDocumentoSolicitud_field.$error" ng-if="formTipoSolicitud.tipoDocumentoSolicitud_field.$touched" style="text-align:center; margin-top:35px;">
+												<p ng-message="required">Por favor seleccione una opci&oacute;n</p>
+											</div>
+										</div>
+									</div>
+
+									<div ng-show="tipoDocumentoSolicitud.codigo !='' && tipoDocumentoSolicitud.codigo !=null">
+										<div ng-show="tipoDocumentoSolicitud.codigo =='CED'" >
+											<div class="row">
+												<div class="col-sm-12 form-group has-error" ng-class="{'has-error': (formTipoSolicitud.tipoDocConsult_field.$touched && formTipoSolicitud.tipoDocConsult_field.$invalid) || (formTipoSolicitud.nroDocumentoConsult_field.$touched && formTipoSolicitud.nroDocumentoConsult_field.$invalid), 
+																												'has-success':  (formTipoSolicitud.tipoDocConsult_field.$touched && formTipoSolicitud.tipoDocConsult_field.$valid) && (formTipoSolicitud.nroDocumentoConsult_field.$touched && formTipoSolicitud.nroDocumentoConsult_field.$valid)}">
+													
+													
+													<div class="input-group col-sm-4 FlotarL" style="margin-left:15px;">
+														<select class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" 
+																ng-model="tipoDocConsult" id="tipoDocConsult" name="tipoDocConsult_field"
+																required="" ng-trim="true"
+																>
+															<option value="" selected="" disabled="">Seleccione</option>
+															<option label="V" value="V">
+												        		V
+												        	</option>
+												        	<option label="E" value="E">
+												        		E
+												        	</option>
+														</select>
+														
+													</div>
+													<div class="input-group col-sm-6 col-sm-offset-1 FlotarL" style="">
+														<input type="text" 
+														   class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" 
+														   aria-describedby="basic-addon1" id='nroDocumentoConsult' name="nroDocumentoConsult_field" 
+														   ng-model="nroDocumentoConsult" ng-pattern="vPatron.Cedula" placeholder="N&uacute;mero de Documento" required=""
+														   custom-popover  popover-tittle="Formato de la C&eacute;dula"
+														   popover-contenido="{{vPatron.CedulaText | json}}" popover-placement="top" popover-label="Label"
+														   popover-validation = "{{nroDocumentoConsult == undefined}}" maxlength = "{{vPatron.cedulaMaxLength}}"
+														   ng-keydown = "onKeyDown($event,'vPatron.excepciones','nroDocumentoConsult')" 
+											  			   popover-is-open="errorTecla.nroDocumentoConsult" minlength = "6" ng-blur = "onBlur"
+														 >
+														
+													</div> 
+													<div class="row col-sm-6 col-sm-offset-5">
+														<div class="help-block message_merge" ng-messages="formTipoSolicitud.tipoDocConsult_field.$error && formTipoSolicitud.nroDocumentoConsult_field.$error" ng-if="formTipoSolicitud.tipoDocConsult_field.$touched || formTipoSolicitud.nroDocumentoConsult_field.$touched">
+															<p ng-message="required">Estos campos son obligatorios</p>
+														</div>
+													</div>
+												</div>
+											</div>		
+										</div>
+										<div ng-show="tipoDocumentoSolicitud.codigo != 'CED' && tipoDocumentoSolicitud.codigo != undefined">
+											<div class="row">
+												<div class="col-sm-12 form-group" ng-class="{'has-error': formTipoSolicitud.nroDocumentoSolicitud_field.$touched && formTipoSolicitud.nroDocumentoSolicitud_field.$invalid,
+																											'has-success':  formTipoSolicitud.nroDocumentoSolicitud_field.$touched && formTipoSolicitud.nroDocumentoSolicitud_field.$valid}">
+													
+													
+													<div class="input-group col-sm-10 col-sm-offset-1" >
+														<input type="text" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-describedby="basic-addon1" 
+															id='nroDocumentoSolicitud' name="nroDocumentoSolicitud_field" ng-model="nroDocumentoSolicitud" ng-pattern="vPatron.AlfaNumerico" 
+															placeholder="N&uacute;mero de Documento" required="" custom-popover
+															ng-keyup="triggerPopOver('nroDocumentoSolicitud_field')" popover-tittle="Formato de N&uacute;mero de Identificaci&oacute;n"
+														    popover-contenido="{{vPatron.NumeroDocumentoEnteText | json}}" popover-placement="top" popover-label="Label"
+														    popover-validation = "{{nroDocumentoSolicitud == undefined}}">
+														    
+													    <div class="help-block message_merge" ng-messages="formTipoSolicitud.nroDocumentoSolicitud_field.$error" ng-if="formTipoSolicitud.nroDocumentoSolicitud_field.$touched">
+															<p ng-message="required">Este campo es obligatorio</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="divNroSol" ng-show="blnCampoLlenar == 'nroOficioSolicitud'">
+									<div class="row" ng-show="!docOrSol">
+										<div class="col-sm-12 form-group has-error" ng-class="{'has-error': formTipoSolicitud.tipoDocEnteConsult_field.$touched && formTipoSolicitud.tipoDocEnteConsult_field.$invalid, 'has-success':  formTipoSolicitud.tipoDocEnteConsult_field.$touched && formTipoSolicitud.tipoDocEnteConsult_field.$valid}">
+											<div class="input-group col-sm-7">
+												<select class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-options="doc as doc.descripcion for doc in listTipoDocEnte" ng-model="tipoDocEnteConsult" id="tipoDocEnteConsult" name="tipoDocEnteConsult_field" required="">
+													<option value="" selected="" disabled="">Por favor seleccione</option>
+												</select>
+												
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div ng-show="placeHolderModel.toLowerCase().indexOf('solicitud') != -1">
+											<div class="col-sm-12 form-group has-error" ng-class="{'has-error': formTipoSolicitud.nroSolicitud_field.$invalid, 'has-success':  formTipoSolicitud.nroSolicitud_field.$valid}">
+												<div class="input-group col-sm-7" >
+													<input type="text" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-describedby="basic-addon1" 
+													ng-trim="true" id='nroSolicitud' name="nroSolicitud_field" ng-model="nroSolicitud" 
+													placeholder="{{placeHolderModel}}" required=""  maxlength="15" ng-pattern="vPatron.AlfaNumerico"
+								   				   ng-keydown = "onKeyDownAlfaNum($event,'vPatron.excepciones','nroSolicitud')" 
+									  			   popover-is-open="errorTecla.nroSolicitud" minlength = "6"
+									  			   popover-tittle="Formato de {{placeHolderModel | json}}"
+												   custom-popover popover-contenido="{{vPatron.NumeroDocumentoEnteText | json}}" popover-placement="top" popover-label="Label"
+												   popover-validation = "{{ nroSolicitud == undefined }}" ng-blur = "onBlur"
+													>
+												</div>
+											</div>
+										</div>
+										<div ng-show="placeHolderModel.toLowerCase().indexOf('documento') != -1">
+											<div class="col-sm-12 form-group has-error" ng-class="{'has-error': formTipoSolicitud.nroSolicitud_field.$touched && formTipoSolicitud.nroSolicitud_field.$invalid, 'has-success':  formTipoSolicitud.nroSolicitud_field.$touched && formTipoSolicitud.nroSolicitud_field.$valid}">
+												<div class="input-group col-sm-7" >
+													<input type="text" class="form-control input-sm ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-describedby="basic-addon1" 
+													ng-trim="true" id='nroSolicitud' name="nroSolicitud_field" ng-model="nroSolicitud" 
+													ng-pattern="vPatron.AlfaNumerico" placeholder="{{placeHolderModel}}" required=""
+													ng-keyup="triggerPopOver('nroSolicitud_field')" popover-tittle="Formato de {{placeHolderModel | json}}"
+												    custom-popover popover-contenido="{{vPatron.NumeroDocumentoEnteText | json}}" popover-placement="top" popover-label="Label"
+												    popover-validation = "{{ nroSolicitud == undefined }}">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- FIN DE CONSULTA -->
+						</div>
+					</div>	
+				</div>
+				<div class="modal-footer footerFijo">
+					<div class="row col-sm-12">
+							<div class="col-sm-1 pull-right" >
+								<input ng-show = '(blnTipoSolicitud == "nuevaSolicitud" && tramiteSelected != null && codTramite != null) || (blnTipoSolicitud == "consultaSolicitud" && blnCampoLlenar != null)'
+								 type="button" value="Continuar" class="btn btn-success pull-right btn-sm" ng-click="continuarDatosSolicitud()">
+							</div>
+							<div class="col-sm-3 pull-right">&emsp;</div>
+							<div class="col-sm-1 pull-right" >
+								<input type="button" value="Cancelar" ng-show = "(blnEntidad != undefined)" class="btn btn-danger pull-right btn-sm" ng-click="reloadPage('md')">
+							</div>
+							<div class="col-sm-1 pull-right">&emsp;</div>
+							<div class="col-sm-1 pull-right" >
+								<input type="button" value="Limpiar campos" ng-show = "blnTipoSolicitud == 'consultaSolicitud'" class="btn btn-warning pull-right btn-sm" ng-click="clearFields(formTipoSolicitud)">
+							</div>
+							<div class="col-sm-1 pull-right">&emsp;</div>
+							<div class="col-sm-1 pull-right" >
+								<input ng-show = "blnEntidad != undefined" type="Button" value="Regresar" class="btn btn-success pull-right btn-sm" ng-click="backAcordeon()">
+							</div>
+							<div class="col-sm-1 pull-right">&emsp;</div>
+							<div class="col-sm-2 pull-right" >
+								Campos obligatorios <span class="glyphicon glyphicon-asterisk no"></span>
+							</div>
+						</div>
+				</div>
+			</div>
+		</form>
+		<form name="formDatosSolicitud" class="ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern">
+			<div id="panel3" collapse="panel != 2" role="tabpanel" aria-labelledby="condicion">
+				<div class="panel-body panel-success" style="height: {{heightPerform}}">
+					<div class="panel-heading">
+						<h4>
+							<span class="glyphicon glyphicon-list-alt"></span> 
+							Datos de la consulta/solicitud
+						</h4>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<h3>&ensp;Datos</h3>
+							<span id="separadorTitulos"></span>
+						</div>
+						<div class="col-sm-8">
+							<h3>&ensp;Descripci&oacute;n</h3>
+							<span id="separadorTitulos"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="entidad" ng-if="blnEntidad != null">
+							<div class="col-sm-12 rowTop">
+								<h5>
+								<strong ng-if="blnEntidad == 'ciudadanoDiv'" class="animate-if">
+								  Ciudadano(a)
+								</strong>
+								<strong ng-if="blnEntidad == 'enteDiv'" class="animate-if">
+								  &Oacute;rgano o ente p&uacute;blico
+								</strong>
+								</h5>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="nombre" ng-if="blnEntidad == 'ciudadanoDiv' && ((nomCdanoP != null) || (nomCdanoS != null))">
+							<div class="col-sm-4 rowTab">
+								Nombres del ciudadano(a):
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{nomCdanoP | uppercase}} {{nomCdanoS | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="apellido" ng-if="blnEntidad == 'ciudadanoDiv' && ((apeCdanoP != null)|| (apeCdanoS != null))">
+							<div class="col-sm-4 rowTab">
+								Apellidos del ciudadano(a):
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{apeCdanoP | uppercase}} {{apeCdanoS | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="nombreEnte" ng-if="blnEntidad == 'enteDiv'">
+							<div class="col-sm-4 rowTab">
+								Nombre del &oacute;rgano o ente p&uacute;blico:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{tipoEnte.nombre | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="tipo" >
+							<div ng-if="blnEntidad == 'enteDiv'">
+								<div class="col-sm-4 rowTab">
+									Tipo de documento:
+								</div>
+								<div class="col-sm-8 rowTabIzquierdo">
+									{{tipoDocEnte.descripcion | uppercase}}
+								</div>
+							</div>
+							<div ng-if="blnEntidad == 'ciudadanoDiv' && tipoDocumento != '' && tipoDocumento != null">
+								<div class="col-sm-4 rowTab">
+									Tipo de documento identificaci&oacute;n:
+								</div>
+								<div class="col-sm-8 rowTabIzquierdo">
+									{{tipoDocumento.descripcion | uppercase}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="datos" id="numero" ng-if="blnEntidad == 'ciudadanoDiv' && nroDocCed != null">
+							<div class="col-sm-4 rowTab">
+								N&uacute;mero de documento identificaci&oacute;n:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								<span ng-show="tipoDocumento.codigo =='CED'" >
+									{{tipoDocCdano | uppercase}}-{{nroDocCed | uppercase}}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="numero" ng-if="blnEntidad == 'ciudadanoDiv' && nroDoc != null">
+							<div class="col-sm-4 rowTab">
+								N&uacute;mero de documento identificaci&oacute;n:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								<span ng-show="tipoDocumento.codigo !='CED'" >
+									{{nroDoc | uppercase}}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="oficio" ng-if="blnEntidad == 'enteDiv' && nroOficio != null">
+							<div class="col-sm-4 rowTab">
+								N&uacute;mero de documento:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{nroOficio | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="tramiteDiv" ng-if="blnTipoSolicitud != ''">
+							<div ng-if="blnTipoSolicitud == 'nuevaSolicitud'">
+								<div class="col-sm-12 rowTab">
+									<strong>Solicitud nueva</strong>
+								</div>
+							</div>
+							<div ng-if="blnTipoSolicitud == 'consultaSolicitud'">
+								<div class="col-sm-12 rowTab">
+									<strong>Consultar solicitud</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="solicitudDiv" ng-if="blnCampoLlenar == 'nroOficioSolicitud'">
+							<div ng-if="docOrSol">
+								<div class="col-sm-4 rowTab">
+									N&uacute;mero de solicitud:
+								</div>
+								<div class="col-sm-8 rowTabIzquierdo">
+									{{nroSolicitud}}
+								</div>
+							</div>
+							<div ng-if="!docOrSol">
+								<div class="col-sm-4 rowTab">
+									Tipo de documento para solicitud de consulta:
+								</div>
+								<div class="col-sm-8 rowTabIzquierdo">
+									{{tipoDocEnteConsult.nombre}}
+								</div>
+								<div class="col-sm-4 rowTab">
+									N&uacute;mero de documento para solicitud de consulta:
+								</div>
+								<div class="col-sm-8 rowTabIzquierdo">
+									{{nroSolicitud}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="tipDocSolDiv" ng-if="blnCampoLlenar == 'documentoIdent'">
+							<div class="col-sm-4 rowTab">
+								Tipo documento para solicitud de consulta:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{tipoDocumentoSolicitud.descripcion | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="nroDocSolDiv" ng-if="blnCampoLlenar == 'documentoIdent'">
+							<div class="col-sm-4 rowTab">
+								N&uacute;mero documento para solicitud de consulta:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								<span ng-show="tipoDocumentoSolicitud.codigo =='CED'" >
+									{{tipoDocConsult | uppercase}}-{{nroDocumentoConsult | uppercase}}
+								</span>
+								<span ng-show="tipoDocumentoSolicitud.codigo !='CED'" >
+									{{nroDocumentoSolicitud}}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="tramiteSelect" ng-if="tramiteSelected != null">
+							<div class="col-sm-4 rowTab">
+								M&oacute;dulo:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{tramiteSelected | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="datos" id="procesoTramite" ng-if="valorTramite != null">
+							<div class="col-sm-4 rowTab">
+								Tipo de tr&aacute;mite:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{valorTramite | uppercase}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer footerFijo">
+					<div class="row col-sm-12">
+						<div class="col-sm-1 pull-right" >
+							<input ng-show = "blnEntidad != undefined" type="submit" value="Continuar" class="btn btn-success pull-right btn-sm" ng-click="finCreacionSolicitud()">
+						</div>
+						<div class="col-sm-6 pull-right">&emsp;</div>
+						<div class="col-sm-1 pull-right" >
+							<input type="button" value="Cancelar" ng-show = "(blnEntidad != undefined 
+																			&& (tipoDocumento != null 
+																			|| nomCdanoP != null
+																			|| nomCdanoS != null
+																			|| apeCdanoP != null
+																			|| apeCdanoS != null)) ||
+																			(blnEntidad != undefined 
+																			&& (tipoEnte != null 
+																			|| tipoDocEnte != null
+																			|| nroOficio != null))
+																			" class="btn btn-danger pull-right btn-sm" ng-click="reloadPage('md')">
+						</div>
+						<div class="col-sm-1 pull-right">&emsp;</div>
+						<div class="col-sm-1 pull-right" >
+							<input ng-show = "blnEntidad != undefined" type="Button" value="Regresar" class="btn btn-success pull-right btn-sm" ng-click="backAcordeon()">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

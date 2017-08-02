@@ -1,0 +1,19 @@
+{
+    "fields":
+    [  
+   	{
+          "key": "CantidadHijoConID",
+          "type": "inputNumeroEntidad",
+          "templateOptions": {
+          "label": "N\u00famero de hijo(s) con documento de identificaci\u00f3n: ",
+      	  "maxlength": "2",
+          "minlength": "1",
+          "placeholder": "00"   
+     }
+     },
+	  {
+			"template" : "<br>"
+	  }
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false,"varias":true}
+}

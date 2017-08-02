@@ -1,0 +1,85 @@
+<div ng-controller="">
+	<!--template para las modales-->
+	<div class="modal-header wizard-header">
+		<button type="button" class="close wizard-close" ng-click="cancel()"
+			aria-hidden="true">&times;</button>
+		<h3 class="modal-title wizard-title">Inhumaci&oacute;n y/o
+			cremaci&oacute;n</h3>
+		<span class="wizard-subtitle"></span>
+	</div>
+	<div class="modal-body wizard-body">
+
+		<div class="wizard-cards" ng-show="vistaPermiso">
+			<div class="wizard-card-container" style='height: 526px;'>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>Permiso de inhumaci&oacute;n</h4>
+				</div>
+				<div class="panel-body">gfgfgfdgdf</div>
+			</div>
+		</div>
+
+	</div>
+
+
+		<div class="wizard-cards" ng-show="conforme">
+			<div class="wizard-card-container" style='height: 526px;'>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Verificacion del(la) registrador(a) civil</h4>
+					</div>
+					<div class="panel-body">
+						<div class="col-sm-12">
+							<div class="col-sm-5">
+								<div class="radio">
+									<label> <input type="radio" value="conforme">
+										Conforme
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-5">
+								<div class="radio">
+									<label> <input type="radio" value="noConforme">
+										No Conforme
+									</label>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="wizard-footer">
+
+		<div ng-show="vistaPermiso">
+			<div class="wizard-buttons-container">
+				<button class="btn wizard-cancel wizard-close" type="button"
+					ng-click="cancelar()">Cancelar</button>
+				<div class="btn-group-single pull-right">
+					<button class="btn wizard-back" type="button" ng-click="">Regresar</button>
+					<button class="btn btn-primary wizard-next" type="button"
+						ng-click="eventoBoton4()">Continuar</button>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="conforme">
+			<div class="wizard-buttons-container">
+				<button class="btn wizard-cancel wizard-close" type="button"
+					ng-click="cancelar()">Cancelar</button>
+				<div class="btn-group-single pull-right">
+					<button class="btn wizard-back" type="button" ng-click="">Regresar</button>
+					<button class="btn btn-primary wizard-next" type="button"
+						ng-click="eventoBoton5()">Continuar</button>
+				</div>
+			</div>
+		</div>
+		
+	
+
+	</div>
+</div>
+

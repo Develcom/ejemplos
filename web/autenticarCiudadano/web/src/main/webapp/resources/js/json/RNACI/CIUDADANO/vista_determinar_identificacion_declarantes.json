@@ -1,0 +1,58 @@
+{
+    "fields":
+    [ 
+     {
+         "key" : "MadreDeclaranteID",
+         "type" : "radioHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf La madre posee documento de identificaci\u00f3n ?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ],
+             "required" : true
+         },
+         "data" : {
+            "color": "#9400D3",
+            "esconder" : false
+         },
+         "expressionProperties" : {
+         	"templateOptions.required" : "model.MadreDeclarante",
+         	"data.esconder" : "!model.MadreDeclarante"
+         }
+     },
+     {
+         "key" : "PadreDeclaranteID",
+         "type" : "radioHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf El padre posee documento de identificaci\u00f3n ?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ],
+             "required" : true
+         },
+         "data" : {
+            "color": "#2230f6",
+            "esconder" : false
+         },
+         "expressionProperties" : {
+         	"templateOptions.required" : "model.PadreDeclarante",
+         	"data.esconder" : "!model.PadreDeclarante"
+         } 
+     }
+    ],
+    "modelo":{"titulo" : "Selecci\u00f3n de participantes", "autenticar" : false, "memoria" : true, "inicial" : false, "ancho": false}
+}

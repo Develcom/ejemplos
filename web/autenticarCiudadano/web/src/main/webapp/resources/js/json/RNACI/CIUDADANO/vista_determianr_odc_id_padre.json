@@ -1,0 +1,48 @@
+{
+	"fields" : [
+		{
+			"template" : "<p>Seleccione el mecanismo de autenticaci\u00f3n del padre</p>"
+		},
+		{
+			"key" : "TipoDocumento",
+			"type" : "selectDocumentos",
+			"templateOptions" : {
+				"label" : "Seleccione el mecanismo de autenticaci\u00f3n de la madre",			
+				"options" : [
+				],
+				"required" : true
+			},
+			"data" : {
+				"ruta" : "/web-generales/consultarDocumentoAutenticacion"
+			}
+		},
+		{
+			"template" : "<p>\u00bf Con cu&aacute;l documento se autenticar&aacute;?</p>",
+			"hideExpression" : "model.TipoDocumento !== 'DP'"
+			
+		},
+		{
+			"key" : "TipoDocumentoPublico",
+			"type" : "inputKitModal",
+			"templateOptions" : {
+				"label" : "Seleccione el mecanismo de autenticaci\u00f3n de la madre"			
+			},
+            		"data" : {
+            			"tipoValidacion" : "tipoDocumento",
+            			"patron" : "^[A-Za-z0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Este campo solo permite letras, di\u00e9resis, ap\u00f3strofes, guiones y acentos"
+            			},
+            			"errorTecla" : false
+            		},
+
+			"hideExpression" : "model.TipoDocumento !== 'DP'",
+			"expressionProperties" : {"templateOptions.required" : "model.TipoDocumento === 'DP'"}
+		},
+	 	{
+	 		"template" : "<br>"
+	 	}
+	],
+	"modelo" : {"titulo" : "Mecanismo de autenticaci\u00f3n", "inicial":false, "autenticar":false, "memoria" : true, "ancho": false}
+}

@@ -1,0 +1,37 @@
+{
+    "fields":
+    [ 
+     {
+     	"template" : "<br>"
+     },
+     {
+         "key" : "mKey",
+         "type" : "radioRequerido",
+         "templateOptions" : {
+             "label" : "A continuaci\u00f3n se autenticar\u00e1 al PARENTESCO. \u00bf Desea repetir para este caso alguno de los testigos anteriores?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ]
+          }
+     },
+     {
+     	"className" : "formly-ajustado",
+         "key" : "indice_repetir",
+         "type" : "radio",
+         "templateOptions" : {
+         	"required" : true,
+             "label" : "Seleccione alguno de los siguientes participantes",
+             "options" : OPCIONES
+          },
+          "hideExpression" : "model.mKey == false || model.mKey == 'false' || model.mKey == undefined"
+     }
+         
+    ]
+}

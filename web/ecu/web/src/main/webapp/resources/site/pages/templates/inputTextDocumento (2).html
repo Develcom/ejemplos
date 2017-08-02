@@ -1,0 +1,15 @@
+<div class="form-group">
+	<div class="input-group">
+		<input type="text" value={{nroDocumento}}
+			ng-minlength="datosvalidacion.minima_longitud" ng-maxlength="datosvalidacion.maxima_longitud"
+			maxlength={{datosvalidacion.maxima_longitud}}
+			class="form-control input-sm" placeholder={{datosvalidacion.placeHolder}}
+			ng-pattern="datosvalidacion.patron" aria-describedby="basic-addon1"
+			ng-model="nroDocumento" required> <span 
+			class="input-group-addon" id="basic-addon1"> <span
+			class="glyphicon glyphicon-asterisk"
+			ng-hide="nroDocumento!= undefined"></span> <span
+			class="glyphicon glyphicon-ok" ng-show="nroDocumento!= undefined"></span>
+		</span>
+	</div>
+</div> 

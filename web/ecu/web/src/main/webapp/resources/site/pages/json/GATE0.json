@@ -1,0 +1,37 @@
+{
+    "fields":
+    [ 
+     {
+     	"template":"<div class='row col-sm-12'><h4>Solicitud de Registro de Nacimiento</h4><span id='separadorTitulos'></span></div>"
+     },
+     
+	 {
+     	"key": "tipoNacimiento",
+  		"type": "radio",
+  		"templateOptions": {
+    	
+    		"options": [
+      			{
+        			"name": "Por Inscripción de Nacimiento",
+        			"value": "inscrip_nac"
+      			},
+      			{
+        			"name": "Por Inserción de Nacimiento",
+        			"value": "inser_nac"
+      			}
+    		]
+		},
+         "data":{
+            "tipoNac":false
+         },
+         "expressionProperties": {
+            "data.tnacim": "model.tipoNacimiento"
+         },
+         "controller":"function($scope){$scope.$watch('options.data.tnacim',function(newValue,oldValue){console.log('hay un cambio: '+newValue);if(newValue == 'inscrip_nac'){$scope.model['inscrip_nac']=true;$scope.model['inser_nac']=false;}if(newValue == 'inser_nac'){$scope.model['inscrip_nac']=false;$scope.model['inser_nac']=true;}if(newValue != null){$scope.model['validador'] = true; $scope.model['continuar']=true;}});}"
+	},
+	{
+		"template":"<div class='row col-sm-12'><span id='separadorTitulos'></span>"
+	}
+   ],
+    "modelo":{"inscrip_nac": false,"inser_nac": false,"validador":false,"activo":"0","continuar":false, "flag": "0"}
+}

@@ -1,0 +1,31 @@
+
+    <div class="col-sm-12">
+        <h3>Cargar documento</h3>
+        			<span id="separadorTitulos"></span>
+    </div>
+    <form name="form1">
+
+            <div class="col-sm-12">
+                <label>Por favor cargue el documento
+                    </br></label> <br> <br>
+
+                <input name="uploadedfile" id="vm.modelo.uploadedfile" style ="width : 100%"; ng-model="vm.modelo.uploadedfile" type="file"
+                       valid-file required ng-click="vm.NombreSugeridoAgregarDocumento()"/>
+                <br>
+
+                <div class='alert alert-info row' role='alert'>
+                    <div class='col-sm-1'>
+                        <span style='transform: scale(1, 1);'
+                                                class='glyphicon glyphicon-comment glyphSizeMin'></span>
+                    </div>
+                    <p id='generico' class='col-sm-11'>
+                        <i><b>NOTA: </b>El tipo de archivo debe ser jpg o pdf
+                        </i>
+                    </p>
+                </div>
+                <br>
+
+                <div ng-bind-html="divErrorS"></div>
+                <div ng-bind-html="divErrorF"></div>
+            </div>
+    </form>

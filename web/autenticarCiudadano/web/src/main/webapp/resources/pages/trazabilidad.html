@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>SARC II Plantilla base</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/sb-admin-2.css" rel="stylesheet"><!-- Estilos de SBadmin 2 -->
+    <link href="../fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"><!-- Fuente (SBadmin 2) -->
+    <link rel="stylesheet" href="../css/sarcII.css"><!-- Estilos adicionales de SerWeb01 -->
+    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.css"><!-- Estilos Date Time Picker -->
+    <link rel="stylesheet" href="../css/dataTables.bootstrap.css"><!-- Estilos DataTable -->
+    <!--Estilos de Wizard-->
+    <link href="../css/bootstrap-wizard.css" rel="stylesheet" />
+    <link href="../css/chosen.css" rel="stylesheet" />
+    <link href="../css/propiasSistema.css" rel="stylesheet" />
+</head>
+<body>
+	<header style="margin-right: 0px;" id="header" class="collapse in cabecero"><!-- Cabecero -->
+		<div class="container-fluid">
+			<div class="row oficina">
+				<span id="separador"></span>
+				<div style="text-align:center" class="col-sm-2">
+					<img src="img/hisoft-logo.png">
+				</div>
+				<div class="col-sm-2">
+					<img src="img/logocne2.png">
+				</div>
+				<div class="col-sm-5" id="paddingTop_3">
+					<span class="nombreSistema">Componentes para la elaboración de vistas SARC II / SIAFIS</span>
+					<br>
+					Elaborado por Hi Soft Panam&aacute;, C.A. 2015 <span class="glyphicon glyphicon-copyright-mark"></span> CNE. Todos los derechos reservados
+				</div>
+				<div class="col-sm-3">
+					<div ng-app="tiempo" id="paddingTop_15">
+						<div ng-controller="fechaHora">
+							<span>{{fecha | date:'dd'}} de {{fecha | date:'MMMM'}} del {{fecha | date:'yyyy'}}</span> &ensp;
+							<span>{{fecha | date: 'h:mm:ss'}}</span>
+							<br>
+							<span id="font600">Equipo de desarrollo (Hi Soft Panamá)</span>
+						</div>
+					</div>
+				</div>
+				<span id="separador"></span>
+			</div>
+		</div>
+	</header>
+	<nav class="navbar navbar-inverse navbar-sarc">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html"><span style="font-size: 2.1ex;" class="glyphicon glyphicon-home"></span></a></li>
+				<li><a href="titulacion.html"><span class="glyphicon glyphicon-ok"></span> Titulación y textos</a></li>
+				<li><a href="plantilla_base.html"><span class="glyphicon glyphicon-ok"></span> Elementos base</a></li>
+				<li><a href="formularios.html"><span class="glyphicon glyphicon-ok"></span> Formularios</a></li>
+				<li class="active"><a href="trazabilidad.html"><span class="glyphicon glyphicon-ok ok"></span> Procesos guiados y trazabilidad</a></li>
+				<li><a href="expedientes_y_actas.html"><span class="glyphicon glyphicon-ok"></span> Expedientes, actas y notas marginales</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-controller="header"><a href="#" data-toggle="collapse" data-target="#header" ng-click="toggle()">
+					<span class="fa fa-angle-up" ng-hide="myVar"></span>
+					<span class="fa fa-angle-down" ng-show="myVar"></span> &nbsp;</a>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+	<!-- Zona de carga de las vistas-->
+	<div class="container-fluid"><!-- migajas del sitio -->
+		<ol class="breadcrumb ">
+		  <li><a href="#inicio">Inicio</a></li>
+		  <li class="active">Procesos guiados y trazabilidad</li>
+		</ol>
+	</div>
+	<div class="container-fluid">
+	<!--Wizard-->
+		<button id="open-wizard" class="btn btn-primary btn-sm">
+			<span class="glyphicon glyphicon-cog"></span> Abrir wizard
+		</button>
+		<div class="wizard" id="satellite-wizard" data-title="Solicitud de Union Estable de Hecho">
+			<!-- Wizard paso a paso -->
+		</div>
+		<div id='contenedor1' dynamic="html">
+		</div>
+	<!--Wizard-->
+	</div>
+	<!-- Fin de la zona de carga -->
+	<footer>
+		<p>Sistema automtizado del Registro Civil Venezolano. Desarrollado por Hi-Soft Panamá, Todos los derechos reservados. © 2015</p>
+	</footer>
+    <!-- Script necesarios para el funcionamiento de las vistas -->
+    <script src="../js/jquery-2.0.3.min.js"></script>
+    <script src="../js/api-check.min.js"></script>
+    <script src="../angular/angular.min.js"></script>
+    <script src="../js/formly.min.js"></script>
+    <script src="../js/angular-sanitize.min.js"></script>
+    <script src="../angular/i18n/angular-locale_es-ve.js"></script>
+    <script src="../js/angular-formly-templates-bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script type="text/javascript">// Script necesario para el funcionamiento del menu de navegación
+        $(".nav a").on("click", function(){
+          $(".nav").find(".active").removeClass("active");
+          $(this).parent().addClass("active");
+        });
+   </script>
+   <!-- Script Wizard -->
+   
+   <script src="../js/chosen.jquery.js"></script>
+   <script src="../js/prettify.js" type="text/javascript"></script>
+   <script src="../js/bootstrap-wizard_ori.js" type="text/javascript"></script>
+   <script src="../js/ui-bootstrap-tpls-0.14.3.min.js" type="text/javascript"></script>
+   <script src="../js/app.js"></script>
+   <!-- Script Wizard -->
+   <script type="text/javascript">
+			$(document).ready(function() {
+				$.fn.wizard.logging = true;
+				var wizard = $('#satellite-wizard').wizard({
+					keyboard : false,
+					contentHeight : 600,
+					contentWidth : 1320,
+					backdrop: 'static'
+				});
+
+				wizard.show();
+				$('#ip').on('input', function() {
+					if ($(this).val().length != 0) {
+						$('#fqdn').val('').attr('disabled', 'disabled');
+					} else {
+						$('#fqdn').val('').removeAttr('disabled');
+					}
+				}).keypress(function(e) {
+					if (e.which != 8 && e.which != 0 && e.which != x && (e.which < 48 || e.which > 57)) {
+						console.log(e.which);
+						return false;
+					}
+				}).keyup(function() {
+					var $this = $(this);
+					if (!pattern.test($this.val())) {
+						console.log('Not Valid IP');
+						$this.parents('.form-group').removeClass('has-error has-success').addClass('has-error');
+						while ($this.val().indexOf("..") !== -1) {
+							$this.val($this.val().replace('..', '.'));
+						}
+						x = 46;
+					} else {
+						x = 0;
+						var lastChar = $this.val().substr($this.val().length - 1);
+						if (lastChar == '.') {
+							$this.val($this.val().slice(0, -1));
+						}
+						var ip = $this.val().split('.');
+						if (ip.length == 4) {
+							console.log('Valid IP');
+							$this.parents('.form-group').removeClass('has-error').addClass('has-success');
+						}
+					}
+				});
+
+				wizard.on('closed', function() {
+					wizard.reset();
+				});
+
+				wizard.on("reset", function() {
+					wizard.modal.find(':input').val('').removeAttr('disabled');
+					wizard.modal.find('.form-group').removeClass('has-error').removeClass('has-succes');
+					wizard.modal.find('#fqdn').data('is-valid', 0).data('lookup', 0);
+				});
+
+				wizard.on("submit", function(wizard) {
+					var submit = {
+						"hostname": $("#new-server-fqdn").val()
+					};
+
+					this.log('seralize()');
+					this.log(this.serialize());
+					this.log('serializeArray()');
+					this.log(this.serializeArray());
+
+					setTimeout(function() {
+						wizard.trigger("success");
+						wizard.hideButtons();
+						wizard._submitting = false;
+						wizard.showSubmitCard("success");
+						wizard.updateProgressBar(0);
+					}, 2000);
+				});
+				wizard.on("next", (function(wizard){
+
+				}));
+
+				wizard.el.find(".wizard-success .im-done").click(function() {
+					wizard.hide();
+					setTimeout(function() {
+						wizard.reset();
+					}, 250);
+
+				});
+
+				wizard.el.find(".wizard-success .create-another-server").click(function() {
+					wizard.reset();
+				});
+
+
+				$('#open-wizard').click(function(e) {
+					e.preventDefault();
+					wizard.show();
+				});
+			});
+
+	</script>
+   <!-- Script Wizard -->
+</body>

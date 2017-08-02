@@ -1,0 +1,597 @@
+<div id="formularioAtencion" class="noselect">
+	<div id='waitingDiv' style=' display:none; top: 0; right: 0; bottom: 0; left: 0; z-index: 1040; background-color: #000; width: 100%; height: 100%; opacity: 0.4; position: absolute;' class=''> 
+		<img style='top: 35%; left: 45%; width: 50px; position: absolute;' src="/web-atencionComunitaria/img/loading.GIF"  class='img-responsive'> 
+		
+	</div>
+
+	
+	<div class="panel-group" id="atencion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div class="acordionTab" role="tab" id="head1">
+				<span>Tipo de Solicitante</span>
+			</div>
+			
+			<div id="panel1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="condicion">
+				<div class="panel-body">
+					<form name="myFormAtencion" novalidate class="css-form">
+						<div class="row">
+							<div class="col-sm-6">
+							<label><input type="radio" name="condicion" id="ciudadano" ng-click="tipoSolicitante('ciudadanoDiv')">
+									Ciudadano(a) </label>
+							</div>
+		
+							<div class="col-sm-6">
+								<label><input type="radio" name="condicion" id="ente" ng-click="tipoSolicitante('enteDiv')"> &Oacute;rgano o Ente
+									P&uacute;blico </label>
+							</div>
+							
+						</div>
+						<div class="row" id="contentTipoSolicitante" ng-model="blnEntidad">
+							
+							<div class="col-sm-8 FlotarL" id="ciudadanoDiv" ng-show="blnEntidad == 'ciudadanoDiv'" >
+								<div id="ciudadanoContent">
+									<div class="row acordionTab TabRadius">
+										<div class="col-sm-4">
+											<label>&ensp;Datos</label>
+										</div>
+										<div class="col-sm-7">
+											<label>&ensp;Descripci&oacute;n</label>
+										</div>
+									</div>
+									<div class="row" ng-model="listDocumentos">
+										<div class="col-sm-4">
+											<label>Tipo de Documento de Identificaci&oacute;n</label>
+										</div>
+										<div class="col-sm-7">
+											<select ng-model="tipoDocumento" ng-options="doc as doc.descripcion for doc in listDocumentos" id="tipoDocumento" required name="tipoDocumento_field" class="form-control noselect">
+												<option label="" value="">
+									        		Seleccione una opci&oacute;n
+									        	</option>
+											</select>
+											<!-- <select ng-model="tipoDocumento" id="tipoDocumento" name="tipoDocumento" class="form-control noselect">
+									        	<option ng-selected="{{item == ''}}" label="" value="">
+									        		Seleccione una opci&oacute;n
+									        	</option>
+									        	<option ng-repeat="item in listDocumentos" ng-selected="item==tipoDocumento" label="{{item.descripcion}}" value="{{item.codigo}}">{{item.descripcion}</option>
+										    </select>-->
+										</div>
+										<span ng-show="tipoDocumento == null || tipoDocumento == ''">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_tipoDocumento" style="display:block;"/>
+										</span>
+									</div>
+								
+									<div class="row" ng-show="tipoDocumento != null">
+										<div class="col-sm-4">
+											<label>N&uacute;mero de Identificaci&oacute;n</label>
+										</div>
+								
+										<div class="col-sm-7">
+											<div ng-show="tipoDocumento.codigo =='CED'" >
+												<div class="row">
+													<div class="col-sm-3">
+														<select ng-model="tipoDocCdano" id="tipoDocCdano" name="tipoDocCdano_field" required ng-trim="true" class="form-control noselect">
+												        	<option label="V" value="V">
+												        		V
+												        	</option>
+												        	<option label="E" value="E">
+												        		E
+												        	</option>
+													    </select>
+													</div>
+													<div class="col-sm-9">
+														<input id='nroDocCed' name="nroDocCed_field" ng-model="nroDocCed" placeholder="N&uacute;mero de Documento" ng-pattern="vPatron.Cedula" required ng-trim="true" class="form-control noselect"/>
+													</div>
+												</div>		
+											</div>
+											<div ng-show="tipoDocumento.codigo != 'CED'">
+												<input id='nroDoc' name="nroDoc_field" ng-model="nroDoc" placeholder="N&uacute;mero de Documento" ng-pattern="vPatron.Cedula" required ng-trim="true" class="form-control noselect"/>
+											</div>
+											
+										</div>
+										<span ng-show="myFormAtencion.tipoDocCdano_field.$error.required && tipoDocumento.codigo =='CED'">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.nroDocCed_field.$error.required && tipoDocumento.codigo =='CED'">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.nroDoc_field.$error.required && tipoDocumento.codigo !='CED'">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.nroDoc_field.$error.pattern || myFormAtencion.nroDocCed_field.$error.pattern">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+									</div>
+								
+									<div class="row">
+										<div class="col-sm-4">
+											<label>Nombres del Ciudadano(a)</label>
+										</div>
+								
+										<div class="col-sm-7">
+											<input id='nomCdanoP' name="nomCdanoP_field" placeholder="Primer Nombre" ng-pattern="vPatron.Alfa" required ng-trim="true" ng-model="nomCdanoP" class="form-control noselect FlotarL col-sm-6" style="width:50%"/>
+											<input id='nomCdanoS' name="nomCdanoS_field" placeholder="Segundo Nombre" ng-pattern="vPatron.Alfa" required ng-trim="true" ng-model="nomCdanoS" class="form-control noselect FlotarR col-sm-6" style="width:50%"/>
+										</div>
+										<span ng-show="myFormAtencion.nomCdanoP_field.$error.required && tipoDocumento == null">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.nomCdanoS_field.$error.required && tipoDocumento == null">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.nomCdanoP_field.$error.pattern">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_nomCdanoP" style="display:block;"/>
+										</span>
+										<!-- myFormAtencion.nroDoc_field.$error.required -->
+										<span ng-show="myFormAtencion.nomCdanoS_field.$error.pattern">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_nomCdanoS" style="display:block;"/>
+										</span>
+									</div>
+								
+									<div class="row">
+										<div class="col-sm-4">
+											<label>Apellidos del Ciudadano(a)</label>
+										</div>
+								
+										<div class="col-sm-7">
+											<input id='apeCdanoP' name="apeCdanoP_field" ng-pattern="vPatron.Alfa" required ng-trim="true" placeholder="Primer Apellido" ng-model="apeCdanoP" class="form-control noselect FlotarL col-sm-6" style="width:50%"/>
+											<input id='apeCdanoS' name="apeCdanoS_field" ng-pattern="vPatron.Alfa" required ng-trim="true" placeholder="Segundo Apellido" ng-model="apeCdanoS" class="form-control noselect FlotarR col-sm-6" style="width:50%"/>
+										</div>
+										<span ng-show="myFormAtencion.apeCdanoP_field.$error.required && tipoDocumento == null">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.apeCdanoS_field.$error.required && tipoDocumento == null">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.apeCdanoP_field.$error.pattern">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_apeCdanoP" style="display:block;"/>
+										</span>
+										<span ng-show="myFormAtencion.apeCdanoS_field.$error.pattern">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_apeCdanoS" style="display:block;"/>
+										</span>
+									</div>
+								</div>
+							</div>
+		
+							<div class="col-sm-6 FlotarR" id="enteDiv" ng-show="blnEntidad == 'enteDiv'">
+								<div id="enteDiv">
+									<div class="row acordionTab TabRadius">
+										<div class="col-sm-4">
+											<label>&ensp;Datos</label>
+										</div>
+										<div class="col-sm-7">
+											<label>&ensp;Descripci&oacute;n</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-4">
+											<label>Nombre del &Oacute;rgano o Ente P&uacute;blico</label>
+										</div>
+								
+										<div class="col-sm-7" ng-model="listTipoEnte">
+											<select ng-model="tipoEnte" ng-options="doc as doc.descripcion for doc in listTipoEnte" id="tipoEnte" name="tipoEnte_field" required class="form-control noselect">
+												<option label="" value="">
+									        		Seleccione una opci&oacute;n
+									        	</option>
+											</select>
+										</div>
+										<span ng-show="myFormAtencion.tipoEnte_field.$error.required">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_tipoEnte" style=""/>
+										</span>
+									</div>
+								
+									<div class="row">
+										<div class="col-sm-4">
+											<label>Tipo de Documento</label>
+										</div>
+										<div class="col-sm-7">
+											<select ng-model="tipoDocEnte" ng-options="doc as doc.descripcion for doc in listTipoDocEnte" id="tipoDocEnte" name="tipoDocEnte_field" class="form-control noselect">
+												<option label="" value="">
+									        		Seleccione una opci&oacute;n
+									        	</option>
+											</select>
+										</div>
+										<span ng-show="myFormAtencion.tipoDocEnte_field.$error.required">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_tipoDocEnte" style=""/>
+										</span>
+									</div>
+								
+									<div class="row">
+										<div class="col-sm-4">
+											<label>N&uacute;mero de Documento</label>
+										</div>
+								
+										<div class="col-sm-7">
+											<input id='nroOficio' name="nroOficio_field" ng-pattern="vPatron.NumeroDocumento" required ng-trim="true" placeholder="N&uacute;mero de Documento" class="form-control noselect" ng-model="nroOficio"/>
+										</div>
+										<span ng-show="myFormAtencion.nroOficio_field.$error.pattern || myFormAtencion.nroOficio_field.$error.required">
+											<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 " id="sign_nroOficio" style="display:block;"/>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default" style="display:none;" id="tSolicitud" ng-model="blnTipoSolicitud">
+			<div class="acordionTabOff" role="tab" id="head2">
+				<span>Seleccionar Tipo de Solicitud</span>
+			</div>
+			<div id="panel2" class="panel-collapse collapse" role="tabpanel" id="tSolicitud" aria-labelledby="tramite">
+				<div class="panel-body">
+					<div class="row panel">
+						<div class="col-sm-3">
+							<label>
+								<input type="radio" class="noselect" id="tramiteRadio"
+								name="solicitud"
+								ng-click="nuevoTramite()"
+								/>
+								Solicitud Nueva
+							</label>
+						</div>
+						<div id="nuevoTramite" class="col-sm-9" ng-show="blnTipoSolicitud == 'nuevaSolicitud'">
+							<div class="row">
+								<div class="col-sm-6 acordionTab TabLeft">
+									<div class="row">
+										<label>&ensp;M&oacute;dulo de Registro Civil</label>
+									</div>
+								</div>
+								<div class="col-sm-6 acordionTab TabRight">
+									<div class="row">
+										<label>&ensp;Tipo de Tr&aacute;mite</label>
+									</div>
+								</div>
+							</div>
+							<div class="row" ng-model="valorTramite">
+							
+								<div class="col-sm-6" id="tipoTramite" ng-model="tipoTramite">
+									<div ng-repeat="item in listModulos">
+										<input type="radio" class="noselect" name="registro" ng-click="checkTipoTramite(item.codigo, item.nombre)" id="{{item.codigo}}" value="{{item.codigo}}" alt="{{item.nombre}}"> 
+										&emsp; 
+										{{item.nombre}}
+										<br/>
+									</div>
+
+								</div>
+							
+								<div class="col-sm-6 tramitesCol" id="tramites" ng-model="tramiteSelected" ng-model="codTramite">									
+									<div ng-repeat="item in listTramites" ng-model="listTramites" class="clearBOTH">
+										&emsp;&emsp;
+										<span class="col-sm-11">
+										<input class="noselect FlotarL" ng-click="selectedTramite(tramiteSelected, item.nombre, item.codigo)"  type="radio"> 
+										&emsp;
+										<span class="col-sm-10 FloarR">{{item.descripcion}}</span> 
+										</span>
+										<br>
+									</div>
+
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					<div class="row panel">
+						<div class="col-sm-3">
+							<label>
+								<input class="noselect" type="radio" id="consulta" name="solicitud"
+								ng-click="consultarSolicitud()"
+								/>
+
+								Consultar
+							</label>
+						</div>
+						<div id="consultaTramite" class="col-sm-9" ng-show="blnTipoSolicitud == 'consultaSolicitud'" ng-model="blnTipoConsulta">
+							<!--  CONSULTA DE SOLICITUD -->
+							<span ng-show="myFormAtencion.tipoDocConsult_field.$error.required && tipoDocumentoSolicitud.codigo =='CED'">
+								<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0" id="sign_nroDoc" style="display:block;"/>
+							</span>
+							<span ng-show="myFormAtencion.nroSolicitud_field.$error.pattern">
+								<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 warningImg" id="sign_nroSolicitud">
+							</span>
+							<span ng-show="myFormAtencion.tipoDocumentoSolicitud_field.$error.pattern">
+								<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 warningImg" id="sign_tipoDocumentoSolicitud">
+							</span>
+							<span ng-show="myFormAtencion.nroDocumentoConsult_field.$error.pattern">
+								<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 warningImg" id="sign_nroDocumentoConsult">
+							</span>
+							<span ng-show="myFormAtencion.nroDocumentoSolicitud_field.$error.pattern">
+								<img src="/web-atencionComunitaria/img/sign_warning.png" class="img-responsive img_info_0 warningImg" id="sign_nroDocumentoSolicitud">
+							</span>
+							
+							<div class="col-sm-6" id="opcionesSolicitud" ng-model="blnCampoLlenar">
+								<div class="row acordionTab TabLeft">
+									<div class="row">
+										<label>&ensp;Tipo de Consulta de Solicitud</label>
+									</div>
+								</div>
+								<div class="row" id="documentoIdentificacionCiudadano" ng-show="blnTipoConsulta == 'ciudadanoDiv'">
+									<div class="col-sm-3 textCenter">
+										<input class="noselect" type="radio" name="tipoSolicitud" id="documentoSolicitud" ng-click="blnCampoLlenar = 'documentoIdent'">
+									</div>
+									<div class="col-sm-9">Documento de Identificaci&oacute;n</div>
+								</div>
+								<div class="row" ng-model="docOrSol">
+									<div class="col-sm-3 textCenter">
+										<input class="noselect" type="radio"  name="tipoSolicitud" id="numeroSolicitud" ng-click="blnCampoLlenar = 'nroOficioSolicitud'; placeHolderModel = 'N&uacute;mero de Solicitud'; docOrSol = true">
+									</div>
+									<div class="col-sm-9">N&uacute;mero de Solicitud</div>
+								</div>
+								<div class="row" id="numeroDocumentoEnte" ng-show="blnTipoConsulta == 'enteDiv'">
+									<div class="col-sm-3 textCenter">
+										<input class="noselect" type="radio" name="tipoSolicitud" id="nroOficioSolicitud" ng-click="blnCampoLlenar = 'nroOficioSolicitud'; placeHolderModel = 'N&uacute;mero de Documento'; docOrSol = false">
+									</div>
+									<div class="col-sm-9">N&uacute;mero de Documento</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-6" id="consultaDiv" ng-model="placeHolderModel">
+								<div class="row acordionTab TabRight">
+									<label>&ensp;Datos de la Solicitud</label>
+								</div>
+								<div class="row" id="divDocSol" ng-show="blnCampoLlenar == 'documentoIdent'">
+									<select ng-model="tipoDocumentoSolicitud" ng-options="doc as doc.descripcion for doc in listDocumentos" id="tipoDocumentoSolicitud" name="tipoDocumentoSolicitud_field" class="form-control noselect">
+										<option label="" value="">
+							        		Seleccione una opci&oacute;n
+							        	</option>
+									</select>
+									<div ng-show="tipoDocumentoSolicitud.codigo !='' && tipoDocumentoSolicitud.codigo !=null">
+										<div ng-show="tipoDocumentoSolicitud.codigo =='CED'" >
+											<div class="row">
+												<div class="col-sm-3">
+													<select ng-model="tipoDocConsult" id="tipoDocConsult" name="tipoDocConsult_field" required ng-trim="true" class="form-control noselect">
+											        	<option label="V" value="V">
+											        		V
+											        	</option>
+											        	<option label="E" value="E">
+											        		E
+											        	</option>
+												    </select>
+												</div>
+												<div class="col-sm-9">
+													<input id='nroDocumentoConsult' name="nroDocumentoConsult_field" ng-model="nroDocumentoConsult" placeholder="N&uacute;mero de Documento" ng-pattern="vPatron.Cedula" required ng-trim="true" class="form-control noselect nroDocSolInpt"/>
+												</div>
+											</div>		
+										</div>
+										<div ng-show="tipoDocumentoSolicitud.codigo != 'CED'">
+											<input id="nroDocumentoSolicitud" name="nroDocumentoSolicitud_field" type="text" ng-model="nroDocumentoSolicitud" ng-pattern="vPatron.NumeroDocumento" class="form-control noselect nroDocSolInpt" placeholder="N&uacute;mero de Documento">
+										</div>
+									</div>
+								</div>
+								<div class="row" id="divNroSol" ng-show="blnCampoLlenar == 'nroOficioSolicitud'">
+									<input id="nroSolicitud" name="nroSolicitud_field" ng-model="nroSolicitud" placeholder="{{placeHolderModel}}" class="form-control noselect" />
+								</div>
+							</div>
+							<!-- FIN DE CONSULTA -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default" ng-model="blnDatos" id="dSolicitud" ng-show="blnDatos">
+			 
+			<div class="acordionTabOff" role="tab" id="head3">
+				<span>Datos de la Consulta/Solicitud</span>
+			</div>
+			<div id="panel3" class="panel-collapse collapse" role="tabpanel"
+				aria-labelledby="headingThree">
+				<div class="panel-body" id="datos">
+					<div class="row">
+						<div class="col-sm-4 acordionTab TabLeft">
+							<label>&ensp;Datos</label>
+						</div>
+						<div class="col-sm-8 acordionTab TabRight">
+							<label>&ensp;Descripci&oacute;n</label>
+						</div>
+					</div>
+					<div class="row datos" id="entidad" ng-if="blnEntidad != ''">
+						<div class="col-sm-12 rowTop">
+							<strong ng-if="blnEntidad == 'ciudadanoDiv'" class="animate-if">
+							  Ciudadano(a)
+							</strong>
+							<strong ng-if="blnEntidad == 'enteDiv'" class="animate-if">
+							  &Oacute;rgano o Ente P&uacute;blico
+							</strong>
+						</div>
+					</div>
+					<div class="row datos" id="nombre" ng-if="blnEntidad == 'ciudadanoDiv' && ((nomCdanoP != '' && nomCdanoP != null) || (nomCdanoS != '' && nomCdanoS != null))">
+						<div class="col-sm-4 rowTab">
+							Nombres del Ciudadano(a):
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{nomCdanoP | uppercase}} {{nomCdanoS | uppercase}}
+						</div>
+					</div>
+					<div class="row datos" id="apellido" ng-if="blnEntidad == 'ciudadanoDiv' && ((apeCdanoP != '' && apeCdanoP != null)|| (apeCdanoS != '' && apeCdanoS != null))">
+						<div class="col-sm-4 rowTab">
+							Apellidos del Ciudadano(a):
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{apeCdanoP | uppercase}} {{apeCdanoS | uppercase}}
+						</div>
+					</div>
+					<div class="row datos" id="nombreEnte" ng-if="blnEntidad == 'enteDiv'">
+						<div class="col-sm-4 rowTab">
+							Nombre del &Oacute;rgano o Ente P&uacute;blico:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{tipoEnte.nombre | uppercase}}
+						</div>
+					</div>
+					<div class="row datos" id="tipo" >
+						<div ng-if="blnEntidad == 'enteDiv'">
+							<div class="col-sm-4 rowTab">
+								Tipo de Documento:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{tipoDocEnte.descripcion | uppercase}}
+							</div>
+						</div>
+						<div ng-if="blnEntidad == 'ciudadanoDiv' && tipoDocumento != ''">
+							<div class="col-sm-4 rowTab">
+								Tipo de Documento Identificaci&oacute;n:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{tipoDocumento.descripcion | uppercase}}
+							</div>
+						</div>
+					</div>
+					<div class="row datos" id="numero" ng-if="blnEntidad == 'ciudadanoDiv' && (nroDoc != null || nroDocCed != null)">
+						<div class="col-sm-4 rowTab">
+							N&uacute;mero de Documento Identificaci&oacute;n:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							<span ng-show="tipoDocumento.codigo =='CED'" >
+								{{tipoDocCdano | uppercase}}-{{nroDocCed | uppercase}}
+							</span>
+							<span ng-show="tipoDocumento.codigo !='CED'" >
+								{{nroDoc | uppercase}}
+							</span>
+						</div>
+					</div>
+					<div class="row datos" id="oficio" ng-if="blnEntidad == 'enteDiv' && nroOficio != ''">
+						<div class="col-sm-4 rowTab">
+							N&uacute;mero de Documento:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{nroOficio | uppercase}}
+						</div>
+					</div>
+					<div class="row datos" id="tramiteDiv" ng-if="blnTipoSolicitud != ''">
+						<div ng-if="blnTipoSolicitud == 'nuevaSolicitud'">
+							<div class="col-sm-12 rowTab">
+								<strong>Solicitud Nueva</strong>
+							</div>
+						</div>
+						<div ng-if="blnTipoSolicitud == 'consultaSolicitud'">
+							<div class="col-sm-12 rowTab">
+								<strong>Consultar Solicitud</strong>
+							</div>
+						</div>
+					</div>
+					<div class="row datos" id="solicitudDiv" ng-if="blnCampoLlenar == 'nroOficioSolicitud'">
+						<div ng-if="docOrSol">
+							<div class="col-sm-4 rowTab">
+								N&uacute;mero de Solicitud:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{nroSolicitud}}
+							</div>
+						</div>
+						<div ng-if="!docOrSol">
+							<div class="col-sm-4 rowTab">
+								N&uacute;mero de Documento:
+							</div>
+							<div class="col-sm-8 rowTabIzquierdo">
+								{{nroSolicitud}}
+							</div>
+						</div>
+					</div>
+					<div class="row datos" id="tipDocSolDiv" ng-if="blnCampoLlenar == 'documentoIdent'">
+						<div class="col-sm-4 rowTab">
+							Tipo Documento para Solicitud de Consulta:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{tipoDocumentoSolicitud.descripcion | uppercase}}
+						</div>
+					</div>
+					<div class="row datos" id="nroDocSolDiv" ng-if="blnCampoLlenar == 'documentoIdent'">
+						<div class="col-sm-4 rowTab">
+							N&uacute;mero Documento para Solicitud de Consulta:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							<span ng-show="tipoDocumento.codigo =='CED'" >
+								{{tipoDocConsult | uppercase}}-{{nroDocumentoConsult | uppercase}}
+							</span>
+							<span ng-show="tipoDocumento.codigo !='CED'" >
+								{{nroDocumentoSolicitud}}
+							</span>
+						</div>
+					</div>
+					<div class="row datos" id="tramiteSelect" ng-if="tramiteSelected != '' && tramiteSelected != null">
+						<div class="col-sm-4 rowTab">
+							M&oacute;dulo:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{tramiteSelected | uppercase}}
+						</div>
+					</div>
+					<div class="row datos" id="procesoTramite" ng-if="valorTramite != '' && valorTramite != null">
+						<div class="col-sm-4 rowTab">
+							Tipo de Tr&aacute;mite:
+						</div>
+						<div class="col-sm-8 rowTabIzquierdo">
+							{{valorTramite | uppercase}}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	<div class="row col-sm-10" id="opciones_modulo" ng-init="num_acordeon = 1" style="display:none;">
+	 	<div class="col-sm-4">&emsp;</div>
+	 	<div class="col-sm-1 mensajeria" >
+	 		<button class="btn" id="anteriorBtn" ng-click="backAcordeon()">Regresar</button>
+	 	</div>
+	 	<div class="col-sm-1">&emsp;</div>
+	 	<div class="col-sm-1 mensajeria" >
+	 		<button class="btn" id="cancelarBtn">Cancelar</button>
+	 	</div>
+	 	<div class="col-sm-1">&emsp;</div>
+	 	<div class="col-sm-1 mensajeria" >
+			<button class="btn" id="continuarBtn" ng-click="continuarTipoSolicitud()">Continuar</button>
+			<span ng-show = '(blnTipoSolicitud == "nuevaSolicitud" && tramiteSelected != null && codTramite != null) || (blnTipoSolicitud == "consultaSolicitud" && blnCampoLlenar != "")'>
+				<button class="btn" id="datosBtn" ng-click="continuarDatosSolicitud()">Continuar</button>
+			</span>			
+			<button class="btn" id="finCreacionSol" ng-click="finCreacionSolicitud(myFormAtencion)">Continuar</button>
+	 		<button class="btn" id="finalizarBtn" >Finalizar</button>
+	 	</div>
+	 </div>
+	<input type="hidden" id="fin" value="false" />
+	<div class="modal fade" id="myModal">
+	  <div class="col-sm-3 modalContentAlert">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Atenci&oacute;n</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="contentModal">
+	        	<p>&#191;Desea cancelar la operaci&oacute;n?</p>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	      	<div class="mensajeria">
+	        	<button type="button" id="cancelarAction" class="btn">Si</button>
+	        	<button type="button" id="dismissModalCancelar" data-dismiss="modal" class="btn" ><span>No</span></button>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="confirmAtencionCiudadano">
+	  <div class="col-sm-3 modalContentAlert less">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Atenci&oacute;n</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="contentModal textCenter">
+	        	<p>A continuaci&oacute;n se proceder&aacute; con su solicitud.</p>
+	        	<p>&#191;Los datos est&aacute;n correctos?</p>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	      	<div class="mensajeria">
+	        	<button type="button" id="continuarAtencionCiudadano" class="btn">Si</button>
+	        	<button type="button" data-dismiss="modal" class="btn" ><span>No</span></button>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

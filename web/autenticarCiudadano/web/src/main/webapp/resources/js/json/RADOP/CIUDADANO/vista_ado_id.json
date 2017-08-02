@@ -1,0 +1,31 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "AdoptadoConId",
+		 "type" : "alineacionPregunta",
+		 "templateOptions" : {
+		 	"required":true,
+			 "label" : "\u00bfEl(La) adoptado(a) posee documento de identificaci\u00f3n?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		  "data":{
+            "color": "#C8C8C8"
+         }
+	 },
+	 	{
+			"template" : "<br>"
+		}        
+	 		                                                                                     	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false}
+}

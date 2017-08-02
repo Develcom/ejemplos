@@ -1,0 +1,281 @@
+{
+	"fields":
+	[
+		{
+			"template":"PARENTESCO"
+		},
+		{
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-6",
+					"template" : "<H4 style='text-align: left;' class='subtitulo-formulario control-label text-center'>Datos miembro consejo comunal</H4>"
+				},
+				{
+					"className" : "col-sm-6",
+					"template" : "<span style='text-align: right; color: #A94442;' class = 'col-sm-12'><span>Campos obligatorios</span><span class='glyphicon glyphicon-asterisk'></span></span>"
+				}
+			]
+		},
+		{
+			"template" : "<hr class='separador-formulario'>"
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"hideExpression":"model['ROL'].autenticado || (model['ROL'].repetir_testigo || model['ROL'].repetir_testigo==undefined) && model.repetir_testigo",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-3",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Documento de Identificaci\u00f3n</label>"
+				},
+				{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "mSelect",
+            		"name" : "tipoDocumento",
+            		"key" : "tipoDocumento",
+            		"defaultValue":"",
+            		"templateOptions" : {
+            			"options": [
+            				{
+            					"name":"Seleccione",
+            					"value":""
+            				},
+        					{
+          						"name": "C\u00c9DULA/NUI",
+          						"value": "CED"
+        					},
+        					{
+          						"name": "PASAPORTE",
+          						"value": "PAS"
+        					}
+        				],
+        				"required" : true
+            		}
+          		},
+          		{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "mSelect",
+            		"name" : "nacionalidad",
+            		"key" : "nacionalidad",
+            		"defaultValue":"",
+            		"templateOptions" : {
+            			"options": [
+            				{
+            					"name":"Seleccione",
+            					"value":""
+            				},
+        					{
+          						"name": "V",
+          						"value": "V"
+        					},
+        					{
+          						"name": "E",
+          						"value": "E"
+        					}
+        				],
+        				"required" : true
+            		},
+					"hideExpression":"model.tipoDocumento!='CED'"
+            	},
+            	{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "cedula",
+            		"name" : "cedula",
+            		"templateOptions" : {
+        				"placeholder" : "Ejemplo 12345678",
+       					"maxlength": "11",
+      					"minlength": "6",
+        				"required" : true
+            		},
+					"hideExpression":"model.tipoDocumento!='CED'",
+					"data" : {
+						"tipoValidacion" : "cedula",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo n\u00fameros"
+            			},
+            			"errorTecla" : false
+					}
+					
+            	},
+            	{
+					"className" : "col-sm-6 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "pasaporte",
+            		"name" : "pasaporte",
+            		"templateOptions" : {
+        				"placeholder" : "Ejemplo 12345678",
+       					"maxlength": "11",
+      					"minlength": "6"
+            		},
+            		"expressionProperties" : {
+            			"templateOptions.required" : "model.tipoDocumento == 'PAS'" 
+            		},
+					"hideExpression":"model.tipoDocumento != 'PAS'",
+					"data" : {
+						"tipoValidacion" : "pasaporte",
+						"patron" : "^[0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo n\u00fameros"
+            			},
+            			"errorTecla" : false
+					}
+            	}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Primer nombre</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "primerNombre",
+            		"templateOptions" : {
+          				"maxlength" : "50",
+          				"minlength" : "2",
+          				"placeholder" : "",
+          				"required" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "primerNombre",
+            			"patron" : "^[A-Za-z]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		}
+            		
+          		},
+				{
+					"className" : "col-sm-2 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Segundo nombre</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "segundoNombre",
+            		"templateOptions" : {
+          				"placeholder" : ""
+            		},
+            		"data" : {
+            			"tipoValidacion" : "segundoNombre",
+            			"patron" : "^[A-Za-z]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		}
+            		
+          		}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Primer apellido</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "primerApellido",
+            		"templateOptions" : {
+          				"maxlength" : "50",
+          				"minlength" : "2",
+          				"placeholder" : "",
+          				"required" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "primerApellido",
+            			"patron" : "^[A-Za-z]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		}
+            		
+          		},
+				{
+					"className" : "col-sm-2 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Segundo apellido</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "segundoApellido",
+            		"templateOptions" : {
+           				"placeholder" : ""
+            		},
+            		"data" : {
+            			"tipoValidacion" : "segundoApellido",
+            			"patron" : "^[A-Za-z]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		}
+            		
+          		}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Cargo</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "cargo",
+            		"templateOptions" : {
+          				"maxlength" : "50",
+          				"minlength" : "2",
+          				"placeholder" : "",
+          				"required" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "cargoMiembroCC",
+            			"patron" : "^[A-Za-z0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras y n\u00fameros"
+            			},
+            			"errorTecla" : false
+            		}
+          		}			
+          	]
+		},
+		{
+			"type" : "button1",
+        	"templateOptions" : {
+          		"text" : "A\u00f1adir"
+          	},
+          	"data" : {
+          		"esconder" : false
+          	},
+          	"hideExpression" : "data.esconder === true"
+		},
+     {
+     	"template" : "<br>"
+     }
+		
+    ],
+	"modelo":{"titulo":"Carta consejo comunal", "ancho" : true}
+}

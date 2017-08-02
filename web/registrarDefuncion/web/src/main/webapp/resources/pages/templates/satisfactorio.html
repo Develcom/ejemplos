@@ -1,0 +1,34 @@
+
+<div class="wizard-card-container" style='height: 500px; width: 100%;'>
+	<div id="panelParticipantes" class="panel panel-default">
+		<div class="col-sm-12">
+			<h3>Registrar Defunci&oacute;n</h3>
+			<span id="separadorTitulos"></span>
+		</div>
+
+
+		
+			<div class="col-sm-12">
+				<div class="alert alert-success" role="alert">
+					<div class="container-fluid">
+						<div class="row">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							<!-- Se han autenticado correctamente todos los participantes del acto -->
+							{{vm.modelo.mensaje}}
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	<div class="wizard-buttons-container">
+		<!--                                     	<button type="button" class="btn btn-danger wizard-cancel wizard-close" ng-show="!vm.user.success" ng-click="vm.cancelar()">Cancelar</button>   -->
+		<div class="btn-group-single pull-right">
+			<!--                                         	<button ng-click="vm.regresar()"  ng-disabled="vm.vistas.lenght === 0" class="btn btn-default wizard-back" type="button">Regresar</button> -->
+			<span>
+				<button ng-click="vm.siguienteSatisfactorio()"
+					class="btn btn-success wizard-next" type="button">Finalizar</button>
+			</span>
+		</div>
+	</div>
+</div>

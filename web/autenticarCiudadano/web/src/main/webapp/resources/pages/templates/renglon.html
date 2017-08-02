@@ -1,0 +1,104 @@
+<div ng-hide="(model[options.key].repetir_testigo || model[options.key].repetir_testigo==undefined) && model.repetir_testigo">
+<div>
+		<div class="row" style='margin-left:15px; margin-right:15px;' ng-hide="model[options.key].autenticado">
+<hr>
+<p>A continuaci&oacute;n ingrese los datos del documento de Identificaci&oacute;n del <b style='color:#ff0000'>{{to.label}}</b></p>
+			<div class="row form-group" ng-class="{'has-error': model[options.key].cedula== undefined && model[options.key].pasaporte == undefined , 'has-success':  model[options.key].cedula != undefined || model[options.key].pasaporte != undefined }">
+				<label class="col-sm-3 control-label" style="text-align: left;">{{options.templateOptions.label}}</label>
+				<div class="form-group col-sm-3">
+					<div class="input-group">  
+						<select class="form-control input-sm" uib-popover="Seleccione el tipo de documento" popover-trigger="focus"
+							ng-model="model[options.key].tipoDocumento" ng-click="model.falloAutenticacion=false" ng-change="model[options.key].cedula=undefined; model[options.key].pasaporte=undefined; model[options.key].nacionalidad=undefined" ng-required="!model[options.key].repetir_testigo">
+							<option value=undefined selected disabled>Por favor seleccione</option>
+							<option value="ced">CEDULA/NUI</option>
+							<option value="pas">PASAPORTE</option>
+						</select> 
+						<span class="input-group-addon" id="basic-addon1"> 
+							<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].tipoDocumento!= undefined"></span> 
+							<span class="glyphicon glyphicon-ok" ng-show="model[options.key].tipoDocumento!= undefined"></span>
+						</span>
+					</div>
+				</div>
+			<div ng-show="model[options.key].tipoDocumento=='ced'" class="row form-group" ng-class="{'has-error': model[options.key].cedula == undefined , 'has-success':  model[options.key].cedula!== undefined}">
+				<div class="form-group col-sm-2">
+					<div class="input-group">
+						<select uib-popover="Seleccione la nacionalidad" ng-click="model.falloAutenticacion=false" popover-trigger="focus" class="form-control input-sm" ng-model='model[options.key].nacionalidad' ng-required="model[options.key].tipoDocumento=='ced' && !model[options.key].repetir_testigo">
+							<option selected disabled>Por favor seleccione</option>
+							<option>V</option>
+							<option>E</option>
+						</select> 
+						<span class="input-group-addon" id="basic-addon1"> 
+							<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].nacionalidad!= undefined"></span> 
+							<span class="glyphicon glyphicon-ok" ng-show="model[options.key].nacionalidad!= undefined"></span>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-4">
+
+		<div class="form-group">
+			<div class="input-group">
+				<input type="text" ng-pattern="/^[0-9]{6,9}$/" name="inputCedula" uib-popover="Ingrese el número de cédula, por ejemplo 123456" popover-trigger="focus" 
+				class="form-control input-sm" aria-describedby="basic-addon1" placeholder="12345678" 
+				ng-model="model[options.key].cedula" ng-minlength="6" ng-maxlength="9" 
+				ng-disabled="model[options.key].nacionalidad == undefined" maxlength="9" ng-required="model[options.key].tipoDocumento=='ced' && !model[options.key].repetir_testigo" ng-click="model.falloAutenticacion=false"> 
+					<span class="input-group-addon" id="basic-addon1">
+						<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].cedula!= undefined"></span> 
+						<span class="glyphicon glyphicon-ok" ng-show="model[options.key].cedula!= undefined"></span>
+					</span>
+			</div>
+		</div>    
+   	<span class="has-error" ng-show="model[options.key].cedula==undefined && vm.formulario.$error">Ingrese solo n&uacute;meros</span>
+
+				</div>
+			</div>
+			<div ng-show="model[options.key].tipoDocumento=='pas'" class="row form-group" ng-class="{'has-error': model[options.key].pasaporte== undefined , 'has-success':  model[options.key].pasaporte!= undefined}">
+				<div class="col-sm-6">
+
+		<div class="form-group">
+			<div class="input-group">
+				<input name="inputPasaporte" uib-popover="Ingrese el número de pasaporte, por ejemplo 123456" popover-trigger="focus" 
+				type="text" class="form-control input-sm" aria-describedby="basic-addon1" ng-model="model[options.key].pasaporte" 
+				ng-minlength="6" ng-maxlength="11" placeholder="12345678" maxlength="11" ng-required="model[options.key].tipoDocumento=='pas' && !model[options.key].repetir_testigo" ng-click="model.falloAutenticacion=false" ng-keypress="model.falloAutenticacion=false"> 
+					<span class="input-group-addon" id="basic-addon1">
+						<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].pasaporte!= undefined"></span> 
+						<span class="glyphicon glyphicon-ok" ng-show="model[options.key].pasaporte!= undefined"></span>
+					</span>
+			</div>
+		</div>    
+				</div>
+			</div>
+			</div>
+
+		</div>
+	
+<!-- 		Datos del resultado de la consulta al servicio -->
+		
+<div class="row">
+
+<!-- 	<div ng-show="model[options.key].autenticado" style='background-color:#C4E3F3;margin-left: 15px;margin-right: 15px;' class="row form-group info" ng-class="{'has-error': {{!model[options.key].autenticado}} , 'has-success':  {{model[options.key].autenticado}}}"> -->
+	<div ng-show="model[options.key].autenticado" style='background-color:#C4E3F3;padding-left: 5px;' >
+		<span class="col-sm-5">
+			<span class="glyphicon glyphicon-ok col-sm-1" style='color:#3C763D;'></span>
+			<label class="control-label">{{to.label}}</label>
+		</span>
+		<div class="col-sm-2">
+			<label class="control-label">{{model[options.key].primerNombre}}</label>
+		</div>
+		<div class="col-sm-2">
+			<label class="control-label">{{model[options.key].primerApellido}}</label>
+		</div>
+		<div class="col-sm-1">
+			<label class="control-label">{{model[options.key].documentoIdentidad}}</label>
+		</div>
+	</div>
+	
+</div>
+
+	<div  ng-show="!model[options.key].autenticado && model.falloAutenticacion" class='alert alert-danger row' role='alert'>
+		<div class='col-sm-1'><span style='transform: scale(1, 1);' class='glyphicon glyphicon-comment glyphSizeMin'></span>
+		</div>
+		<p id='generico' class='col-sm-11'>
+			<i>{{model.mensaje_error}}</i></p>
+	</div>
+</div>		
+</div>

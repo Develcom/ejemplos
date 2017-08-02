@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Verificaci&oacute;n del(la) registrador(a) civil</h4>
+	</div>
+	<div class="panel-body">
+		<form name="form1">
+		<div class="col-sm-12">
+			<div class="col-sm-5">
+				<div class="radio">
+					<label> <input type="radio" name="radio"
+						ng-model="vm.modeloActual.conforme" value="true" required> Conforme
+					</label>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="radio">
+					<label> <input type="radio" name="radio"
+						ng-model="vm.modeloActual.conforme"  value="false" required> No
+						Conforme
+					</label>
+				</div>
+			</div>
+		</div>
+		
+	<div ng-hide="vm.modeloActual.conforme === 'true' || vm.modeloActual.conforme === undefined ">
+	<div class="col-sm-12" >
+		<div class="col-sm-9 form-group"
+			ng-class="{'has-error': vm.modeloActual.observaciones === undefined , 'has-success':  vm.modeloActual.observaciones !== undefined}">
+			<label class="row-sm-5 control-label">Observaciones:</label>
+			<div  class="input-group row-sm-7">
+				<textarea type="text" uib-popover="{{validaciones.observaciones.mensaje}}" popover-title = "{{validaciones.observaciones.titulo}}"  popover-trigger="none" popover-is-open="vm.errorTecla" ng-blur = "vm.onBlur" ng-keydown = "vm.onKeyDown($event,'observaciones')"
+							class="input-sm form-control" ng-model="vm.modeloActual.observaciones"
+							ng-minlength="{{validaciones.observaciones.minimo}}" ng-maxlength="{{validaciones.observaciones.maximo}}" placeholder = "{{validaciones.observaciones.placeholder}}" ng-required="vm.modeloActual.conforme == 'false'"></textarea> <span class="input-group-addon"
+							id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modeloActual.observaciones != undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modeloActual.observaciones != undefined"></span>
+						</span>
+				</div>
+			</div>
+		</div>
+		</div>
+		</form>
+		
+		</div>
+	</div>

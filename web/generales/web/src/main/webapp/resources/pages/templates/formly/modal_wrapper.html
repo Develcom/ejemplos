@@ -1,0 +1,8 @@
+	<div uib-popover="{{options.data.popover.mensaje}}" popover-title="{{options.data.popover.titulo}}" popover-trigger="none" popover-is-open="options.data.errorTecla"
+	class="input-group" ng-class="{'has-error': model[options.key] === undefined || model[options.key] === '','has-success':  model[options.key] !== undefined && model[options.key] !== ''}">
+		<formly-transclude></formly-transclude>
+		<span class="input-group-addon" id="basic-addon1">
+			<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key] !== undefined && model[options.key] !== '' || !to.required"></span> 
+			<span class="glyphicon glyphicon-ok" ng-show="model[options.key] !== undefined && model[options.key] !== ''"></span>
+		</span>
+	</div>

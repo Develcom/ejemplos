@@ -1,0 +1,342 @@
+<div class="col-sm-12">
+
+		<h3>{{permiso}}</h3>
+			<span id="separadorTitulos"></span>
+	</div>
+
+		<form name="form1">
+	
+	
+	<div class="col-sm-12">
+		<div class="col-sm-10">
+		<h4 class="col-sm-6 control-label">Persona autorizada del cementerio</h4>
+			<span id="separadorTitulos"></span>
+			</div>
+	</div>
+
+
+				<div class="col-sm-12">
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-5 control-label">Primer nombre</label>
+						<div class="form-group col-sm-7" ng-class="{'has-error': vm.modelo.PermisoInhCre.primerNombreAutoriza== undefined , 'has-success':  vm.modelo.PermisoInhCre.primerNombreAutoriza!= undefined}">
+							<div class="input-group">
+							<input type="text" 
+								popover-tittle="Formato del nombre" ng-pattern="vPatron.FormatoNombres"
+								custom-popover popover-contenido="{{vPatron.AlfaText | json}}" popover-placement="top" popover-label="Label"
+								popover-validation = "{{primerNombreAutoriza == undefined}}" maxlength="50" minlength="2"
+								 ng-keydown = "onKeyDownAlfa($event,'vPatron.excepciones','primerNombreAutoriza')"
+								 popover-is-open="errorTecla.primerNombreAutoriza" ng-blur = "onBlur"
+								id="primerNombreAutoriza"
+								name="vm.modelo.PermisoInhCre.primerNombreAutoriza"
+								class="input-sm form-control"
+								ng-model="vm.modelo.PermisoInhCre.primerNombreAutoriza" placeholder="Ejemplo: Nombre" required>
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo.PermisoInhCre.primerNombreAutoriza!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo.PermisoInhCre.primerNombreAutoriza!= undefined"></span>
+							</span>
+							</div>
+						</div>
+
+					</div>
+			
+			<div class="col-sm-6 form-group">
+						<label class="col-sm-5 control-label">Segundo nombre:</label>
+						<div class="form-group col-sm-7" ng-class="{'': vm.modelo.PermisoInhCre.segundoNombreAutoriza.length<1, '': vm.modelo.PermisoInhCre.segundoNombreAutoriza==undefined, 'has-error': vm.modelo.PermisoInhCre.segundoNombreAutoriza.length==1, 'has-success':  vm.modelo.PermisoInhCre.segundoNombreAutoriza.length>=2}">
+						<div class="input-group">
+						<input type="text" popover-tittle="Formato del nombre"
+							ng-pattern="vPatron.FormatoNombres" custom-popover
+							popover-contenido="{{vPatron.AlfaText | json}}"
+							popover-placement="top" popover-label="Label"
+							popover-validation="{{segundoNombreAutoriza == undefined}}"
+							maxlength="255" minlength="2"
+							ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoNombreAutoriza')"
+							popover-is-open="errorTecla.segundoNombreAutoriza"
+							ng-blur="onBlur" id="segundoNombreAutoriza" placeholder="Ejemplo: Nombre"
+							name="vm.modelo.PermisoInhCre.segundoNombreAutoriza"
+							class="input-sm form-control"
+							ng-model-options="{allowInvalid : true}"
+							ng-model="vm.modelo.PermisoInhCre.segundoNombreAutoriza"> <span
+							class="input-group-addon" id="basic-addon1"> <span
+							ng-hide="vm.modelo.PermisoInhCre.segundoNombreAutoriza!= undefined"></span>
+							<span
+							ng-show="vm.modelo.PermisoInhCre.segundoNombreAutoriza!= undefined"></span>
+						</span>
+						</div>
+					</div>
+
+					</div>
+					
+					</div>
+				<div class="col-sm-12">
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-5 control-label">Primer apellido:</label>
+					<div class="form-group col-sm-7"
+						ng-class="{'has-error': vm.modelo.PermisoInhCre.primerApellidoAutoriza== undefined , 'has-success':  vm.modelo.PermisoInhCre.primerApellidoAutoriza!= undefined}">
+						<div class="input-group">
+						<input type="text" popover-tittle="Formato del apellido"
+							ng-pattern="vPatron.FormatoNombres" custom-popover
+							popover-contenido="{{vPatron.AlfaText | json}}"
+							popover-placement="top" popover-label="Label"
+							popover-validation="{{primerApellidoAutoriza == undefined}}"
+							maxlength="50" minlength="2"
+							ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','primerApellidoAutoriza')"
+							popover-is-open="errorTecla.primerApellidoAutoriza"
+							ng-blur="onBlur" placeholder="Ejemplo: Apellido"						
+							id="primerApellidoAutoriza"
+							name="vm.modelo.PermisoInhCre.primerApellidoAutoriza"
+							class="input-sm form-control"
+							ng-model="vm.modelo.PermisoInhCre.primerApellidoAutoriza" required> <span
+							class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.PermisoInhCre.primerApellidoAutoriza!= undefined"></span>
+							<span class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.PermisoInhCre.primerApellidoAutoriza!= undefined"></span>
+						</span>
+						</div>
+					</div>
+				</div>
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-5 control-label">Segundo apellido:</label>
+						<div class="form-group col-sm-7" ng-class="{'': vm.modelo.PermisoInhCre.segundoApellidoAutoriza.length<1, '': vm.modelo.PermisoInhCre.segundoApellidoAutoriza==undefined, 'has-error': vm.modelo.PermisoInhCre.segundoApellidoAutoriza.length==1, 'has-success':  vm.modelo.PermisoInhCre.segundoApellidoAutoriza.length>=2}">
+						<div class="input-group">
+							<input type="text" popover-tittle="Formato del apellido"
+							ng-pattern="vPatron.FormatoNombres" custom-popover
+							popover-contenido="{{vPatron.AlfaText | json}}"
+							popover-placement="top" popover-label="Label"
+							popover-validation="{{segundoApellidoAutoriza == undefined}}"
+							maxlength="50" minlength="2"
+							ng-keydown="onKeyDownAlfa($event,'vPatron.excepciones','segundoApellidoAutoriza')"
+							popover-is-open="errorTecla.segundoApellidoAutoriza"
+							ng-blur="onBlur" placeholder="Ejemplo: Apellido"
+							id="segundoApellidoAutoriza"
+								name="vm.modelo.PermisoInhCre.segundoApellidoAutoriza" class="input-sm form-control"
+								ng-model-options ="{allowInvalid : true}"
+								ng-model="vm.modelo.PermisoInhCre.segundoApellidoAutoriza" ng-keydown="vm.onKeydown($event)"> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								ng-hide="vm.modelo.PermisoInhCre.segundoApellidoAutoriza!= undefined"></span> <span ng-show="vm.modelo.PermisoInhCre.segundoApellidoAutoriza!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="col-sm-6">
+					<h4 class="col-sm-6 control-label">Cementerio</h4>
+					<span id="separadorTitulos"></span>
+					</div>
+				</div>
+					<div class="col-sm-12">		
+					<div class="col-sm-6 form-group">
+						<label class="col-sm-5 control-label">Nombre:</label>
+						<div class="input-group col-sm-7" ng-class="{'has-error': vm.modelo.PermisoInhCre.nombreCementerio== undefined , 'has-success':  vm.modelo.PermisoInhCre.nombreCementerio!= undefined}">
+						<div class="input-group">
+							<input type="text" 
+							popover-tittle="Formato del cementerio"
+							ng-pattern="vPatron.FormatoCementerio" custom-popover
+							popover-contenido="{{vPatron.Pcementerio | json}}"
+							popover-placement="top" popover-label="Label"
+							popover-validation="{{nombreCementerio == undefined}}"
+							maxlength="200" minlength="2"
+							ng-keydown="onKeyDownCementerio($event,'vPatron.excepciones','nombreCementerio')"
+							popover-is-open="errorTecla.nombreCementerio"
+							ng-blur="onBlur" placeholder="Ejemplo: Cementerio"
+							id="nombreCementerio"			
+							name="vm.modelo.PermisoInhCre.nombreCementerio" class="input-sm form-control"
+								ng-model="vm.modelo.PermisoInhCre.nombreCementerio" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo.PermisoInhCre.nombreCementerio!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="vm.modelo.PermisoInhCre.nombreCementerio!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+					</div>	
+				
+				<div class="col-sm-12">
+						<div class="col-sm-6">
+					<h4 class="col-sm-10 control-label">Datos de la defunci&oacute;n </h4>
+					<span id="separadorTitulos"></span>
+					</div>
+				</div>
+				
+				<div class="col-sm-12">
+
+						<div class="col-sm-12 form-group">
+						<label class="col-sm-12 control-label">Fecha y hora de la defunci&oacute;n:</label></div></div>
+<!-- 													{{fechaHora}} -->
+		
+		<div class="col-sm-10 form-group">				
+					<sw-calendar-extended ng-init="disabledFecha()" label="Fecha y hora de la defunci&oacute;n"
+						vertical="false" ng-model="vm.modelo.PermisoInhCre.fechaDefuncion" ng-change=""></sw-calendar-extended>
+</div>
+<div class="col-sm-2 form-group">
+		<input type="radio" name="formato2" ng-model="vm.modelo.formato2"
+			value="am" required /> AM <input type="radio" name="formato2"
+			ng-model="vm.modelo.formato2" value="pm" required /> PM
+	</div>
+					
+	
+	
+
+	<!-- 				<span ng-non-bindable>{{vm.modelo.PermisoInhCre.fechaDefuncion | date:'yyyy-MM-dd HH:mm:ss'}}</span>: -->
+<!--    					<span>{{vm.modelo.PermisoInhCre.fechaDefuncion | date:'yyyy-MM-dd HH:mm:ss'}}</span><br> -->
+
+				<div class="col-sm-12">
+				<div class="col-sm-6 form-group">
+					<label class="col-sm-12 control-label">Certificado de defunci&oacute;n N&#176;: </label>
+							<div class="col-sm-7"
+								ng-class="vm.modelo.PermisoInhCre.numeroCertificadoDef ? 'has-success' : 'has-error'">
+								<div class="input-group">
+								<input type="text" class="form-control"
+									id="numeroCertificadoDef"
+									name="vm.modelo.PermisoInhCre.numeroCertificadoDef"
+									popover-tittle="Formato del certificado de defuncion"
+									ng-pattern="vPatron.Cedula" custom-popover
+									popover-contenido="{{vPatron.FnumeroCertf | json}}"
+									popover-placement="top" popover-label="Label"
+									popover-validation="{{numeroCertificadoDef == undefined}}"
+									maxlength="8" minlength="8"
+									ng-keydown="onKeyDownCertDef($event,'vPatron.excepciones','numeroCertificadoDef')"
+									popover-is-open="errorTecla.numeroCertificadoDef" ng-blur="onBlur"
+									placeholder="Ejemplo: 12345678"
+									ng-model="vm.modelo.PermisoInhCre.numeroCertificadoDef"
+									ng-change="validarCert()" ng-model-options="{ debounce: 1000 }" required>
+								<span class="input-group-addon"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-class="vm.modelo.PermisoInhCre.numeroCertificadoDef ? 'glyphicon-ok' : 'glyphicon-asterisk'"
+									minlength="8" maxlength="8"></span>
+								</span>
+								</div>
+							</div>
+						</div>
+				</div>
+
+
+	<div class="col-sm-12">
+		<div class="col-sm-6">
+		<h4 class="col-sm-6 control-label">Lugar de defunci&oacute;n</h4>
+		<span id="separadorTitulos"></span>
+		</div>
+	</div>
+
+
+	<div class="col-sm-12">
+					<div class="col-sm-4 form-group">
+						<label class="col-sm-12 control-label">Pa&iacute;s:</label>
+						<div class="col-sm-12 form-group" ng-class="{'has-error': vm.modelo.PermisoInhCre.pais== undefined , 'has-success':  vm.modelo.PermisoInhCre.pais!= undefined}">
+							<div class="input-group">
+							<select class="form-control input-sm" name="vm.modelo.pais"  
+								ng-model="vm.modelo.PermisoInhCre.pais"
+								ng-change="" disabled>
+								<option value="VENEZUELA" selected>VENEZUELA</option>
+							</select>
+								<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk" ng-hide="vm.modelo.PermisoInhCre.pais!= undefined"></span>
+								<span class="glyphicon glyphicon-ok" ng-show="vm.modelo.PermisoInhCre.pais!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+	
+					<div class="col-sm-4 form-group">
+						<label class="col-sm-12 control-label">Estado:</label>
+						<div class="col-sm-12 form-group" ng-class="{'has-error': vm.modelo.PermisoInhCre.estado== undefined , 'has-success':  vm.modelo.PermisoInhCre.estado!= undefined}">
+							<div class="input-group">
+							<select class="form-control input-sm" name="vm.modelo.PermisoInhCre.estado" ng-required="pais.codigo == 'VEN' "
+								ng-model="vm.modelo.PermisoInhCre.estado" ng-disabled="disabled"
+								ng-change="buscarMunicipioCombo()">
+								<option ng-selected="{{estado.nombre == vm.modelo.PermisoInhCre.estado}}" ng-repeat="estado in estados" value="{{estado.nombre}}">{{estado.nombre}}</option>
+							</select>
+<!-- 							<button ng-click="buscarEstado(pais)">fff</button>  -->
+<!-- 								<pre>{{pais}}ggggg</pre> -->
+							
+							
+							<!-- 										<select class="input-sm form-control" ng-model="estado" required> -->
+							<!-- 											<option value="" selected disabled>Por favor seleccione</option> -->
+							<!-- 										</select> -->
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk" ng-hide="vm.modelo.PermisoInhCre.estado!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="vm.modelo.PermisoInhCre.estado!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label class="col-sm-12 control-label">Municipio:</label>
+						<div class="col-sm-12 form-group" ng-class="{'has-error': vm.modelo.PermisoInhCre.municipio== undefined , 'has-success': vm.modelo.PermisoInhCre.municipio!= undefined}">
+							<div class="input-group">
+							<select class="form-control input-sm" name="vm.modelo.PermisoInhCre.municipio" ng-required="pais.codigo == 'VEN' "
+								ng-model="vm.modelo.PermisoInhCre.municipio" ng-disabled="disabled"
+								ng-change="buscarParroquiaCombo()">
+								<option ng-selected="{{municipio.nombre == vm.modelo.PermisoInhCre.municipio}}" ng-repeat="municipio in municipios" value="{{municipio.nombre}}">{{municipio.nombre}}</option>
+							</select>
+							<!-- 										<select class="input-sm form-control" ng-model="municipio" required> -->
+							<!-- 											<option value="" selected disabled>Por favor seleccione</option> -->
+							<!-- 										</select> -->
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk" ng-hide="vm.modelo.PermisoInhCre.municipio!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="vm.modelo.PermisoInhCre.municipio!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-4 form-group">
+						<label class="col-sm-12 control-label">Parroquia:</label>
+						<div class="col-sm-12 form-group" ng-class="{'has-error': vm.modelo.PermisoInhCre.parroquia== undefined , 'has-success': vm.modelo.PermisoInhCre.parroquia!= undefined}">
+						<div class="input-group">
+							<select class="form-control input-sm" name="vm.modelo.PermisoInhCre.parroquia" ng-required="pais.codigo == 'VEN' "
+								ng-model="vm.modelo.PermisoInhCre.parroquia" ng-disabled="disabled"
+								ng-change="obtenerParroquia()" required>
+								<option ng-selected="{{parroquia.nombre == vm.modelo.PermisoInhCre.parroquia}}" ng-repeat="parroquia in parroquias" value="{{parroquia.nombre}}">{{parroquia.nombre}}</option>
+							</select>
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo.PermisoInhCre.parroquia!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="vm.modelo.PermisoInhCre.parroquia!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-8 form-group">
+						<label class="col-sm-12 control-label">Direcci&oacute;n:</label>
+						<div class="col-sm-12 form-group"
+							ng-class="{'has-error': vm.modelo.PermisoInhCre.direccionDefuncion== undefined , 'has-success':  vm.modelo.PermisoInhCre.direccionDefuncion!= undefined}">
+							<div class="input-group">
+							<input type="text"
+								popover-tittle="Formato de direccion"
+								ng-pattern="vPatron.FormatoCementerio" custom-popover
+								popover-contenido="{{vPatron.Pcementerio | json}}"
+								popover-placement="top" popover-label="Label"
+								popover-validation="{{direccionDefuncion == undefined}}"
+								maxlength="200" minlength="2"
+								ng-keydown="onKeyDownCementerio($event,'vPatron.excepciones','direccionDefuncion')"
+								popover-is-open="errorTecla.direccionDefuncion"
+								ng-blur="onBlur"
+								placeholder="Ejemplo:Direccion"
+								id="direccionDefuncion"
+								name="vm.modelo.PermisoInhCre.direccionDefuncion"
+								class="input-sm form-control"
+								ng-model="vm.modelo.PermisoInhCre.direccionDefuncion" required>
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="vm.modelo.PermisoInhCre.direccionDefuncion!= undefined"></span>
+								<span class="glyphicon glyphicon-ok"
+								ng-show="vm.modelo.PermisoInhCre.direccionDefuncion!= undefined"></span>
+							</span>
+							</div>
+						</div>
+					</div>
+					
+				
+				</div>
+		
+
+		</form>

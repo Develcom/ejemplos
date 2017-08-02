@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+	<!-- <form name="formularioVizualizar" class="ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern"> -->
+	<!-- <div id="panel3" collapse="panel != 1" role="tabpanel" aria-labelledby="condicion"> -->
+	<div class="panel-body panel-success" style="height: {{heightPerform}}">
+
+		<!-- 	<div  ng-show ="BlnLoad == 1"  > -->
+		<div class="row" align="center">
+			<!-- Se incluye el Acta en formato HTML -->
+<!-- 			<embed width='800' height='350' ng-src="{{ruta}}" type='application/pdf'></embed> -->
+
+			<iframe ng-src="{{ruta}}" width='800' height='350' frameborder="0" scrolling="no">
+				<p>Tu navegador no soporta iframes.</p>
+			</iframe>
+			<br> <br>
+		</div>
+		<!-- Seccion de botones -->
+		<div class="modal-footer">
+			<div class="row col-sm-12">
+				<div class="col-sm-1 pull-right">
+					<input type="submit" id="idSiguiente" value="Continuar"
+						class="btn btn-success pull-right btn-sm"
+						ng-click="continuarPantalla('irTablaTramite')">
+				</div>
+				<div class="col-sm-8 pull-right">&emsp;</div>
+				<div class="col-sm-1 pull-right">
+					<input type="Button" id="idCancelar" value="Cancelar"
+						class="btn btn-danger pull-right btn-sm"
+						ng-click="atrasPantalla('irTablaTramite')">
+				</div>
+			</div>
+		</div>
+		<!--  		</div> -->
+	</div>
+	<!-- </div> -->
+	<!-- </form> -->
+</div>

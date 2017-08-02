@@ -1,0 +1,29 @@
+<div ng-controller="actaController as vm">
+	<div class="panel panel-default">
+		<div class="panel-body panel-success" style="height: {{heightPerform">
+			<div class="row" align="center">
+				<iframe ng-src="../reportes/defuncion.pdf" width='800' height='550'
+					frameborder="0" scrolling="no">
+					<p>Tu navegador no soporta iframes.</p>
+				</iframe>
+				<br> <br>
+			</div>
+		</div>
+	</div>
+
+	<div class="wizard-footer">
+		<div class="wizard-buttons-container">
+			<button class="btn wizard-cancel wizard-close" type="button"
+				ng-click="vm.cancelar()">Cancelar</button>
+			<div class="btn-group-singlepull-right">
+
+				<button class="btn wizard-back" type="button"
+					ng-click="vm.regresar()">Anterior</button>
+
+				<button class="btn btn-primary wizard-next" type="button"
+					ng-click="vm.submit()">Siguiente</button>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,32 @@
+<div class="row">
+
+	<div ng-show="{{model[options.key].autenticado}}" style='background-color:#C4E3F3;padding-left: 5px;'  ng-class="{'has-error': {{!model[options.key].autenticado}} , 'has-success':  {{model[options.key].autenticado}}}">
+		<span class="col-sm-6">
+			<span class="glyphicon glyphicon-ok col-sm-1" style='color:#3C763D;'></span>
+			<label class="control-label">{{to.label}}</label>
+		</span>
+		<div class="col-sm-2">
+			<label class="control-label">{{model[options.key].primerNombre}}</label>
+		</div>
+		<div class="col-sm-2">
+			<label class="control-label">{{model[options.key].primerApellido}}</label>
+		</div>
+		<div class="col-sm-1">
+			<label class="control-label">{{model[options.key].documentoIdentidad}}</label>
+		</div>
+	</div>
+	
+	<div ng-hide="{{model[options.key].autenticado}}" class="has-error">
+		<span class="col-sm-3">
+			<span class="glyphicon glyphicon-remove col-sm-1" style='color:#FF0000;'></span>
+			<label class="control-label" style="color: #FF0000">{{to.label}}</label>
+		</span>
+		<div class="col-sm-6">
+			<label class="control-label" style="color: #FF0000">El participante no ha sido Autenticado</label>
+		</div>
+		<div class="col-sm-3">
+			<label class="control-label" style="color: #FF0000">{{model[options.key].documentoIdentidad}}</label>
+		</div>	
+	</div>
+	
+</div>

@@ -1,0 +1,28 @@
+{
+    "fields":
+    [ 
+     {       
+         "key" : "DeclaranteEntePublico",
+         "type": "select",
+          "defaultValue": "",
+         "templateOptions" : {
+         "required":true,
+          "label" : "",
+          "options":
+          OPCIONES
+      },
+         "data":{
+         	"seleccionado":""
+         },
+          "expressionProperties":{
+         	"data.seleccionado" : "model.DeclaranteEntePublico"
+         },
+          "controller":"function($scope, $rootScope){$scope.$watch('options.data.seleccionado',function(newValue,oldValue){if(newValue!=oldValue){$scope.$root.seleccionado=newValue;}});}"  
+    },
+	 	{
+			"template" : "<br>"
+		}  
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de declarante","activo":"0","autenticar":false, "varias":true}
+}
+       

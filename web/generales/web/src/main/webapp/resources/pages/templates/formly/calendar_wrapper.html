@@ -1,0 +1,5 @@
+	<div uib-popover="{{options.data.popover.mensaje}}" popover-title="{{options.data.popover.titulo}}" popover-trigger="none" popover-is-open="options.data.errorTecla" style = "border-radius: 0px;" class="input-group" ng-class="{'has-error': model[options.key] === undefined || model[options.key] === '','has-success':  model[options.key] !== undefined && model[options.key] !== ''}">
+		<span style = "border-radius: 0px;" class="input-group-addon" id="basic-addon1">{{to.label}}</span>
+		<formly-transclude></formly-transclude>
+	</div>
+	

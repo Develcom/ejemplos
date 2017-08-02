@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+						http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/task      
+        				http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+    <task:annotation-driven />
+	<context:component-scan base-package="ve.gob.cne.sarc"/>
+	<context:component-scan base-package="ve.gob.cne.seguridad.servicio.cliente" />	
+			
+    <mvc:resources mapping="/tmp/**" location="file:///home/jboss/tmp/" />    
+    <mvc:resources mapping="/resources/**" location="/resources/" />    
+    <mvc:resources mapping="/css/**" location="/resources/css/" />
+    <mvc:resources mapping="/js/**" location="/resources/js/" />
+    <mvc:resources mapping="/fonts/**" location="/resources/fonts/" />
+    <mvc:resources mapping="/angular/**" location="/resources/angular/" />
+    <mvc:resources mapping="/img/**" location="/resources/img/"/>
+    <mvc:resources mapping="/pages/**" location="/resources/pages/"/>
+    <mvc:resources mapping="/site/**" location="/resources/site/"/>
+    <mvc:resources mapping="/view/**" location="/resources/pages/"/>
+    <mvc:annotation-driven />
+    
+      <mvc:resources mapping="/tmp/**" location="file:///home/jboss/tmp/" /> 
+     <!--<mvc:resources mapping="/tmp/**" location="file:///C:/tmp/" />-->
+     
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+	        <property name="prefix" value="/WEB-INF/view/"/>
+	        <property name="suffix" value=".jsp"/>
+	</bean>
+
+	<bean id="properties"
+		class="ve.gob.cne.sarc.utilitarios.propiedades.AdministradorPropiedadesImplementacionApache">
+		<constructor-arg index="0" type="java.lang.String"
+			value="SARC_HOME" />
+		<constructor-arg index="1" type="java.lang.String"
+			value="conf/general/config-Manage.properties" />
+	</bean>
+	
+</beans>

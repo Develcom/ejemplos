@@ -1,0 +1,62 @@
+{
+    "fields":
+    [ 
+     {
+         "key" : "MadreDeclaranteID",
+         "type" : "radioHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf La madre posee documento de identificaci\u00f3n ?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ],
+             "required" : true
+         },
+         "data" : {
+            "color": "#9400D3",
+            "esconder" : false,
+            "popover" : {
+            	"titulo" : "Atenci\u00f3n",
+            	"mensaje" : "Seleccione sin importar"
+         }
+         },
+         "hideExpression" : "model.MadreParticipante === false || model.MadreParticipante === 'false' || ((model.MadreDeclarante === 'true' || model.MadreDeclarante === true))",
+         "expressionProperties" : {
+         	"templateOptions.required" : "model.ConParticipante || model.MadreParticipante"
+         }
+     },
+     {
+         "key" : "PadreDeclaranteID",
+         "type" : "radioHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf El Padre posee documento de identificaci\u00f3n ?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ],
+             "required" : true
+         },
+         "data" : {
+            "color": "#2230f6",
+            "esconder" : false
+         },
+         "hideExpression" : "model.PadreParticipante === 'false' || model.PadreParticipante === false || ((model.PadreDeclarante === 'true' || model.PadreDeclarante === true))",
+         "expressionProperties" : {
+         	"templateOptions.required" : "model.ConParticipante || model.PadreParticipante"
+         }
+     }
+    ],
+    "modelo":{"titulo" : "Selecci\u00f3n de participantes", "autenticar" : false, "inicial" : false, "ancho": false, "memoria" : true, "varias" : true}
+}

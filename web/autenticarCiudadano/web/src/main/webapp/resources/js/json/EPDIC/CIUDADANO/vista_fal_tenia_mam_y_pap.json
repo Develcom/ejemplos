@@ -1,0 +1,64 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "MamaParticipante",
+		 "type" : "horizontalRadio",
+		 "templateOptions" : {
+			 "label" : "\u00bf Quién declara, posee datos de la madre del(de la) fallecido(a)?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":"true"
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":"false"
+			     }
+			 ]
+		 },
+		 "data":{
+            "validador":"undefined",
+             "color": "#FA2626"
+         },
+         "expressionProperties": {
+            "data.validador": "model.MamaParticipante"
+         },
+		 
+	 "controller":"function ($scope){$scope.$watch('options.data.validador',function(newValue,oldValue){if(newValue===false||newValue===true){$scope.model['validador']=true;}});}"
+	 }, 
+	 	 	{
+			"template" : "<br>"
+		},           
+    {
+    	 "key" : "PapaParticipante",
+		 "type" : "horizontalRadio",
+		 "templateOptions" : {
+			 "label" : "\u00bfQuién declara, posee datos del padre del(de la) fallecido(a)?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		 "data":{
+            "validador":"undefined",
+             "color": "#2230F6"
+         },
+         "expressionProperties": {
+            "data.validador": "model.PapaParticipante"
+         },
+		 
+	 "controller":"function ($scope){$scope.$watch('options.data.validador',function(newValue,oldValue){if(newValue===false||newValue===true){$scope.model['validador']=true;}});}"
+	 },
+	 {
+			"template" : "<br>"
+	}         
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "MamaParticipante": "no", "PapaParticipante": "no", "activo":"1","validador":false,"autenticar":false}
+}

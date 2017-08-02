@@ -1,0 +1,28 @@
+{
+	"fields" : [
+		{
+			"template" : "<p>Seleccione el declarante</p>"
+		},
+		{
+			"key" : "TipoOtroDeclarante",
+			"type" : "selectOtros",
+			"templateOptions" : {
+				"label" : "",			
+				"options" : [
+				],
+				"required" : true
+			},
+			"data" : {
+				"ruta" : "/web-generales/consultarParticipantesPorTramite",
+				"valorVista" : ""
+			},
+			"expressionProperties" : {
+				"data.valorVista" : "model.TipoOtroDeclarante"
+			}
+		},
+	 	{
+	 		"template" : "<br>"
+	 	}
+	],
+	"modelo" : {"titulo" : "Selecci\u00f3n de declarantes", "inicial":false, "autenticar":false, "memoria" : true, "ancho": false}
+}

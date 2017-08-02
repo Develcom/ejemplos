@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="actaApertura" pageWidth="612" pageHeight="792" columnWidth="500" leftMargin="56" rightMargin="56" topMargin="70" bottomMargin="70" uuid="5b032d2e-3e64-4b70-a5f9-b1436a7c4a04">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="41"/>
+	<parameter name="dia" class="java.lang.String"/>
+	<parameter name="mes" class="java.lang.String"/>
+	<parameter name="anio" class="java.lang.String"/>
+	<parameter name="nombreCompletoRg" class="java.lang.String"/>
+	<parameter name="parroquia" class="java.lang.String"/>
+	<parameter name="numTomo" class="java.lang.String"/>
+	<parameter name="nombreLibro" class="java.lang.String"/>
+	<parameter name="numActaInicio" class="java.lang.String"/>
+	<parameter name="numActaFin" class="java.lang.String"/>
+	<parameter name="numLetra" class="java.lang.String"/>
+	<parameter name="num" class="java.lang.String"/>
+	<field name="dia" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="anio" class="java.lang.String"/>
+	<field name="nombreCompletoRg" class="java.lang.String"/>
+	<field name="parroquia" class="java.lang.String"/>
+	<field name="numTomo" class="java.lang.String"/>
+	<field name="nombreLibro" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="400" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="95" width="500" height="225" uuid="e6cc1c7f-34bc-4613-805f-03500e055bc8"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="12"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hoy <b>"  + ($P{dia} == null ? "__": $P{dia}) + "</b> "+
+"de  <b>"  + ($P{mes} == null ? "__": $P{mes})+ " </b>"+
+"de  <b>"  + ($P{anio} == null ? "__": $P{anio})+"</b>"+
+", quien suscribe  <b>"  + ($P{nombreCompletoRg} == null ? "__": $P{nombreCompletoRg})+"</b>"+
+", en mi car&aacute;cter de REGISTRADOR(A) CIVIL  de  la Parroquia  <b>"  + ($P{parroquia} == null ? "__": $P{parroquia})+"</b>"+
+", certifico que el presente Libro, correspondientes al Tomo <b>"  + ($P{numTomo} == null ? "__": $P{numTomo})+ " </b>"+
+"del año  en curso,  constante de  "+( $P{numLetra} == null ? "__" : $P{numLetra} ) +
+" ( " + ( $P{num} == null ? "__" : $P{num} ) + " ) "+
+"folios útiles, del año en curso, ha sido destinado para asentar las Actas correspondientes, a esta Oficina o "+
+"Unidad de Registro Civil , de conformidad con lo establecido en el artículo 31 de la Ley Orgánica de "+
+"Registro Civil, publicada en la Gaceta Oficial de la República Bolivariana de Venezuela, Número 39.264, "+
+"de fecha 15 de Septiembre de 2009, el cual inicia en el Acta No. "+
+( $P{numActaInicio} == null ? "__" : $P{numActaInicio} )+
+" y termina con el Acta No " + ( $P{numActaFin} == null ? "__" : $P{numActaFin} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="2" width="342" height="20" uuid="aa08a26c-bc54-4fe5-84b1-892e7582c923"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["REGISTRO DE "  + ($P{nombreLibro}  == null ? "__": $P{nombreLibro}) + "</b> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="22" width="329" height="20" uuid="a8723815-de79-453a-b101-5a31c97334d4"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["AÑO  "  + ($P{anio} == null ? "__": $P{anio})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="348" width="169" height="20" uuid="e6ac4925-bee7-4cfe-ada7-8ebde44c9379"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FIRMA Y SELLO"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="63" width="181" height="20" uuid="b7fd4179-8c7b-4aa3-bcee-fc889a49f495"/>
+				<textElement textAlignment="Center" markup="html">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ACTA DE CIERRE"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="304" y="331" width="169" height="1" uuid="3676c347-8b40-409d-8863-21acdf3fbd21"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

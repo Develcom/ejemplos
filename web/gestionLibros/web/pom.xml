@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>web-gestionLibros</artifactId>
+    <packaging>war</packaging>
+
+    <name>SARC Fase 2: Modulo de gestionLibros -&gt; Web</name>
+
+    <parent>
+        <groupId>ve.gob.cne.sarc</groupId>
+        <artifactId>gestionLibros</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <!-- Webjars dependencies -->
+        <version.angularjs>1.3.15</version.angularjs>
+        <version.bootstrap>3.2.0</version.bootstrap>
+        <version.jquery>2.1.1</version.jquery>
+        <version.formly>6.16.1</version.formly>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Add our module BOM for web applications -->
+            <dependency>
+                <groupId>ve.gob.cne.sarc</groupId>
+                <artifactId>bom-gestionLibros</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Import Spring dependencies, these are either from community or versions 
+        certified in WFK2 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Jackson libraries -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-mapper-asl</artifactId> 
+        <version>1.9.13</version> </dependency> -->
+
+        <!-- Bring in the Servlet jars to avoid errors while compiling with jdt. -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet.jsp</groupId>
+            <artifactId>jboss-jsp-api_2.2_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet.jstl</groupId>
+            <artifactId>jboss-jstl-api_1.2_spec</artifactId>
+        </dependency>
+
+        <!-- Other community dependencies -->
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+
+        <!-- Needed for running tests -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Webjars for javascript and css resources -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${version.bootstrap}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.webjars</groupId>
+                    <artifactId>jquery</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${version.jquery}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angularjs</artifactId>
+            <version>${version.angularjs}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-formly</artifactId>
+            <version>${version.formly}</version>
+        </dependency>
+
+        <!-- Business Objects/Model/DTO classes -->
+        <dependency>
+            <groupId>ve.gob.cne.sarc</groupId>
+            <artifactId>bo-generales</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- Necesario para la generacion de la plantilla -->
+
+		
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+		
+        <dependency>
+            <groupId>ve.gob.cne</groupId>
+            <artifactId>servicios-libro-cliente</artifactId>
+            <version>1.0</version>
+        </dependency>		
+        <dependency>
+            <groupId>ve.gob.cne</groupId>
+            <artifactId>sarc-funcionario-servicio-cliente</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ve.gob.cne</groupId>
+            <artifactId>seguridad-servicio-cliente</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ve.gob.cne</groupId>
+            <artifactId>sarc-comunes</artifactId>
+            <version>1.0</version>            
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.2.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <!-- Ignoring M2E plugin´s false positive alert -->
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.jacoco</groupId>
+                                        <artifactId>jacoco-maven-plugin</artifactId>
+                                        <versionRange>[0.0.1,)</versionRange>
+                                        <goals>
+                                            <goal>prepare-agent</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!-- Surefire plugin before 2.9 version is buggy -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version.maven.surefire}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0-beta-3</version>
+                <configuration>
+                    <fromDir>${desa.carpetaOrigen}</fromDir>
+                    <excludes>${desa.exclusiones}</excludes>
+					<includes>${desa.inclusiones}</includes>
+                    <toDir>${desa.carpetaDestino}</toDir>
+                    <url>${desa.url}</url>
+                </configuration>
+            </plugin>
+        </plugins>
+        <!-- <plugins> <plugin> <artifactId>maven-war-plugin</artifactId> <version>${maven-war-plugin.version}</version> 
+        <configuration> <failOnMissingWebXml>false</failOnMissingWebXml> </configuration> 
+        </plugin> </plugins> -->
+    </build>
+
+</project>

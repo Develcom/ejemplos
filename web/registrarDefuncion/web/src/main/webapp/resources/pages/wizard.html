@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<ol class="breadcrumb ">
+		<li><a href="#inicio">Inicio</a></li>
+		<li class="active">Procesos guiados y trazabilidad</li>
+	</ol>
+</div>
+<div class="container-fluid" ng-controller="ModalDemoCtrl">
+	<div ng-include></div>
+	<button id="open-wizard" class="btn btn-primary btn-sm"
+		ng-click="open('lg')">
+		<span class="glyphicon glyphicon-cog">Iniciar wizard</span>
+	</button>
+
+
+	<table class="table table-bordered">
+		<tr ng-repeat="dat in data" ng-click="open(dat)">
+			<td>{{dat.numeroSolicitud}}</td>
+			<td>{{dat.solicitante.ciudadano.primerApellido}}
+				{{dat.solicitante.ciudadano.primerNombre}}</td>
+			<td>{{dat.tramite.nombre}}</td>
+			<td>{{dat.estadoSolicitud}}</td>
+			<td>{{dat.tramite.fechaInicio}}</td>
+
+		</tr>
+
+	</table>
+
+</div>
+

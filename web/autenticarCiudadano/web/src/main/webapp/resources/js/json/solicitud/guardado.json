@@ -1,0 +1,9 @@
+{
+    "fields":
+    [
+        {
+            "template":"<div class='alert alert-success' role='alert'><div class='container-fluid'><div class='row'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span>Se ha realizado la operaci\u00f3n satisfactoriamente</div></div></div>"
+        }   
+    ],
+    "modelo":{"success":true,"ancho":true, "ocultarLapiz" : true}
+}

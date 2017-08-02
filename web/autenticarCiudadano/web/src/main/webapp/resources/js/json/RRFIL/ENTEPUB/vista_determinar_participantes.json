@@ -1,0 +1,66 @@
+{
+	"fields":
+	[
+        {
+			 "template" : "<p><b>Seleccione los participantes  con documento de identificación presentes en el documento a insertar:</b><p>"
+	 },
+	 {
+		 "key" : "MadreParticipante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+		 "label" : "MADRE"
+		},
+		 "data":{
+	       "avanzarEnFalso":true,
+            "regresarEnFalso":false,
+         	"acronimo":"MAD"
+         },
+         "expressionProperties": {
+            "templateOptions.required" : "!model.PadreParticipante && !model.HijoParticipante",
+             "templateOptions.disabled" : "model.Declarante"
+         },
+         "controller":"function ($scope){$scope.$watch(function(){return $scope.model['Declarante']} ,function(newValue,oldValue){if($scope.model['Declarante']===true){$scope.model['MadreParticipante']=true;} else{$scope.model['MadreParticipante']=false;}});}"
+      },
+     {
+			"template" : "<br>"
+	  },
+	 {
+		 "key" : "PadreParticipante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+		 "label" : "PADRE"
+		 },
+		 "data":{
+		   "avanzarEnFalso":true,
+            "regresarEnFalso":false,
+         	"acronimo":"PAD"
+         },
+          "expressionProperties": {
+            "data.validador": "model.PapaParticipante",
+             "templateOptions.required" : "!model.MadreParticipante && !model.HijoParticipante"
+         }
+      },
+     {
+			"template" : "<br>"
+	  },	
+      {
+		 "key" : "HijoParticipante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+		 "label" : "HIJO(A)"
+		 },
+		  "data":{
+		     "avanzarEnFalso":false,
+             "regresarEnFalso":true,
+             "habilitado":true,
+             "habilitarRegreso":false,
+             "acronimo":"HIJD"
+         },
+          "expressionProperties":{"templateOptions.required" : "!model.MadreParticipante && !model.PadreParticipante"}
+     },
+     {
+			"template" : "<br>"
+	  }	
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de participantes","activo":"1","autenticar":false,"MadreParticipante":false,"PadreParticipante":false,"HijoParticipante":false,"varias":true,"permiteVarias":true}
+}

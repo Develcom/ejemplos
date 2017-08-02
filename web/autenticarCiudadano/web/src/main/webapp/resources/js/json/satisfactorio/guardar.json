@@ -1,0 +1,9 @@
+{
+	"fields":
+	[
+		{
+			"template" : "<div class='alert alert-danger' role='success'><div class='container-fluid'><div class='row'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>Se procede a guardar los datos</div></div></div>"
+		}	
+	],
+	"modelo":{"guardar":true, "ancho" : true}
+}

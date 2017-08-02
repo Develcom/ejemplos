@@ -1,0 +1,18 @@
+<div class="wizard-cards" ng-controller="testController as vm">
+		<div class="wizard-card-container" style='height: 500px;'>
+			<div
+				ng-class="{panelParticipantes:vm.user.activo==0||vm.user.activo==1||vm.user.aCancelar}"
+				id="panelParticipantes" class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						{{vm.pasos[vm.activo]}} <span
+							class="glyphicon glyphicon-pencil pull-right"></span>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div ng-bind-html="$root.html" carta="$root.html"></div>
+				</div>
+
+			</div>
+		</div>
+</div>

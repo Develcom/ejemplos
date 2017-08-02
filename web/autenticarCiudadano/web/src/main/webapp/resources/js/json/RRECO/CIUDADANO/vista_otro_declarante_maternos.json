@@ -1,0 +1,87 @@
+{
+	"fields":
+	[
+        {
+			 "template" : "<p><b>\u00bf Qui\u00e9n declara el reconocimiento ?</b><p>"
+	 },
+	 {
+		 "key" : "AbueloMaterna",
+		 "type" : "checkboxKLista",
+		 "templateOptions" : {
+		 "label" : "Abuelo materno"
+		},
+		"hideExpression": "model.SinParticipante",
+		 "data":{
+            "acronimo":"ABOM"
+         },
+          "expressionProperties":{"templateOptions.required" : "!model.AbuelaMaterna && !model.BisaAbueloMaterna && !model.BisaAbuelaMaterna && !model.TataraAbueloMaterna && !model.TataraAbuelaMaterna"}
+     },
+	 {
+		 "key" : "AbuelaMaterna",
+		 "type" : "checkboxKLista",
+		 "templateOptions" : {
+		 "label" : "Abuela materna"
+		 },
+		 "hideExpression": "model.SinParticipante",
+		 "data":{
+            "acronimo":"ABAM"
+         },
+          "expressionProperties": {
+            "data.validador": "model.PapaParticipante",
+             "templateOptions.required" : "!model.AbueloMaterna && !model.BisaAbueloMaterna && !model.BisaAbuelaMaterna && !model.TataraAbueloMaterna && !model.TataraAbuelaMaterna"
+         }
+      },
+      {
+		 "key" : "BisaAbueloMaterna",
+		 "type" : "checkboxKLista",
+		 "templateOptions" : {
+		 "label" : "Bisabuelo materno"
+		 },
+		 "hideExpression": "model.SinParticipante",
+		  "data":{
+             "acronimo":"BIAOM"
+         },
+          "expressionProperties":{"templateOptions.required" : "!model.AbueloMaterna && !model.AbuelaMaterna && !model.BisaAbuelaMaterna && !model.TataraAbueloMaterna && !model.TataraAbuelaMaterna"}
+     },
+      {
+		 "key" : "BisaAbuelaMaterna",
+		 "type" : "checkboxKLista",
+		 "templateOptions" : {
+		 "label" : "Bisabuela materna"
+		},
+		"hideExpression": "model.SinParticipante",
+		 "data":{
+            "acronimo":"BIAAM"
+         },
+          "expressionProperties":{"templateOptions.required" : "!model.AbueloMaterna && !model.AbuelaMaterna && !model.BisaAbueloMaterna && !model.TataraAbueloMaterna && !model.TataraAbuelaMaterna"}
+     },
+      {
+		 "key" : "TataraAbueloMaterna",
+		 "type" : "checkboxKLista",
+		 "templateOptions" : {
+		 "label" : "Tatarabuelo materno"
+		},
+		"hideExpression": "model.SinParticipante",
+		 "data":{
+            "acronimo":"TTBOM"
+         },
+          "expressionProperties":{"templateOptions.required" : "!model.AbueloMaterna && !model.AbuelaMaterna && !model.BisaAbueloMaterna && !model.BisaAbuelaMaterna && !model.TataraAbuelaMaterna"}
+     },
+      {
+		 "key" : "TataraAbuelaMaterna",
+		 "type" : "checkboxKLista",
+		 "templateOptions" : {
+		 "label" : "Tatarabuela materna"
+		},
+		"hideExpression": "model.SinParticipante",
+		 "data":{
+            "acronimo":"TTBAM"
+         },
+          "expressionProperties":{"templateOptions.required" : "!model.AbueloMaterna && !model.AbuelaMaterna && !model.BisaAbueloMaterna && !model.BisaAbuelaMaterna && !model.TataraAbueloMaterna"}
+     },
+     {
+			"template" : "<br>"
+	  }
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de declarante","activo":"0", "lista" : "", "AbueloMaterna":false, "AbuelaMaterna":false, "BisaAbueloMaterna":false, "BisaAbuelaMaterna":false, "TataraAbueloMaterna":false, "TataraAbuelaMaterna":false,"autenticar":false,"varias":true,"permiteVarias":true}
+}

@@ -1,0 +1,49 @@
+{
+	"fields":
+	[
+	 {
+	 	"className" : "formly-check-centrado",
+		 "key" : "MadreDeclarante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+			 "label" : "MADRE"
+		 },
+		 "data":{
+		 	"esconder" : false
+		 },
+		 "expressionProperties":{"templateOptions.required" : "!model.OtroDeclarante && !model.PadreDeclarante"}
+	 },
+	 {
+	 	"className" : "formly-check-centrado",
+		 "key" : "PadreDeclarante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+			 "label" : "PADRE"
+		 },
+		 "data" : {
+		 	"esconder" : false
+		 },
+		 "expressionProperties":{"templateOptions.required" : "!model.OtroDeclarante && !model.MadreDeclarante"}
+	 },
+     {
+	 	"className" : "formly-check-centrado",
+         "key" : "OtroDeclarante",
+         "type" : "checkRequerido",
+         "templateOptions" : {
+             "label" : "OTRO DECLARANTE"
+         },
+         "data" : {
+         	"esconder" : false
+         },
+		 "expressionProperties":{
+		 	"templateOptions.required" : "!model.PadreDeclarante && !model.MadreDeclarante",
+		 	"data.esconder" : "model.MadreDeclarante || model.PadreDeclarante"
+		 },
+		 "controller" : "function($scope){$scope.$watch('options.data.esconder',function(newValue,oldValue){if(newValue !== oldValue){console.log('hay cambio en el valor'); if(newValue === true)$scope.model[$scope.options.key] = false}});}"
+     },
+	 	{
+	 		"template" : "<br>"
+	 	}
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de declarantes", "inicial":false, "autenticar":false, "varias" : true, "MadreDeclarante" : false, "PadreDeclarante" : false, "OtroDeclarante" : false, "ancho": false}
+}

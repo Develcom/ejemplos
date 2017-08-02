@@ -1,0 +1,69 @@
+<form name="formularioVizualizar" class="ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required ng-valid-pattern">
+<div id="panel3" collapse="panel != 1" role="tabpanel" aria-labelledby="condicion">
+	<div class="panel-body panel-success" style="height: {{heightPerform}}" > 
+	  	<!-- Se muestra la imagen de cargando... -->
+	  		
+	  		
+	  		<div class="dataTable_wrapper" ng-show =" BlnLoad == 0">
+			<div class="row">
+				<div class="col-sm-1 pull-left">
+					&nbsp;
+				</div>
+				<div class="col-sm-10">
+					<div class="alert alert-success" role="alert">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-1">
+									<span style="font-size: 3em;" class="glyphicon glyphicon-ok"></span>
+								</div>
+								<p id="generico" class="col-sm-11">
+									<i><b>Atenci&oacute;n:</b> Generando el Acta de {{operacion}} </i>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1 pull-right">
+					&nbsp;
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1 pull-left">
+					&nbsp;
+				</div>
+				<div class="col-sm-10">
+					<div class="progress progress-striped">
+					     
+						<div class="progress-bar progress-bar-striped active" style="width: {{dataLoaded}};"></div>
+					</div>
+				</div>
+				<div class="col-sm-1 pull-right">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+	<div  ng-show ="BlnLoad == 1"  >
+	  	 <div class="row" align="center"  >
+	            <!-- Se incluye el Acta en formato HTML -->
+	               <div   ng-bind-html="html"> </div>
+					<br><br>
+       		</div>	
+          <!-- Seccion de botones -->
+			<div class="modal-footer" > 
+				<div  class="row col-sm-12">
+				    <div class="col-sm-1 pull-right" >
+						<input type="submit" id="idSiguiente" value="Siguiente en acta" class="btn btn-success pull-right btn-sm" ng-click="continuarPantalla('irTablaTramite')">
+					</div> 
+				   <div class="col-sm-8 pull-right">&emsp;</div>
+					 <div class="col-sm-1 pull-right" >						
+						<input  type="Button" id="idCancelar" value="Cancelar" class="btn btn-success pull-right btn-sm" ng-click="atrasPantalla('irTablaTramite')">
+					  </div>
+ 				</div> 
+ 			</div> 
+ 		</div>
+ 	 </div>
+</div>
+</form>
+
+
+  

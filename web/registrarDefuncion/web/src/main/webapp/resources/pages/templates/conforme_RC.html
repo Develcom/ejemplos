@@ -1,0 +1,61 @@
+<div style="heigth:430px;overflow:hidden;">
+			
+	<div class="col-sm-12">
+		<h3>Verificaci&oacute;n del(de la) Registrador(a) Civil</h3>
+					<span id="separadorTitulos"></span>
+	</div>
+
+	<form name="form1">
+		<div class="col-sm-12">
+			<h4>&#191La verificaci&oacute;n del(de la) Registrador(a) Civil est&aacute; conforme?</h4>
+<!-- 			<span id="separadorTitulos"></span> -->
+		</div>
+		<div class="col-sm-12">
+			<div class="col-sm-5">
+				<div class="radio">
+					<label> <input type="radio" name="radio"
+						ng-model="vm.modelo.permiso" value="conforme"
+						ng-change="ocultarCampoObservacion()" required> Conforme
+					</label>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="radio">
+					<label> <input type="radio" name="radio"
+						ng-model="vm.modelo.permiso" ng-change="mostrarCampoObservacion()"
+						value="noConforme" required> No conforme
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="campoObservacion">
+			<div class="col-sm-12">
+				</br>
+				<div class="col-sm-12 form-group">
+					<label class="row-sm-5 control-label">Observaciones:</label>
+					<div class="input-group row-sm-12"
+						ng-class="{'has-error': vm.modelo.observacionesActa== undefined , 'has-success':  vm.modelo.observacionesActa != undefined}">
+						<textarea type="text" rows="3"
+							uib-popover="{{validaciones.observaciones.mensaje}}"
+							popover-title="{{validaciones.observaciones.titulo}}"
+							popover-trigger="none"
+							popover-is-open="vm.errorTecla.observaciones" ng-blur="vm.onBlur"
+							ng-keydown="vm.onKeyDown($event,'observaciones','observaciones')"
+							minlength="2" maxlength="200"
+							placeholder="{{validaciones.observaciones.placeholder}}"
+							name="vm.modelo.observacionesActa" class="input-sm form-control"
+							ng-model="vm.modelo.observacionesActa" required
+							ng-required="vm.modelo.permiso != 'conforme'"></textarea>
+						<span class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="vm.modelo.observacionesActa != undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="vm.modelo.observacionesActa != undefined"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>	

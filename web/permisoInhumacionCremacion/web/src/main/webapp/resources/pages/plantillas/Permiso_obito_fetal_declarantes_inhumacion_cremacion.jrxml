@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-07T15:28:19 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Permiso_obito_fetal" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="85" bottomMargin="85" uuid="7b93c3df-882e-4a3d-a5b8-cd570efa7cdc">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="nombreRegistrador" class="java.lang.String"/>
+	<parameter name="oficinaRegistradora" class="java.lang.String"/>
+	<parameter name="parroquia" class="java.lang.String"/>
+	<parameter name="municipio" class="java.lang.String"/>
+	<parameter name="estado" class="java.lang.String"/>
+	<parameter name="nombreCiudadano" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="cementerio" class="java.lang.String"/>
+	<parameter name="fechaObito" class="java.lang.String"/>
+	<parameter name="horaObito" class="java.lang.String"/>
+	<parameter name="direccionObito" class="java.lang.String"/>
+	<parameter name="numeroEV14" class="java.lang.String"/>
+	<parameter name="dia" class="java.lang.String"/>
+	<parameter name="mes" class="java.lang.String"/>
+	<parameter name="anno" class="java.lang.String"/>
+	<parameter name="nResolucion" class="java.lang.String"/>
+	<parameter name="fResolucion" class="java.lang.String"/>
+	<parameter name="nGaceta" class="java.lang.String"/>
+	<parameter name="fGaceta" class="java.lang.String"/>
+	<parameter name="parroquiaFallecimiento" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="municipioFallecimiento" class="java.lang.String"/>
+	<parameter name="estadoFallecimiento" class="java.lang.String"/>
+	<parameter name="nombreSolicitante" class="java.lang.String"/>
+	<parameter name="nombreSegundoSolicitante" class="java.lang.String"/>
+	<parameter name="identificacionSolicitante" class="java.lang.String"/>
+	<parameter name="identificacionSegundoSolicitante" class="java.lang.String"/>
+	<parameter name="parentescoSolicitante" class="java.lang.String"/>
+	<parameter name="parentescoSegundoSolicitante" class="java.lang.String"/>
+	<parameter name="nConsecutivo" class="java.lang.String"/>
+	<parameter name="rutaImg" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<frame>
+				<reportElement x="170" y="0" width="101" height="71" uuid="96d5675b-6653-427f-8319-40ab925beae7"/>
+				<image>
+					<reportElement x="10" y="2" width="68" height="67" uuid="3027b104-9a0d-445a-be48-bb024e8ff961"/>
+					<imageExpression><![CDATA[$P{rutaImg}+"/cne.png"]]></imageExpression>
+				</image>
+			</frame>
+			<staticText>
+				<reportElement x="100" y="80" width="229" height="30" uuid="eb9a1eb5-22d7-4dc8-8a1b-2bfe1b122db6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO DE INHUMACIÓN Y CREMACIÓN 
+(ÓBITO FETAL) 
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="0" width="143" height="20" uuid="d3e15184-35f4-4f4e-ac14-e97f34675a0d"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Formato ONRC-D-002]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="501" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="50" width="440" height="210" uuid="7cb78e9b-d955-443e-871d-8655a94dcc01"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["Quien suscribe, <b>" + ($P{nombreRegistrador}==null?"nombre del Registrador Civil":$P{nombreRegistrador}) + "</b> Registrador (a) Civil de la Oficina o Unidad de Registro Civil de <b>" + 
+($P{oficinaRegistradora}==null?"nombre de la Oficina o Unidad de Registro Civil":$P{oficinaRegistradora}) + "</b>, parroquia <b>" + ($P{parroquia}==null?"nombre de la parroquia":$P{parroquia}) + "</b>, municipio <b>" + ($P{municipio}==null?"nombre del municipio":$P{municipio}) + 
+"</b>, estado <b>" + ($P{estado}==null?"nombre del estado":$P{estado}) +"</b>, autorizo al (la) ciudadano (a) <b>" + ($P{nombreCiudadano}==null?"nombres y apellidos del ciudadano(a)":$P{nombreCiudadano}) + "</b> del Cementerio <b>" + 
+($P{cementerio}==null?"nombre del cementerio":$P{cementerio}) +"</b>, para dar cremación y sepultura conforme a las formalidades de Ley y cumplido el lapso reglamentario, al feto cuyo óbito ocurrió el <b>" + 
+($P{fechaObito}==null?"fecha del fallecimiento":$P{fechaObito}) + "</b> a las <b>" + ($P{horaObito}==null?"Hora del fallecimiento":$P{horaObito}) + "</b> en <b>" + 
+($P{direccionObito}==null?"Lugar del fallecimiento":$P{direccionObito}) +"</b> parroquia <b>" +($P{parroquiaFallecimiento}==null?"nombre de la parroquia":$P{parroquiaFallecimiento})+"</b>, municipio <b>" +($P{estadoFallecimiento}==null?"nombre del municipio":$P{municipioFallecimiento})+"</b>, estado <b>"+($P{estadoFallecimiento}==null?"nombre del estado":$P{estadoFallecimiento})+"</b> de esta jurisdicción, según consta en Certificado de Defunción EV-14 N° <b>" + ($P{numeroEV14}==null?"número de certificado de defunción":$P{numeroEV14}) + "</b>.<br><br>" +  
+
+"Permiso que se expide a solicitud de <b>"+($P{nombreSolicitante}==null?"nombre y apellido del solicitante":$P{nombreSolicitante}) +"</b>, titular del documento de identificación N° <b>"+($P{identificacionSolicitante}==null?"número de documento de identificación":$P{identificacionSolicitante})+"</b>, en su carácter de <b>" +($P{parentescoSolicitante}==null?"parentesco del solicitante":$P{parentescoSolicitante})+"</b>, y <b>"+($P{nombreSegundoSolicitante}==null?"nombre y apellido del solicitante":$P{nombreSegundoSolicitante}) +"</b>, titular del documento de identificación N° <b>"+($P{identificacionSegundoSolicitante}==null?"número de documento de identificación":$P{identificacionSegundoSolicitante})+"</b>, en su carácter de <b>" +($P{parentescoSegundoSolicitante}==null?"parentesco del solicitante":$P{parentescoSegundoSolicitante})+"</b>, a los <b>" + ($P{dia}==null?"día que se expide":$P{dia}) + "</b> días del mes de <b>" + ($P{mes}==null?"mes que se expide":$P{mes}) +  "</b> de <b>" + ($P{anno}==null?"año que se expide":$P{anno}) + "</b>."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="270" width="440" height="89" uuid="785c8ad9-28d2-4487-b7ca-66f90c4b6592"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registrador (a) Civil <br>" +
+"Nº Resolución <u>" + ($P{nResolucion}==null?"número de resolución":$P{nResolucion}) +
+"</u>, de fecha <u>" + ($P{fResolucion}==null?"fecha de resolución":$P{fResolucion}) +
+"</u><br>Nº Gaceta <u>" + ($P{nGaceta}==null?"número de gaceta":$P{nGaceta}) +
+"</u>, de fecha <u>" + ($P{fGaceta}==null?"fecha de gaceta":$P{fGaceta}) + "</u>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="10" width="102" height="20" uuid="4fac6bba-faa6-485a-81de-e97185f83719"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nº " + ($P{nConsecutivo}==null?"número consecutivo":$P{nConsecutivo})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

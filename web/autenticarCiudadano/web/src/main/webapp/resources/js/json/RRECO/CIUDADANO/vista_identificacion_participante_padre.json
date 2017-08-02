@@ -1,0 +1,31 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "IdentificacionParticipantePadre",
+		 "type" : "horizontalRadio",
+		 "templateOptions" : {
+		 	"required":true,
+			 "label" : "\u00bf El padre posee documento de identificaci\u00f3n?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		  "data":{
+            "color": "#2230F6"
+         }
+	 },
+	 	{
+			"template" : "<br>"
+		}        
+	 		                                                                                     	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false,"varias":true,"permiteVarias":false}
+}

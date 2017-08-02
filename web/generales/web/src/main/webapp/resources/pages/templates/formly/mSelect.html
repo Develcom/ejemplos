@@ -1,0 +1,10 @@
+	<div class="input-group" ng-class="{'has-error': model[options.key] === undefined || model[options.key] === '','has-success':  model[options.key] !== undefined && model[options.key] !== ''}">
+    	<select class="input-sm form-control"			
+    		ng-model="model[options.key]" allowInvalid="true">
+      			<option ng-repeat="option in to.options" value="{{option.value}}">{{option.name}}</option>
+    	</select>
+		<span class="input-group-addon" id="basic-addon1">
+			<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key] !== undefined && model[options.key] !== ''"></span> 
+			<span class="glyphicon glyphicon-ok" ng-show="model[options.key] !== undefined && model[options.key] !== ''"></span>
+		</span>
+	</div>

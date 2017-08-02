@@ -1,0 +1,41 @@
+
+<div class="row">
+	<div class="col-sm-12">
+		<h4>Registro de Personas que intervienen en el Acto o Hecho</h4>
+		<span id="separadorTitulos"></span>
+	</div>
+</div>
+<div  ng-controller='participantesController as vm'>
+<div class='transicion' class="row" style='margin-left: 10px; margin-right: 10px;'
+	id="datosDeclarante" ng-show="transicion==1">
+	<div class="row">
+		<label>Declarantes:</label>
+	</div>
+	<div class="row acordionTab" style="border-radius: 4px;">Condici&oacute;n
+		los Declarantes</div>
+	<div class="row" style="overflow-y: auto; height: 250px;">
+		<div class='row' ng-repeat="participante in vm.lista">
+			<div class="col-sm-4">
+				<input type="checkbox" ng-model="marca" ng-change="sinDocumento=false" ng-click='vm.almacenarMarcados(participante,marca)'/> <label
+					style="margin-left: 20px;">{{participante}}</label>
+			</div>
+			<div class="col-sm-4" ng-show="marca">
+				<input id="ident1" type="checkbox" ng-model="sinDocumento" ng-checked="sinDocumento" ng-click="vm.marcarSindocumento(participante,sinDocumento)"/> <label
+					style="margin-left: 20px;">No posee identificaci&oacute;n</label>
+			</div>
+			<div class="col-sm-4" ng-show="sinDocumento&&marca">
+				<span ng-repeat="doc in vm.listaDocs"><label><input 
+						type="radio" name="{{participante}}" ng-click="vm.seleccionarDocumento(participante,doc)">{{doc}}</label><br /></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Fin Lista Declarantes, se oculta si la solicitud es de un Ente publico -->
+<div class='transicion' id='listaDeSeleccionados' ng-show="transicion==2">
+	<div class="row acordionTab"><h4 style="text-align: center;">Se autenticar&aacute;n los siguientes ciudadanos:</h4></div>
+		<span id="separadorTitulos"></span>
+		<div id="divLista" class="col-sm-6" ng-controller="posicionController">
+    		<div ng-repeat="xparticipante in marcados"><h5>{{xparticipante.participante}}</h5></div>
+		</div>
+</div>
+</div>

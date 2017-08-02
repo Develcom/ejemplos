@@ -1,0 +1,69 @@
+                      <div ng-controller="PruebaControlador as vm">
+                         <div class="modal-header wizard-header">  
+                             <button type="button" class="close wizard-close" ng-click="vm.cancelar()" aria-hidden="true">&times;</button>  
+                             <h3 class="modal-title wizard-title" ng-bind="$root.tituloWizard"></h3>  
+                             <span class="wizard-subtitle"></span>  
+                             <div >
+                                   <h3 class="panel-title">{{vm.titulos[vm.activo]}}</h3>
+  							</div>
+                         </div>  
+                         <div class="modal-body wizard-body" style="height: 90%;">  
+                             <div class="pull-left wizard-steps">  
+                                 <div class="wizard-nav-container">  
+                                     <ul class="nav wizard-nav-list">
+                                     	<li class="wizard-nav-item" ng-class="{active:$index==vm.activo}" ng-repeat='pasoActual in vm.titulos'>
+                                     		<a class="wizard-nav-link"><span class="glyphicon glyphicon-chevron-right"></span>{{pasoActual}}</a>
+                                     		<ul>
+                                     			<li ng-repeat="subpaso in subPasos"></li>
+                                     		</ul>
+                                     	</li>
+                                     </ul>  
+                                 </div>  
+                                     <div class="wizard-progress-container">  
+									<uib-progressbar class="progress-striped active" max="vm.titulos.length+1" value="vm.activo+1">
+									</uib-progressbar>                                     
+                                 </div>
+                             </div>  
+                             <form>  
+                                 <div class="wizard-cards cuerpo-wizard">  
+                                    <div class="wizard-card-container" style='height: 500px;;'>
+                                    <div>
+                                    	<h3 style="margin-top: 5px;">Autenticar ciudadano(a)</h3>
+                                    	<hr>
+                                    </div>
+<!-- 										<div ng-class="{panelParticipantes:vm.user.activo==0||vm.user.activo==1||vm.user.activo==2||vm.user.aCancelar}" id="panelParticipantes" class="panel panel-default"> -->
+<!-- 										<div ng-class="{panelParticipantes:vm.pasos[vm.activo].indexOf('de ciudadanos') === -1}" id="panelParticipantes" class="panel panel-default"> -->
+										<div id="panelParticipantes" class="panel panel-default">
+  											<div class="panel-heading">
+                                                <h3 class="panel-title">Declaraci&oacute;n jurada<span class="glyphicon glyphicon-pencil pull-right"></span></h3>
+  											</div>
+  											<div class="panel-body">
+												<div class="col-sm-12">											
+													<formly-form model="vm.modeloActual" fields="vm.vista" form="vm.formulario">
+    													<div class="row" ng-show="vm.enProgreso">
+    														<span id="separadorTitulos"></span>
+        														<div class="col-sm-6">Operaci&oacute;n en progreso</div><div class="col-sm-6"><uib-progressbar class="progress-striped active" type="danger"></uib-progressbar></div>
+   															 </div>
+    
+													</formly-form>
+
+												</div>
+  											</div>
+										</div>
+									</div>  
+                                 </div>  
+                                 
+                                 <div class="wizard-footer">  
+                                 	<div class="wizard-buttons-container" >                                  	
+                                    	<button type="button" class="btn btn-danger wizard-cancel wizard-close" ng-hide="vm.finalizar_modal" ng-click="vm.cancelar()">Cancelar</button>  
+                                        <div class="btn-group-single pull-right">  
+                                        	<button ng-click="vm.regresar()"  ng-disabled="vm.disabled" class="btn btn-default wizard-back" type="button">Regresar</button>
+                                        	<span>
+                                                <button  ng-click="vm.finalizar_modal ? vm.finalizar() : vm.siguiente() "  class="btn btn-primary wizard-next" type="button">{{vm.finalizar_modal ? "Finalizar" : "Continuar"}}</button>
+                                            </span>
+                                        </div>   
+                                     </div> <!-- fin wizard-buttons-container--> 
+                                 </div>  <!-- Fin footer -->
+                             </form>  
+                         </div> 
+                         </div> 

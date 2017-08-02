@@ -1,0 +1,14 @@
+	<div class="input-group" ng-class="{'has-error': model[options.key] === undefined ,'has-success':  model[options.key] != undefined}">
+		<input type="text"
+			ng-model="model[options.key]"
+			uib-popover="Ingrese solo n&uacute;meros" popover-trigger="focus"
+			ng-minlength={{to.minlength}} ng-maxlength={{to.maxlength}}
+			maxlength="11"
+			class="form-control input-sm" placeholder={{to.placeholder}}
+			ng-pattern="/^[0-9]+$/"
+			aria-describedby="basic-addon1"> 
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key]!=undefined"></span> 
+				<span class="glyphicon glyphicon-ok" ng-show="model[options.key]!=undefined"></span>
+			</span>
+	</div>

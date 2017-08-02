@@ -1,0 +1,87 @@
+{
+	"fields":
+	[
+        {
+			 "template" : "<p><b>Seleccione los participantes  con documento de identificación presentes en el documento a insertar:</b><p>"
+	 },
+	 {
+		 "key" : "MamaParticipante",
+		 "type" : "validarParticipantes",
+		 "templateOptions" : {
+		 "label" : "MADRE"
+		},
+		"hideExpression": "model.SinParticipante",
+		 "data":{
+	       "avanzarEnFalso":true,
+            "regresarEnFalso":false,
+         	"acronimo":"MAD"
+         }
+     },
+	 {
+		 "key" : "PapaParticipante",
+		 "type" : "validarParticipantes",
+		 "templateOptions" : {
+		 "label" : "PADRE"
+		 },
+		 "hideExpression": "model.SinParticipante",
+		 "data":{
+		   "avanzarEnFalso":true,
+            "regresarEnFalso":false,
+         	"acronimo":"PAD"
+         },
+          "expressionProperties": {
+            "data.validador": "model.PapaParticipante"
+         }
+         },
+     {
+         "key" : "ConyugeParticipante",
+         "type" : "validarParticipantes",
+         "templateOptions" : {
+         "label" : "CONYUGUE O UNIDO(A) ESTABLE DE HECHO",
+         "disabled":false
+         },
+         "hideExpression": "model.SinParticipante",
+         "data":{
+            "avanzarEnFalso":true,
+             "regresarEnFalso":false,
+            "acronimo":"COUND"
+         },
+         "expressionProperties":{
+         	"data.validador": "model.ConyugeParticipante"
+         }      
+     },
+      {
+		 "key" : "HijoParticipante",
+		 "type" : "validarParticipantes",
+		 "templateOptions" : {
+		 "label" : "HIJO(A)"
+		 },
+		 "hideExpression": "model.SinParticipante",
+		  "data":{
+		     "avanzarEnFalso":false,
+             "regresarEnFalso":true,
+             "habilitado":true,
+             "habilitarRegreso":false,
+            "acronimo":"HIJD"
+         }
+	 },
+	 	  {
+		 "key" : "SinParticipante",
+		 "type" : "checkbox",
+		 "templateOptions" : {
+			 "label" : "SIN PARTICIPANTE"
+		 },
+  		"hideExpression": "model.MamaParticipante||model.PapaParticipante||model.ConyugeParticipante ||model.HijoParticipante",
+         "data":{
+            "avanzarEnFalso":true,
+            "regresarEnFalso":false,
+            "presentarAlerta":false
+         },
+         "expressionProperties": {
+            "data.presentarAlerta": "model.SinParticipante"     
+         },
+         "controller":"function ($scope, $rootScope){$scope.$watch('options.data.presentarAlerta',function(newValue,oldValue){if(newValue===false && $scope.$root.seleccionarDeclarante===false && $scope.model.EstaFallecidoConID===false){$rootScope.presentarAlerta=true;}{console.log('siguiente controlador*******')}});}"
+     }
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de participantes","activo":"1","autenticar":false,"varias":true,"permiteVarias":true}
+}

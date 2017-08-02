@@ -1,0 +1,39 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "EstaFallecidoConHijos",
+		 "type" : "radioSiNoAutoSubmit",
+		 "templateOptions" : {
+		 	"required":true,
+			 "label" : "\u00bf El(la) fallecido(a) tenia hijos(as)? ",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		 "data":{
+             "color": "#A43939",
+             "avanzarEnFalso":false,
+             "regresarEnFalso":true,
+             "habilitado":true,
+             "habilitarRegreso":false
+         }
+	 },
+	  {
+     	 "template":"<div class='alert alert-info row' role='alert'><div class='col-sm-1'><span style='transform: scale(1, 1);' class='glyphicon glyphicon-comment glyphSizeMin'></span></div><p id='generico' class='col-sm-11'><i><b>NOTA:</b> Seleccionar sin importar que el(la) hijo(a) este vivo(a) o fallecido(a) </i></p></div>",
+		 "hideExpression": "model.EstaFallecidoConHijos===true || model.EstaFallecidoConHijos===false"
+     },
+	 	{
+			"template" : "<br>"
+		}        
+ 	                                                                                             	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false,"varias":true,"permiteVarias":true}
+}

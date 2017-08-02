@@ -1,0 +1,10 @@
+<div class="col-sm-{{options.data.sizeWidth}}">
+	<div class="radio-group">
+		<div class="radio col-sm-{{options.data.sizeWidthRadio}} inlineStyle_radioH" ng-repeat="item in to.options">
+			<label class="ng-binding">
+				<input type="radio" id="" tabindex="0" ng-value="item.value" ng-model="to.key" name="formly_1_horizontal_radio_lugarNacimiento_{{item.value}}" formly-custom-validation="" class="ng-valid ng-dirty ng-touched" value="{{item.value}}">
+				{{item.name}}
+			</label>
+		</div>
+	</div>
+</div>

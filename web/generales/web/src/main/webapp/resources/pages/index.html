@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/sb-admin-2.css" rel="stylesheet"><!-- Estilos de SBadmin 2 -->
+    <link href="../fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"><!-- Fuente (SBadmin 2) -->
+    <link rel="stylesheet" href="../css/sarcII.css"><!-- Estilos adicionales de SerWeb01 -->
+    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.css"><!-- Estilos Date Time Picker -->
+    <link rel="stylesheet" href="../css/dataTables.bootstrap.css"><!-- Estilos DataTable -->
+    <!--Estilos de Wizard-->
+    <link href="../css/bootstrap-wizard.css" rel="stylesheet" />
+    <link href="../css/chosen.css" rel="stylesheet" />
+    <link href="../site/css/propiasSistema.css" rel="stylesheet" />
+    <title>SARC II Plantilla base</title>
+    </head>
+ 	<script>
+ 	  function preventBack(){window.history.forward();}
+	  setTimeout("preventBack()", 0);
+ 	  window.onunload=function(){null};
+	</script>
+    <body ng-app="app">
+    
+    <header id="header" class="collapse in cabecero"><!-- Cabecero -->
+        <div class="container-fluid">
+            <div class="row oficina" ng-controller="fechaHora as vm">
+                <span id="separador"></span>
+                <div class="col-sm-2">
+                    <img src="../img/logocne.png">
+                </div>
+                <div class="col-sm-7" id="paddingTop_3">
+                    <span class="nombreSistema">Sistema Automatizado del Registro Civil Venezolano</span>
+                    <br>
+                    <span>{{vm.modeloActual.oficina}}</span>
+                </div>
+				<div class="col-sm-3">
+					<div class="estadoDelSistema">
+						Estado de la conexi&oacute;n: <b class="ok"><span class="glyphicon glyphicon-ok-sign"></span> En L&iacute;nea</b>
+					</div>
+					<div id="paddingTop_8">
+						<div style="margin-top: 5px;">
+							<div style="margin-top: 5px;">
+								<span>{{fecha | date:'dd'}} de {{fecha | date:'MMMM'}} del {{fecha | date:'yyyy'}}</span> &ensp;
+								<span>{{fecha | date: 'h:mm:ss'}}</span>
+								<br>
+								<span id="font400">{{vm.modeloActual.nombreUsuario.username}}</span>
+								<br>
+								<span id="font400">{{vm.modeloActual.nombreUsuario.rol}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+						
+        	</div>
+        </div>
+                <span id="separador"></span>
+    </header>
+
+	<nav id="barraNavegacion" class="navbar navbar-inverse navbar-sarc"><!-- Barra de navegaciÃ³n -->
+		<div class="container-fluid" ng-controller="menuController">
+			<ul class="nav navbar-nav">
+
+				<li>
+					<a ng-click="menu('atencionComunitaria')">
+						<span style="font-size: 2.5ex;" class="fa fa-group"></span>
+					</a>
+				</li>
+				<li ng-controller="enlaceController as enlaceCtrl"><a ng-click="enlaceCtrl.activarlinkInboxWeb()"><span class="fa fa-book"></span>Inbox Web</a></li>
+				<li><a ng-click="menu('general')"><span class="fa fa-book"></span> Nacimiento</a></li>
+				<li><a ng-click="menu('general')"><span class="fa fa-book"></span> Defunci&oacute;n</a></li>
+				<li><a ng-click="menu('general')"><span class="fa fa-book"></span> Matrimonio</a></li>
+				<li><a ng-click="menu('general')"><span class="fa fa-book"></span> Nacionalidad y capacidad</a></li>
+				<li><a ng-click="menu('general')"><span class="fa fa-book"></span> Residencia y extranjer&#237;a</a></li>
+				<li><a ng-click="menu('general')"><span class="fa fa-book"></span> Uni&oacute;n estable de hecho</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-controller="header"><a href="" data-toggle="collapse" data-target="#header" ng-click="toggle()">
+					<span class="fa fa-angle-up" ng-hide="myVar"></span>
+					<span class="fa fa-angle-down" ng-show="myVar"></span> &nbsp;</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-ok"><span class="glyphicon glyphicon-cog"></span></span></a>
+					<ul class="dropdown-menu">
+						<li><a href=""><span class="fa fa-bar-chart-o"></span> Estad&iacute;sticas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href=""><span class="glyphicon glyphicon-cog"></span> Administraci&oacute;n del registro</a></li>
+						<li><a href=""><span class="glyphicon glyphicon-cog"></span> Configuraci&oacute;n de la oficina</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a ng-click="menu('indexLibro')"><span class="glyphicon glyphicon-book"></span> Gesti&oacute;n de Libros de Registro Civil</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a ng-click="menu('gestionECU')"><span class="glyphicon glyphicon-user"></span> Gesti&oacute;n de ECU</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href=""><span class="glyphicon glyphicon-user"></span> Gesti&oacute;n de usuarios del sistema</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a ng-click="menu('logOut')"><span class="glyphicon glyphicon-user"></span> Salir del Sistema</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href=""><span class="badge badge-warning"><span class="glyphicon glyphicon-bell"></span> 2</span></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href=""><span class="badge badge-success"><span class="glyphicon glyphicon-time"></span> 8</span></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href=""><span class="badge badge-primary"><span class="glyphicon glyphicon-search"></span></span></a></li>
+			</ul>
+		</div>
+	</nav>
+	<aside ng-if="!$root.imprimirEPDIC && !$root.imprimirRADOP  && !$root.imprimirRADOPACTA  && !$root.imprimirRADOPDJ && !$root.imprimir && !$root.imprimirRDEFU  && !$root.imprimirRRFIL &&!$root.imprimirRRFIL_PPIO &&!$root.imprimir_acta && !$root.imprimirRRFIL_PPI" class="container-fluid ng-scope" ui-view>
+	</aside>
+
+	 <aside ng-if="$root.imprimirRADOP" class="container-fluid ng-scope" ng-controller="imprimirRADOPControlador as vm">	
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	<aside ng-if="$root.imprimirRADOPACTA" class="container-fluid ng-scope" ng-controller="imprimirRADOPACTAControlador as vm">	
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	<aside ng-if="$root.imprimirRADOPDJ" class="container-fluid ng-scope" ng-controller="imprimirRADOPDJControlador as vm">	
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	
+	
+	<aside ng-if="$root.imprimir" class="container-fluid ng-scope" ng-controller="ImprimirControlador as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	
+	<aside ng-if="$root.imprimirEPDIC" class="container-fluid ng-scope" ng-controller="imprimirEPDIC as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	
+	<aside ng-if="$root.imprimirRDEFU" class="container-fluid ng-scope" ng-controller="controladorRDEFUPI as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	<aside ng-if="$root.imprimir_acta" class="container-fluid ng-scope" ng-controller="controladorRDEFUPPI as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	<aside ng-if="$root.imprimirRRFIL " class="container-fluid ng-scope" ng-controller="PI_RRFILcontroller as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	<aside ng-if="$root.imprimirRRFIL_PPIO " class="container-fluid ng-scope" ng-controller="controlador_PPIO_RRFIL as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+	<aside ng-if="$root.imprimirRRFIL_PPI " class="container-fluid ng-scope" ng-controller="PIA_RRFILControlador as vm">
+		<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+	</aside>
+
+	<footer>
+		<p>Sistema automtizado del Registro Civil Venezolano. Desarrollado por Hi-Soft Panamá, Todos los derechos reservados. © 2015</p>
+	</footer>     
+    </body>
+    <!-- Script necesarios para el funcionamiento de las vistas -->
+    <script src="../js/jquery-2.0.3.min.js"></script>
+    <script src="../js/api-check.min.js"></script>
+    <script src="../angular/angular.min.js"></script>
+    <script src="../js/formly.min.js"></script>
+    <script src="../js/angular-sanitize.min.js"></script>
+    <script src="../angular/i18n/angular-locale_es-ve.js"></script>
+    <script src="../js/angular-formly-templates-bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script src="../angular/angular-messages.js"></script>
+    <script type="text/javascript">// Script necesario para el funcionamiento del menu de navegación
+        $(".nav a").on("click", function(){
+          $(".nav").find(".active").removeClass("active");
+          $(this).parent().addClass("active");
+        });
+   </script>
+   <script src="../js/chosen.jquery.js"></script>
+   <script src="../js/prettify.js" type="text/javascript"></script>
+   <script src="../js/ui-bootstrap-tpls-0.14.3.min.js" type="text/javascript"></script>
+
+    <script src="../js/angular-storage.js"></script>
+	<script src="../js/angular-ui-router.js"></script>
+    <script src="../angular/angular-animate.js"></script>
+    <script src="../js/ui-bootstrap-tpls-0.14.3.js" type="text/javascript"></script>
+   
+   <script src="../js/app.js"></script>
+   	<!--  BLOQUE NUEVO -->
+   		<script src="../js/moment.js"></script>
+   		<script src="../angular/angular-file-upload/angular-file-upload.min.js"></script>
+   		<script src="../angular/checklist-model.js"></script>
+   		<script src="../js/swcalendar/swCalendar.js"></script>
+   		<script src="../js/swcalendar/calendario.js"></script>
+   		<script src="../js/jquery.dataTables.js"></script>
+   		<script src="../js/jquery.dataTables.columnFilter.js"></script>
+   		<script src="../js/angular-datatables.js"></script>
+   		<script src="../js/angular-datatables.columnfilter.js"></script>
+   		<script src="../js/dataTables.bootstrap.js"></script>
+   		<script src="../js/sb-admin-2.js"></script>
+   	<!--/  BLOQUE NUEVO --> 
+
+	
+	<script type="text/javascript">// Script necesario para el funcionamiento del menu de navegaciï¿½n
+        $(".nav a").on("click", function(){
+          $(".nav").find(".active").removeClass("active");
+          $(this).parent().addClass("active");
+        });
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();   
+        });
+        $('[data-toggle="popover"]').popover();   
+   </script>
+     
+  <!-- SITE -->
+  <script src="../site/js/angular-tooltips.js"></script>
+  <script src="../js/camposFormly.js"></script>
+  <script src="../site/js/general.js"></script>
+  <script src="../site/js/directivas/directivasEntrada.js"></script>
+  <script src="../site/js/directivas/docIdentificacion.js"></script>
+  <script src="../site/js/modalAngularPerform.js"></script>
+  <script src="../site/js/customDirective.js"></script>
+  <script src="../site/js/moduloWorkspace.js"></script>
+  <script src="../site/js/validacionModulo.js" type="text/javascript"></script>
+  <script src="../site/js/validateJavascript.js" type="text/javascript"></script>
+  <script src="../site/js/funcionesGenerales.js" type="text/javascript"></script>
+  <script src="../site/js/cargaDocumento.js" type="text/javascript"></script>  
+  <script src="../site/js/filtroData.js" type="text/javascript"></script>
+   		
+
+   <!--    ----------------- REGISTRAR DEFUNCION CAMBIOS---------------------    -->
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPVController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPVRController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionNoConformeController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPIController.js"></script>
+    <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPPIController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/DroolsrgDefuncionController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/validarActaController.js"></script>  
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/validarDatosOREController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/enviarDatosFormController.js"></script>  
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/conformeDatosPermisoController.js"></script>  
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/noConformeDatosPermisoController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/validarDatosOREController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/impresionSatisfactoriaController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/footerController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/factorys/droolsFactory.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPEAController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPPDControlador.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionNoConformeActaController.js"></script>
+   <script src="/web-registrarDefuncion/resources/site/js/controllers/RegisDefuncionPCAControlador.js"></script>
+
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOPController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RA2pController.js"></script>
+
+   <script src="/web-nacimiento/resources/site/RADOP/js/ImprimirRADOPControlador.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_PvController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_NoConformeController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_ActaController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_RV_ActaController.js"></script>   
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_NoConformeActaController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/ImprimirRADOPACTAControlador.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_CargarDocController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_DJ_CargarDocController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/RADOP_CargarNotificacionController.js"></script>
+   <script src="/web-nacimiento/resources/site/RADOP/js/ImprimirRADOPDJControlador.js"></script>
+
+   <script src="/web-nacimiento/resources/site/RRFIL/js/RRFILController.js"></script>		             
+   <script src="/web-nacimiento/resources/site/RRFIL/js/validarActaController.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/controladorRRFIL.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PEA_RRFILControlador.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PDD_REFILController.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PI_REFILControlador.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PCA_RRFILController.js"></script>
+   
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PCDO_RRFILController.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PPIO_RRFILController.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PVO_RRFILController.js"></script>
+   
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PVR_RRFILController.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PV_RRFILController.js"></script>
+   
+   <script src="/web-nacimiento/resources/site/RRFIL/js/NC_RRFILController.js"></script>
+   
+   <script src="/web-nacimiento/resources/site/RRFIL/js/NCA_RRFILController.js"></script>
+   <script src="/web-nacimiento/resources/site/RRFIL/js/PIA_RRFILController.js"></script>
+
+  <script src="/web-permisoInhumacionCremacion/site/js/controllers/EPDICControlador.js"></script>
+  <script src="/web-permisoInhumacionCremacion/site/js/controllers/PV_EPDICControlador.js"></script>
+  <script src="/web-permisoInhumacionCremacion/site/js/controllers/NC_EPDICControlador.js"></script>
+  <script src="/web-permisoInhumacionCremacion/site/js/controllers/PI_EPDICControlador.js"></script>
+  <script src="/web-permisoInhumacionCremacion/site/js/controllers/PPD_EPDICControlador.js"></script>
+
+<script src="/web-nacimiento/resources/site/RRECO/js/AB_RRECOControlador.js"></script>
+
+<script src="/web-nacimiento/resources/site/RNACI/js/RNACI1_Controller.js"></script>
+<script src="/web-nacimiento/resources/site/RNACI/js/RNACI2_Controller.js"></script>
+<script src="/web-nacimiento/resources/site/RNACI/js/RNACI_Acta_Controller.js"></script>
+
+    <script src="/web-autenticarCiudadano/js/controladores/verificacionControlador.js"></script>
+    <script src="/web-autenticarCiudadano/js/controladores/imprimirControlador.js"></script>
+    <script src="/web-autenticarCiudadano/js/controladores/correccionControlador.js"></script>
+    <script src="/web-autenticarCiudadano/js/controladores/pruebaControlador.js"></script>
+  
+  
+  <script src="/web-atencionComunitaria/site/js/moduloAtnComunitaria.js"></script>
+  <script src="/web-atencionComunitaria/site/js/services.js"></script>
+  <script src="/web-atencionComunitaria/site/js/generalesModulo.js"></script>
+  
+  <script src="/web-gestionLibros/site/js/moduloLibro.js"></script>
+  
+  <script src="../site/js/modalController.js"></script>
+  
+  <script src="/web-ecu/resources/site/js/generalesECU.js" type="text/javascript"></script>
+  <script src="/web-ecu/resources/site/js/ecuController.js" type="text/javascript"></script>
+		<script src="../js/angular-resource.js"></script>
+		<script src="../site/js/seguridad/CryptoJSCipher.js"></script>
+		<script src="../site/js/seguridad/angularjs-crypto.js"></script>
+		<script src="../site/js/seguridad/aes.js"></script>
+		<script src="../site/js/seguridad/mode-ecb.js.js"></script>
+		<script src="../site/js/seguridad/services-encrypt.js"></script>
+		<script src="../js/app_seguridad.js"></script>   
+   
+</html>

@@ -1,0 +1,110 @@
+
+<div class="col-sm-12 form-group">
+	<div class="col-sm-1 "></div>
+	<div class="col-sm-11">
+		<p>&#191Qui&eacute;n declara, posee certificado m&eacute;dico de
+			defunci&oacute;n EV-14?</p>
+
+		<div class="col-sm-12">
+			<div class="col-sm-8">
+				<div class="col-sm-4">
+					<center>
+						<label class="radio-inline"> <input type="radio" ng-click = "vm.ocultarMsj()"
+							ng-model="vm.modelo.pojo.estaFallecidoEV14" ng-value="true"
+							required> Si
+						</label>
+					</center>
+				</div>
+				<div class="col-sm-4">
+					<label class="radio-inline"> <input type="radio" ng-click = "vm.ocultarMsj()"
+						ng-model="vm.modelo.pojo.estaFallecidoEV14" ng-value="false"
+						required> No
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="col-sm-12">
+	<div class="col-sm-1 "></div>
+	<div class="col-sm-11">
+		<div class="form-inline" ng-show="vm.modelo.pojo.estaFallecidoEV14">
+		<div class="form-group">
+				<p class="col-sm-8" style="padding:0px;">Ingrese el n&uacute;mero de certificado m&eacute;dico de
+					defunci&oacute;n EV-14:</p>
+				<div class="col-sm-4 input-group"
+					ng-class="vm.modelo.pojo.numeroCertificadoDef ? 'has-success' : 'has-error'">
+					<input type="text" class="form-control" ng-keyup="search()"
+									id="numeroCertificadoDef"
+									name="vm.modelo.pojo.numeroCertificadoDef"
+									popover-tittle="Formato del certificado de defuncion"
+									ng-pattern="vPatron.Cedula" custom-popover
+									popover-contenido="{{vPatron.FnumeroCertf | json}}"
+									popover-placement="top" popover-label="Label"
+									popover-validation="{{numeroCertificadoDef == undefined}}"
+									maxlength="8" minlength="8"
+									ng-keydown="onKeyDownCertDef($event,'vPatron.excepciones','numeroCertificadoDef')"
+									popover-is-open="errorTecla.numeroCertificadoDef" ng-blur="onBlur"
+									placeholder="Ejemplo: 12345678"
+									ng-model="vm.modelo.pojo.numeroCertificadoDef"
+									ng-change="validarCert()" ng-model-options="{ debounce: 1000 }" required>
+								<span class="input-group-addon"> <span
+									class="glyphicon glyphicon-asterisk"
+									ng-class="vm.modelo.pojo.numeroCertificadoDef ? 'glyphicon-ok' : 'glyphicon-asterisk'"
+									minlength="8" maxlength="8"></span>
+								</span>
+				</div>
+			</div>
+		</div>
+	</div>
+<br><br><br>
+	<div ng-show="campoMensaje1">
+		<div class='alert alert-info row' role='alert'
+			ng-required="vm.modelo.pojo.numCertificado==='true'">
+			<div class='col-sm-1'>
+				<span style='transform: scale(1, 1);'
+					class='glyphicon glyphicon-comment glyphSizeMin' ></span>
+			</div>
+			<p id='generico' class='col-sm-11'>
+				<i><b>NOTA: </b> N&uacutemero de certificado m&eacutedico de defunci&oacuten EV-14
+					V&aacutelido
+			 </i>
+			</p>
+		</div>
+		</div>
+
+</div>
+
+<div class="col-sm-12">
+	<div class="col-sm-1 "></div>
+	<div class="col-sm-8 style="margin-top: -42px;"
+		ng-show="!vm.modelo.pojo.estaFallecidoEV14 && vm.modelo.pojo.estaFallecidoEV14!=undefined">
+		<p class="col-sm-2" style="padding:0px;">Motivo</p>
+		<div class="col-sm-4">
+		<select ng-model="vm.drools.motivo" ng-change="vm.changeEv14Motivo()"
+			ng-required="vm.modelo.pojo.estaFallecidoEV14==='false'" selected="seleccione">
+			<option value="" selected>Seleccione</option>
+			<option value="Extravio">Extrav&iacute;o</option>
+			<option value="Robo">Robo</option>
+			<option value="Otro">Otro</option>
+		</select>
+	</div>
+</div>
+
+<div ng-show="campoMensaje2">
+	<div class='alert alert-info row' role='alert'
+		ng-required="vm.modelo.fechaDefuncion==='true'">
+		<div class='col-sm-1'>
+			<span style='transform: scale(1, 1);'
+				class='glyphicon glyphicon-comment glyphSizeMin'></span>
+		</div>
+		<p id='generico' class='col-sm-11'>
+			<i><b>NOTA: </b> Registro de defunci&oacuten extempor&aacuteneo</i>
+		</p>
+	</div>
+</div>
+</div>
+

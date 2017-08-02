@@ -1,0 +1,18 @@
+{
+    "fields":
+    [ 
+     {       
+         "key" : "NombreOtroDeclarante",
+         "type": "select",
+          "defaultValue": "seleccione",
+         "templateOptions" : {
+          "label" : "",
+          "options":
+          			OPCIONES 
+          }  
+     } 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de declarantes", "NombreOtroDeclarante": false,"activo":"0","autenticar":false}
+}
+       	
+       

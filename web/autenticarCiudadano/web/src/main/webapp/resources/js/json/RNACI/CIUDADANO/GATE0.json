@@ -1,0 +1,55 @@
+{
+	"fields":
+	[
+	 {
+	 	"template" : "<div>\u00bf Qui\u00e9n declara el nacimiento ?</div><br>"
+	 },
+	 {
+		 "key" : "MadreDeclarante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+			 "label" : "MADRE"
+		 },
+		 "data":{
+		 	"esconder" : false
+		 },
+		 "expressionProperties":{"templateOptions.required" : "!model.OtroDeclarante && !model.PadreDeclarante"}
+	 },
+	 {
+		 "key" : "PadreDeclarante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+			 "label" : "PADRE"
+		 },
+		 "data" : {
+		 	"esconder" : false
+		 },
+		 "expressionProperties":{"templateOptions.required" : "!model.OtroDeclarante && !model.MadreDeclarante"}
+	 },
+     {
+         "key" : "OtroDeclarante",
+         "type" : "checkRequerido",
+         "templateOptions" : {
+             "label" : "OTRO DECLARANTE"
+         },
+         "data" : {
+         	"esconder" : false
+         },
+		 "expressionProperties":{
+		 	"templateOptions.required" : "!model.PadreDeclarante && !model.MadreDeclarante",
+		 	"data.esconder" : "model.MadreDeclarante || model.PadreDeclarante"
+		 },
+		 "controller" : "function($scope){$scope.$watch('options.data.esconder',function(newValue,oldValue){if(newValue)$scope.model[$scope.options.key] = false;});}"
+     },
+     {
+     	"template" : "<br>"
+     },
+     {
+     	"template":"<div class='alert alert-info row' role='alert'><div class='col-sm-1'><span style='transform: scale(1, 1);' class='glyphicon glyphicon-comment glyphSizeMin'></span></div><p id='generico' class='col-sm-11'><i><b>NOTA:</b> Debe seleccionar al menos un declarante</i></p></div>"
+     },
+     {
+     	"template" : "<br>"
+     }
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de declarantes", "inicial":true, "autenticar":false, "MadreDeclarante" : false, "PadreDeclarante" : false, "OtroDeclarante" : false, "ancho": false}
+}

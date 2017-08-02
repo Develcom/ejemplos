@@ -1,0 +1,73 @@
+{
+    "fields":
+    [
+     {
+         "key" : "ConParticipante",
+         "type" : "radioSiNoAutoSubmitHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf Qui\u00e9n declara posee datos del padre del(de la) presentado(a)?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ]
+         },
+         "data" : {
+            "color": "#2230f6",
+            "esconder" : false,
+            "avanzarEnFalso":false,
+            "regresarEnFalso":true,
+            "habilitado":true,
+            "popover" : {
+            	"titulo" : "Atenci\u00f3n",
+            	"mensaje" : "Seleccionar sin importar que el padre est\u00e9 vivo o fallecido"
+            }
+         },
+         "hideExpression" : "model.PadreDeclarante",
+         "expressionProperties" : {
+         	"templateOptions.required" : "model.MadreDeclarante"
+         }
+     },
+     {
+         "key" : "ConParticipante",
+         "type" : "radioSiNoAutoSubmitHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf Qui\u00e9n declara posee datos de la madre del(de la) presentado(a) ?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ]
+         },
+         "data" : {
+            "color": "#9400D3",
+            "esconder" : false,
+            "avanzarEnFalso":false,
+            "regresarEnFalso":true,
+            "habilitado":true,
+            "popover" : {
+            	"titulo" : "Atenci\u00f3n",
+            	"mensaje" : "Seleccionar sin importar que la madre est\u00e9 viva o fallecida"
+            }
+         },
+         "hideExpression" : "model.MadreDeclarante",
+         "expressionProperties" : {
+         	"templateOptions.required" : "model.PadreDeclarante"
+         }
+     },
+     {
+     	"template" : "<br>"
+     }
+    ],
+    "modelo":{"titulo" : "Selecci\u00f3n de participantes", "autenticar" : false, "inicial" : false, "permiteVarias" : true, "memoria" : true, "ancho": false}
+}

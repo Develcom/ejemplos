@@ -1,0 +1,34 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "Declarante",
+		 "type" : "radioSiNoAutoSubmit",
+		 "templateOptions" : {
+		 "required":true,
+			 "label" : "\u00bf El registro de recomposici\u00f3n posee declarante ?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		  "data":{
+             "avanzarEnFalso":true,
+             "regresarEnFalso":false,
+             "color": "#FE9A2E",
+             "habilitado":true,
+             "habilitarRegreso":true
+         }
+	 },
+	  {
+			"template" : "<br>"
+	  }		                                                                                     	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"0", "inicial":true, "autenticar":false,"permiteVarias":true}
+}

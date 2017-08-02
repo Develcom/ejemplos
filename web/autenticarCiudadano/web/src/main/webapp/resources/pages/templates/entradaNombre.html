@@ -1,0 +1,230 @@
+<p>
+	A continuaci&oacute;n ingrese los datos de <b style='color: #ff0000'>{{to.label}}</b>
+</p>
+
+<span id="separadorTitulos"></span>
+<div class="row">
+	<div class="col-sm-9">
+		<h4>Informaci&oacute;n Personal</h4>
+	</div>
+	<div class="col-sm-3">
+		<h5>
+			Campos obligatorios <span class="glyphicon glyphicon-asterisk no"></span>
+		</h5>
+	</div>
+</div>
+<span id="separadorTitulos"></span>
+
+<div class="row" style='margin-left: 15px; margin-right: 15px;'>
+	<div class="row form-group">
+		<div
+			ng-class="{'has-error': model[options.key].primerNombre== undefined, 'has-success':  model[options.key].primerNombre != undefined}">
+			<label class="col-sm-2 control-label" style="text-align: left;">Primer
+				Nombre</label>
+		</div>
+		<div class="form-group col-sm-4"
+			ng-class="{'has-error': model[options.key].primerNombre == undefined , 'has-success':  model[options.key].primerNombre!== undefined}">
+			<div>
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" name="inputNombre"
+							uib-popover="Ingrese el Primer Nombre" popover-trigger="focus"
+							class="form-control input-sm" aria-describedby="basic-addon1"
+							placeholder="Ingrese su nombre"
+							ng-model="model[options.key].primerNombre" ng-minlength="2"
+							ng-maxlength="50" maxlength="50" required> <span
+							class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="model[options.key].primerNombre!= undefined"></span> <span
+							class="glyphicon glyphicon-ok"
+							ng-show="model[options.key].primerNombre!= undefined"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<label class="col-sm-2 control-label" style="text-align: left;">Segundo
+			Nombre</label>
+		<div class="form-group col-sm-4">
+			<div>
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" name="inputNombre"
+							uib-popover="Ingrese el segundo nombre" popover-trigger="focus"
+							class="form-control input-sm" aria-describedby="basic-addon1"
+							placeholder="Ingrese el segundo nombre"
+							ng-model="model[options.key].segundoNombre" ng-minlength="1"
+							ng-maxlength="100" maxlength="100"> <span
+							class="input-group-addon" id="basic-addon1"> <span
+							class="glyphicon glyphicon-ok"
+							ng-hide="model[options.key].segundoNombre == undefined ||model[options.key].segundoNombre == '' "></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- fin nombres		 -->
+		
+	<div class="row" style='margin-left:15px; margin-right:15px;'>
+		<div class="row form-group">
+			<div ng-class="{'has-error': model[options.key].primerNombre== undefined, 'has-success':  model[options.key].primerNombre != undefined}">
+				<label class="col-sm-2 control-label" style="text-align: left;">Primer Apellido</label>
+			</div>
+			<div class="form-group col-sm-4" ng-class="{'has-error': model[options.key].primerApellido == undefined , 'has-success':  model[options.key].primerApellido!== undefined}">
+				<div>
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" name="inputNombre"
+								class="form-control input-sm" aria-describedby="basic-addon1" placeholder="Ingrese el primer apellido" 
+								ng-model="model[options.key].primerApellido" ng-minlength="2" ng-maxlength="50" 
+								maxlength="50" required> 
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].primerApellido!= undefined"></span> 
+								<span class="glyphicon glyphicon-ok" ng-show="model[options.key].primerApellido!= undefined"></span>
+							</span>
+						</div>
+					</div>    
+				</div>
+			</div>
+			<label class="col-sm-2 control-label" style="text-align: left;">Segundo Apellido</label>
+			<div class="form-group col-sm-4">
+				<div>
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" name="inputNombre"
+								class="form-control input-sm" aria-describedby="basic-addon1" placeholder="Ingrese su segundo Apellido" 
+								ng-model="model[options.key].segundoApellido" ng-minlength="2" ng-maxlength="50" 
+								maxlength="50"> 
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-ok" ng-hide="model[options.key].segundoApellido == undefined || model[options.key].segundoApellido == ''"></span>
+							</span>
+						</div>
+					</div>    
+				</div>
+			</div>
+		</div>
+	</div>
+			<!-- fin Apellidos		 -->
+							<span id="separadorTitulos"></span>
+							<div class="row">
+								<div class="col-sm-9">
+									<h4>Informaci&oacute;n de Contacto</h4>
+								</div>
+							</div>
+							<span id="separadorTitulos"></span>
+
+	<div class="row" style='margin-left:15px; margin-right:15px;'>
+			<label class="col-sm-2 control-label" style="text-align: left;">Tel&eacute;fono local</label>
+			<div class="form-group col-sm-4">
+				<div>
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" name="inputNombre" 
+								class="form-control input-sm" aria-describedby="basic-addon1" placeholder="Ejemplo: 0212-3232323" 
+								ng-model="model[options.key].tlf_local" ng-minlength="6" ng-maxlength="30" 
+								maxlength="30"> 
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-ok" ng-hide="model[options.key].tlf_local == undefined || model[options.key].tlf_local == ''"></span>
+							</span>
+						</div>
+					</div>    
+				</div>
+			</div>
+			<label class="col-sm-2 control-label" style="text-align: left;">Tel&eacute;fono M&oacute;vil</label>
+			<div class="form-group col-sm-4">
+				<div>
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" name="inputNombre" 
+								class="form-control input-sm" aria-describedby="basic-addon1" placeholder="Ejemplo: 0212-3232323" 
+								ng-model="model[options.key].tlf_movil" ng-minlength="6" ng-maxlength="30" 
+								maxlength="30"> 
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-ok" ng-hide="model[options.key].tlf_movil == undefined || model[options.key].tlf_movil == ''"></span>
+							</span>
+						</div>
+					</div>    
+				</div>
+			</div>
+	</div>
+
+					<!-- fin telefono		 -->
+
+							<span id="separadorTitulos"></span>
+							<div class="row">
+								<div class="col-sm-9">
+									<h4>Lugar de Residencia</h4>
+								</div>
+							</div>
+							<span id="separadorTitulos"></span>
+							<div class="row">
+								<div class="col-sm-3"  ng-class="{'has-error': model[options.key].pais== undefined , 'has-success':  model[options.key].pais!= undefined}">
+									<label class="control-label">Pa&iacute;s </label>
+									<div class="input-group">
+										<select class="input-sm form-control" ng-model="model[options.key].pais" required>
+											<option value="" selected disabled>Por favor seleccione</option>
+											<option>Venezuela</option>
+										</select>
+										<span class="input-group-addon" id="basic-addon1">
+										<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].pais!= undefined"></span>
+										<span class="glyphicon glyphicon-ok" ng-show="model[options.key].pais!= undefined"></span>
+										</span>
+									</div>
+								</div>
+								<div class="col-sm-3"  ng-class="{'has-error': model[options.key].estado== undefined , 'has-success':  model[options.key].estado!= undefined}">
+									<label class="control-label">Estado</label>
+									<div class="input-group">
+										<select class="input-sm form-control" ng-model="model[options.key].estado" required>
+											<option value="" selected disabled>Por favor seleccione</option>
+											<option>Distrito Capital</option>
+										</select>
+										<span class="input-group-addon" id="basic-addon1">
+										<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].estado!= undefined"></span>
+										<span class="glyphicon glyphicon-ok" ng-show="model[options.key].estado!= undefined"></span>
+										</span>
+									</div>
+								</div>
+								<div class="col-sm-3"  ng-class="{'has-error': model[options.key].municipio== undefined , 'has-success':  model[options.key].municipio!= undefined}">
+									<label class="control-label">Municipio </label>
+									<div class="input-group">
+										<select class="input-sm form-control" ng-model="model[options.key].municipio" required>
+											<option value="" selected disabled>Por favor seleccione</option>
+											<option>Libertador</option>
+										</select>
+										<span class="input-group-addon" id="basic-addon1">
+										<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].municipio!= undefined"></span>
+										<span class="glyphicon glyphicon-ok" ng-show="model[options.key].municipio!= undefined"></span>
+										</span>
+									</div>
+								</div>
+								<div class="col-sm-3"  ng-class="{'has-error': model[options.key].Parroquia== undefined , 'has-success':  model[options.key].Parroquia!= undefined}">
+									<label class="control-label">Parroquia </label>
+									<div class="input-group">
+										<select class="input-sm form-control" ng-model="model[options.key].Parroquia" required>
+											<option value="" selected disabled>Por favor seleccione</option>
+											<option>Sucre</option>
+										</select>
+										<span class="input-group-addon" id="basic-addon1">
+										<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].Parroquia!= undefined"></span>
+										<span class="glyphicon glyphicon-ok" ng-show="model[options.key].Parroquia!= undefined"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-sm-12"  ng-class="{'has-error': model[options.key].direccion== undefined , 'has-success':  model[options.key].direccion!= undefined}">
+									<label class="control-label">AV. / Calle / Casa /Edificio/ Apartamento</label>
+									<div class="input-group">
+										<textarea name=" " class="input-sm form-control" ng-model="model[options.key].direccion" ng-minlength="3" ng-maxlength="300" required></textarea>
+										<span class="input-group-addon" id="basic-addon1">
+										<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].direccion!= undefined"></span>
+										<span class="glyphicon glyphicon-ok" ng-show="model[options.key].direccion!= undefined"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+

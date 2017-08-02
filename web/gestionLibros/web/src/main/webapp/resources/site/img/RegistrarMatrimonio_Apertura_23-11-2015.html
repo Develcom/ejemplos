@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Apertura de Libro</title>       
+		<STYLE type="text/css">
+          h3, h4 {
+				text-align: center;
+			}
+			p 
+			{ 
+				margin-bottom: 0px;
+				margin-top: 0px;
+				font-family: helvetica;
+				font-size: 11pt;
+				line-height: 1.15em;				
+				page-break-before: auto;
+				text-align: justify;
+				margin-left: 50px; 
+				margin-right: 50px; 
+				
+			
+     		}
+			table { 
+				margin-left: auto; 
+				margin-right: auto; 
+		}
+			
+       </STYLE>
+		
+        <!-- Definición del pie de pagina, codigo solo valido para la clase java HtmlToPDF
+            <pdfparameters>
+                <properties>
+                    <author>Registro Civil</author>
+                    <title>CNE</title>
+                    <subject>Plantilla</subject>
+                    <creator>Sistema</creator>
+                </properties>
+                <page>
+                    <size>LETTER</size>
+                    <orientation>Portrait</orientation>
+                    <margin>
+                        <top>12.7</top>
+                        <left>12.7</left>
+                        <right>12.7</right>
+                        <bottom>18.0</bottom>
+                    </margin>
+                </page>
+                <footer>
+                    <font>Helvetica-Bold</font>
+                    <size>11</size>
+                    <interlinear>1.0</interlinear>
+                    <bottomspace>15.0</bottomspace>
+                    <text>
+                       
+                    </text>
+                </footer>
+            </pdfparameters>
+        -->
+    </head>
+    <body>
+        <br/><br/>
+		   <h4> REGISTRO DE  {nombreLibro} modificado <br/>
+             A&Ntilde;O {anio}
+		  </h4>		   
+          <br/>
+		   
+		  <h4>ACTA DE APERTURA</h4>		
+		  
+		     
+                        <p>
+            					   Hoy <strong><em> {dia}</em> </strong> de <strong><em>{mes}</em></strong> de <strong><em>{anio}</em></strong>, quien suscribe <strong><em>{nombreCompleto}</em></strong>, 
+				  en mi car&aacute;cter de REGISTRADOR(A) CIVIL  de  la parroquia <strong><em>{parroquia}</em> </strong> , doy apertura al  presente libro,
+				  correspondientes al   Tomo <strong><em>{numTomo} </em></strong> del a&#241;o  en curso  de conformidad  con lo establecido  en el art&iacute;culo 31
+				  de la Ley Org&aacute;nica de Registro Civil,, publicada en la  Gaceta  Oficial  de  la  Rep&uacute;blica  Bolivariana  de  Venezuela, 
+				  N&uacute;mero  39.264,  de  fecha  15  de Septiembre de 2009, que servir&aacute; para registrar las Actas correspondientes a esta  
+				  Oficina o Unidad de Registro Civil.		
+
+              </p>
+				 
+				 		
+		
+		 
+		<br/><br/> 	
+		  <h4>
+    		{firmaDigital} <br/>			
+			FIRMA Y SELLO				
+		 </h4> 
+       
+																			
+				
+		     
+
+
+       
+        
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<div class="col-sm-12">
+	<h3>Solicitud de registro de defunci&oacute;n</h3>
+	<span id="separadorTitulos"></span>
+</div>
+		<div class="col-sm-12">
+			<div class="radio" ng-hide="hideInscrip">
+				<label> <input type="radio" name="radio"  ng-click = "vm.opciones(hideInscrip)"  ng-model="vm.modelo.pojo.inscripcion"
+					ng-value="true" required ng-disabled="vm.modelo.pojo.inscripcion ==true"> Por inscripci&oacute;n
+				</label>
+			</div>
+			<div class="radio" ng-hide="hideInserc">
+				<label> <input type="radio" name="radio" ng-click = "vm.opciones(hideInserc)"  ng-model="vm.modelo.pojo.inscripcion" 
+					ng-value="false" required ng-disabled="vm.modelo.pojo.inscripcion ==false"> Por inserci&oacute;n
+				</label>
+			</div>
+		</div>

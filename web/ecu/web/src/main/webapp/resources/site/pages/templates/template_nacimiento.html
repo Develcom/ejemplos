@@ -1,0 +1,85 @@
+					<div class="panel panel-default">
+                        <div class="panel-heading wizard-header">  
+<!--                              <button type="button" class="close wizard-close" ng-click="cancel()" aria-hidden="true">&times;</button>   -->
+							<h3 class="panel-title" ng-bind="$root.tituloWizard">
+								
+							</h3>
+							<span class="glyphicon glyphicon-pencil"></span>
+<!--                              <h3 class="modal-title wizard-title" ng-bind="$root.tituloWizard"></h3>   -->
+<!--                              <span class="wizard-subtitle"></span>   -->
+                         </div>  
+                         <div class="panel-body wizard-body">  
+                             <div class="pull-left wizard-steps">  
+<!--                                  <div class="wizard-nav-container" ng-controller='indiceController'>   -->
+                                 <div class="wizard-nav-container">  
+                                     <ul class="nav wizard-nav-list">
+                                     	<li class="wizard-nav-item" ng-class="{active:$index==vm.activo}" ng-repeat='pasoActual in vm.pasos'>
+                                     		<a class="wizard-nav-link"><span class="glyphicon glyphicon-chevron-right"></span>{{pasoActual}}</a>
+                                     		<ul>
+                                     			<li ng-repeat="subpaso in subPasos"></li>
+                                     		</ul>
+                                     	</li>
+                                     </ul>  
+                                 </div>  
+                                 <div class="wizard-progress-container">  
+									<uib-progressbar class="progress-striped active" max="vm.pasos.length+1" value="vm.activo+1">
+									</uib-progressbar>                                     
+                                 </div>
+                             </div>  
+                             <form>  
+<!--                              !vm.removerClaseParticipantes -->
+                                 <div class="wizard-cards">  
+                                    <div class="wizard-card-container">
+<!-- 										ng-class="{panelParticipantes:vm.activo==0}" -->
+										<div id="panelParticipantes" class="panel panel-default">
+<!--   											<div class="panel-heading"> -->
+<!--                                                 <h3 class="panel-title">{{vm.pasos[vm.activo]}}<span class="glyphicon glyphicon-pencil pull-right"></span></h3> -->
+<!--   											</div> -->
+  											<div class="panel-body">
+												<div class="row col-sm-12" style="margin-left: 15px;">
+													<formly-form model="vm.user" fields="vm.userFields" form="vm.formulario">
+													
+<!-- 														<div class="row" ng-show="vm.enProgreso"> -->
+<!--     														<span id="separadorTitulos"></span> -->
+<!--         													<div class="col-sm-6"> -->
+<!--         														Operaci&oacute;n en progreso</div> -->
+<!--         													<div class="col-sm-6"> -->
+<!--         														<uib-progressbar class="progress-striped active" type="danger"></uib-progressbar> -->
+<!--         													</div> -->
+<!--     													</div> -->
+<!--   														<button id="enter" type="submit" style="display: none;" ng-class="{btn btn-default:vm.activo==0}" class="btn btn-default" ng-click="vm.submit(vm.user)">Submit</button> -->
+													</formly-form>
+
+<!-- max="200" value="200"  -->
+<!--         <hr/> -->
+<!--         	model: <pre>{{vm.user | json}}</pre> -->
+<!--         <hr/>	 -->
+<!--         <hr/> -->
+<!--         	form:<pre>{{vm.formulario | json}}</pre> -->
+<!--         <hr/>	 -->
+
+
+												</div>
+  											</div>
+										</div>
+									</div>  
+                                 </div>  
+                                 <div class="wizard-footer footerFijo">  
+                                 	<div class="wizard-buttons-container">  
+                                    	<button class="btn btn-danger wizard-cancel wizard-close" ng-show="!vm.success" ng-click="cancel()" type="button">Cancelar</button>  
+                                        <div class="btn-group-single pull-right">  
+                                        	<button ng-click="vm.anterior()" ng-show="!vm.success" ng-disabled="vm.user.inicial" class="btn btn-default wizard-back" type="button">Anterior</button>
+                                        	<span>
+                                                <button ng-click="vm.submit(vm.user)" ng-show="!vm.guardar && !vm.success" ng-disabled="!vm.user.validador || vm.formulario.$invalid" class="btn btn-primary wizard-next" type="button">Siguiente</button>
+                                                <button ng-click="vm.submit(vm.user)" ng-show="vm.guardar && !vm.success" ng-disabled="!vm.user.validador || vm.formulario.$invalid" class="btn btn-success wizard-next" type="button">Guardar</button>
+                                                <button ng-click="cancel()" ng-show="vm.success" class="btn btn-success wizard-next" type="button">Finalizar</button>
+                                            </span>
+<!--                                             ng-class="{btn:true,btn-primary:true,wizard-next:true}"   -->
+                                        </div>   
+                                     </div> <!-- fin wizard-buttons-container--> 
+                                 </div>  <!-- Fin footer -->
+                             </form>  
+                         </div>  
+<!--                          class="btn btn-primary wizard-next" -->
+<!--                  btn-primary ng-disabled="vm.formulario.$invalid"  -->
+</div>

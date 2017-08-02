@@ -1,0 +1,30 @@
+{
+    "fields":
+    [ 
+     {       
+         "key" : "NombreOtroDeclarante",
+         "type": "select",
+          "defaultValue": "seleccione",
+         "templateOptions" : {
+          "label" : "",
+          "options":
+			     OPCIONES   
+     },
+      "data":{
+            "validador":"undefined"
+         },
+         "expressionProperties": {
+            "data.validador": "model.NombreOtroDeclarante"
+         },
+        "controller":"function ($scope){$scope.$watch('options.data.validador',function(newValue,oldValue){if($scope.model['NombreOtroDeclarante']!==false){$scope.model['validador']=true;console.log('ciudadano');}});}"       
+        },
+	 	{
+			"template" : "<br>"
+		}        
+        
+
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de declarante","activo":"0","validador":false,"autenticar":false}
+}
+       	
+       

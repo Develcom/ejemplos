@@ -1,0 +1,95 @@
+<div class="col-sm-12">
+	<h3>{{vm.modelo.permiso}}</h3>
+	<span id="separadorTitulos"></span>
+</div>
+
+<!-- <form name="form1"> -->
+
+	<div class="col-sm-12">
+
+		<h4>Oficio al tribunal / juzgado </h4>
+	</div>
+	<div class="col-sm-12 row acta">
+		<div class="col-sm-6">
+			<label class="col-sm-12 control-label">Primer Nombre:</label>
+			<div class="input-group col-sm-12"
+				ng-class="{'has-error': vm.modelo['FAL'].primerNombre== undefined , 'has-success':  vm.modelo['FAL'].primerNombre!= undefined}">
+				<campo-texto label="Campo" ng-model="vm.modelo['FAL'].primerNombre"
+					validacion="texto"> </campo-texto>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<label class="col-sm-12 control-label">Segundo nombre:</label>
+			<div class="input-group col-sm-12"
+				ng-class="{'has-error': vm.modelo['FAL'].segundoNombre== undefined , 'has-success':  vm.modelo['FAL'].segundoNombre!= undefined}">
+				<campo-texto label="Campo" ng-model="vm.modelo['FAL'].segundoNombre"
+					validacion="texto"> </campo-texto>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-12 row acta">
+		<div class="col-sm-6">
+			<label class="col-sm-12 control-label">Primer Apellido:</label>
+			<div class="input-group col-sm-12"
+				ng-class="{'has-error': vm.modelo['FAL'].primerApellido == undefined , 'has-success':  vm.modelo['FAL'].primerApellido!= undefined}">
+				<campo-texto label="Campo"
+					ng-model="vm.modelo['FAL'].primerApellido" validacion="texto">
+				</campo-texto>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<label class="col-sm-12 control-label">Segundo Apellido:</label>
+			<div class="input-group col-sm-12"
+				ng-class="{'has-error': vm.modelo['FAL'].segundoApellido == undefined , 'has-success':  vm.modelo['FAL'].segundoApellido!= undefined}">
+				<campo-texto label="Campo"
+					ng-model="vm.modelo['FAL'].segundoApellido" validacion="texto">
+				</campo-texto>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-12">
+		<label>Tribunal / Juzgado</label>
+	</div>
+	<div class="col-sm-6">
+		<label class="col-sm-12 control-label">Nombre:</label>
+		<div class="input-group col-sm-12"
+			ng-class="{'has-error': vm.modelo.nombreTribunal == undefined , 'has-success':  vm.modelo.nombreTribunal != undefined}">
+			<campo-texto label="Campo" ng-model="vm.modelo.nombreTribunal"
+				validacion="texto"> </campo-texto>
+		</div>
+	</div>
+
+	<div class="col-sm-12">
+		<label>Sentencia N°: </label>
+	</div>
+	<div class="col-sm-6">
+		<div class="input-group col-sm-12"
+			ng-class="{'has-error': vm.modelo.nombreTribunal == undefined , 'has-success':  vm.modelo.nombreTribunal != undefined}">
+			<campo-texto label="Campo" ng-model="vm.modelo.nombreTribunal"
+				validacion="cedula"> </campo-texto>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-12 form-group">
+			<label class="row-sm-12 control-label">Texto explicativo:</label>
+			<div class="input-group row-sm-12"
+				ng-class="{'has-error': vm.modelo.textoExplicativo == undefined , 'has-success':  vm.modelo.textoExplicativo != undefined}">
+				<textarea type="text" name="observaciones"
+					class="input-sm form-control" ng-model="vm.modelo.textoExplicativo"
+					required maxlength="200"></textarea>
+				<span class="input-group-addon" id="basic-addon1"> <span
+					class="glyphicon glyphicon-asterisk"
+					ng-hide="vm.modelo.textoExplicativo != undefined"></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="vm.modelo.textoExplicativo != undefined"></span>
+				</span>
+			</div>
+		</div>
+
+	</div>
+
+<!-- </form> -->

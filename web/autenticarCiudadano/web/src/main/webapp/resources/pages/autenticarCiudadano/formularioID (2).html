@@ -1,0 +1,63 @@
+
+<div ng-controller="documentosController">
+<!-- 	<div class="row" id="conDoc"> -->
+		<div class="row">
+			<div class="col-sm-12">
+				<h4>Declarantes a Autenticar</h4>
+				<span id="separadorTitulos"></span>
+			</div>
+		</div>
+		<div class="row" style="margin: 2px;">
+			Autenticando: <label>{{part1}}</label>
+		</div>
+		<div class="row" style="margin: 2px;">
+			<label>Datos para autenticar ciudadano</label>
+		</div>
+		<!--                         <div class="row" style="margin: 2px;"> -->
+		<span id="separadorTitulos"></span>
+		<div class="row">
+				<div class="row form-group" ng-class="{'has-error': ocupacion== undefined , 'has-success':  ocupacion!= undefined}">
+					<label class="col-sm-3 control-label" style="text-align: left;">Tipo de Documento</label>
+				<div class="form-group col-sm-9">
+					<div class="input-group">  
+						<select class="form-control input-sm"
+							ng-click='selectDoc(ocupacion)' ng-model="ocupacion" ng-change="nroDocumento=undefined"  required>
+							<option value="" selected disabled>Por favor seleccione</option>
+							<option ng-repeat='documento in documentos'>{{documento}}</option>
+						</select> 
+						<span class="input-group-addon" id="basic-addon1"> 
+							<span class="glyphicon glyphicon-asterisk" ng-hide="ocupacion!= undefined"></span> 
+							<span class="glyphicon glyphicon-ok" ng-show="ocupacion!= undefined"></span>
+						</span>
+					</div>
+					</div>
+				</div>
+		</div>
+		<div class="row">
+			<div ng-show="ocupacion=='CEDULA'" class="row form-group" ng-class="{'has-error': nroDocumento== undefined , 'has-success':  nroDocumento!= undefined}">
+				<label class="col-sm-3 control-label" style="text-align: right;">C&Eacute;DULA</label>
+				<div class="form-group col-sm-3">
+					<div class="input-group">
+						<select class="form-control input-sm" ng-model='nacionalidad' required>
+							<option selected disabled>Por favor seleccione</option>
+							<option>V</option>
+							<option>E</option>
+						</select> 
+						<span class="input-group-addon" id="basic-addon1"> 
+							<span class="glyphicon glyphicon-asterisk" ng-hide="nacionalidad!= undefined"></span> 
+							<span class="glyphicon glyphicon-ok" ng-show="nacionalidad!= undefined"></span>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-6" ng-controller="validadorDocumento">
+						<input-con-validacion datosvalidacion="datosValidacion"></input-con-validacion>
+				</div>
+			</div>
+			<div ng-show="ocupacion=='NUI'||ocupacion=='PASAPORTE'" class="row form-group" ng-class="{'has-error': nroDocumento== undefined , 'has-success':  nroDocumento!= undefined}">
+				<label class="col-sm-3 control-label" style="text-align: right;">{{ocupacion}}</label>
+				<div class="col-sm-9" ng-controller="validadorDocumento">
+						<input-con-validacion datosvalidacion="datosValidacion"></input-con-validacion>
+				</div>
+			</div>
+		</div>
+</div>

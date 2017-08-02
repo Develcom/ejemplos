@@ -1,0 +1,10 @@
+
+<div ng-hide="options.data.esconder" >
+<div style="display: inline-block;"><span class="glyphicon glyphicon-user" style="color:{{options.data.color}}"></span></div><div style="display: inline-block;"><span uib-popover="{{options.data.popover.mensaje}}" popover-title="{{options.data.popover.titulo}}" popover-trigger="mouseenter">{{to.label}}</span></div><br>
+	<div class=" bloque-formly">
+    	<label class="radio-inline" ng-repeat="option in to.options" style = 'padding: 30px;'>
+    		<input type="radio" ng-model="model[options.key]" ng-click="mClick()" name="{{options.key}}" value={{option.value}}>{{option.name}}
+    	</label>
+    </div>
+</div>
+<br>

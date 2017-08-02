@@ -1,0 +1,293 @@
+{
+	"fields":
+	[
+		{
+			"template":"<p>A continuaci&oacute;n ingrese los datos del <b style='color:#31859c'>PARENTESCO</b></p><br>"
+		},
+		{
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-6",
+					"template" : "<H4 style='text-align: left;' class='subtitulo-formulario control-label text-center'>Datos del ciudadano(a)</H4>"
+				},
+				{
+					"className" : "col-sm-6",
+					"template" : "<span style='text-align: right; color: #A94442;' class = 'col-sm-12'><span>Campos obligatorios</span><span class='glyphicon glyphicon-asterisk'></span></span>"
+				}
+			]
+		},
+		{
+			"template" : "<hr class='separador-formulario'>"
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-8 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Documento de identificaci&oacute;n</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "documentoIdentidad",
+            		"templateOptions" : {
+          				"maxlength" : "10",
+          				"minlength" : "6",
+          				"placeholder" : "Ejemplo: 12345678",
+          				"required" : true,
+          				"disabled" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "primerNombre",
+            			"patron" : "^[A-Za-z\-.'\x7f-\xff\s]{0,50}$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Este campo solo permite letras, di\u00e9resis, ap\u00f3strofes, guiones y acentos"
+            			},
+            			"errorTecla" : false
+            		}
+            	}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Primer nombre</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "primerNombre",
+            		"templateOptions" : {
+          				"maxlength" : "50",
+          				"minlength" : "2",
+          				"placeholder" : "",
+          				"required" : true,
+          				"disabled" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "primerNombre",
+            			"patron" : "^[A-Za-z\-.'\x7f-\xff\s]{0,50}$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Este campo solo permite letras, di\u00e9resis, ap\u00f3strofes, guiones y acentos"
+            			},
+            			"errorTecla" : false
+            		}
+          		},
+				{
+					"className" : "col-sm-2 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Segundo nombre</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "segundoNombre",
+            		"templateOptions" : {
+          				"placeholder" : "",
+          				"disabled" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "segundoNombre",
+            			"patron" : "^[A-Za-z\-.'\x7f-\xff\s]{0,50}$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Este campo solo permite letras, di\u00e9resis, ap\u00f3strofes, guiones y acentos"
+            			},
+            			"errorTecla" : false
+            		}
+          		}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Primer apellido</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "primerApellido",
+            		"templateOptions" : {
+          				"required" : true,
+          				"disabled" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "primerApellido",
+            			"patron" : "^[A-Za-z\-.'\x7f-\xff\s]{0,50}$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Este campo solo permite letras, di\u00e9resis, ap\u00f3strofes, guiones y acentos"
+            			},
+            			"errorTecla" : false
+            		}
+          		},
+				{
+					"className" : "col-sm-2 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Segundo apellido</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "segundoApellido",
+            		"templateOptions" : {
+           				"placeholder" : "",
+           				"disabled" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "segundoApellido",
+            			"patron" : "^[A-Za-z\-.'\x7f-\xff\s]{0,50}$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Este campo solo permite letras, di\u00e9resis, ap\u00f3strofes, guiones y acentos"
+            			},
+            			"errorTecla" : false
+            		}
+          		}
+			]
+		},
+		{
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-6",
+					"template" : "<H4 style='text-align: left;' class='subtitulo-formulario control-label text-center'>Lugar de residencia</H4>"
+				}
+			]
+		},
+		{
+			"template" : "<hr class='separador-formulario'>"
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Pa&iacute;s</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "selectServicio",
+            		"key" : "Pais",
+            		"templateOptions" : {
+            			"options" : [],
+          				"required" : true
+            		},
+            		"data" : {
+            			"ruta" : "/web-generales/consultarPaisTodos",
+            			"name" : "nombre",
+            			"value" : "codigo"
+            		}
+          		},
+				{
+					"className" : "col-sm-2 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Estado</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "selectServicioReferencia",
+            		"key" : "Estado",
+            		"templateOptions" : {
+            			"options" : [],
+          				"required" : true
+            		},
+            		"data" : {
+            			"ruta" : "/web-generales/consultarEstadoPorPais",
+            			"name" : "nombre",
+            			"value" : "codigo",
+            			"referencia" : ""
+            		},
+            		"expressionProperties" : {
+            			"data.referencia" : "model.Pais" 
+            		}
+            	}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-2",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Municipio</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "selectServicioReferencia",
+            		"key" : "Municipio",
+            		"templateOptions" : {
+            			"options" : [],
+          				"required" : true
+            		},
+            		"data" : {
+            			"ruta" : "/web-generales/consultarMunicipioPorEstado",
+            			"name" : "nombre",
+            			"value" : "codigo",
+            			"referencia" : ""
+            		},
+            		"expressionProperties" : {
+            			"data.referencia" : "model.Estado"
+            		}
+            		
+          		},
+				{
+					"className" : "col-sm-2 etiqueta-derecha",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Parroquia</label>"
+				},
+				{
+					"className" : "col-sm-4 campo-form-group",
+            		"type" : "selectServicioReferencia",
+            		"key" : "Parroquia",
+            		"templateOptions" : {
+            			"options" : [],
+          				"required" : true
+            		},
+            		"data" : {
+            			"ruta" : "/web-generales/consultarParroquiaPorMunicipio",
+            			"name" : "nombre",
+            			"value" : "codigo",
+            			"referencia" : ""
+            		},
+            		"expressionProperties" : {
+            			"data.referencia" : "model.Municipio"
+            		}
+            		
+          		},
+          		{
+          			"template" : "<br>"
+          		},
+				{
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Av./ Calle/ Casa/ Edificio/ Apartamento</label>"
+				},
+				{
+					"className" : "col-sm-12",
+            		"type" : "textareaKitModal",
+            		"key" : "Direccion",
+            		"templateOptions" : {
+            			"label" : "",
+            			"rows" : 2,
+          				"maxlength" : "200",
+          				"minlength" : "2",
+          				"placeholder" : "Ejemplo: Av. Venezuela",
+          				"required" : true
+            		},
+            		"data" : {
+            			"patron" : "/^((([a-zA-Z0-9 Ò—·ÈÌÛ˙¡…Õ”⁄‰ÎÔˆ¸ƒÀœ÷‹]))|([-'])\1?(?!\4))+$/",
+            			"tipoValidacion" : "direccion",
+            			"popover" : {}
+            		}
+        		}
+			]
+		}
+	],
+	"modelo":{"titulo":"Declaraci\u00f3n jurada", "ancho" : true}
+}

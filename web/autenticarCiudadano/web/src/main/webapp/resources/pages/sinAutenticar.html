@@ -1,0 +1,24 @@
+<div ng-controller="formController">
+        <div class="modal-header">
+             <h3 class="modal-title">Autenticar Defunci&oacute;n </h3> 
+         </div> 
+       <div class="col-sm-12"> 
+ 			<div class="alert alert-warning" role="alert"> 
+ 				<div class="container-fluid"> 
+ 					<div class="row">
+ 						<div class="col-sm-1"> 
+ 							<span style="font-size: 3em;" class="glyphicon glyphicon-alert"></span> 
+ 						</div> 
+ 						<p id="generico" class="col-sm-11">
+ 							<b>Atenci&oacute;n:</b>No se autenticar&aacute; ning&uacute;n participante. Se proceder&aacute; a finalizar el proceso para realizar el Registro de la Defunci&oacute;n &iquest;Desea Continuar?
+ 						</p> 
+ 					</div> 
+ 				</div>
+ 			</div>
+ 		</div> 
+         <div class="modal-footer"> 
+             <button class="btn btn-success wizard-next" type="button" !vm.user.aCancelar" ng-click="ok()">Si</button>
+<!--               <button ng-click="$root.cancelar1()" ng-show="vm.user.success" class="btn btn-success wizard-next" type="button">Si</button> -->
+            <button class="btn btn-warning" type="button" !vm.user.aCancelar" ng-click="cancel()">No</button> 
+         </div> 
+</div>

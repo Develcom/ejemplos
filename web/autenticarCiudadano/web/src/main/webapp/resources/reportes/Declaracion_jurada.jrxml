@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-02-01T08:40:30 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1fc9e423-96af-4056-ac19-79189dbefd32">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="149"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="dia" class="java.lang.String"/>
+	<parameter name="mes" class="java.lang.String"/>
+	<parameter name="ano" class="java.lang.String"/>
+	<parameter name="declarante" class="java.lang.String"/>
+	<parameter name="ceduladec" class="java.lang.String"/>
+	<parameter name="direcciondec" class="java.lang.String"/>
+	<parameter name="parroquiadec" class="java.lang.String"/>
+	<parameter name="municipiodec" class="java.lang.String"/>
+	<parameter name="estadodec" class="java.lang.String"/>
+	<parameter name="declarado" class="java.lang.String"/>
+	<parameter name="nacionalidaddeclarado" class="java.lang.String"/>
+	<parameter name="parroquiadeclarado" class="java.lang.String"/>
+	<parameter name="municipiodeclarado" class="java.lang.String"/>
+	<parameter name="estadodeclarado" class="java.lang.String"/>
+	<parameter name="nino" class="java.lang.String"/>
+	<parameter name="numdoc" class="java.lang.String"/>
+	<parameter name="direcciondeclarado" class="java.lang.String"/>
+	<parameter name="urlFile" class="java.lang.String"/>
+	<parameter name="registrador" class="java.lang.String"/>
+	<parameter name="oficina" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="dia" class="java.lang.String">
+		<fieldDescription><![CDATA[dia de la fecha de creacion]]></fieldDescription>
+	</field>
+	<field name="mes" class="java.lang.String">
+		<fieldDescription><![CDATA[mes de la creacion]]></fieldDescription>
+	</field>
+	<field name="ano" class="java.lang.String">
+		<fieldDescription><![CDATA[año del documento]]></fieldDescription>
+	</field>
+	<field name="registro" class="java.lang.String">
+		<fieldDescription><![CDATA[registro civil]]></fieldDescription>
+	</field>
+	<field name="declarante" class="java.lang.String">
+		<fieldDescription><![CDATA[declarante]]></fieldDescription>
+	</field>
+	<field name="ceduladec" class="java.lang.String">
+		<fieldDescription><![CDATA[cedula del declarante]]></fieldDescription>
+	</field>
+	<field name="direcciondec" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion del declarante]]></fieldDescription>
+	</field>
+	<field name="parroquiadec" class="java.lang.String">
+		<fieldDescription><![CDATA[parroquia del declarante]]></fieldDescription>
+	</field>
+	<field name="municipiodec" class="java.lang.String">
+		<fieldDescription><![CDATA[municipio del declarante]]></fieldDescription>
+	</field>
+	<field name="estadodec" class="java.lang.String">
+		<fieldDescription><![CDATA[estado del declarante]]></fieldDescription>
+	</field>
+	<field name="declarado" class="java.lang.String">
+		<fieldDescription><![CDATA[declarado]]></fieldDescription>
+	</field>
+	<field name="nacionalidaddeclarado" class="java.lang.String">
+		<fieldDescription><![CDATA[nacionalidad del declarado]]></fieldDescription>
+	</field>
+	<field name="numdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[numero del documento]]></fieldDescription>
+	</field>
+	<field name="direcciondeclarado" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion del declarado]]></fieldDescription>
+	</field>
+	<field name="parroquiadeclarado" class="java.lang.String">
+		<fieldDescription><![CDATA[parroquia del declarado]]></fieldDescription>
+	</field>
+	<field name="municipiodeclarado" class="java.lang.String">
+		<fieldDescription><![CDATA[municipio del declarado]]></fieldDescription>
+	</field>
+	<field name="estadodeclarado" class="java.lang.String">
+		<fieldDescription><![CDATA[estado del declarado]]></fieldDescription>
+	</field>
+	<field name="nino" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre del niño a inscribir]]></fieldDescription>
+	</field>
+	<field name="registrador" class="java.lang.String">
+		<fieldDescription><![CDATA[registrador]]></fieldDescription>
+	</field>
+	<field name="registrocivil" class="java.lang.String">
+		<fieldDescription><![CDATA[registro civil]]></fieldDescription>
+	</field>
+	<field name="resolucion" class="java.lang.String">
+		<fieldDescription><![CDATA[nro de resolucion]]></fieldDescription>
+	</field>
+	<field name="fecharesolucion" class="java.lang.String">
+		<fieldDescription><![CDATA[decha de la resolucion]]></fieldDescription>
+	</field>
+	<field name="gaceta" class="java.lang.String">
+		<fieldDescription><![CDATA[numero de gaceta]]></fieldDescription>
+	</field>
+	<field name="fechagaceta" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha de la gaceta]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<textField>
+				<reportElement x="426" y="19" width="110" height="21" uuid="448d70f4-13e5-4da8-a956-781e3b5398f0"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Formato ONRC-N-006"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="221" y="40" width="118" height="61" uuid="e5d2a07d-8855-48ab-a193-cce7eb5dca69"/>
+				<imageExpression><![CDATA[$P{urlFile}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="192" y="112" width="180" height="20" uuid="6e61b993-c86c-494a-9d8f-140dd976acea"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DECLARACIÓN DE TESTIGOS"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="350" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="36" y="20" width="520" height="294" uuid="71e2cc70-dcc3-4e7e-aec8-666cd4830bbc"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="SansSerif" size="12"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hoy, <b>"  + ($P{dia} == null ? "__": $P{dia}.trim()) + "</b> de <b>" + ($P{mes} == null ? "__": $P{mes}.trim()) + "</b> del <b>" + ($P{ano} == null ? "_____": $P{ano}.trim()) +  "</b>,  se  presentó  en  " + ($P{oficina} == null ? "___________________________": $P{oficina}.trim()) + ", el (la) ciudadano (a) <b>" + ($P{declarante} == null ? "___________________________": $P{declarante}.trim()) + "</b>, venezolano (a) mayor de edad, titular de la cédula de identidad Nro <b>" + ($P{ceduladec} == null ? "_________": $P{ceduladec}.trim()) + "</b> y domiciliado en <b>" + ($P{direcciondec} == null ? "_______________________________": $P{direcciondec}.trim()) + "</b>, parroquia <b>" +($P{parroquiadec} == null ? "____________": $P{parroquiadec}.trim()) + "</b>, municipio <b>" + ($P{municipiodec} == null ? "____________": $P{municipiodec}.trim()) + "</b> del estado <b>" + ($P{estadodec} == null ? "___________________": $P{estadodec}.trim()) + "</b>, quien debidamente informado del contenido de los artículos 161 de la Ley Orgánica de Registro Civil  y  320  del  Código  Penal,  DECLARÓ BAJO FE DE JURAMENTO que conoce de vista y  trato  al (la) ciudadano (a) <b>" + ($P{declarado} == null ? "_______________________": $P{declarado}.trim()) + "</b>, residenciado en <b>" + ($P{direcciondeclarado} == null ? "____________________________": $P{direcciondeclarado}.trim()) + "</b>, Parroquia <b>" + ($P{parroquiadeclarado} == null ? "___________________": $P{parroquiadeclarado}.trim()) + " </b>, Municipio <b>" + ($P{municipiodeclarado} == null ? "_______________": $P{municipiodeclarado}.trim()) + "</b> del Estado <b>" + ($P{estadodeclarado} == null ? "____________________": $P{estadodeclarado}.trim()) + "</b>, Declaración que se realiza a fin de tramitar la Inscripción de Nacimiento del (la) niño (a) <b>" + ($P{nino} == null ? "_______________________________": $P{nino}.trim()) + "</b>, hijo (a) de la persona antes identificada.<br>" + 
+"El (la) ciudadano(a) " + ($P{registrador} == null ? "___________________________": $P{registrador}.trim()) + ",  Registrador (a) Civil de la " + ($P{oficina} == null ? "___________________________": $P{oficina}.trim()) + ", en uso de la atribución conferida en el artículo 11 de la Ley de Registro Civil, certifica que se produjo la presente declaración conforme al artículo 37 del Nº 1 de la mencionada Ley."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="153" splitType="Stretch">
+			<textField>
+				<reportElement x="160" y="2" width="86" height="20" uuid="dc43e426-a30f-4dd0-93ad-c31e234849c4"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Firma testigo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="2" width="110" height="20" uuid="fd2c0cbf-e0df-4dca-851c-06ef5e6cc7c5"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Impresión dactilar"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="30" width="200" height="20" uuid="7d6ced53-e57c-4f09-9820-d67f401658e2"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registrador (a) Civil Sello húmedo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="51" width="264" height="15" uuid="41b9507b-63e1-4e41-9296-8eace32f7142"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nº Resolución  40.332, de fecha 13 de enero de 2014"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="66" width="263" height="15" uuid="1725c8e1-4b58-46a5-a220-1d9e3f998fc5"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nº Gaceta        40.093, de fecha 18 de enero de 2013"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="100" y="110" width="410" height="20" forecolor="#000000" backcolor="#FFFF42" uuid="ecafd6a4-ed21-491f-91bd-60c9310e8817"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Formato que aplica cuando la madre o padre del (la) niño (a) no tiene documento de identificación."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="60" y="110" width="40" height="20" backcolor="#FFFF42" uuid="009979d9-a46a-406f-8cf1-b07afbd2848c"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nota:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="60" y="130" width="300" height="14" forecolor="#000000" backcolor="#FFFF42" uuid="905e7b04-c327-420a-b96a-353be22e7b00"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Anexar copia fotostática de las cédulas de identidad de los declarantes."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

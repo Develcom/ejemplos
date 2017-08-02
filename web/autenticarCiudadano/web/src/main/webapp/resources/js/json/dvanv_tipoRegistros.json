@@ -1,0 +1,22 @@
+[
+   {
+        "key": "idTramite",
+        "id": "idTramite",
+        "type": "input",
+        "defaultValue":12,
+        "templateOptions": {
+	        "label": "hd"
+	     },    
+	        "expressionProperties": {"hide": true} 
+    },
+    {
+        "key": "tipoRegistro",
+        "id": "tipoRegistro",
+        "type": "radioHorizontal",
+        "templateOptions": {
+	        "label": "Tipo de Registros:",
+	        "options": []
+	        
+	     }
+    }
+]

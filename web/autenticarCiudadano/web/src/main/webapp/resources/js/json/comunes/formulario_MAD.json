@@ -1,0 +1,225 @@
+{
+	"fields":
+	[
+		{
+			"template":"<br><hr style = 'margin-top : 0px; margin-bottom : 0px;'>",
+			"hideExpression":"model['ROL'].autenticado || (model['ROL'].repetir_testigo === true || model['ROL'].repetir_testigo === 'true' ||  model['ROL'].repetir_testigo==undefined) && (model.repetir_testigo === 'true' || model.repetir_testigo === true )"
+		},
+		{
+			"template":"<p>A continuaci&oacute;n ingrese los datos del documento de Identidad <span ng-show='options.data.rol===\"MAD\"'> de la</span><span ng-show='options.data.rol===\"TDP1\"'> del</span><span ng-show='options.data.rol===\"TDP2\"'>del</span><span ng-show='options.data.rol===\"TDM1\"'> del</span><span ng-show='options.data.rol===\"TDM2\"'> del</span><span ng-show='options.data.rol===\"MAM\"'> de la</span><span ng-show='options.data.rol===\"PAD\"'> del</span><span ng-show='options.data.rol===\"PAP\"'> del</span><span ng-show='options.data.rol===\"RMT\"'> del(de la)</span><span ng-show='options.data.rol===\"CPNA\"'> del(de la)</span><span ng-show='options.data.rol===\"HRM\"'> del(de la)</span><span ng-show='options.data.rol===\"SOB\"'> del(de la)</span><span ng-show='options.data.rol===\"TIO\"'> del(de la)</span><span ng-show='options.data.rol===\"ABU\"'> del(de la)</span><span ng-show='options.data.rol===\"BIAOM\"'> del</span><span ng-show='options.data.rol===\"MED\"'> del(de la)</span><span ng-show='options.data.rol===\"PART\"'> del(de la)</span><span ng-show='options.data.rol===\"PRI\"'> del(de la)</span><span ng-show='options.data.rol===\"TTBOM\"'> del(de la)</span><span ng-show='options.data.rol===\"TA1\"'> del(de la)</span><span ng-show='options.data.rol===\"TA2\"'> del(de la)</span><b style='color:#31859c'> PARENTESCO</b></p><br>",
+			"hideExpression":"model['ROL'].autenticado || (model['ROL'].repetir_testigo === true || model['ROL'].repetir_testigo === 'true' ||  model['ROL'].repetir_testigo==undefined) && (model.repetir_testigo === 'true' || model.repetir_testigo === true )",
+			"data" : {
+				"rol" : "ROL"
+			}
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"hideExpression":"model['ROL'].autenticado || (model['ROL'].repetir_testigo === true || model['ROL'].repetir_testigo === 'true' ||  model['ROL'].repetir_testigo==undefined) && (model.repetir_testigo === 'true' || model.repetir_testigo === true )",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-3",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Documento de Identificaci\u00f3n</label>"
+				},
+				{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "mSelect",
+            		"name" : "tipoDocumento",
+            		"key" : "tipoDocumento",
+             		"templateOptions" : {
+            			"options": [
+            				{
+            					"name":"Seleccione",
+            					"value":""
+            				},
+        					{
+          						"name": "C\u00c9DULA/NUI",
+          						"value": "CED"
+        					},
+        					{
+          						"name": "PASAPORTE",
+          						"value": "PAS"
+        					}
+        				],
+        				"required" : true
+            		}
+          		},
+          		{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "mSelect",
+            		"name" : "nacionalidad",
+            		"key" : "nacionalidad",
+            		"defaultValue":"",
+            		"templateOptions" : {
+            			"options": [
+            				{
+            					"name":"Seleccione",
+            					"value":""
+            				},
+        					{
+          						"name": "V",
+          						"value": "V"
+        					},
+        					{
+          						"name": "E",
+          						"value": "E"
+        					}
+        				],
+        				"required" : true
+            		},
+					"hideExpression":"model.tipoDocumento!='CED'"
+            	},
+            	{
+					"className" : "col-sm-3 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "cedula",
+            		"name" : "cedula",
+            		"templateOptions" : {
+        				"required" : true
+            		},
+					"hideExpression":"model.tipoDocumento!='CED'",
+					"data" : {
+						"tipoValidacion" : "cedula",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n"
+            			},
+            			"errorTecla" : false
+					}            	
+				},
+            	{
+					"className" : "col-sm-6 campo-form-group",
+            		"type" : "inputKitModal",
+            		"key" : "pasaporte",
+            		"name" : "pasaporte",
+            		"templateOptions" : {
+            		},
+            		"expressionProperties" : {
+            			"templateOptions.required" : "model.tipoDocumento == 'PAS'" 
+            		},
+					"hideExpression":"model.tipoDocumento!='PAS'",
+					"data" : {
+						"tipoValidacion" : "pasaporte",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n"            			},
+            			"errorTecla" : false
+					}            	
+            	}
+			]
+		},
+		{
+			"key" : "ROL",
+			"className" : "row rowformly",
+			"hideExpression":"model['ROL'].autenticado || (model['ROL'].repetir_testigo === true || model['ROL'].repetir_testigo === 'true' ||  model['ROL'].repetir_testigo==undefined) && (model.repetir_testigo === 'true' || model.repetir_testigo === true )",
+			"fieldGroup" : [
+				{
+					"className" : "col-sm-3",
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Fecha de Nacimiento</label>"
+				},
+				{
+					"className" : "col-sm-6 calendar-group",
+					"fieldGroup" : [
+						{
+							"className" : "col-sm-4",
+            				"type" : "selectDia",
+            				"name" : "dia",
+            				"key" : "dia",
+            				"defaultValue":"",
+            				"templateOptions" : {
+            					"label" : "D\u00eda",
+            					"options": [
+          						],
+        						"required" : true
+            				},
+            				"data" : {
+            					"mDia" : "",
+            					"mMes" : "",
+            					"mAno" : "",
+								"popover" : {
+            						"titulo" : "Atenci\u00f3n"            					},
+            					errorTecla : false
+            				},
+            				"expressionProperties" : {
+            					"data.mDia" : "model.dia",
+            					"data.mMes" : "model.mes",
+            					"data.mAno" : "model.ano"
+            				}
+            			},
+          				{
+							"className" : "col-sm-4",
+            				"type" : "selectMes",
+            				"name" : "mes",
+            				"key" : "mes",
+            				"defaultValue":"",
+            				"templateOptions" : {
+            					"label" : "Mes",
+            					"options": [
+        						],
+        						"required" : true
+        					},
+            				"data" : {
+            					"mDia" : "",
+            					"mMes" : "",
+            					"mAno" : ""
+            				},
+            				"expressionProperties" : {
+            					"data.mDia" : "model.dia",
+            					"data.mMes" : "model.mes",
+            					"data.mAno" : "model.ano"
+            				}
+            			},
+            			{
+							"className" : "col-sm-4",
+            				"type" : "selectAno",
+            				"key" : "ano",
+            				"name" : "ano",
+            				"defaultValue":"",
+            				"templateOptions" : {
+            					"label" : "A\u00f1o",
+            					"options": [
+        						],
+        						"required" : true
+            				},
+            				"data" : {
+            					"mDia" : "",
+            					"mMes" : "",
+            					"mAno" : ""
+            				},
+            				"expressionProperties" : {
+            					"data.mDia" : "model.dia",
+            					"data.mMes" : "model.mes",
+            					"data.mAno" : "model.ano"
+            				}
+            				
+            			}
+					]
+				}
+			]
+		},
+		{
+			"className" : "row rowformly col-sm-12 tabla1 lista fila-tabla",
+			"hideExpression":"!model['ROL'].autenticado || (model['ROL'].repetir_testigo == true || model['ROL'].repetir_testigo == 'true' || model['ROL'].repetir_testigo==undefined) && (model.repetir_testigo === true || model.repetir_testigo === 'true')",			
+			"fieldGroup" : [
+				{
+					"template" : "<span class='col-sm-4' style='padding-left: 0px; padding-right: 0px;'><span class='row rowformly'><span class='glyphicon glyphicon-ok col-sm-1 vcenter' style='color:#3C763D; padding-left: 0px; padding-right: 0px;'></span><label style='padding-left: 0px; padding-right: 0px; font-size: 13px;' class='col-sm-11 control-label text-center vcenter rol-participante'>PARENTESCO</label></span></span>"
+				},
+				{
+					"template" : "<span class='col-sm-3' style='padding-left: 0px; padding-right: 0px;'><span class='row rowformly' style='padding-left: 0px; padding-right: 0px;'><label style='padding-left: 0px; padding-right: 0px;'  class='col-sm-12 control-label text-center vcenter'>{{model['ROL'].primerNombre}}</label></span></span>"
+				},
+				{
+					"template" : "<span class='col-sm-3' style='padding-left: 0px; padding-right: 0px;'><span class='row rowformly' style='padding-left: 0px; padding-right: 0px;'><label style='padding-left: 0px; padding-right: 0px;' class='col-sm-12 control-label text-center vcenter'>{{model['ROL'].primerApellido}}</label></span></span>"
+				},
+				{
+					"template" : "<span class='col-sm-2' style='padding-left: 0px; padding-right: 0px;'><span class='row rowformly' style='padding-left: 0px; padding-right: 0px;'><label style='padding-left: 0px; padding-right: 0px;' class='col-sm-12 control-label text-center vcenter'>{{model['ROL'].documentoIdentidad}}</label></span></span>"
+				}
+			]
+		},
+		{			
+			"template" : "<br><br>"
+		},
+		{
+			"hideExpression":"(model['ROL'].autenticado || !model.falloAutenticacion) || (model['ROL'].repetir_testigo === 'true'|| model['ROL'].repetir_testigo === true || model['ROL'].repetir_testigo==undefined) && model.repetir_testigo",			
+			"templateUrl" : "/web-autenticarCiudadano/pages/error/error_autenticacion.html"
+		}	
+	],
+	"modelo":{"titulo":"Datos de PARENTESCO","autenticar":true, "ancho" : true}
+}

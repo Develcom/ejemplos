@@ -1,0 +1,25 @@
+{
+	"fields":
+	[
+	 {
+	 	"template":"<b>\u00bf Qui\u00e9n(es) participa(n) en la adopci\u00f3n \u003f</b><br><br>"
+	 },
+	 {
+		 "key" : "MamaParticipante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+			 "label" : "MADRE"
+		 },
+		 "expressionProperties":{"templateOptions.required" : "!model.PapaParticipante"}
+	 },
+	 {
+		 "key" : "PapaParticipante",
+		 "type" : "checkRequerido",
+		 "templateOptions" : {
+			 "label" : "PADRE"
+		 },
+         "expressionProperties":{"templateOptions.required" : "!model.MamaParticipante"}
+	}
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de declarantes","activo":"0","validador":false, "inicial":true, "autenticar":false}
+}

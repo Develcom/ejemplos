@@ -1,0 +1,24 @@
+
+<div class="col-sm-12">
+
+	<div class="col-sm-1"></div>
+	<div class="col-sm-11">
+		<label class="radio"> <input type='radio'
+			ng-click="vm.definirOpciones()" ng-model="vm.modelo.tipo"
+			ng-value="1" required> Decisi&oacute;n judicial 
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-11">
+		<label class="radio" ng-hide="hideCampana"> <input type='radio'
+			ng-click="vm.definirOpciones()" ng-model="vm.modelo.tipo" ng-value="2" required>
+			Militares en campa&ntilde;a 
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-11">
+		<label class="radio" ng-hide="hideTerritorio"> <input type='radio'
+			ng-click="vm.definirOpciones()" ng-model="vm.modelo.tipo"
+			ng-value="3" required> Venezolano o extranjero fallecido fuera del
+			territorio nacional (Declarado ante una representaci&oacute;n
+			diplom&aacute;tica o consular) 
+	</div>
+</div>

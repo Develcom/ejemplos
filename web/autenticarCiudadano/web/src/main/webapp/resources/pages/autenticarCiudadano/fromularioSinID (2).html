@@ -1,0 +1,24 @@
+<div ng-controller='sinDocumentosController'>
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Declarantes a Autenticar</h4>
+			<span id="separadorTitulos"></span>
+		</div>
+	</div>
+	<div class="row" style="margin: 2px;">
+		Autenticando: <label>{{part1}}</label>
+	</div>
+	<div class="row" style="margin: 2px;">
+		<label>Datos para autenticar ciudadano</label>
+	</div>
+		<!--                         <div class="row" style="margin: 2px;"> -->
+	<span id="separadorTitulos"></span>
+	<div class="row"> 
+		<div class="row form-group" ng-class="{'has-error': ocupacion== undefined , 'has-success':  ocupacion!= undefined}">
+			<label class="col-sm-3 control-label" style="text-align: left;">Tipo de Documento</label>
+			<div class="col-sm-6" ng-controller="validadorDocumento">
+				<input-con-validacion datosvalidacion="datosValidacion"></input-con-validacion>
+			</div>
+		</div>
+	</div>
+</div>

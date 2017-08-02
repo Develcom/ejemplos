@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Observaciones</h4>
+	</div>
+	<div class="panel-body">
+		
+
+	<div class="col-sm-12">
+		<div class="col-sm-9 form-group"
+			ng-class="{'has-success':  observaciones!= undefined}">
+			<label class="row-sm-5 control-label">Observaciones:</label>
+			<div class="input-group row-sm-7">
+				<textarea type="text" name="observaciones"
+							class="input-sm form-control" ng-model="observaciones"
+							required maxlength="200"></textarea> <span class="input-group-addon"
+							id="basic-addon1"> <span
+							class="glyphicon glyphicon-asterisk"
+							ng-hide="observaciones!= undefined"></span> <span
+							ng-show="observaciones!= undefined"></span>
+						</span>
+			</div>
+		</div>
+	</div>
+	</div>
+		
+	</div>

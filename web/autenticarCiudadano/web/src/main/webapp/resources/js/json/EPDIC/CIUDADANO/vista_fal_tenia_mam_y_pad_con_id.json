@@ -1,0 +1,64 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "PoseeMamaParticipanteID",
+		 "type" : "horizontalRadio",
+		 "templateOptions" : {
+			 "label" : "\u00bf La madre tiene documento de identificaci\u00f3n?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":"true"
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":"false"
+			     }
+			 ]
+		 },
+		 "data":{
+            "validador":"undefined",
+             "color": "#FA2626"
+         },
+         "expressionProperties": {
+            "data.validador": "model.PoseeMamaParticipanteID"
+         },
+		 
+	 "controller":"function ($scope){$scope.$watch('options.data.validador',function(newValue,oldValue){if(newValue===false||newValue===true){$scope.model['validador']=true;}});}"
+	 },  
+	 	{
+			"template" : "<br>"
+		},        
+    {
+    	 "key" : "PoseePapaParticipanteID",
+		 "type" : "horizontalRadio",
+		 "templateOptions" : {
+			 "label" : "\u00bf El padre tiene documento de identificaci\u00f3n? ",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		 "data":{
+             "validador":"undefined",
+             "color": "#2230F6"
+         },
+         "expressionProperties": {
+            "data.validador": "model.PoseePapaParticipanteID"
+         },
+		 
+	 "controller":"function ($scope){$scope.$watch('options.data.validador',function(newValue,oldValue){if(newValue===false||newValue===true){$scope.model['validador']=true;}});}"
+	 },
+	 {
+			"template" : "<br>"
+	}          
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "PoseeMamaParticipanteID": "no", "PoseePapaParticipanteID": "no", "activo":"1","validador":false,"autenticar":false}
+}

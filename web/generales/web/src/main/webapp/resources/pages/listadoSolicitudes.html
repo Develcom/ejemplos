@@ -1,0 +1,156 @@
+<div class="panel panel-success ng-scope">
+	<div class="panel-heading">
+		<span class="glyphicon glyphicon-list-alt"></span> Listado de Solicitudes
+	</div>
+	<div collapse="panel != 1" role="tabpanel" aria-labelledby="condicion" style="height: {{tramitesCol}};">
+		<div class="panel-body">
+			<div class="row" ng-show =" BlnLoad == 1">
+				<div class="col-sm-6">
+					<div class="dataTables_length">
+						<form name="formPage">
+							<label>
+								Mostrar
+								<select class="form-contrl input-sm" name="itemsPerPage_field" ng-model="itemsPerPage" ng-change = 'cambioItemPerPage(formPage.itemsPerPage_field.$modelValue)'>
+									<option selected="selected" value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								Solicitudes
+							</label>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="alert alert-info row col-sm-10" role="alert">
+						<div class="col-sm-1">
+							<span class=" glyphicon glyphicon-comment glyphSizeMin"></span>
+						</div>
+						<p id="generico" class="col-sm-11">
+							<i><b>NOTA:</b> Si Desea Procesar una Solicitud Debe Seleccionar el Icono Correspondiente para la <br/> 
+											Actividad Requerida, Puede Posarse Encima del Icono para Descubrir su Descripci&oacute;n 
+							</i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dataTable_wrapper" ng-show =" BlnLoad == 0">
+			<div class="row">
+				<div class="col-sm-1 pull-left">
+					&nbsp;
+				</div>
+				<div class="col-sm-10">
+					<div class="alert alert-success" role="alert">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-1">
+									<span style="font-size: 3em;" class="glyphicon glyphicon-ok"></span>
+								</div>
+								<p id="generico" class="col-sm-11">
+									<i><b>Atenci&oacute;n:</b> La Lista de Solicitudes se est&aacute; cargando.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-1 pull-right">
+					&nbsp;
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1 pull-left">
+					&nbsp;
+				</div>
+				<div class="col-sm-10">
+					<div class="progress progress-striped">
+						<div class="progress-bar progress-bar-striped active" style="width: {{dataLoaded}};"></div>
+					</div>
+				</div>
+				<div class="col-sm-1 pull-right">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+		<div class="dataTable_wrapper" ng-show =" BlnLoad == 1">
+				<table id="table_id" class="table table-striped table-bordered table-hover dataTable no-footer display  table-condensed">
+					<thead>
+						<tr>
+							<th>Identificador</th>
+							<th>Fecha</th>
+							<th>Tramite</th>
+							<th>Estatus de la Solicitud</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+
+					<tbody id="tbContent" ng-repeat="item in listSolicitudes | filter:search | offset: (currentPage - 1) * itemsPerPage | limitTo: itemsPerPage">
+						<tr >
+							<td>
+								<label> 
+										{{item.numeroSolicitud | uppercase}}
+								</label>
+							</td>
+							<td>
+								<label>
+										{{item.fechaInicio | date:'dd/MM/yyyy' : 'UTC'}}
+								</label>
+							</td>
+							<td>
+								<label>
+										{{item.tramite.nombre | uppercase}}
+								</label>
+							</td>
+							<td>
+								<label>
+										{{item.estadoSolicitud | uppercase}}
+								</label>
+							</td>
+							<td>
+
+									<label ng-show="item.estadoSolicitud == 'ABIERTA' || item.estadoSolicitud === 'PENDIENTE POR AUTENTICAR'
+									|| item.estadoSolicitud === 'PARCIALMENTE CERRADA'
+									|| item.estadoSolicitud === 'PENDIENTE POR IMPRIMIR' || item.estadoSolicitud === 'PENDIENTE POR VERIFICAR R.C'
+									|| item.estadoSolicitud === 'PENDIENTE POR ELABORAR ACTA' || item.estadoSolicitud === 'PENDIENTE POR VERIFICACION R.C'
+									|| item.estadoSolicitud === 'NO CONFORME POR REGISTRADOR CIVIL' || item.estadoSolicitud === 'CANCELADA  POR EXPIRACION DE TIEMPO'
+									|| item.estadoSolicitud === 'PENDIENTE POR CARGAR DOCUMENTO' || item.estadoSolicitud === 'PENDIENTE POR REGISTRAR NOTA MARGINAL' 
+									|| item.estadoSolicitud === 'PENDIENTE POR CARGAR NOTIFICACION' || item.estadoSolicitud === 'PENDIENTE POR IMPRIMIR OFICIO' 
+									|| item.estadoSolicitud === 'PENDIENTE POR VERIFICAR OFICIO'" 
+									   
+									   id = "popOver01">
+									<span class="glyphicon glyphicon-play" ng-click = "openModal(fab_anadir_producto, item)">
+									
+									</span>
+								</label>
+
+								<label>
+									<span class="glyphicon glyphicon-remove"></span>
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			
+		</div>
+		<div class="panel-footer">
+			<div class="row" ng-show =" BlnLoad == 1">
+				<div class="col-sm-6">
+					<div class="dataTables_info">
+						Mostrando del <b>1 </b>al <b>{{itemsPerPage}}</b> de <b>{{totalItems}}</b> Solicitudes
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" style="margin:0px; height:20px;"
+					boundary-links="true" rotate="true" num-pages="numPages" items-per-page="itemsPerPage"
+					previous-text="&lsaquo;Anterior" next-text="Siguiente&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+					ng-model="currentPage"
+					ng-change="pageChanged()"
+					></uib-pagination>
+				</div>
+				<div class="col-sm-2 pull-right">
+					<button type="button" class="btn btn-success btn-sm pull-right" ng-show="solicitudSelected != undefined" ng-click = "openModal('lg')">Consultar <span class="glyphicon glyphicon-chevron-right"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

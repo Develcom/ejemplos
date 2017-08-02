@@ -1,0 +1,28 @@
+{
+	"fields":
+	[
+				{
+					"template" : "<label class='control-label text-center' style='padding-left : 0px; padding-right : 0px '>Observaciones</label>"
+				},
+				{
+					"className" : "col-sm-12",
+            		"type" : "textareaKitModal",
+            		"key" : "observaciones",
+            		"templateOptions" : {
+            			"label" : "",
+            			"rows" : 6,
+          				"maxlength" : "200",
+          				"minlength" : "2",
+          				"required" : true,
+          				"disabled" : true
+            		},
+            		"data" : {
+            			"tipoValidacion" : "direccion",
+            			"popover" : {
+            				"titulo" : "Atenci\u00f3n"
+            			}
+            		}
+        		}
+    ],
+	"modelo":{"titulo":"Declaraci\u00f3n jurada", "ancho" : true}
+}

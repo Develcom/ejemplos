@@ -1,0 +1,32 @@
+<div class="col-sm-6 form-group has-error"
+	ng-class="{'has-error':userForm.pais.$touched &amp;&amp; userForm.pais.$invalid  , 'has-success': userForm.pais.$touched &amp;&amp; userForm.pais.$valid   }">
+	<label class="col-sm-3 control-label"> <span
+		class="glyphicon glyphicon-asterisk no" ng-hide="userForm.pais.$valid"></span>
+<!-- 		<span class="glyphicon glyphicon-ok ng-hide" -->
+<!-- 		ng-show="userForm.pais.$touched &amp;&amp; userForm.pais.$valid"></span> -->
+		Motivo
+	</label>
+	<div class="input-group col-sm-9">
+		<select
+			class="form-control input-sm ng-pristine ng-invalid ng-invalid-required ng-touched"
+			ng-model="Pais" name="pais" required="">
+			<option value="" selected="" disabled="">Por favor
+				seleccione</option>
+			<option value="Venezuela">Extravio</option>
+			<option value="Venezuela">Robo</option>
+			<option value="Venezuela">Otro</option>
+		</select>
+		<!-- ngIf: userForm.pais.$touched -->
+		<div class="help-block ng-scope ng-active"
+			ng-messages="userForm.pais.$error" ng-if="userForm.pais.$touched">
+			<!-- ngMessage: required -->
+			<p class="ng-scope" ng-message="required">Este campo es
+				obligatorio</p>
+
+		</div>
+		<!-- end ngIf: userForm.pais.$touched -->
+
+
+
+	</div>
+</div>

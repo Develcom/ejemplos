@@ -1,0 +1,38 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "EstaFallecidoCasadoOUEH",
+		 "type" : "radioSiNoAutoSubmit",
+		 "templateOptions" : {
+		 "required":true,
+			 "label" : "\u00bfEl(la) fallecido(a) estaba casado o en uni\u00f3n estable de hecho (UEH)?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		 "data":{
+             "color": "#37C133",
+              "avanzarEnFalso":true,
+             "regresarEnFalso":false,
+             "habilitado":true
+         }      
+	 },
+	      {
+     	 "template":"<div class='alert alert-info row' role='alert'><div class='col-sm-1'><span style='transform: scale(1, 1);' class='glyphicon glyphicon-comment glyphSizeMin'></span></div><p id='generico' class='col-sm-11'><i><b>NOTA:</b> Seleccionar sin importar que el c\u00f3nyuge o unido(a) estable de hecho este vivo o fallecido </i></p></div>",
+		 "hideExpression": "model.EstaFallecidoCasadoOUEH===true || model.EstaFallecidoCasadoOUEH===false"
+     },
+	 	{
+			"template" : "<br>"
+		}        
+	                                                                            	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes","activo":"1","autenticar":false,"permiteVarias":true}
+}

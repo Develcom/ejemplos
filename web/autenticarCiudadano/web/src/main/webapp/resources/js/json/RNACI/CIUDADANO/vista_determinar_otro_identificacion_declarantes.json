@@ -1,0 +1,58 @@
+{
+    "fields":
+    [ 
+     {
+         "key" : "MadreParticipante",
+         "type" : "radioHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf Qui\u00e9n declara posee datos de la madre del(de la) presentado(a)?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ],
+             "required" : true
+         },
+         "data" : {
+            "color": "#9400D3",
+            "esconder" : false,
+            "popover" : {
+            	"titulo" : "Atenci\u00f3n",
+            	"mensaje" : "Seleccionar sin importar que la madre est\u00e9 viva o fallecida"
+            }
+         }
+     },
+     {
+         "key" : "PadreParticipante",
+         "type" : "radioHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf Qui\u00e9n declara posee datos del padre del(de la) presentado(a)?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ],
+             "required" : true
+         },
+         "data" : {
+            "color": "#2230f6",
+            "esconder" : false,
+            "popover" : {
+            	"titulo" : "Atenci\u00f3n",
+            	"mensaje" : "Seleccionar sin importar que el padre est\u00e9 vivo o fallecido"
+            }
+         }
+     }
+    ],
+    "modelo":{"titulo" : "Selecci\u00f3n de participantes", "autenticar" : false, "inicial" : false, "memoria" : true, "ancho": false}
+}

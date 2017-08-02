@@ -1,0 +1,18 @@
+<div class="col-sm-1"></div>
+<div class="col-sm-11">
+	<div class="col-sm-6 form-group">
+		<p>Fecha y hora de fallecimiento</p>
+	</div>
+</div>
+
+	<div class="col-sm-1"></div>
+<div class="col-sm-9 form-group" style="margin-left: -12px;">
+	<sw-calendar-extended vertical="false"
+		ng-class="{'has-error': vm.modelo.fechaDefuncion == undefined , 'has-success':  vm.modelo.fechaDefuncion != undefined}"
+		ng-model="vm.modelo.fechaDefuncion"></sw-calendar-extended>
+</div>
+	<div class="col-sm-2 form-group">
+		<input type="radio" name="formato2" ng-model="vm.modelo.formato2"
+			value="am" /> AM <input type="radio" name="formato2"
+			ng-model="vm.modelo.formato2" value="pm" required /> PM
+	</div>

@@ -1,0 +1,236 @@
+
+<div class="col-sm-12">
+	<h4>Datos Familiares</h4>
+	<span id="separadorTitulos"></span>
+</div>
+<br>
+
+<form name="form1">
+
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-4 form-group"
+			ng-class="{'has-error':dFamiliares2.dfHijos.$touched && dFamiliares2.dfHijos.$invalid  , 'has-success': dFamiliares2.dfHijos.$touched && dFamiliares2.dfHijos.$valid   }">
+			<label class="col-sm-12 control-label"> <span
+				class="glyphicon glyphicon-asterisk no"
+				ng-hide="dFamiliares2.dfHijos.$valid"></span> <span
+				class="glyphicon glyphicon-ok"
+				ng-show="dFamiliares2.dfHijos.$touched && dFamiliares2.dfHijos.$valid"></span>
+				&#191Cuantos Hijos tiene el Fallecido?
+			</label>
+			<div class="input-group row-sm-12">
+				<select class="form-control input-sm" ng-model="dfHijos"
+					name="dfHijos" required>
+					<option value="" selected disabled>Por favor seleccione</option>
+					<option>1</option>
+				</select>
+				<div class="help-block" ng-messages="dFamiliares2.dfHijos.$error"
+					ng-if="dFamiliares2.dfHijos.$touched">
+					<p ng-message="required">Este campo es obligatorio</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div ng-repeat="hijo in vm.acta.participante.hijos">
+		<div class="col-sm-12 form-group">
+			<label class="col-sm-12 control-label">Hijo(a)
+				n&#176;{{$index + 1}}</label>
+		</div>
+
+		<div class="col-sm-12">
+			<div class="col-sm-6 form-group"
+				ng-class="{'has-error':dFamiliares2.df2Nombre1.$touched && dFamiliares2.df2Nombre1.$invalid , 'has-success': dFamiliares2.df2Nombre1.$touched && dFamiliares2.df2Nombre1.$valid}">
+				<label class="col-sm-12 control-label"> <span
+					class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.df2Nombre1.$valid "></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="dFamiliares2.df2Nombre1.$touched && dFamiliares2.df2Nombre1.$valid "></span>
+					Primer Nombre
+				</label>
+				<div class="input-group row-sm-12">
+					<input type="text" class="form-control input-sm" size="40"
+						ng-model="hijo.primerNombre" name="df2Nombre1" required>
+
+					<div class="help-block"
+						ng-messages="dFamiliares2.df2Nombre1.$error"
+						ng-if="dFamiliares2.df2Nombre1.$touched">
+						<p ng-message="required">Este campo es obligatorio</p>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 form-group"
+				ng-class="{'has-error':dFamiliares2.df2Nombre2.$touched && dFamiliares2.df2Nombre2.$invalid , 'has-success': dFamiliares2.df2Nombre2.$touched && dFamiliares2.df2Nombre2.$valid}">
+				<label class="col-sm-12 control-label"> <span
+					class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.df2Nombre2.$valid "></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="dFamiliares2.df2Nombre2.$touched && dFamiliares2.df2Nombre2.$valid "></span>
+					Segundo Nombre
+				</label>
+				<div class="input-group row-sm-12">
+					<input type="text" class="form-control input-sm" size="40"
+						ng-model="hijo.segundoNombre" name="df2Nombre2" required>
+
+					<div class="help-block"
+						ng-messages="dFamiliares2.df2Nombre2.$error"
+						ng-if="dFamiliares2.df2Nombre2.$touched">
+						<p ng-message="required">Este campo es obligatorio</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="col-sm-6 form-group"
+				ng-class="{'has-error':dFamiliares2.df2Apellido1.$touched && dFamiliares2.df2Apellido1.$invalid , 'has-success': dFamiliares2.df2Apellido1.$touched && dFamiliares2.df2Apellido1.$valid}">
+				<label class="col-sm-12 control-label"> <span
+					class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.df2Apellido1.$valid "></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="dFamiliares2.df2Apellido1.$touched && dFamiliares2.df2Apellido1.$valid "></span>
+					Primer Apellido
+				</label>
+				<div class="input-group row-sm-12">
+					<input type="text" class="form-control input-sm" size="40"
+						ng-model="hijo.primerApellido" name="df2Apellido1" required>
+
+					<div class="help-block"
+						ng-messages="dFamiliares2.df2Apellido1.$error"
+						ng-if="dFamiliares2.df2Apellido1.$touched">
+						<p ng-message="required">Este campo es obligatorio</p>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 form-group"
+				ng-class="{'has-error':dFamiliares2.df2Apellido2.$touched && dFamiliares2.df2Apellido2.$invalid , 'has-success': dFamiliares2.df2Apellido2.$touched && dFamiliares2.df2Apellido2.$valid}">
+				<label class="col-sm-12 control-label"> <span
+					class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.df2Apellido2.$valid "></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="dFamiliares2.df2Apellido2.$touched && dFamiliares2.df2Apellido2.$valid "></span>
+					Segundo Apellido
+				</label>
+				<div class="input-group row-sm-12">
+					<input type="text" class="form-control input-sm" size="40"
+						ng-model="hijo.segundoApellido" name="df2Apellido2" required>
+
+					<div class="help-block"
+						ng-messages="dFamiliares2.df2Apellido2.$error"
+						ng-if="dFamiliares2.df2Apellido2.$touched">
+						<p ng-message="required">Este campo es obligatorio</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
+
+			<div class="col-sm-3 form-group"
+				ng-class="{ 'has-error': dFamiliares2.df2ci.$touched && dFamiliares2.df2ci.$invalid , 'has-success': dFamiliares2.df2ci.$touched && dFamiliares2.df2ci.$valid }">
+				<label class="col-sm-12 control-label"><span
+					class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.df2ci.$valid "></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="dFamiliares2.df2ci.$touched && dFamiliares2.df2ci.$valid "></span>
+					Documento de identidad N&#176;</label>
+				<div class="input-group row-sm-12">
+					<input type="text" name="df2ci" class="form-control input-sm"
+						ng-model="hijo.documentoIdentidad[0].numero" ng-minlength="5"
+						ng-maxlength="10" required>
+
+					<div class="help-block" ng-messages="dFamiliares2.df2ci.$error"
+						ng-if="dFamiliares2.df2ci.$touched">
+						<p ng-message="minlength">documento de identidada muy corto.</p>
+						<p ng-message="maxlength">documento de identidad muy largo</p>
+						<p ng-message="required">documento de identidad requerido</p>
+						<p ng-message="number">documento de identidad no debe tener
+							letras</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-3 form-group">
+				<div class="row-sm-12 form-group">
+					<label class="col-sm-5 control-label">C&eacute;dula/NUI</label>
+					<div class="col-sm-5">
+						<label><input id="" type="checkbox" name="" /></label>
+					</div>
+				</div>
+				<div class="row-sm-12 form-group">
+					<label class="col-sm-5 control-label">Pasaporte</label>
+					<div class="col-sm-5">
+						<label><input id="" type="checkbox" name="" /></label>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-3 form-group"
+				ng-class="{ 'has-error': dFamiliares2.df2edad.$touched && dFamiliares2.df2edad.$invalid , 'has-success': dFamiliares2.df2edad.$touched && dFamiliares2.df2edad.$valid }">
+				<label class="col-sm-12 control-label"><span
+					class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.df2edad.$valid "></span> <span
+					class="glyphicon glyphicon-ok"
+					ng-show="dFamiliares2.df2edad.$touched && dFamiliares2.df2edad.$valid "></span>
+					Edad </label>
+				<div class="input-group row-sm-12">
+					<input type="number" name="df2edad" class="form-control input-sm"
+						ng-model="main.name" ng-minlength="1" ng-maxlength="3" required>
+
+					<div class="help-block" ng-messages="dFamiliares2.df2edad.$error"
+						ng-if="dFamiliares2.df2edad.$touched">
+						<p ng-message="maxlength">edad incorrecta, debe tener uno o
+							dos digitos</p>
+						<p ng-message="required">edad requerido</p>
+						<p ng-message="number">edad no debe tener letras</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-3 form-group">
+				<label class="col-sm-12 control-label"
+					ng-class="{'no':dFamiliares2.$submitted && dFamiliares2.vive.$invalid , 'ok':  dFamiliares2.vive.$valid}">
+					<span class="glyphicon glyphicon-asterisk no"
+					ng-hide="dFamiliares2.vive.$valid "></span> <span
+					class="glyphicon glyphicon-ok" ng-show="dFamiliares2.vive.$valid "></span>&#191Vive?
+				</label>
+				<div class="row-sm-12 form-group">
+					<div class="radio">
+						<center>
+							<label class="col-sm-4"> <input type="radio" value="Si"
+								ng-model="Vive" name="vive" required /> Si
+							</label>
+						</center>
+					</div>
+					<div class="radio">
+						<label class="col-sm-4"> <input type="radio" value="No"
+							ng-model="Vive" name="vive" required /> No
+						</label>
+					</div>
+					<div class="help-block" ng-messages="dFamiliares2.vive.$error"
+						ng-if="dFamiliares2.$submitted">
+						<p ng-message="required" class=" no">Este campo es obligatorio</p>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+	<div class="col-sm-12">
+		<button ng-click="vm.addHijo()" class="btn btn-success btn-sm"
+			type="button">+ Agregar hijo</button>
+	</div>
+</form>
+
+
+

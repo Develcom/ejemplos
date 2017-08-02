@@ -1,0 +1,244 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>{{formulario.permiso}}</h4>
+	</div>
+	<div class="panel-body">
+		<form name="form1" ng-submit="abrirModalVerificarDatos()">
+			<div class="col-sm-12">
+				<div class="col-sm-12">
+
+					<label>Persona autorizada del cementerio</label>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-6"
+						ng-class="{'has-error': formulario.nombre== undefined , 'has-success':  formulario.nombre!= undefined}">
+						<label class="col-sm-5 control-label">Primer nombre:</label>
+						<div class="input-group col-sm-7">
+							<input type="text" name="formulario.nombre" class="input-sm form-control"
+								ng-model="formulario.nombre" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="formulario.nombre!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.nombre!= undefined"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<label class="col-sm-5 control-label">Segundo nombre:</label>
+						<div class="input-group col-sm-7">
+							<input type="text" name="formulario.nombre2" class="input-sm form-control"
+								ng-model="formulario.nombre2"> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								ng-hide="formulario.nombre2!= undefined"></span> <span ng-show="formulario.nombre2!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-6"
+						ng-class="{'has-error': formulario.apellido== undefined , 'has-success':  formulario.apellido!= undefined}">
+						<label class="col-sm-5 control-label">Primer apellido:</label>
+						<div class="input-group col-sm-7">
+							<input type="text" name="formulario.apellido" class="input-sm form-control"
+								ng-model="formulario.apellido" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="formulario.apellido!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.apellido!= undefined"></span>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="col-sm-5 control-label">Segundo apellido:</label>
+						<div class="input-group col-sm-7">
+							<input type="text" name="formulario.apellido2" class="input-sm form-control"
+
+								ng-model="formulario.apellido2"> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								ng-hide="formulario.apellido2!= undefined"></span> <span ng-show="formulario.apellido2!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<label>Cementerio</label>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="col-sm-6"
+						ng-class="{'has-error': formulario.cementerio== undefined , 'has-success':  formulario.cementerio!= undefined}">
+						<label class="col-sm-5 control-label">Cementerio:</label>
+						<div class="input-group col-sm-7">
+							<input type="text" name="formulario.cementerio" class="input-sm form-control"
+								ng-model="formulario.cementerio" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="formulario.cementerio!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.cementerio!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<label>Datos de la Defunci&oacute;n </label>
+				</div>
+				<div class="col-sm-12">
+					<!-- 								{{fechaHora}} -->
+					<sw-calendar-extended label="Fecha y hora de la defuncion"
+						vertical="false" ng-model="formulario.fechaHora" ng-change=""></sw-calendar-extended>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label>Certificado de Defunci&oacute;n N&#176;: </label>
+							<div class="input-group"
+								ng-class="formulario.certificadoDefuncion ? 'has-success' : 'has-error'">
+								<input type="text" class="form-control"
+									id="certificadoDefuncion" name="formulario.certificadoDefuncion"
+									placeholder="Ejemplo 12345678" ng-model="formulario.certificadoDefuncion"
+									ng-change="validarCert()"
+									ng-model-options="{ debounce: 1000 }"> <span
+									class="input-group-addon"> <span
+									class="glyphicon glyphicon "
+									ng-class="formulario.certificadoDefuncion ? 'glyphicon-ok' : 'glyphicon-remove'"
+									ng-minlength="5" ng-maxlength="8" ng-pattern="onlyNumbers"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="col-sm-12">
+						<label>Lugar de defunci&oacute;n:</label>
+					</div>
+
+					<div class="col-sm-4"
+						ng-class="{'has-error': formulario.pais== undefined , 'has-success':  formulario.pais!= undefined}">
+						<label class="control-label">Pa&iacute;s:</label>
+						<div class="input-group">
+							<select class="form-control input-sm" name="formulario.pais" required
+								ng-model="pais1" ng-options="pais.nombre for pais in paises"
+								ng-change="buscarEstado()">
+							</select>
+							<!-- 										<select class="input-sm form-control" ng-model="pais" required> -->
+							<!-- 											<option value="" selected disabled>Por favor seleccione</option> -->
+							<!-- 										</select> -->
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk" ng-hide="formulario.pais!= undefined"></span>
+								<span class="glyphicon glyphicon-ok" ng-show="formulario.pais!= undefined"></span>
+							</span>
+						</div>
+					</div>
+
+					<!-- 									<div class="col-sm-4 form-group" -->
+					<!-- 										ng-class="{'has-error':datosPermiso.pais.$touched && datosPermiso.pais.$invalid  , 'has-success': datosPermiso.pais.$touched && datosPermiso.pais.$valid   }"> -->
+					<!-- 										<label class="col-sm-12 control-label"> <span -->
+					<!-- 											class="glyphicon glyphicon-asterisk no" -->
+					<!-- 											ng-hide="datosPermiso.pais.$valid"></span> <span -->
+					<!-- 											class="glyphicon glyphicon-ok" -->
+					<!-- 											ng-show="datosPermiso.pais.$touched && datosPermiso.pais.$valid"></span> -->
+					<!-- 											Pa&iacute;s: -->
+					<!-- 										</label> -->
+					<!-- 										<div class="input-group row-sm-12"> -->
+					<!-- 											<select class="form-control input-sm" name="pais" required -->
+					<!-- 												ng-model="pais" ng-options="pais.nombre for pais in paises" -->
+					<!-- 												ng-change=""> -->
+					<!-- 											</select> -->
+					<!-- 																					<button ng-click="buscarPais()">fff</button> -->
+					<!-- 																					<pre>{{pais}}ggggg</pre> -->
+					<!-- 											<div class="help-block" -->
+					<!-- 												ng-messages="datosPermiso.pais.$error" -->
+					<!-- 												ng-if="datosPermiso.pais.$touched"> -->
+					<!-- 												<p ng-message="required">Este campo es obligatorio</p> -->
+					<!-- 											</div> -->
+					<!-- 										</div> -->
+					<!-- 									</div> -->
+
+					<div class="col-sm-4"
+						ng-class="{'has-error': formulario.estado== undefined , 'has-success':  formulario.estado!= undefined}">
+						<label class="control-label">Estado:</label>
+						<div class="input-group">
+							<select class="form-control input-sm" name="formulario.estado" required
+								ng-model="estado1"
+								ng-options="estado.nombre for estado in estados"
+								ng-change="buscarMunicipio()">
+							</select>
+<!-- 							<button ng-click="buscarEstado(pais)">fff</button>  -->
+<!-- 								<pre>{{pais}}ggggg</pre> -->
+							
+							
+							<!-- 										<select class="input-sm form-control" ng-model="estado" required> -->
+							<!-- 											<option value="" selected disabled>Por favor seleccione</option> -->
+							<!-- 										</select> -->
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk" ng-hide="formulario.estado!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.estado!= undefined"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4"
+						ng-class="{'has-error': formulario.municipio== undefined , 'has-success': formulario.municipio!= undefined}">
+						<label class="control-label">Municipio:</label>
+						<div class="input-group">
+							<select class="form-control input-sm" name="formulario.municipio" required
+								ng-model="municipio1"
+								ng-options="municipio.nombre for municipio in municipios"
+								ng-change="buscarParroquia()">
+							</select>
+							<!-- 										<select class="input-sm form-control" ng-model="municipio" required> -->
+							<!-- 											<option value="" selected disabled>Por favor seleccione</option> -->
+							<!-- 										</select> -->
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk" ng-hide="formulario.municipio!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.municipio!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-4"
+						ng-class="{'has-error': formulario.parroquia== undefined , 'has-success': formulario.parroquia!= undefined}">
+						<label class="control-label">parroquia:</label>
+						<div class="input-group">
+							<select class="form-control input-sm" name="formulario.parroquia" required
+								ng-model="parroquia1"
+								ng-options="parroquia.nombre for parroquia in parroquias"
+								ng-change="obtenerParroquia()">
+							</select>
+							<!-- 										<select class="input-sm form-control" ng-model="parroquia" required> -->
+							<!-- 											<option value="" selected disabled>Por favor seleccione</option> -->
+							<!-- 										</select> -->
+							<span class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="formulario.parroquia!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.parroquia!= undefined"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="col-sm-8"
+						ng-class="{'has-error': formulario.direccion== undefined , 'has-success':  formulario.direccion!= undefined}">
+						<label class="control-label">Direcci&oacute;n:</label>
+						<div class="input-group">
+							<input type="text" name="formulario.direccion" class="input-sm form-control"
+								ng-model="formulario.direccion" required> <span
+								class="input-group-addon" id="basic-addon1"> <span
+								class="glyphicon glyphicon-asterisk"
+								ng-hide="formulario.direccion!= undefined"></span> <span
+								class="glyphicon glyphicon-ok" ng-show="formulario.direccion!= undefined"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<pre>formulario = {{formulario | json}}</pre>
+
+
+		</form>
+	</div>
+</div>

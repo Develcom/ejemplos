@@ -1,0 +1,34 @@
+{
+	"fields":
+	[
+	 {
+	  "template" : "<p><b>\u00bfQui\u00e9n declara el reconocimiento?</b><p>"
+	 },
+	 {
+     	"key": "vista",
+  		"type": "radioMultiples",
+  		"templateOptions": {
+  		"required":true,
+    	"label": "",
+    		"options": [
+      			{
+        			"name": "MADRE",
+        			"value": "MadreDeclarante"
+      			},
+      			{
+        			"name": "PADRE",
+        			"value": "PadreDeclarante"
+      			},
+      			{
+        			"name": "OTRO DECLARANTE",
+        			"value": "OtroDeclarante"
+        		}
+    		]
+		}
+     },
+     {
+     	"template":"<br>"
+     }
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de declarante", "activo":"0", "inicial":true, "autenticar":false}
+}

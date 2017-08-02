@@ -1,0 +1,42 @@
+{
+    "fields":
+    [ 
+     {
+     	"template":"<div class='row col-sm-12'><h4>Lugar de Nacimiento</h4><span id='separadorTitulos'></span></div>"
+     },
+     
+	 {
+     	"key": "lugarNacimiento",
+  		"type": "horizontal_radio",
+  		"templateOptions": {
+    	"label": "6",
+    		"options": [
+      			{
+        			"name": "Si",
+        			"value": "1"
+      			},
+      			{
+        			"name": "No",
+        			"value": "0"
+      			}
+    		]
+		},
+         "data":{
+            "lnacim":false,
+            "sizeWidth": 6,
+            "sizeWidthRadio": 3
+         },
+         "expressionProperties": {
+            "data.lnacim": "model.lugarNacimiento"
+         },
+         "controller":"function($scope){$scope.$watch('options.data.lnacim',function(newValue,oldValue){console.log('hay un cambio: '+newValue);if(newValue == '1'){$scope.model['esta_dentro_territorio']=true;}if(newValue == '0'){$scope.model['esta_dentro_territorio']=false;}if(newValue != null){$scope.model['validador'] = true;}});}"
+	},
+	{
+		"template":"<div class='row col-sm-12'><span id='separadorTitulos'></span>"
+	}
+   ],
+    "modelo":{"esta_dentro_territorio": false,"validador":false,"activo":"0","autenticar":false, "flag": "1"},
+    "tittle":{
+    	"titulo":"Lugar de Nacimiento"	
+    }
+}

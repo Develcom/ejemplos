@@ -1,0 +1,33 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "EstaFallecidoConID",
+		 "type" : "validarConyugue",
+		 "templateOptions" : {
+		 "required":true,
+			 "label" : "\u00bfEl(La) fallecido(a) posee documento de identificaci\u00f3n?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		  "data":{
+             "avanzarEnFalso":true,
+             "regresarEnFalso":false,
+             "color": "#000000",
+             "habilitado":true
+         }
+	 },
+	  {
+			"template" : "<br>"
+	  }		                                                                                     	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false,"permiteVarias":true}
+}

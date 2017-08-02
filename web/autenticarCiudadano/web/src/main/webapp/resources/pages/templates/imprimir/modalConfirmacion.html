@@ -1,0 +1,29 @@
+<div class="modal-header">
+	<h3 class="modal-title wizard-title">{{titulo}}</h3>
+</div>
+
+<div class="modal-body">
+	<div class="alert alert-warning" role="alert">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-1">
+					<span style="font-size: 3em;" class="glyphicon glyphicon-alert"></span>
+				</div>
+				<div class="col-sm-11 text-center">{{mensaje}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+         <div ng-if="tipo === 'c'" class="modal-footer"> 
+            <button class="btn btn-danger" type="button" ng-click="cancel()">Cancelar</button> 
+             <button class="btn btn-success wizard-next" type="button"  ng-click="ok()">Aceptar</button>
+         </div> 
+         <div ng-if="tipo === 's'" class="modal-footer"> 
+             <button class="btn btn-success wizard-next" type="button"  ng-click="ok()">Si</button>
+            <button class="btn btn-danger" type="button" ng-click="cancel()">No</button> 
+         </div> 
+         <div ng-if="tipo === 'a'" class="modal-footer"> 
+             <button class="btn btn-success wizard-next" type="button"  ng-click="ok()">Aceptar</button>
+         </div> 
+

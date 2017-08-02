@@ -1,0 +1,24 @@
+<modules xmlns="http://smartics.de/ns/jboss-modules-descriptor/1">
+	<module name="ve.gob.cne.sarc">
+		<match>
+			<includes>
+<!-- 				<include> -->
+<!-- 					<groupId>ve.gob.cne.sarc</groupId> -->
+<!-- 					<artifactId>bo-comunes</artifactId> -->
+<!-- 				</include> -->
+<!-- 				<include> -->
+<!-- 					<groupId>ve.gob.cne.sarc</groupId> -->
+<!-- 					<artifactId>bo-solicitud</artifactId> -->
+<!-- 				</include> -->
+				<include>
+					<groupId>ve.gob.cne.sarc</groupId>
+					<artifactId>sarc-comunes</artifactId>
+				</include>
+				<include>
+					<groupId>ve.gob.cne.sarc</groupId>
+					<artifactId>atencionComunitaria</artifactId>
+				</include>
+			</includes>
+		</match>
+	</module>
+</modules>

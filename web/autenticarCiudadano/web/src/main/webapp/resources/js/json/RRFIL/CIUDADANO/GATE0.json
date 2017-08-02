@@ -1,0 +1,31 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "ConIdHijo",
+		 "type" : "horizontalRadio",
+		 "templateOptions" : {
+		 	"required":true,
+			 "label" : "\u00bf El(La) hijo(a) tiene documento de identificaci\u00f3n?",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		  "data":{
+            "color": "#2230F6"
+         }
+	 },
+	 	{
+			"template" : "<br>"
+		}        
+	 		                                                                                     	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"0", "inicial":true, "autenticar":false}
+}

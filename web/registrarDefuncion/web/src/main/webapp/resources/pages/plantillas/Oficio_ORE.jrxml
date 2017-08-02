@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-06T10:49:24 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Formato_ONRC-D-003" pageWidth="612" pageHeight="792" columnWidth="442" leftMargin="85" rightMargin="85" topMargin="85" bottomMargin="85" whenResourceMissingType="Key" uuid="c49271f0-2842-4e79-b11e-f7fc80830fc6">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="63"/>
+	<parameter name="nombreCiudadano" class="java.lang.String"/>
+	<parameter name="nombreDifunto" class="java.lang.String"/>
+	<parameter name="cedulaCiudadano" class="java.lang.String">
+		<parameterDescription><![CDATA[Cedula del ciudadano]]></parameterDescription>
+	</parameter>
+	<parameter name="cedulaFallecido" class="java.lang.String">
+		<parameterDescription><![CDATA[Cedula del fallecido]]></parameterDescription>
+	</parameter>
+	<parameter name="fechaFallecimiento" class="java.lang.String">
+		<parameterDescription><![CDATA[Fecha del fallecimiento]]></parameterDescription>
+	</parameter>
+	<parameter name="numeroConsecutivo" class="java.lang.String">
+		<parameterDescription><![CDATA[Numero de oficina consecutivo]]></parameterDescription>
+	</parameter>
+	<parameter name="estadoOficina" class="java.lang.String">
+		<parameterDescription><![CDATA[Estado donde se encuentra la oficina]]></parameterDescription>
+	</parameter>
+	<parameter name="nombreDirectorOficina" class="java.lang.String">
+		<parameterDescription><![CDATA[Nombre del director]]></parameterDescription>
+	</parameter>
+	<parameter name="rutaImg" class="java.lang.String"/>
+	<parameter name="lugarFecha" class="java.lang.String">
+		<parameterDescription><![CDATA[Lugar y fecha de la oficina]]></parameterDescription>
+	</parameter>
+	<parameter name="oficinaRegistro" class="java.lang.String"/>
+	<parameter name="nResolucion" class="java.lang.String"/>
+	<parameter name="fResolucion" class="java.lang.String"/>
+	<parameter name="nGaceta" class="java.lang.String"/>
+	<parameter name="fGaceta" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<image>
+				<reportElement x="176" y="-10" width="91" height="68" uuid="3c1e1e4c-0322-40f9-8c9b-e4e759bb2412"/>
+				<imageExpression><![CDATA[$P{rutaImg}+"/cne.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="300" y="0" width="140" height="30" uuid="76fd8510-046b-471b-ad96-eb8fdabfa0d7"/>
+				<textFieldExpression><![CDATA[($P{lugarFecha}==null ? "________" : $P{lugarFecha})]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="379" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="26" width="430" height="60" uuid="7386b80d-79e5-4535-bc27-cb531af5c3a3"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Ciudadano(a) <br><b>" +
+($P{nombreDirectorOficina}==null?"     (nombre, apellido)     ":$P{nombreDirectorOficina}) +
+"</b><br>Director(a) de la Oficina Regional Electoral del Estado  <b>" + ($P{estadoOficina}==null?"                       ":$P{estadoOficina}) +
+"</b><br>Su despacho.- "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="136" width="440" height="140" uuid="29193fce-6ddf-4814-854c-28d2d39b1e26"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["Tengo el agrado de dirigirme a usted en la oportunidad de saludarle cordialmente y a su vez informarle que el(la) ciudadano(a) <b>" + ($P{nombreCiudadano}==null?"______________":$P{nombreCiudadano}) + "</b>, titular del documento de identificación N° <b>" + ($P{cedulaCiudadano}==null?"_________________":$P{cedulaCiudadano}) + "</b> manifestó que se le han extraviado los ejemplares del Certificado Médico de Defunción EV-14, perteneciente al(la) ciudadano(a) <b>" + ($P{nombreDifunto}==null?"______":$P{nombreDifunto}) + "</b>, titular del documento de identificación N° <b>" + ($P{cedulaFallecido}==null?"______":$P{cedulaFallecido}) + "</b> quien fallecio en fecha <b>" + ($P{fechaFallecimiento}==null?"_________":$P{fechaFallecimiento}) + "</b>, esta comunicación se realiza a los fines de que se realice la notificación al Ministerio con competencia en Salud para que proceda a su anulación y se emita un nuevo certificado.<br><br><br>" +
+
+"Sin otro particular a que hacer referencia, se despide de usted,<br>" +
+                                                                                         "Atentamente;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b26b6ca5-3319-4d50-a6c8-27ccf67e4c85"/>
+				<textFieldExpression><![CDATA["N° " + ($P{numeroConsecutivo}==null ? "                         " : $P{numeroConsecutivo})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="104" width="277" height="20" uuid="636cda5a-0119-42ca-8f7e-f3be81e7b73c"/>
+				<textElement textAlignment="Right" markup="html"/>
+				<textFieldExpression><![CDATA["<b> Atencion:</b> Coordinación General del Regsitro Civil."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="283" width="442" height="96" uuid="a5fec306-dc73-4a62-8ba3-19b476f6db46"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registrador (a) Civil <br> Oficina/Unidad de Registro Civil de <br>" +
+($P{oficinaRegistro}==null ? "_______________________________" : $P{oficinaRegistro}) +
+"<br>Resolución Nº "+($P{nResolucion}== null ? "_____________" : $P{nResolucion})+", fecha "+($P{fResolucion}==null ? "__________" : $P{fResolucion})+
+"<br>Gaceta "+($P{nGaceta}==null ? "____________________" : $P{nGaceta})+", fecha "+($P{fGaceta}==null ? "__________" : $P{fGaceta})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

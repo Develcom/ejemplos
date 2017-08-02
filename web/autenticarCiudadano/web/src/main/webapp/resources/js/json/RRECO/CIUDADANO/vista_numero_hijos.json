@@ -1,0 +1,43 @@
+{
+    "fields":
+    [ 
+     {
+          "key": "HijosFallecido",
+          "type": "inputNumero",
+          "templateOptions": {
+          	"required":true,
+          	"label":  "N\u00famero de hijo(s) del reconocido(a):",
+      	  	"maxlength": "2",
+          	"minlength": "1",
+          	"placeholder": "1"   
+	 	},
+	 	"data":{
+             "avanzarEnFalso":false,
+             "regresarEnFalso":true,
+             "habilitado":true,
+             "habilitarRegreso":false
+         }
+      },    
+	 {"template": "<br>"}, 	
+   	{
+          "key": "CantidadHijoConId",
+          "type": "inputNumero1",
+          "templateOptions": {
+          "required":"model.HijosFallecido",
+          "label": "Cantidad de hijo(s) con documento de identificaci\u00f3n: ",
+      	  "maxlength": "2",
+          "minlength": "1",
+          "placeholder": "0"   
+     },
+     "data":{
+             "avanzarEnFalso":true,
+             "regresarEnFalso":true,
+             "habilitado":true,
+             "habilitarRegreso":false
+         },
+     "hideExpression":"!model.HijosFallecido || model.HijosFallecido===undefined"
+     },
+      {"template": "<br>"}
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false,"varias":true}
+}

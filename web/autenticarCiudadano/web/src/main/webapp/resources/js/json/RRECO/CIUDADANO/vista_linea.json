@@ -1,0 +1,30 @@
+{
+    "fields":
+    [ 
+     {
+	  "template" : "<p><b>\u00bfSeleccione la l\u00ednea familiar que declara el reconocimiento?</b><p>"
+	 },
+    {
+    	 "key" : "LineaMaterna",
+		 "type" : "radioMultiples",
+		 "templateOptions" : {
+		 	"required":true,
+			"label" : "",
+			 "options": [
+			     {
+			 	  "name":"L\u00ednea materna",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"L\u00ednea paterna",
+			 	  "value":false
+			     }
+			 ]
+		 }
+	 },
+	 {
+			"template" : "<br>"
+	  }                                                                                               	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de declarante", "activo":"0","autenticar":false}
+}

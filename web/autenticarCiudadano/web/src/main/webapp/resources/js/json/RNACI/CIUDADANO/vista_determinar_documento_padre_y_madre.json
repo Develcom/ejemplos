@@ -1,0 +1,89 @@
+{
+	"fields" : [
+		{
+			"template" : "<p>Seleccione el mecanismo de autenticaci\u00f3n de la madre</p>"
+		},
+		{
+			"key" : "TipoDocumentoMadre",
+			"type" : "selectDocumentos",
+			"templateOptions" : {
+				"label" : "Seleccione el mecanismo de autenticaci\u00f3n de la madre",			
+				"options" : [
+				],
+				"required" : true
+			},
+			"data" : {
+				"ruta" : "/web-generales/consultarDocumentoAutenticacion"
+			}
+		},
+		{
+			"template" : "<p>\u00bf Con cu&aacute;l documento se autenticar&aacute; la madre?</p>",
+			"hideExpression" : "model.TipoDocumentoMadre !== 'DP'"
+			
+		},
+		{
+			"key" : "TipoDocumentoPublicoMadre",
+			"type" : "inputKitModal",
+			"templateOptions" : {
+				"label" : "Seleccione el mecanismo de autenticaci\u00f3n de la madre"			
+			},
+            		"data" : {
+             			"tipoValidacion" : "tipoDocumento",
+            			"patron" : "^[A-Za-z0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		},
+
+			"hideExpression" : "model.TipoDocumentoMadre !== 'DP'",
+			"expressionProperties" : {"templateOptions.required" : "model.TipoDocumentoMadre === 'DP'"}
+		},
+	 	{
+	 		"template" : "<br>"
+	 	},
+		{
+			"template" : "<p>Seleccione el mecanismo de autenticaci\u00f3n del padre</p>"
+		},
+		{
+			"key" : "TipoDocumentoPadre",
+			"type" : "selectDocumentos",
+			"templateOptions" : {
+				"label" : "Seleccione el mecanismo de autenticaci\u00f3n de la padre",			
+				"options" : [
+				],
+				"required" : true
+			},
+			"data" : {
+				"ruta" : "/web-generales/consultarDocumentoAutenticacion"
+			}
+		},
+		{
+			"template" : "<p>\u00bf Con cu&aacute;l documento se autenticar&aacute; el padre?</p>",
+			"hideExpression" : "model.TipoDocumentoPadre !== 'DP'"
+		},
+		{
+			"key" : "TipoDocumentoPublicoPadre",
+			"type" : "inputKitModal",
+			"templateOptions" : {
+				"label" : "Seleccione el mecanismo de autenticaci\u00f3n de la padre"			
+			},
+            		"data" : {
+             			"tipoValidacion" : "tipoDocumento",
+            			"patron" : "^[A-Za-z0-9]+$",
+						"popover" : {
+            				"titulo" : "Atenci\u00f3n",
+            				"mensaje" : "Debe ingresar solo letras"
+            			},
+            			"errorTecla" : false
+            		},
+			"hideExpression" : "model.TipoDocumentoPadre !== 'DP'",
+			"expressionProperties" : {"templateOptions.required" : "model.TipoDocumentoPadre === 'DP'"}
+		},
+	 	{
+	 		"template" : "<br>"
+	 	}
+	],
+	"modelo" : {"titulo" : "Mecanismo de autenticaci\u00f3n", "inicial":false, "autenticar":false, "memoria" : true, "ancho": false}
+}

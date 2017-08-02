@@ -1,0 +1,61 @@
+{
+	"fields" : [
+		{
+	 		"template" : "<div>Seleccione los participantes con documento de identificaci\u00f3n presentes en el documento a insertar:</div><br>"
+	 	},
+	 	{
+			"key" : "MadreID",
+			"type" : "checkRequerido",
+		 	"templateOptions" : {
+				"label" : "MADRE"
+			},
+			"data" : {
+				"esconder" : false,
+				"miValor" : false
+			},
+			"modelOptions" : {"allowInvalid" : true},
+			"controller" : "function($scope){$scope.model[$scope.options.key] = $scope.model['MadreDeclarante']; $scope.to.disabled = $scope.model['MadreDeclarante']; $scope.$watch('options.data.miValor',function(newValue,oldValue){if(newValue)$scope.model[$scope.options.key] = false;}); }",
+			"expressionProperties" : {
+				"templateOptions.required" : "!model.MadreID && !model.PadreID",
+				"data.miValor" : "model.SinParticipante && !model.MadreDeclarante"
+			}
+	 	},
+	 	{
+		 	"key" : "PadreID",
+		 	"type" : "checkRequerido",
+		 	"templateOptions" : {
+			 	"label" : "PADRE"
+		 	},
+			"modelOptions" : {"allowInvalid" : true},
+			"data" : {
+				"esconder" : false,
+				"miValor" : false
+			},
+			"controller" : "function($scope){$scope.model[$scope.options.key] = $scope.model['PadreDeclarante']; $scope.to.disabled = $scope.model['PadreDeclarante']; $scope.$watch('options.data.miValor',function(newValue,oldValue){if(newValue)$scope.model[$scope.options.key] = false;}); }",
+			"expressionProperties" : {
+				"templateOptions.required" : "!model.MadreID && !model.PadreID",
+				"data.miValor" : "model.SinParticipante && !model.PadreDeclarante"
+			}
+	 	},
+	 	{
+		 	"key" : "SinParticipante",
+		 	"type" : "checkRequerido",
+		 	"templateOptions" : {
+			 	"label" : "SIN PARTICIPANTES"
+		 	},
+			"data" : {
+				"esconder" : false,
+				"miValor" : false
+			},
+			"controller" : "function($scope){$scope.$watch('options.data.miValor',function(newValue,oldValue){console.log('hay cambio en los datos........');});}",
+			"expressionProperties" : {
+				"data.esconder" : "model.PadreDeclarante || model.MadreDeclarante",
+				"data.miValor" : "model.PadreID"
+			}
+	 	},
+	 	{
+	 		"template" : "<br>"
+	 	}
+	],
+	"modelo" : {"titulo" : "Selecci\u00f3n de participantes", "inicial":false, "autenticar":false, "memoria" : true, "MadreID" : false, "PadreID" : false, "SinParticipante" : false, "ancho": false}
+}

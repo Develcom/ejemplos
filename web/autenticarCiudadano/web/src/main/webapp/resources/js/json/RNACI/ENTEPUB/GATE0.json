@@ -1,0 +1,33 @@
+{
+	"fields":
+	[
+     {
+         "key" : "ConDeclarantes",
+         "type" : "radioSiNoAutoSubmitHorizontal",
+         "templateOptions" : {
+             "label" : "\u00bf El registro de nacimiento posee declarantes ?",
+             "options":[
+             	{
+             		"name" : "Si",
+             		"value" : true
+             	},
+             	{
+             		"name" : "No",
+             		"value" : false
+             	}
+             ]
+         },
+         "data" : {
+            "color": "#9400D3",
+            "esconder" : false,
+            "avanzarEnFalso":false,
+            "regresarEnFalso":true,
+            "habilitado":true
+         }
+     },
+	 {
+	 	"template" : "<br>"
+	 }
+	],
+	"modelo":{"titulo":"Selecci\u00f3n de declarantes", "inicial":true, "autenticar":false, "permiteVarias" : true, "ancho": false}
+}

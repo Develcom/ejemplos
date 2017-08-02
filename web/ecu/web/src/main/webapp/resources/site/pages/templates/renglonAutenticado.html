@@ -1,0 +1,33 @@
+<div class="row">
+
+	<div ng-show="{{model[options.key].autenticado}}" class="row form-group" ng-class="{'has-error': {{!model[options.key].autenticado}} , 'has-success':  {{model[options.key].autenticado}}}">
+		<span class="col-sm-3">
+			<span class="glyphicon glyphicon-ok col-sm-2 has-success"></span>
+			<label class="control-label">{{model[options.key].rol}}</label>
+		</span>
+		<div class="col-sm-3">
+			<label class="control-label">{{model[options.key].primerNombre}}</label>
+		</div>
+		<div class="col-sm-3">
+			<label class="control-label">{{model[options.key].primerApellido}}</label>
+		</div>
+		<div class="col-sm-3">
+			<label class="control-label">{{model[options.key].documentoIdentidad}}</label>
+		</div>
+	</div>
+	
+	<div ng-hide="{{model[options.key].autenticado}}" class="has-error">
+		<span class="col-sm-3">
+			<span class="glyphicon glyphicon-remove col-sm-2 has-error"></span>
+			<label class="control-label" style="color: #0000FF">{{model[options.key].rol}}</label>
+		</span>
+		<div class="col-sm-6">
+			<label class="control-label" style="color: #0000FF">El participante no ha sido Autenticado</label>
+		</div>
+		<div class="col-sm-3">
+			<label class="control-label" style="color: #0000FF">{{model[options.key].documentoIdentidad}}</label>
+		</div>	
+	</div>
+	
+</div>
+<hr/>

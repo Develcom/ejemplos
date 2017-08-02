@@ -1,0 +1,40 @@
+<div class="col-lg-12">
+<form name="form1">
+ <div class="col-sm-12">
+  <div class="alert alert-danger" role="alert">
+   <div class="container-fluid">
+    <div class="row">
+     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+     {{to.label}}
+    </div>
+   </div>
+  </div>
+ </div>
+ <div ng-show="NUNCA">
+  <div class="col-sm-8 form-group"
+   ng-class="{'has-error': vm.modelo['ADO'].documentoIdentidad[0].tipoDocumento.nombre== undefined , 'has-success':  vm.modelo['ADO'].documentoIdentidad[0].tipoDocumento.nombre!= undefined}">
+   <div class="input-group">
+    <input type="text" class="input-sm form-control"
+     popover-tittle="Formato del cedula" ng-pattern="vPatron.Numerico"
+     custom-popover popover-contenido="{{vPatron.Fnumero | json}}"
+     popover-placement="top" popover-label="Label"
+     popover-validation="{{numero == undefined}}" maxlength="11"
+     minlength="6"
+     ng-keydown="onKeyDownNumerico($event,'vPatron.excepciones','numero')"
+     popover-is-open="errorTecla.numero" ng-blur="onBlur"
+     placeholder="Ejemplo: 123456" ng-value="num" required
+     ng-init="setCedulaAdop()" ng-disabled="disabled1"
+     name="vm.modelo['ADO'].documentoIdentidad[0].numero"
+     ng-model="vm.modelo['ADO'].documentoIdentidad[0].numero"> <span
+     class="input-group-addon" id="basic-addon1"> <span
+     class="glyphicon glyphicon-asterisk"
+     ng-hide="vm.modelo['ADO'].documentoIdentidad[0].numero!= undefined ||hijo.documentoIdentidad[0].numero==''"></span>
+     <span class="glyphicon glyphicon-ok"
+     ng-show="vm.modelo['ADO'].documentoIdentidad[0].numero!= undefined"></span>
+    </span>
+   </div>
+  </div>
+ </div>
+ <button style="float: right;" ng-click="$root.cancelar1()" class="btn btn-success wizard-next" type="button">Finalizar</button>
+</form>
+</div>

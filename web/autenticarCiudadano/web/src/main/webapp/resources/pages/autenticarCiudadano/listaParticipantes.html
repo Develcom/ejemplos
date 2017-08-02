@@ -1,0 +1,26 @@
+
+<div class="row">
+	<div class="col-sm-12">
+		<h4>Registro de Personas que intervienen en el Acto o Hecho</h4>
+		<span id="separadorTitulos"></span>
+	</div>
+</div>
+<div  ng-controller='participantesController'>
+    <div class="row" style='margin-left: 10px; margin-right: 10px;' id="datosDeclarante">
+	   <div id="panelParticipantes" class="panel panel-primary">
+  	     <div class="panel-heading">
+  			<h4 style="text-align: center;">Selecci&oacute;n de Ciudadanos a Autenticar</h4>
+  		 </div>
+  		 <div class="panel-body">
+			<div class="col-sm-6">
+		      <div class='row' ng-repeat="participante in lista">
+			     <div>
+				    <input type="checkbox" ng-model="marca" ng-change="sinDocumento=false" ng-click='almacenarMarcados(participante,marca)'/> 
+				    <label style="margin-left: 20px;">{{participante}}</label>
+			     </div>
+		      </div>
+			</div>
+  		</div>
+	   </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "ConDeclaranteEntePublico",
+		 "type" : "radioSiNoAutoSubmit",
+		 "templateOptions" : {
+		 	"required":true,
+			 "label" : "\u00bfEl registro de defunción posee declarante? ",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		  "data":{
+            "color": "#FF7514",
+              "avanzarEnFalso":false,
+             "regresarEnFalso":true,
+             "habilitado":true,
+             "habilitarRegreso":false
+         }
+	 },
+	  {
+			"template" : "<br>"
+	  }      
+],
+    "modelo":{"titulo":"Selecci\u00f3n de declarante", "activo":"0","inicial":true,"autenticar":false,"permiteVarias":true}
+}

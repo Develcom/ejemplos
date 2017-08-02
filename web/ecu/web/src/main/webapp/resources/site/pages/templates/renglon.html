@@ -1,0 +1,73 @@
+		<div class="row">
+			<div class="row form-group" ng-class="{'has-error': model[options.key].cedula== undefined && model[options.key].pasaporte == undefined , 'has-success':  model[options.key].cedula != undefined || model[options.key].pasaporte != undefined }">
+				<label class="col-sm-3 control-label" style="text-align: right;">{{options.templateOptions.label}}</label>
+				<div class="form-group col-sm-3">
+					<div class="input-group">  
+						<select class="form-control input-sm" uib-popover="Seleccione el tipo de documento" popover-title="Tipo Documento" popover-trigger="focus" uib-popover-template = "pages/templates/popover.html" popover-placement="top"
+							ng-model="model[options.key].tipoDocumento" ng-change="model[options.key].cedula=undefined; model[options.key].pasaporte=undefined; model[options.key].nacionalidad=undefined"  required>
+							<option selected disabled>Por favor seleccione</option>
+							<option value="ced">CEDULA/NUI</option>
+							<option value="pas">PASAPORTE</option>
+						</select> 
+						<span class="input-group-addon" id="basic-addon1"> 
+							<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].tipoDocumento!= undefined"></span> 
+							<span class="glyphicon glyphicon-ok" ng-show="model[options.key].tipoDocumento!= undefined"></span>
+						</span>
+					</div>
+				</div>
+<!-- fin seleccion de documentos -->
+			<div ng-show="model[options.key].tipoDocumento=='ced'" class="row form-group" ng-class="{'has-error': model[options.key].cedula == undefined , 'has-success':  model[options.key].cedula!== undefined}">
+				<div class="form-group col-sm-2">
+					<div class="input-group">
+						<select uib-popover="Seleccione la nacionalidad" popover-trigger="focus" class="form-control input-sm" ng-model='model[options.key].nacionalidad' ng-required="model[options.key].tipoDocumento=='ced'">
+							<option selected disabled>Por favor seleccione</option>
+							<option>V</option>
+							<option>E</option>
+						</select> 
+						<span class="input-group-addon" id="basic-addon1"> 
+							<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].nacionalidad!= undefined"></span> 
+							<span class="glyphicon glyphicon-ok" ng-show="model[options.key].nacionalidad!= undefined"></span>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-4">
+
+		<div class="form-group">
+			<div class="input-group">
+				<input type="text" name="inputCedula" uib-popover="Ingrese el número de cédula, por ejemplo 123456" popover-trigger="focus" 
+				class="form-control input-sm" aria-describedby="basic-addon1" placeholder="12345678" 
+				ng-model="model[options.key].cedula" ng-minlength="6" ng-maxlength="11" 
+				ng-disabled="model[options.key].nacionalidad == undefined" maxlength="11" ng-required="model[options.key].tipoDocumento=='ced'"> 
+					<span class="input-group-addon" id="basic-addon1">
+						<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].cedula!= undefined"></span> 
+						<span class="glyphicon glyphicon-ok" ng-show="model[options.key].cedula!= undefined"></span>
+					</span>
+			</div>
+		</div>    
+
+				</div>
+			</div>
+			<div ng-show="model[options.key].tipoDocumento=='pas'" class="row form-group" ng-class="{'has-error': model[options.key].pasaporte== undefined , 'has-success':  model[options.key].pasaporte!= undefined}">
+				<div class="col-sm-6">
+
+		<div class="form-group">
+			<div class="input-group">
+				<input name="inputPasaporte" uib-popover="Ingrese el número de pasaporte, por ejemplo 123456" popover-trigger="focus" 
+				type="text" class="form-control input-sm" aria-describedby="basic-addon1" ng-model="model[options.key].pasaporte" 
+				ng-minlength="6" ng-maxlength="11" placeholder="12345678" maxlength="11" ng-required="model[options.key].tipoDocumento=='pas'"> 
+					<span class="input-group-addon" id="basic-addon1">
+						<span class="glyphicon glyphicon-asterisk" ng-hide="model[options.key].pasaporte!= undefined"></span> 
+						<span class="glyphicon glyphicon-ok" ng-show="model[options.key].pasaporte!= undefined"></span>
+					</span>
+			</div>
+<!--             <div ng-messages="formulario.inputPasaporte.$error" style="color:maroon" role="alert"> -->
+<!--                 <div ng-message="required">You did not enter a field</div> -->
+<!--                 <div ng-message="minlength">Your field is too short</div> -->
+<!--                 <div ng-message="maxlength">Your field is too long</div> -->
+<!--             </div> -->
+		</div>    
+				</div>
+			</div>
+			</div>
+
+		</div>

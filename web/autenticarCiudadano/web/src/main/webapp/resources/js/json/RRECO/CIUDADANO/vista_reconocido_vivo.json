@@ -1,0 +1,33 @@
+{
+    "fields":
+    [ 
+    {
+    	 "key" : "ReconocidoVivo",
+		 "type" : "radioSiNoAutoSubmit",
+		 "templateOptions" : {
+		 	"required":true,
+			"label" : "\u00bf El (la) reconocido(a) se encuentra vivo(a) ? ",
+			 "options": [
+			     {
+			 	  "name":"Si",
+			 	  "value":true
+			 	  },
+			 	  {
+			 	  "name":"No",
+			 	  "value":false
+			     }
+			 ]
+		 },
+		 "data":{
+             "color": "#a600b7",
+             "avanzarEnFalso":true,
+             "regresarEnFalso":false,
+             "habilitado":true
+         }
+	 },
+	 {
+			"template" : "<br>"
+	  }                                                                                               	 
+    ],
+    "modelo":{"titulo":"Selecci\u00f3n de participantes", "activo":"1","autenticar":false,"permiteVarias":true}
+}

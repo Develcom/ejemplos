@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link href="../css/sb-admin-2.css" rel="stylesheet">
+<!-- Estilos de SBadmin 2 -->
+<link href="../fonts/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Fuente (SBadmin 2) -->
+<link rel="stylesheet" href="../css/sarcII.css">
+<!-- Estilos adicionales de SerWeb01 -->
+<link rel="stylesheet" href="../css/bootstrap-datetimepicker.css">
+<!-- Estilos Date Time Picker -->
+<link rel="stylesheet" href="../css/dataTables.bootstrap.css">
+<!-- Estilos DataTable -->
+<!--Estilos de Wizard-->
+<link href="../css/bootstrap-wizard.css" rel="stylesheet" />
+<link href="../css/chosen.css" rel="stylesheet" />
+<link href="../css/propiasSistema.css" rel="stylesheet" />
+<title>SARC</title>
+</head>
+<body ng-app="app">
+
+	<header id="header" class="collapse in cabecero">
+		<!-- Cabecero -->
+		<div class="container-fluid">
+			<div class="row oficina">
+				<span id="separador"></span>
+				<div class="col-sm-2">
+					<img src="../img/logocne.png">
+				</div>
+				<div class="col-sm-7" id="paddingTop_3">
+					<span class="nombreSistema">Sistema Automatizado del
+						Registro Civil Venezolano</span> <br> <span>Oficina Municipal
+						de Registro Civil Caracas</span>
+				</div>
+				<div class="col-sm-3">
+					<div class="estadoDelSistema">
+						Estado de la conexi&oacute;n: <b class="ok"><span
+							class="glyphicon glyphicon-ok-sign"></span> En L&iacute;nea</b>
+					</div>
+					<div id="paddingTop_8">
+						<div style="margin-top: 5px;">
+							<div style="margin-top: 5px;" ng-controller="fechaHora">
+								<span>{{fecha | date:'dd'}} de {{fecha | date:'MMMM'}}
+									del {{fecha | date:'yyyy'}}</span> &ensp; <span>{{fecha | date:
+									'h:mm:ss'}}</span> <br> <span id="font400">Usuario 1
+									(Analista de Sistemas)</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<span id="separador"></span>
+			</div>
+		</div>
+	</header>
+
+	<nav class="navbar navbar-inverse navbar-sarc">
+		<!-- Barra de navegación -->
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href=""><span style="font-size: 2.5ex;"
+						class="fa fa-group"></span></a></li>
+				<li><a href=""><span style="font-size: 0.95em;"
+						class="badge badge-success"><span
+							class="glyphicon glyphicon-time"></span> 8</span></a></li>
+				<li><a href=""><span class="fa fa-book"></span> Nacimiento</a></li>
+				<li><a href=""><span class="fa fa-book"></span>
+						Defunci&oacute;n</a></li>
+				<li><a href=""><span class="fa fa-book"></span> Matrimonio</a></li>
+				<li><a href=""><span class="fa fa-book"></span>
+						Nacionalidad y capacidad</a></li>
+				<li><a href=""><span class="fa fa-book"></span> Residencia
+						y extranjería</a></li>
+				<li><a href=""><span class="fa fa-book"></span>
+						Uni&oacute;n estable de hecho</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-controller="header"><a href="#" data-toggle="collapse"
+					data-target="#header" ng-click="toggle()"> <span
+						class="fa fa-angle-up" ng-hide="myVar"></span> <span
+						class="fa fa-angle-down" ng-show="myVar"></span> &nbsp;
+				</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false"><span class="badge badge-ok"><span
+							class="glyphicon glyphicon-cog"></span></span></a>
+					<ul class="dropdown-menu">
+						<li><a href=""><span class="fa fa-bar-chart-o"></span>
+								Estad&iacute;sticas</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href=""><span class="glyphicon glyphicon-cog"></span>
+								Administraci&oacute;n del registro</a></li>
+						<li><a href=""><span class="glyphicon glyphicon-cog"></span>
+								Configuraci&oacute;n de la oficina</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href=""><span class="glyphicon glyphicon-book"></span>
+								Gesti&oacute;n del libro del Registro Civil</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href=""><span class="glyphicon glyphicon-user"></span>
+								Gesti&oacute;n de usuarios del sistema</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="badge badge-warning"><span
+							class="glyphicon glyphicon-bell"></span> 2</span></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="badge badge-primary"><span
+							class="glyphicon glyphicon-search"></span></span></a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+	<div ng-view></div>
+
+
+
+
+	<footer>
+		<p>Sistema automtizado del Registro Civil Venezolano. Desarrollado
+			por Hi-Soft Panamá, Todos los derechos reservados. © 2015</p>
+	</footer>
+</body>
+<!-- Script necesarios para el funcionamiento de las vistas -->
+<script src="../js/jquery-2.0.3.min.js"></script>
+<script src="../js/api-check.min.js"></script>
+<script src="../angular/angular.min.js"></script>
+<script src="../js/formly.min.js"></script>
+<script src="../js/angular-sanitize.min.js"></script>
+<script src="../angular/i18n/angular-locale_es-ve.js"></script>
+<script src="../js/angular-formly-templates-bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/angular-route.js"></script>
+<script src="../site/js/swcalendar/swCalendar.js"></script>
+<script src="../angular/angular-messages.js"></script>
+<script type="text/javascript">
+	// Script necesario para el funcionamiento del menu de navegación
+	$(".nav a").on("click", function() {
+		$(".nav").find(".active").removeClass("active");
+		$(this).parent().addClass("active");
+	});
+</script>
+<script src="../js/chosen.jquery.js"></script>
+<script src="../js/prettify.js" type="text/javascript"></script>
+<script src="../js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<script src="../js/validacionModulo.js" type="text/javascript"></script>
+<script src="../js/autenticarCiudadanoRutas.js" type="text/javascript"></script>
+<script src="../js/app.js"></script>
+
+
+
+<!--    controladores angular -->
+
+<script src="../site/js/controllers/rgDefuncionController.js"></script>
+<script src="../site/js/controllers/footerController.js"></script>
+<script src="../site/js/controllers/actaController.js"></script>
+<script src="../site/js/controllers/modalDemoController.js"></script>
+<script src="../site/js/controllers/modalInstanceCertificadoEV14Ctrl.js"></script>
+<script src="../site/js/controllers/modalCertificadoEV14Ctrl.js"></script>
+<script src="../site/js/controllers/modalInstancePrintEV14Ctrl.js"></script>
+<script src="../site/js/controllers/modalInvalidEV14Controller.js"></script>
+<script src="../site/js/factorys/droolsFactory.js"></script>
+<!--    controladores angular -->
+</html>

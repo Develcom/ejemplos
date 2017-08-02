@@ -1,0 +1,67 @@
+<div class="col-sm-12">
+	<h3>{{vm.modelo.permiso}}</h3>
+	<span id="separadorTitulos"></span>
+</div>
+
+<form name="form1">
+	<div class="col-sm-12">
+		<div class="col-sm-12">
+
+			<h4>Persona autorizada del cementerio</h4>
+		</div>
+		<div class="col-sm-12 row acta">
+			<div class="col-sm-6">
+				<label class="col-sm-12 control-label">Primer Nombre:</label>
+				<div class="input-group col-sm-12"
+					ng-class="{'has-error': vm.modelo['FAL'].primerNombre== undefined , 'has-success':  vm.modelo['FAL'].primerNombre!= undefined}">
+					<campo-texto label="Campo" ng-model="vm.modelo['FAL'].primerNombre"
+						validacion="texto"> </campo-texto>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<label class="col-sm-12 control-label">Segundo nombre:</label>
+				<div class="input-group col-sm-12"
+					ng-class="{'has-error': vm.modelo['FAL'].segundoNombre== undefined , 'has-success':  vm.modelo['FAL'].segundoNombre!= undefined}">
+					<campo-texto label="Campo"
+						ng-model="vm.modelo['FAL'].segundoNombre" validacion="texto">
+					</campo-texto>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-12 row acta">
+			<div class="col-sm-6">
+				<label class="col-sm-12 control-label">Primer Apellido:</label>
+				<div class="input-group col-sm-12"
+					ng-class="{'has-error': vm.modelo['FAL'].primerApellido == undefined , 'has-success':  vm.modelo['FAL'].primerApellido!= undefined}">
+					<campo-texto label="Campo"
+						ng-model="vm.modelo['FAL'].primerApellido" validacion="texto">
+					</campo-texto>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<label class="col-sm-12 control-label">Segundo Apellido:</label>
+				<div class="input-group col-sm-12"
+					ng-class="{'has-error': vm.modelo['FAL'].segundoApellido == undefined , 'has-success':  vm.modelo['FAL'].segundoApellido!= undefined}">
+					<campo-texto label="Campo"
+						ng-model="vm.modelo['FAL'].segundoApellido" validacion="texto">
+					</campo-texto>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-12">
+			<h4>Cementerio</h4>
+		</div>
+		<div class="col-sm-6">
+			<label class="col-sm-12 control-label">Cementerio:</label>
+			<div class="input-group col-sm-12"
+				ng-class="{'has-error': vm.modelo.nombreCementerio == undefined , 'has-success':  vm.modelo.nombreCementerio != undefined}">
+				<campo-texto label="Campo" ng-model="vm.modelo.nombreCementerio"
+					validacion="texto"> </campo-texto>
+			</div>
+		</div>
+	</div>
+</form>

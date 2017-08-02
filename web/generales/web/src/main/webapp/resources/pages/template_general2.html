@@ -1,0 +1,53 @@
+<div ng-controller="NOMBRECONTROLADOR as vm">
+
+	<!--template para las modales-->
+	<div class="modal-header wizard-header">
+		<button type="button" class="close wizard-close"
+			ng-click="vm.cancel()" aria-hidden="true">&times;</button>
+		<h3 class="modal-title wizard-title" ng-bind="tituloWizard"></h3>
+		<span class="wizard-subtitle"></span>
+	</div>
+	<div class="modal-body wizard-body">
+		<div class="pull-left wizard-steps">
+			<div class="wizard-nav-container">
+				<ul class="nav wizard-nav-list">
+					<li class="wizard-nav-item" ng-class="{active:$index==vm.activo}"
+						ng-repeat='pasoActual in vm.titulos'><a
+						class="wizard-nav-link"><span
+							class="glyphicon glyphicon-chevron-right"></span>{{pasoActual}}</a> <!--            <ul> -->
+						<!--          <li ng-repeat="subpaso in subPasos"></li> --> <!--            </ul> --></li>
+				</ul>
+			</div>
+			<div class="wizard-progress-container">
+				<uib-progressbar class="progress-striped active"
+					max="vm.titulos.length+1" value="vm.activo+1"> </uib-progressbar>
+			</div>
+		</div>
+		<div class="wizard-cards">
+
+			<div class="wizard-card-container" style='height: 526px;'>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form name="form1">
+						<div ng-bind-html="vm.vista" carta="vm.vista"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="wizard-footer">
+
+			<div class="wizard-buttons-container">
+				<button class="btn btn-danger wizard-cancel wizard-close"
+					type="button" ng-click="vm.cancelar()">Cancelar</button>
+				<div class="btn-group-single pull-right">
+					<button class="btn wizard-back" type="button"
+						ng-disabled='vm.paso===0 || vm.disabled' ng-click="vm.regresar()">Regresar</button>
+					<button class="btn wizard-next btn-primary" type="button"
+						ng-click="vm.siguiente()" ng-disabled="form1.$invalid">Continuar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="col-sm-12">
+	<h3>Documentos presentados</h3>
+	<span id="separadorTitulos"></span>
+</div>
+
+<form name="form1">
+	<div class="col-sm-12">
+		<div class="col-sm-12 form-group">
+			<!-- 			<label class="row-sm-12 control-label">Documentos presentados:</label> -->
+			<div class="input-group row-sm-12" ng-init="documentosPresentados()"
+				ng-class="{'has-error': vm.modelo.docPresentados == undefined , 'has-success':  vm.modelo.docPresentados != undefined}">
+				<ul name="observaciones">
+					<li ng-repeat="rec in vm.modelo.recaudos">{{rec}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</form>

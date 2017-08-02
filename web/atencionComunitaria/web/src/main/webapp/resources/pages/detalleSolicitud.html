@@ -1,0 +1,103 @@
+<div class="alert alert-success" role="alert" ng-show = "$root.nueva == 1">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-1">
+				<span class="glyphicon glyphicon-ok glyphSizeMin"></span>
+			</div>
+			<p id="generico" class="col-sm-11">
+				<i><b>NOTA:</b> Se ha generado la solicitud de forma exitosa </i>
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-success">
+	<div class="panel-heading">
+		<span class="glyphicon glyphicon-list-alt"></span> Detalle de la solicitud
+	</div>
+	<table class="table table-striped table-condensed">
+		<tbody>
+			<tr ng-if="numSol != ''">
+				<th>Nro. de solicitud:</th>
+				<td>{{numSol | uppercase}}</td>
+			</tr>
+		</tbody>
+		<tbody ng-if="tipo == 'D' ">
+			<tr ng-if="(nomCdanoP != undefined) || (nomCdanoS != undefined)">
+				<th>Nombres del Ciudadano(a)</th>
+				<td>
+					<span ng-show="nomCdanoP != undefined">
+						{{nomCdanoP | uppercase}}
+						&nbsp;
+					</span>
+					<span ng-show="nomCdanoS != undefined">
+						{{nomCdanoS | uppercase}}
+					</span>
+				</td>
+			</tr>
+			<tr ng-if="(apeCdanoP != undefined) || (apeCdanoS != undefined)">
+				<th>Apellidos del Ciudadano(a)</th>
+				<td>
+					<span ng-show="apeCdanoP != undefined">
+						{{apeCdanoP | uppercase}}
+						&nbsp;
+					</span>
+					<span ng-show="apeCdanoS != undefined">
+						{{apeCdanoS | uppercase}}
+					</span>
+				</td>
+			</tr>
+			<tr ng-if="tipoDoc != null">
+				<th>Tipo de Documento de Identificaci&oacute;n</th>
+				<td>{{tipoDoc | uppercase}}</td>
+			</tr>
+			<tr ng-if="numDoc != null">
+				<th>N&uacute;mero de Documento de Identificaci&oacute;n</th>
+				<td>{{numDoc | uppercase}}</td>
+			</tr>
+		</tbody>
+		<tbody ng-if="tipo == 'E' ">
+			<tr ng-if="nomOrgano != null">
+				<th>Nombre del &Oacute;rgano o Ente P&uacute;blico</th>
+				<td>{{nomOrgano | uppercase}}</td>
+			</tr>
+			<tr ng-if="tipoDocOrgano != null">
+				<th>Tipo de Documento</th>
+				<td>{{tipoDocOrgano | uppercase}}</td>
+			</tr>
+			<tr ng-if="numDocOrgano != null">
+				<th>N&uacute;mero de Documento</th>
+				<td>{{numDocOrgano | uppercase}}</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr ng-if="modulo != null">
+				<th>M&oacute;dulo</th>
+				<td>{{modulo | uppercase}}</td>
+			</tr>
+			<tr ng-if="tramite != null && modulo != 'NOTAS MARGINALES'">
+				<th>Tipo de Tr&aacute;mite</th>
+				<td>{{tramite | uppercase}}</td>
+			</tr>
+			<tr ng-if="estado_solicitud != null">
+				<th>Estado de la Solicitud</th>
+				<td>{{estado_solicitud | uppercase}}</td>
+			</tr>
+			<tr ng-if="oficina != null">
+				<th>Oficina</th>
+				<td>{{oficina | uppercase}}</td>
+			</tr>
+			<tr ng-if="fecha_inicio != null">
+				<th>Fecha de Inicio</th>
+				<td>{{fecha_inicio | date:'dd/MM/yyyy' : 'UTC'}}</td>  
+			</tr>
+			
+		</tbody>
+	</table>
+	<div class="panel-footer">
+		<div class="row">
+			<div class="col-sm-1 pull-right">&nbsp;</div>
+			<input type="button" value="Finalizar" class="btn btn-success pull-right btn-sm" ng-click="finalizarDetalle()">
+		</div>
+	</div>
+</div>
