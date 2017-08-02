@@ -1,0 +1,16 @@
+/catalogo/Ciudad/consultarTodos;R_REG, R_PRO
+/catalogo/ComunidadIndigena/consultarTodos;R_REG, R_PRO
+/catalogo/consultarDocumentosAutenticados;R_REG, R_PRO
+/catalogo/EntePublico/consultarTodos;R_REG, R_PRO
+/catalogo/Estado/consultarTodos;R_REG, R_PRO
+/catalogo/consultarModuloPorOficina/**;R_REG, R_PRO
+/catalogo/Municipio/consultarTodos;R_REG, R_PRO
+/catalogo/Municipio/consultarPorEstado/**;R_REG, R_PRO
+/catalogo/Nacionalidad/consultarTodos;R_REG, R_PRO
+/catalogo/Ocupacion/consultarTodos;R_REG, R_PRO
+/catalogo/Oficina/consultarTodos;R_REG, R_PRO
+/catalogo/Pais/consultarTodos;R_REG, R_PRO
+/catalogo/Parroquia/consultarTodos;R_REG, R_PRO
+/catalogo/TipoDocumento/**;R_REG, R_PRO
+/catalogo/tipoParticipante/buscarPorCodigo/**/**;R_REG, R_PRO
+/catalogo/TipoTramite/consultarTramitePorModulo/**/**;R_REG, R_PRO
